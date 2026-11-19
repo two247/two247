@@ -11,6 +11,7 @@ import { initHeroMotion } from './hero-motion.js';
 import { initPreloader } from './preloader.js';
 import { initTextAppear } from './text-appear.js';
 import { initAdvanceSearch } from './advance-search.js';
+import { initHeroVideo } from './hero-video.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroMotion();
   initTextAppear();
   initAdvanceSearch();
+  initHeroVideo();
 
   // Dynamic Copyright Year
   const yearEl = document.getElementById('current-year');

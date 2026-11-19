@@ -1,7 +1,8 @@
 /**
- * TWO247 — Navbar Scroll & State Handler
- * Matches index.html navbar behavior across all pages.
- * Manages transparent-to-solid transitions, shadows, logo switching, and mobile button styling.
+ * Aethera® / TWO247 — Navbar Scroll & State Handler
+ * Follows MotionSites minimalist editorial standard:
+ * Active link: text-[#000000], non-active links: text-[#6F6F6F] hover:text-[#000000]
+ * Manages clean white backdrop-blur transitions, brand logos, and mobile toggle styling.
  */
 export function initNavbar() {
   const navbar = document.getElementById('navbar') || document.getElementById('main-navbar');
@@ -21,8 +22,6 @@ export function initNavbar() {
                        window.location.pathname.includes('/destination/') ||
                        window.location.pathname.includes('/package/'));
   const prefix = isSubfolder ? '../' : '';
-  const isAlwaysSolid = navbar.dataset.solid === 'true';
-  const isLightTheme = navbar.dataset.theme !== 'dark'; // Defaults to clean white/light theme
 
   // Identify active page based on current URL path
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -32,8 +31,11 @@ export function initNavbar() {
     const linkHref = link.getAttribute('href')?.split('/').pop()?.split('?')[0];
     if (linkHref && (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html'))) {
       link.dataset.active = 'true';
-      link.classList.add('text-brand-orange');
-      link.classList.remove('text-white', 'text-slate-800');
+      link.classList.remove('text-[#6F6F6F]', 'text-slate-500', 'text-white', 'text-brand-orange');
+      link.classList.add('text-[#000000]', 'font-semibold');
+    } else {
+      link.classList.remove('text-[#000000]', 'text-brand-orange');
+      link.classList.add('text-[#6F6F6F]', 'hover:text-[#000000]');
     }
   });
 
@@ -41,85 +43,43 @@ export function initNavbar() {
   mobileLinks.forEach(link => {
     const linkHref = link.getAttribute('href')?.split('/').pop()?.split('?')[0];
     if (linkHref && (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html'))) {
-      link.classList.add('text-brand-orange');
-      link.classList.remove('text-slate-800', 'text-brand-navy');
+      link.dataset.active = 'true';
+      link.classList.remove('text-[#6F6F6F]', 'text-slate-800', 'text-brand-navy', 'text-brand-orange');
+      link.classList.add('text-[#000000]', 'font-semibold');
+    } else {
+      link.classList.remove('text-[#000000]', 'text-brand-orange');
+      link.classList.add('text-[#6F6F6F]', 'hover:text-[#000000]');
     }
   });
 
   const handleScroll = () => {
-    const isScrolled = window.scrollY > 30 || isAlwaysSolid;
+    const isScrolled = window.scrollY > 20;
     if (isScrolled) {
-      navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3.5', 'border-b', 'border-slate-100');
-      navbar.classList.remove('bg-transparent', 'py-5');
-
-      // Light navbar: non-active links turn dark text
-      navLinks.forEach(link => {
-        if (link.dataset.active === 'true') {
-          link.classList.add('text-brand-orange');
-          link.classList.remove('text-white', 'text-slate-800', 'text-brand-text');
-        } else {
-          link.classList.remove('text-white');
-          link.classList.add('text-slate-800', 'hover:text-brand-orange');
-        }
-      });
+      navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'border-b', 'border-slate-100');
+      navbar.classList.remove('bg-transparent');
 
       // Update mobile menu button icon color for high contrast
       if (mobileBtn) {
         mobileBtn.classList.remove('text-white');
-        mobileBtn.classList.add('text-slate-900');
+        mobileBtn.classList.add('text-[#000000]');
       }
 
-      // Switch to color/dark logo
+      // Switch to clean logo if image tag exists
       if (navLogo) {
         navLogo.src = `${prefix}assets/logo/two247-logo-transparent.png`;
       }
     } else {
-      if (isLightTheme) {
-        // Light Hero Navbar (White Canvas Primary)
-        navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-slate-100/80');
-        navbar.classList.remove('bg-white/95', 'shadow-sm', 'bg-transparent', 'py-5');
+      // Default top position
+      navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'border-b', 'border-slate-100');
+      navbar.classList.remove('shadow-sm');
 
-        navLinks.forEach(link => {
-          if (link.dataset.active === 'true') {
-            link.classList.add('text-brand-orange');
-            link.classList.remove('text-white', 'text-slate-800');
-          } else {
-            link.classList.remove('text-white');
-            link.classList.add('text-slate-800', 'hover:text-brand-orange');
-          }
-        });
+      if (mobileBtn) {
+        mobileBtn.classList.remove('text-white');
+        mobileBtn.classList.add('text-[#000000]');
+      }
 
-        if (mobileBtn) {
-          mobileBtn.classList.remove('text-white');
-          mobileBtn.classList.add('text-slate-900');
-        }
-
-        if (navLogo) {
-          navLogo.src = `${prefix}assets/logo/two247-logo-transparent.png`;
-        }
-      } else {
-        // Dark Hero Navbar fallback
-        navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3.5', 'border-b', 'border-slate-100');
-        navbar.classList.add('bg-transparent', 'py-5');
-
-        navLinks.forEach(link => {
-          if (link.dataset.active === 'true') {
-            link.classList.add('text-brand-orange');
-            link.classList.remove('text-white', 'text-brand-text');
-          } else {
-            link.classList.add('text-white', 'hover:text-brand-orange');
-            link.classList.remove('text-brand-text');
-          }
-        });
-
-        if (mobileBtn) {
-          mobileBtn.classList.add('text-white');
-          mobileBtn.classList.remove('text-slate-900');
-        }
-
-        if (navLogo) {
-          navLogo.src = `${prefix}assets/logo/two247-logo-white.png`;
-        }
+      if (navLogo) {
+        navLogo.src = `${prefix}assets/logo/two247-logo-transparent.png`;
       }
     }
   };

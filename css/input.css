@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,8 +7,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Manrope', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    color: #0F172A;
+    font-family: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+    color: #000000;
     background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -17,11 +17,12 @@
   body {
     overflow-x: hidden;
     background-color: #FFFFFF;
+    color: #000000;
   }
 
   ::selection {
-    background-color: #F59E0B;
-    color: #0F172A;
+    background-color: #000000;
+    color: #FFFFFF;
   }
 }
 
@@ -44,17 +45,32 @@
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Pill button */
+  /* MotionSites Editorial Primary Button */
   .btn-primary {
-    @apply inline-flex items-center justify-center font-semibold rounded-full bg-brand-orange text-brand-navy px-7 py-3.5 transition-all duration-300 shadow-sm hover:bg-brand-orangeHover hover:shadow-glow-orange active:scale-95;
+    @apply inline-flex items-center justify-center font-semibold rounded-full bg-[#000000] text-white px-7 py-3.5 transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-95;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center font-semibold rounded-full bg-brand-orange text-black px-7 py-3.5 transition-all duration-300 shadow-sm hover:bg-brand-orangeHover hover:scale-[1.03] active:scale-95;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center font-semibold rounded-full bg-white/10 text-white backdrop-blur-md border border-white/20 px-7 py-3.5 transition-all duration-300 hover:bg-white/20 hover:border-white/40 active:scale-95;
+    @apply inline-flex items-center justify-center font-semibold rounded-full bg-white text-slate-800 border border-slate-200 px-7 py-3.5 transition-all duration-300 hover:bg-slate-50 hover:border-slate-300 active:scale-95;
   }
 
   .btn-outline-dark {
-    @apply inline-flex items-center justify-center font-semibold rounded-full bg-transparent text-brand-navy border border-brand-navy/20 px-6 py-3 transition-all duration-300 hover:bg-brand-navy hover:text-white active:scale-95;
+    @apply inline-flex items-center justify-center font-semibold rounded-full bg-transparent text-[#000000] border border-[#000000]/25 px-6 py-3 transition-all duration-300 hover:bg-[#000000] hover:text-white active:scale-95;
+  }
+
+  /* Font utility */
+  .font-display {
+    font-family: 'Instrument Serif', Georgia, serif;
+  }
+
+  .hero-editorial-headline {
+    font-family: 'Instrument Serif', Georgia, serif;
+    line-height: 0.95;
+    letter-spacing: -2.46px;
   }
 
   /* Subtle hero slow zoom */
@@ -402,4 +418,68 @@
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* =========================================================================
+   CINEMATIC HERO ANIMATIONS (MotionSites Standard)
+   ========================================================================= */
+@keyframes fadeRise {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-rise {
+  animation: fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-rise-delay {
+  opacity: 0;
+  animation: fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.animate-fade-rise-delay-2 {
+  opacity: 0;
+  animation: fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+/* Video Background Layer */
+.hero-video-container {
+  position: absolute;
+  top: 300px;
+  inset: auto 0 0 0;
+  height: 680px;
+  width: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-video-container {
+    top: 360px;
+    height: 520px;
+  }
+}
+
+.hero-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.hero-video-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.15) 70%, #FFFFFF 100%);
+  pointer-events: none;
+  z-index: 1;
 }

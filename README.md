@@ -72,17 +72,15 @@ two247/
 
 ---
 
-## 🎨 Color Palette & Design Tokens
+## 🎨 Color Palette & Design Tokens (MotionSites Editorial Standard)
 
 | Token | Hex | Usage |
 |---|---|---|
-| **Primary Navy** | `#071A2B` | Navbar, dark sections, footer, hero overlays, headings |
-| **Secondary Blue** | `#123B5D` | Sub-sections, card borders, badges |
-| **Accent Orange** | `#F59E0B` | Primary CTAs, highlights, active states, 24/7 emphasis |
-| **Light Canvas** | `#F8FAFC` | Page background, content sections |
-| **Surface White** | `#FFFFFF` | Cards, clean panels, modals |
-| **Text Primary** | `#0F172A` | High-contrast body typography |
-| **Text Muted** | `#64748B` | Secondary details, captions |
+| **Primary Canvas** | `#FFFFFF` | Core page background, clean canvas, light aesthetic |
+| **Primary Black** | `#000000` | Headlines, brand logo, primary CTA buttons, active states |
+| **Secondary Gray** | `#6F6F6F` | Editorial subheadings, menu links, italic emphasis, descriptions |
+| **Surface White** | `#FFFFFF` | Cards, clean glassmorphic panels, modals |
+| **Border Slate** | `#F1F5F9` | Hairline dividers, subtle card boundaries |
 
 ---
 

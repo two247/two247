@@ -96,36 +96,20 @@ export type SiteConfig = typeof siteConfig;
 ### 3.1 Color Palette
 
 ```css
-/* Color Tokens (Tailwind v4 / CSS Variables) */
+/* Color Tokens (MotionSites Editorial Standard) */
 :root {
-  /* Primary Midnight: Nocturnal Vigilance & Trust */
-  --brand-navy-950: #050C1A;  /* Deepest midnight (footer / dark cards) */
-  --brand-navy-900: #0B172E;  /* Hero overlays & primary text dark */
-  --brand-navy-800: #132448;  /* Secondary midnight */
-  
-  /* Brand Accent: Sunlit Horizon & Warmth */
-  --brand-amber-500: #D97706; /* Primary CTA & Highlights */
-  --brand-amber-400: #F59E0B; /* Hover CTA */
-  --brand-gold-300: #FDE68A;  /* Subtle luxury badge accent */
-
-  /* Destination Accent: Aegean & Coast */
-  --brand-azure-500: #0284C7; /* Informational / beach destinations */
-  --brand-azure-50:  #F0F9FF; /* Soft background tint */
-
-  /* Neutral Surface */
-  --brand-slate-900: #0F172A; /* High contrast body text */
-  --brand-slate-600: #475569; /* Secondary muted text */
-  --brand-slate-100: #F1F5F9; /* Card surface backgrounds */
-  --brand-slate-50:  #F8FAFC; /* Page background */
-  --brand-pure-white:#FFFFFF; /* Clean card surfaces */
+  --color-canvas:       #FFFFFF;  /* Pure white primary background */
+  --color-primary:      #000000;  /* Master headline, buttons, active menu */
+  --color-secondary:    #6F6F6F;  /* Subheadings, menu items, italic emphasis */
+  --color-surface:      #FFFFFF;  /* Cards, modals, search containers */
+  --color-border:       #F1F5F9;  /* Hairline dividers & borders */
 }
 ```
 
 ### 3.2 Typography Hierarchy
 
-- **Primary Display Font (Headings):** `Plus Jakarta Sans` or `Outfit` (Geometric, contemporary, approachable yet luxury).
-- **Body Font:** `Inter` (Optimized for digital reading, high legibility on mobile).
-- **Accent/Quote Font (Optional subtle editorial touches):** `Playfair Display` or `Cormorant Garamond` for testimonials and luxury badges.
+- **Display Text (Headings, Logo):** `Instrument Serif` (Editorial elegance, tight tracking `-2.46px`, `leading-[0.95]`).
+- **Body Text (Navigation, Descriptions, UI):** `Inter` (Precise, digital legibility).
 
 ### 3.3 Core UI Components
 

@@ -13,22 +13,38 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "#FFFFFF",
+        primary: "#000000",
+        secondary: "#6F6F6F",
         brand: {
-          navy: "#0F172A",      // Primary Neutral Obsidian (Zero blue hue)
-          dark: "#09090B",      // Extra deep neutral for overlays & text
-          blue: "#18181B",      // Replaced Travel Blue with Luxury Charcoal
-          orange: "#F59E0B",    // Accent - Warm Gold/Amber (Primary CTA & 24/7)
-          orangeHover: "#D97706",
+          navy: "#000000",      // Pure Black (Zero Blue)
+          dark: "#000000",      // Deep Obsidian
+          blue: "#18181B",      // Editorial Zinc
+          orange: "#D4AF37",    // Refined Champagne Gold
+          orangeHover: "#B89628",
           bg: "#FFFFFF",        // White is Primary Canvas
           surface: "#FFFFFF",   // Cards & Components
-          surfaceMuted: "#F8FAFC", // Soft neutral contrast
-          text: "#0F172A",      // Primary Text - High Contrast Charcoal
-          muted: "#64748B",     // Secondary Text
-          border: "#E2E8F0"
+          surfaceMuted: "#FAFAFA", // Clean Pearl Contrast
+          text: "#000000",      // Primary Black Text
+          muted: "#6F6F6F",     // Editorial Secondary Gray (#6F6F6F)
+          border: "#E5E7EB"
         }
       },
       fontFamily: {
-        sans: ['Manrope', '"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans: ['Inter', '"Plus Jakarta Sans"', 'Manrope', 'system-ui', 'sans-serif'],
+      },
+      keyframes: {
+        fadeRise: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        }
+      },
+      animation: {
+        'fade-rise': 'fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-rise-delay': 'fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards',
+        'fade-rise-delay-2': 'fadeRise 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards',
       },
       borderRadius: {
         'xl': '0.75rem',
