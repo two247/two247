@@ -25,16 +25,20 @@
 }
 
 @layer components {
+
   /* Editorial card with subtle zoom & elevation */
   .editorial-card {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
   .editorial-card:hover {
     transform: translateY(-4px);
   }
+
   .editorial-card:hover .editorial-img {
     transform: scale(1.04);
   }
+
   .editorial-img {
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -54,9 +58,15 @@
 
   /* Subtle hero slow zoom */
   @keyframes slowZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.08); }
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.08);
+    }
   }
+
   .hero-zoom {
     animation: slowZoom 24s ease-out infinite alternate;
   }
@@ -66,13 +76,16 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #F1F5F9;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
@@ -91,32 +104,6 @@
   transform: scale(1.02) !important;
   filter: blur(6px) !important;
   pointer-events: none !important;
-}
-
-.preloader-orbit-wrapper {
-  animation: preloaderOrbit 3.2s linear infinite;
-  pointer-events: none;
-}
-
-.preloader-airplane-node {
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%) rotate(90deg);
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes preloaderOrbit {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /* =========================================================================
@@ -266,9 +253,11 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
+
   .hero-cards-stage::-webkit-scrollbar {
     display: none;
   }
+
   .hero-floating-card {
     width: 140px;
     height: 190px;
