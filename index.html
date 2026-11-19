@@ -46,6 +46,72 @@
 </head>
 <body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-brand-navy">
 
+  <!-- 0. TWO247 TRAVELER PRELOADER -->
+  <div id="two247-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#071A2B] text-white transition-all duration-500 ease-out select-none" aria-label="Loading TWO247 Experience" role="status">
+    <!-- Subtle Cinematic Background Atmosphere -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.12),transparent_70%)] rounded-full blur-2xl"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(7,26,43,0.8)_100%)]"></div>
+    </div>
+
+    <!-- Skip Button (Accessible & Instant) -->
+    <button id="preloader-skip" class="absolute top-6 right-6 text-xs uppercase tracking-widest text-slate-400 hover:text-white px-3.5 py-1.5 rounded-full border border-slate-700/80 hover:border-amber-400/60 bg-slate-900/40 backdrop-blur-md transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95" aria-label="Skip preloader">
+      Skip ✕
+    </button>
+
+    <div class="relative z-10 flex flex-col items-center justify-center p-6 text-center max-w-sm w-full">
+      <!-- Traveler Animation Container -->
+      <div class="preloader-animation-container relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-6">
+        <!-- Outer Pulsing Glow Ring -->
+        <div class="absolute inset-0 rounded-full bg-brand-orange/15 blur-xl animate-pulse"></div>
+        <!-- Elegant Double Orbit Border -->
+        <div class="absolute inset-1 rounded-full border border-brand-orange/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"></div>
+        <div class="absolute inset-3 rounded-full border border-white/10"></div>
+        
+        <!-- Traveler Animation (MP4 with GIF fallback from LottieFiles / IconScout #8443720) -->
+        <div class="relative z-10 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden flex items-center justify-center bg-[#0B2238]/90 backdrop-blur-md border border-white/15 shadow-2xl">
+          <video 
+            autoplay 
+            loop 
+            muted 
+            playsinline 
+            poster="assets/animation/traveler-luggage.png"
+            class="w-full h-full object-cover object-center transform scale-105"
+            aria-label="Traveler with airline tickets carrying luggage"
+          >
+            <source src="assets/animation/traveler-luggage.mp4" type="video/mp4">
+            <img src="assets/animation/traveler-luggage.gif" alt="Traveler with airline tickets carrying luggage" class="w-full h-full object-cover">
+          </video>
+        </div>
+      </div>
+
+      <!-- Brand Typography Lockup -->
+      <div class="space-y-1 mb-6">
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white preloader-shimmer-text">
+          TWO<span class="text-brand-orange">247</span>
+        </h2>
+        <p class="text-[11px] uppercase tracking-[0.25em] text-slate-300 font-semibold">
+          The White Owl Holidays
+        </p>
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 mt-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping"></span>
+          <span class="text-[10px] text-amber-300 tracking-wider uppercase font-bold">24/7 Travel Assistance</span>
+        </div>
+      </div>
+
+      <!-- Loading Bar & Status -->
+      <div class="w-full max-w-[220px] space-y-2.5">
+        <div class="h-1.5 w-full bg-slate-800/90 rounded-full overflow-hidden border border-slate-700/60 p-[1px]">
+          <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-brand-orange via-amber-400 to-amber-200 rounded-full transition-all duration-75 w-0 shadow-[0_0_10px_rgba(245,158,11,0.6)]"></div>
+        </div>
+        <div class="flex items-center justify-between text-[11px] font-medium text-slate-400">
+          <span id="preloader-status" class="transition-all duration-200 text-left truncate mr-2">Packing flight tickets...</span>
+          <span id="preloader-percent" class="text-brand-orange font-bold font-mono flex-shrink-0">0%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 1. NAVBAR -->
   <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -8,6 +8,7 @@ import { initFAQ } from './faq.js';
 import { initForms } from './forms.js';
 import { initAnimations } from './animations.js';
 import { initHeroMotion } from './hero-motion.js';
+import { initPreloader } from './preloader.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
@@ -18,6 +19,7 @@ window.sendWhatsAppEnquiry = (customMsg) => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
   initNavbar();
   initMobileMenu();
   initFAQ();

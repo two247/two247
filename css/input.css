@@ -78,6 +78,34 @@
 }
 
 /* =========================================================================
+   TWO247 PRELOADER STYLES
+   ========================================================================= */
+#two247-preloader {
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  will-change: opacity, transform, filter;
+}
+
+#two247-preloader.preloader-hidden {
+  opacity: 0 !important;
+  transform: scale(1.04) !important;
+  filter: blur(8px) !important;
+  pointer-events: none !important;
+}
+
+.preloader-shimmer-text {
+  background: linear-gradient(90deg, #FFFFFF 0%, #F59E0B 50%, #FFFFFF 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: preloaderShimmer 2.5s infinite linear;
+}
+
+@keyframes preloaderShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* =========================================================================
    TIDEWELL HERO MOTION SYSTEM ("Journeys in Motion")
    ========================================================================= */
 :root {
