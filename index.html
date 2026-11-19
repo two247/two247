@@ -125,41 +125,55 @@
 
   <main id="main-content">
 
-    <!-- 2. HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-navy" aria-label="Hero Introduction">
-      <!-- Background Image with Slow Zoom & Editorial Gradient -->
-      <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85" alt="Luxury Tropical Beach Destination at Sunset" class="w-full h-full object-cover object-center hero-zoom" fetchpriority="high">
+    <!-- 2. HERO SECTION (Tidewell Motion System: "Journeys in Motion") -->
+    <section id="hero-motion-section" class="relative min-h-screen flex flex-col items-center justify-between overflow-hidden bg-brand-navy" aria-label="Hero Introduction">
+      <!-- Background Luxury Visual Plate with Subtle Atmospheric Glow & Cinematic Gradients -->
+      <div class="absolute inset-0 z-0 pointer-events-none select-none">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85" alt="Luxury Tropical Beach Destination at Sunset" class="w-full h-full object-cover object-center opacity-35 scale-105 hero-zoom" fetchpriority="high">
         <!-- Multi-layer dark cinematic gradient for guaranteed text readability -->
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-brand-navy/40"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(245,158,11,0.18),transparent_70%)]"></div>
         <div class="absolute inset-0 bg-brand-navy/30"></div>
       </div>
 
-      <!-- Hero Content -->
-      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-20">
+      <!-- Paper Plane Element (Catmull-Rom Flight) -->
+      <div id="hero-paper-plane" class="hero-paper-plane" aria-hidden="true"></div>
+
+      <!-- Hero Main Content -->
+      <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 sm:pt-32 pb-10 flex flex-col items-center">
         
-        <!-- Eyebrow -->
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 shadow-sm">
           <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
-          <span class="text-xs sm:text-sm font-semibold tracking-widest text-slate-200 uppercase">THE WHITE OWL HOLIDAYS</span>
+          <span class="text-xs sm:text-sm font-semibold tracking-widest text-slate-200 uppercase">THE WHITE OWL HOLIDAYS • TIDES IN MOTION</span>
         </div>
 
-        <!-- H1 -->
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
-          Your Journey.<br>
-          Our Guidance.<br>
-          <span class="text-brand-orange">24/7.</span>
-        </h1>
+        <!-- Animated Morphing Headline Assembly (Pixel Icons -> Letters) -->
+        <div class="hero-headline-holder w-full flex justify-center items-center my-3" role="heading" aria-level="1" aria-label="Journeys in Motion">
+          <div class="hero-headline-group" id="hero-headline-group">
+            <div class="hero-word-row" id="hero-word-row"></div>
+            <div class="hero-morph-gap" id="hero-morph-gap"></div>
+            <div class="hero-icon-row" id="hero-icon-row"></div>
+          </div>
+        </div>
+
+        <!-- Editorial Subtitle -->
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight mt-3 mb-4">
+          Your Journey. Our Guidance. <span class="text-brand-orange">24/7.</span>
+        </h2>
 
         <!-- Description -->
-        <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+        <p class="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto font-normal leading-relaxed mb-8">
           Discover unforgettable holidays, thoughtfully planned around the way you want to travel.
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="packages.html" class="btn-primary w-full sm:w-auto text-base">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 w-full sm:w-auto">
+          <a href="packages.html" class="btn-primary w-full sm:w-auto text-base shadow-lg shadow-brand-orange/20">
             Explore Packages
+            <svg class="w-4 h-4 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
           </a>
           <a href="custom-trip.html" class="btn-secondary w-full sm:w-auto text-base">
             Plan My Trip
@@ -167,21 +181,21 @@
         </div>
 
         <!-- 3 Supporting Trust Indicators -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/15 max-w-3xl mx-auto text-slate-300 text-sm font-medium">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 border-t border-white/15 max-w-3xl w-full mx-auto text-slate-300 text-xs sm:text-sm font-medium">
           <div class="flex items-center justify-center gap-2">
-            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>24/7 Travel Assistance</span>
           </div>
           <div class="flex items-center justify-center gap-2">
-            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span>Personalised Travel Planning</span>
           </div>
           <div class="flex items-center justify-center gap-2">
-            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
             </svg>
             <span>Domestic & International Holidays</span>
@@ -190,10 +204,13 @@
 
       </div>
 
+      <!-- Coastal Art Cards Fan Container -->
+      <div id="hero-cards-stage" class="hero-cards-stage" aria-hidden="true"></div>
+
       <!-- Subtle Scroll Indicator -->
-      <a href="#trust-strip" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-slate-400 hover:text-white transition-colors" aria-label="Scroll to next section">
-        <span class="text-[11px] tracking-widest uppercase mb-1">Scroll</span>
-        <svg class="w-4 h-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <a href="#trust-strip" class="relative z-10 mb-4 flex flex-col items-center text-slate-400 hover:text-white transition-colors" aria-label="Scroll to next section">
+        <span class="text-[11px] tracking-widest uppercase mb-1">Scroll to Explore</span>
+        <svg class="w-4 h-4 animate-bounce text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
         </svg>
       </a>

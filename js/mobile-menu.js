@@ -1,5 +1,6 @@
 /**
  * TWO247 — Accessible Mobile Menu
+ * Matches index.html mobile drawer behavior across all pages.
  * Supports drawer toggling, backdrop clicks, Escape key, and ARIA attributes.
  */
 export function initMobileMenu() {
@@ -10,6 +11,10 @@ export function initMobileMenu() {
   const links = document.querySelectorAll('.mobile-nav-link');
 
   if (!menuBtn || !drawer) return;
+
+  // Prevent multiple bindings
+  if (menuBtn.dataset.menuInitialized === 'true') return;
+  menuBtn.dataset.menuInitialized = 'true';
 
   const openMenu = () => {
     drawer.classList.remove('translate-x-full');
@@ -40,4 +45,13 @@ export function initMobileMenu() {
       closeMenu();
     }
   });
+}
+
+// Auto-run if loaded directly in DOM
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+  } else {
+    initMobileMenu();
+  }
 }

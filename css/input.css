@@ -77,6 +77,130 @@
   background: #94A3B8;
 }
 
+/* =========================================================================
+   TIDEWELL HERO MOTION SYSTEM ("Journeys in Motion")
+   ========================================================================= */
+:root {
+  --u: 1px;
+  --n: 1;
+  --hfs: 56px;
+  --ic: 36px;
+  --cw: 200px;
+}
+
+.hero-paper-plane {
+  position: absolute;
+  width: calc(var(--u) * 62px);
+  height: calc(var(--u) * 62px);
+  left: 0;
+  top: 0;
+  background-size: 336.70% 492.61%;
+  background-position: 84.50% 76.91%;
+  background-repeat: no-repeat;
+  display: none;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transform-origin: center center;
+  z-index: 30;
+}
+
+.hero-headline-holder {
+  font-size: var(--hfs);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.hero-headline-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s cubic-bezier(0.25, 0.75, 0.2, 1);
+  white-space: nowrap;
+}
+
+.hero-char-span {
+  display: inline-block;
+  will-change: clip-path, opacity;
+  clip-path: inset(0 100% 0 0);
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-char-space {
+  display: inline-block;
+  width: 0.28em;
+}
+
+.hero-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ic);
+  height: var(--ic);
+  margin: 0 calc(var(--ic) * 0.1);
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+
+.hero-morph-gap {
+  display: inline-block;
+  width: calc(var(--ic) * 0.32);
+  transition: width 0.3s ease;
+}
+
+.hero-cards-stage {
+  position: relative;
+  width: 100%;
+  height: calc(var(--cw) * 1.5);
+  min-height: 220px;
+  max-height: 380px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 15;
+}
+
+.hero-motion-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--cw);
+  height: calc(var(--cw) * 1.32);
+  border-radius: calc(var(--cw) * 0.075);
+  margin-left: calc(var(--cw) * -0.5);
+  margin-top: calc(var(--cw) * -0.66);
+  box-shadow: 0 calc(var(--cw) * 0.04) calc(var(--cw) * 0.12) rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: hidden;
+  transition: filter 0.3s ease;
+}
+
+.hero-motion-card:hover {
+  filter: brightness(1.08) drop-shadow(0 12px 24px rgba(245, 158, 11, 0.25));
+}
+
+.hero-card-badge {
+  position: absolute;
+  bottom: calc(var(--cw) * 0.06);
+  left: calc(var(--cw) * 0.06);
+  right: calc(var(--cw) * 0.06);
+  padding: calc(var(--cw) * 0.04) calc(var(--cw) * 0.06);
+  background: rgba(7, 26, 43, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: calc(var(--cw) * 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -86,5 +210,15 @@
   }
   .hero-zoom {
     animation: none !important;
+  }
+  .hero-paper-plane {
+    display: none !important;
+  }
+  .hero-char-span {
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+  .hero-icon-box {
+    display: none !important;
   }
 }

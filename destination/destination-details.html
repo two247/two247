@@ -10,63 +10,85 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    .navbar-scrolled {
-      background-color: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 20px -2px rgba(7, 26, 43, 0.08);
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-    }
-    .navbar-scrolled .brand-logo-title { color: #071A2B !important; }
-    .navbar-scrolled .brand-logo-sub { color: #64748B !important; }
-    .navbar-scrolled .nav-link { color: #0F172A !important; }
-    .navbar-scrolled .nav-link:hover { color: #F59E0B !important; }
-    .navbar-scrolled #mobile-menu-btn { color: #071A2B !important; }
-  </style>
-</head>
+  </head>
 <body class="bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
 
-  <!-- Navigation -->
-  <header id="main-navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 navbar-transparent py-5 px-4 sm:px-6 lg:px-12">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-orange rounded-xl p-1">
-        <div class="w-10 h-10 transition-transform duration-300 group-hover:scale-105">
-          <svg viewBox="0 0 48 48" fill="none" class="w-full h-full drop-shadow-md">
-            <circle cx="24" cy="24" r="21" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="85 45" stroke-linecap="round" />
-            <path d="M12 16C12 12 18 10 24 15C30 10 36 12 36 16C36 28 29 36 24 38C19 36 12 28 12 16Z" fill="#071A2B" stroke="#F59E0B" stroke-width="1.2" stroke-linejoin="round"/>
-            <path d="M14 17C17 14 22 17 24 20C26 17 31 14 34 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="18" cy="22" r="3.2" fill="#F59E0B" />
-            <circle cx="18" cy="22" r="1.4" fill="#071A2B" />
-            <circle cx="18.8" cy="21.2" r="0.6" fill="#FFFFFF" />
-            <circle cx="30" cy="22" r="3.2" fill="#F59E0B" />
-            <circle cx="30" cy="22" r="1.4" fill="#071A2B" />
-            <circle cx="30.8" cy="21.2" r="0.6" fill="#FFFFFF" />
-            <polygon points="24,23 26,27 24,31 22,27" fill="#F59E0B" />
-          </svg>
-        </div>
-        <div class="flex flex-col">
-          <span class="text-xl font-extrabold tracking-tight brand-logo-title text-white">TWO<span class="text-brand-orange">247</span></span>
-          <span class="text-[10px] uppercase font-semibold tracking-widest brand-logo-sub text-slate-300 -mt-1">The White Owl Holidays</span>
-        </div>
-      </a>
-
-      <nav class="hidden md:flex items-center gap-8 text-[15px] font-semibold text-white/95">
-        <a href="../index.html" class="nav-link hover:text-brand-orange transition-colors">Home</a>
-        <a href="../pages/destinations.html" class="nav-link text-brand-orange font-bold transition-colors">Destinations</a>
-        <a href="../pages/packages.html" class="nav-link hover:text-brand-orange transition-colors">Packages</a>
-        <a href="../pages/about.html" class="nav-link hover:text-brand-orange transition-colors">About</a>
-        <a href="../pages/blog.html" class="nav-link hover:text-brand-orange transition-colors">Blog</a>
-        <a href="../pages/contact.html" class="nav-link hover:text-brand-orange transition-colors">Contact</a>
-      </nav>
-
-      <div class="hidden md:flex items-center gap-4">
-        <a href="../pages/custom-trip.html" class="btn-primary text-sm shadow-md hover:shadow-glow-orange">
-          <span>Plan Your Trip</span>
+    <!-- 1. NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Brand Logo -->
+        <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-orange rounded-lg" aria-label="TWO247 The White Owl Holidays Home">
+          <img src="../assets/logo/two247-logo-white.png" alt="TWO247 The White Owl Holidays" id="nav-logo" class="h-10 sm:h-11 w-auto object-contain transition-all duration-300">
         </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+          <a href="../index.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Home</a>
+          <a href="../destinations.html" class="nav-link text-brand-orange font-bold text-[15px] tracking-tight transition-colors duration-200" aria-current="page">Destinations</a>
+          <a href="../packages.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Packages</a>
+          <a href="../about.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">About</a>
+          <a href="../blog.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Blog</a>
+          <a href="../contact.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Contact</a>
+        </nav>
+
+        <!-- Navbar Right CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="../custom-trip.html" class="btn-primary text-sm tracking-tight py-2.5 px-6">
+            Plan Your Trip
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden items-center">
+          <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" class="p-2.5 rounded-lg text-white hover:text-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-label="Open Navigation Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
       </div>
     </div>
   </header>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-6">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+        <img src="../assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="h-8 w-auto object-contain">
+        <button type="button" id="mobile-menu-close" class="p-2 rounded-lg text-slate-500 hover:text-brand-navy focus:outline-none" aria-label="Close Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-4 mt-6" aria-label="Mobile Navigation">
+        <a href="../index.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Home</a>
+        <a href="../destinations.html" class="mobile-nav-link text-base font-semibold text-brand-orange transition-colors" aria-current="page">Destinations</a>
+        <a href="../packages.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Packages</a>
+        <a href="../about.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">About</a>
+        <a href="../blog.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Blog</a>
+        <a href="../contact.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-slate-100 flex flex-col gap-3">
+      <a href="../custom-trip.html" class="btn-primary w-full text-center py-3 text-sm">Plan Your Trip</a>
+      <a href="https://wa.me/919876543210?text=Hello%20TWO247,%20I%20would%20like%20to%20enquire%20about%20a%20holiday%20package." target="_blank" rel="noopener noreferrer" class="btn-outline-dark w-full text-center py-2.5 text-xs flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/>
+        </svg>
+        WhatsApp 24/7 Desk
+      </a>
+      <p class="text-[11px] text-slate-400 text-center mt-2">© TWO247 — The White Owl Holidays</p>
+    </div>
+  </aside>
 
   <!-- Destination Dynamic Hero -->
   <section class="relative min-h-[60vh] flex items-end bg-brand-navy text-white overflow-hidden pb-16 pt-36">
@@ -189,8 +211,6 @@
     <p>© 2026 TWO247 — The White Owl Holidays. 24/7 Travel Support.</p>
   </footer>
 
-  <script src="../js/navbar.js"></script>
-  <script src="../js/form.js"></script>
   <script type="module" src="../js/tilt3d.js"></script>
   <script type="module">
     import { destinations } from "../data/destinations.js";
@@ -249,5 +269,6 @@
       `;
     }
   </script>
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>

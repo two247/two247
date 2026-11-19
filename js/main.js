@@ -7,6 +7,15 @@ import { initMobileMenu } from './mobile-menu.js';
 import { initFAQ } from './faq.js';
 import { initForms } from './forms.js';
 import { initAnimations } from './animations.js';
+import { initHeroMotion } from './hero-motion.js';
+
+// Global WhatsApp enquiry handler
+window.sendWhatsAppEnquiry = (customMsg) => {
+  const phone = "919876543210";
+  const defaultMsg = customMsg || "Hello TWO247, I would like to enquire about a holiday package.";
+  const encoded = encodeURIComponent(defaultMsg);
+  window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank", "noopener,noreferrer");
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -14,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initForms();
   initAnimations();
+  initHeroMotion();
 
   // Dynamic Copyright Year
   const yearEl = document.getElementById('current-year');
