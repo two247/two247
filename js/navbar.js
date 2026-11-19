@@ -1,5 +1,5 @@
 /**
- * Aethera® / TWO247 — Navbar Scroll & State Handler
+ * TWO247 — Navbar Scroll & State Handler
  * Follows MotionSites minimalist editorial standard:
  * Active link: text-[#000000], non-active links: text-[#6F6F6F] hover:text-[#000000]
  * Manages clean white backdrop-blur transitions, brand logos, and mobile toggle styling.
