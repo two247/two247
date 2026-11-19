@@ -9,6 +9,8 @@ import { initForms } from './forms.js';
 import { initAnimations } from './animations.js';
 import { initHeroMotion } from './hero-motion.js';
 import { initPreloader } from './preloader.js';
+import { initTextAppear } from './text-appear.js';
+import { initAdvanceSearch } from './advance-search.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
@@ -26,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initForms();
   initAnimations();
   initHeroMotion();
+  initTextAppear();
+  initAdvanceSearch();
 
   // Dynamic Copyright Year
   const yearEl = document.getElementById('current-year');

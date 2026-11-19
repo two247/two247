@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TWO247 — The White Owl Holidays | Premium Holiday Packages & 24/7 Travel Assistance</title>
-  <meta name="description" content="Discover unforgettable domestic and international holidays with TWO247 — The White Owl Holidays. Personalized itineraries, luxury tours, honeymoon packages, and 24/7 dedicated travel support.">
+  <title>TWO247 — The White Owl Holidays | Luxury Holiday Packages & 24/7 Travel Assistance</title>
+  <meta name="description" content="Discover unforgettable domestic and international holidays with TWO247 — The White Owl Holidays. Personalized itineraries, luxury tours, honeymoon packages, and continuous 24/7 dedicated travel support.">
   <link rel="canonical" href="https://two247.com/">
   
   <!-- Open Graph -->
@@ -13,9 +13,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://two247.com/">
   <meta property="og:image" content="assets/logo/two247-logo.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/owl-mark.svg">
   
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Structured Data JSON-LD -->
   <script type="application/ld+json">
@@ -44,17 +48,17 @@
   }
   </script>
 </head>
-<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-brand-navy">
+<body class="bg-white text-slate-900 font-sans antialiased selection:bg-brand-orange selection:text-slate-900">
 
   <!-- 0. TWO247 LUXURY WHITE PRELOADER -->
-  <div id="two247-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-brand-navy select-none" aria-label="TWO247 Luxury Travel Preloader" role="status">
+  <div id="two247-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-slate-900 select-none" aria-label="TWO247 Luxury Travel Preloader" role="status">
     <!-- Subtle Luxury Ambient Glow -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.06),transparent_70%)] rounded-full blur-3xl"></div>
     </div>
 
     <!-- Minimalist Skip Button (Top Right) -->
-    <button id="preloader-skip" class="absolute top-6 right-6 text-[11px] uppercase tracking-widest text-slate-400 hover:text-brand-navy px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-slate-400 bg-white/90 backdrop-blur-sm transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95" aria-label="Skip preloader">
+    <button id="preloader-skip" class="absolute top-6 right-6 text-[11px] uppercase tracking-widest text-slate-400 hover:text-slate-900 px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-slate-400 bg-white/90 backdrop-blur-sm transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95" aria-label="Skip preloader">
       Skip ✕
     </button>
 
@@ -75,48 +79,48 @@
         </video>
       </div>
 
-      <!-- Bottom Brand Logo (Official TWO247 Logo Only) -->
+      <!-- Bottom Brand Logo (Official Transparent Logo) -->
       <div class="w-44 sm:w-52 mb-4 transition-transform duration-300">
         <img src="assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="w-full h-auto object-contain">
       </div>
 
-      <!-- Minimalist Hairline Progress Bar (Zero text, silent luxury indicator) -->
+      <!-- Minimalist Hairline Progress Bar -->
       <div class="w-28 sm:w-32 h-[2px] bg-slate-100 rounded-full overflow-hidden border border-slate-200/50">
         <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-full transition-all duration-100 w-0 shadow-[0_0_8px_rgba(245,158,11,0.4)]"></div>
       </div>
     </div>
   </div>
 
-  <!-- 1. NAVBAR -->
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent" id="navbar">
+  <!-- 1. NAVBAR (Clean White Primary Glass) -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 bg-white/85 backdrop-blur-md border-b border-slate-100/90 shadow-sm" id="navbar" data-theme="light">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-orange rounded-lg" aria-label="TWO247 The White Owl Holidays Home">
-          <img src="assets/logo/two247-logo-white.png" alt="TWO247 The White Owl Holidays" id="nav-logo" class="h-10 sm:h-11 w-auto object-contain transition-all duration-300">
+          <img src="assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" id="nav-logo" class="h-10 sm:h-11 w-auto object-contain transition-all duration-300">
         </a>
 
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-          <a href="index.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Home</a>
-          <a href="destinations.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Destinations</a>
-          <a href="packages.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Packages</a>
-          <a href="about.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">About</a>
-          <a href="blog.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Blog</a>
-          <a href="contact.html" class="nav-link text-white hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Contact</a>
+          <a href="index.html" class="nav-link text-brand-orange font-bold text-[15px] tracking-tight transition-colors duration-200" aria-current="page">Home</a>
+          <a href="destinations.html" class="nav-link text-slate-800 hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Destinations</a>
+          <a href="packages.html" class="nav-link text-slate-800 hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Packages</a>
+          <a href="about.html" class="nav-link text-slate-800 hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">About</a>
+          <a href="blog.html" class="nav-link text-slate-800 hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Blog</a>
+          <a href="contact.html" class="nav-link text-slate-800 hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Contact</a>
         </nav>
 
         <!-- Navbar Right CTA -->
         <div class="hidden md:flex items-center gap-4">
-          <a href="custom-trip.html" class="btn-primary text-sm tracking-tight py-2.5 px-6">
+          <a href="custom-trip.html" class="btn-primary text-sm tracking-tight py-2.5 px-6 shadow-sm">
             Plan Your Trip
           </a>
         </div>
 
         <!-- Mobile Menu Toggle Button -->
         <div class="flex md:hidden items-center">
-          <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" class="p-2.5 rounded-lg text-white hover:text-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-label="Open Navigation Menu">
+          <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" class="p-2.5 rounded-lg text-slate-900 hover:text-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-label="Open Navigation Menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
@@ -128,14 +132,14 @@
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-backdrop" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="mobile-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Navigation Drawer -->
   <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-6">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-slate-100">
         <img src="assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="h-8 w-auto object-contain">
-        <button type="button" id="mobile-menu-close" class="p-2 rounded-lg text-slate-500 hover:text-brand-navy focus:outline-none" aria-label="Close Navigation Menu">
+        <button type="button" id="mobile-menu-close" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 focus:outline-none" aria-label="Close Navigation Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
@@ -143,12 +147,12 @@
       </div>
 
       <nav class="flex flex-col gap-4 mt-6" aria-label="Mobile Navigation">
-        <a href="index.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Home</a>
-        <a href="destinations.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Destinations</a>
-        <a href="packages.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Packages</a>
-        <a href="about.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">About</a>
-        <a href="blog.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Blog</a>
-        <a href="contact.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Contact</a>
+        <a href="index.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">Home</a>
+        <a href="destinations.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">Destinations</a>
+        <a href="packages.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">Packages</a>
+        <a href="about.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">About</a>
+        <a href="blog.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">Blog</a>
+        <a href="contact.html" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-brand-orange transition-colors">Contact</a>
       </nav>
     </div>
 
@@ -166,295 +170,227 @@
 
   <main id="main-content">
 
-    <!-- 2. HERO SECTION (Luxury Motion & 3D Interactive Destination Showcase) -->
-    <section id="hero-motion-section" class="relative min-h-[90vh] lg:min-h-screen flex flex-col items-center justify-between overflow-hidden bg-brand-navy pt-24 pb-8" aria-label="Hero Introduction">
+    <!-- 2. HERO SECTION (White Primary Canvas, MotionSites Text Reveal, Advance Search) -->
+    <section id="hero-motion-section" class="relative min-h-[96vh] lg:min-h-screen flex flex-col items-center justify-between overflow-hidden bg-white pt-28 pb-12" aria-label="Hero Introduction">
       
-      <!-- Background Luxury Visual Plate with Subtle Atmospheric Glow & Cinematic Gradients -->
-      <div class="absolute inset-0 z-0 pointer-events-none select-none">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85" alt="Luxury Tropical Beach Destination at Sunset" class="w-full h-full object-cover object-center opacity-30 scale-105 hero-zoom" fetchpriority="high">
-        <!-- Multi-layer dark cinematic gradient for guaranteed text readability -->
-        <div class="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-brand-navy/40"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_70%_at_50%_-10%,rgba(245,158,11,0.18),transparent_70%)]"></div>
-        <div class="absolute inset-0 bg-brand-navy/30"></div>
+      <!-- Ambient Luminous Plate (Pure White Luxury Glow - No Blue) -->
+      <div class="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=85" alt="Luxury Tropical Beach Destination at Sunset" class="w-full h-full object-cover object-center opacity-15 scale-105 hero-zoom" fetchpriority="high">
+        <!-- Crisp White Vignette Gradients -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/95 via-white/85 to-white"></div>
+        <div class="absolute top-0 inset-x-0 h-96 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(245,158,11,0.08),transparent_70%)]"></div>
+        <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-white to-transparent"></div>
       </div>
 
-      <!-- Hero Main Content (Centered & Zero Layout Shift) -->
+      <!-- Hero Main Content -->
       <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         
         <!-- Eyebrow Badge with Professional Dual-Tone Flight Icon -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4 shadow-sm hover:border-amber-400/40 transition-colors">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200/90 mb-4 shadow-sm hover:border-amber-400/50 transition-colors">
           <span class="flex h-2 w-2 relative">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
           </span>
-          <span class="text-xs sm:text-sm font-semibold tracking-widest text-slate-200 uppercase">THE WHITE OWL HOLIDAYS • 24/7 CONCIERGE</span>
+          <span class="text-xs sm:text-sm font-bold tracking-widest text-slate-800 uppercase">THE WHITE OWL HOLIDAYS • 24/7 LUXURY CONCIERGE</span>
         </div>
 
-        <!-- Master Editorial H1 (Mobile & Desktop Perfected) -->
-        <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] sm:leading-[1.08] mb-3 px-2">
+        <!-- Master Editorial H1 with MotionSites Text Appear Mask -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight leading-[1.08] mb-4 hero-text-appear" data-text-appear="lines">
           Your Journey.<br>
           Our Guidance.<br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-brand-orange to-yellow-200 drop-shadow-[0_4px_16px_rgba(245,158,11,0.4)]">
-            24/7.
-          </span>
+          <span class="shimmer-gold-text">24/7.</span>
         </h1>
 
-        <!-- Rotating Feature Pill with Professional SVG Icons (Zero Shift) -->
-        <div class="hero-ticker-container w-full max-w-[92vw] sm:max-w-md mx-auto mb-4 px-2" id="hero-ticker-track"></div>
+        <!-- Rotating Feature Pill (Zero Shift, Crisp White Glass, Dual-Tone Gold Icons) -->
+        <div class="hero-ticker-container w-full max-w-[94vw] sm:max-w-md mx-auto mb-4 px-2" id="hero-ticker-track"></div>
 
         <!-- Description -->
-        <p class="text-sm sm:text-base md:text-lg text-slate-200/90 max-w-2xl mx-auto font-normal leading-relaxed mb-6">
+        <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed mb-6" data-text-appear="words" data-appear-delay="0.2">
           Handcrafted luxury holidays & bespoke itineraries designed around your dreams, backed by continuous round-the-clock personal assistance.
         </p>
 
         <!-- CTA Action Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-2 w-full sm:w-auto">
-          <a href="packages.html" class="btn-primary w-full sm:w-auto text-sm sm:text-base shadow-lg shadow-brand-orange/25 group">
+          <a href="#curated-packages" class="btn-primary w-full sm:w-auto text-sm sm:text-base shadow-lg shadow-brand-orange/20 group">
             <span>Explore Packages</span>
             <svg class="w-4 h-4 ml-2 inline-block transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
             </svg>
           </a>
-          <a href="custom-trip.html" class="btn-secondary w-full sm:w-auto text-sm sm:text-base">
+          <a href="custom-trip.html" class="px-7 py-3.5 rounded-full border border-slate-300 hover:border-slate-800 text-slate-900 font-bold text-sm sm:text-base hover:bg-slate-50 transition-all w-full sm:w-auto">
             Plan My Trip
           </a>
         </div>
 
       </div>
 
-      <!-- 3D Floating Interactive Destination Cards Stage (Desktop Fan / Mobile Scrollable Deck) -->
-      <div class="relative z-20 w-full flex flex-col items-center justify-center">
+      <!-- ADVANCE SEARCH ENGINE (Interactive Tour Travel Agency) -->
+      <div class="advance-search-container mt-8 w-full px-4 sm:px-6">
+        
+        <!-- Search Category Tabs -->
+        <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-3">
+          <button type="button" class="search-tab-pill active" data-category="all">🏖️ All Packages</button>
+          <button type="button" class="search-tab-pill" data-category="international">✈️ International</button>
+          <button type="button" class="search-tab-pill" data-category="domestic">🇮🇳 Domestic Escapes</button>
+          <button type="button" class="search-tab-pill" data-category="honeymoon">💍 Honeymoon</button>
+          <button type="button" class="search-tab-pill" data-category="luxury">👑 Luxury & Villas</button>
+        </div>
+
+        <!-- Advance Search Filter Card -->
+        <form id="advance-search-form" class="advance-search-card p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
+          
+          <!-- Destination -->
+          <div class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <div class="flex-1 min-w-0">
+              <label for="search-destination" class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Destination</label>
+              <input type="text" id="search-destination" placeholder="Where to? (e.g. Maldives, Bali)" class="w-full bg-transparent text-xs sm:text-sm font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none truncate">
+            </div>
+          </div>
+
+          <!-- Travel Month / Season -->
+          <div class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <div class="flex-1 min-w-0">
+              <label for="search-season" class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Travel Season</label>
+              <select id="search-season" class="w-full bg-transparent text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none cursor-pointer truncate">
+                <option value="all">Any Season / Flexible</option>
+                <option value="winter">Winter Escapes (Nov - Feb)</option>
+                <option value="spring">Spring & Blooms (Mar - May)</option>
+                <option value="summer">Summer Vacations (Jun - Aug)</option>
+                <option value="festive">Festive Celebrations</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Travel Style -->
+          <div class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor"/>
+            </svg>
+            <div class="flex-1 min-w-0">
+              <label for="search-style" class="block text-[10px] font-bold uppercase tracking-wider text-slate-400">Trip Style</label>
+              <select id="search-style" class="w-full bg-transparent text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none cursor-pointer truncate">
+                <option value="all">All Trip Types</option>
+                <option value="honeymoon">Romantic Honeymoon</option>
+                <option value="family">Family Adventure</option>
+                <option value="luxury">Luxury & Private Villas</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Search Button -->
+          <div class="flex items-center gap-2">
+            <div class="flex-1 hidden sm:block">
+              <select id="search-budget" class="w-full bg-slate-50 px-3 py-2.5 rounded-2xl border border-slate-200/80 text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer">
+                <option value="all">Any Budget</option>
+                <option value="under50k">Under ₹50,000</option>
+                <option value="50k-100k">₹50,000 - ₹1,00,000</option>
+                <option value="above100k">Above ₹1,00,000</option>
+              </select>
+            </div>
+            <button type="submit" id="search-submit-btn" class="btn-primary w-full sm:w-auto px-6 py-3 text-sm font-bold shadow-md hover:shadow-lg flex items-center justify-center gap-2 flex-shrink-0" aria-label="Search Holiday Packages">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <span>Search Tours</span>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Quick Popular Filter Chips -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+          <span class="text-slate-400 font-bold uppercase tracking-wider text-[11px] mr-1">Trending:</span>
+          <button type="button" class="quick-filter-chip active" data-filter="all">⚡ All Packages</button>
+          <button type="button" class="quick-filter-chip" data-filter="maldives">🏝️ Maldives</button>
+          <button type="button" class="quick-filter-chip" data-filter="switzerland">❄️ Switzerland</button>
+          <button type="button" class="quick-filter-chip" data-filter="dubai">🏜️ Dubai</button>
+          <button type="button" class="quick-filter-chip" data-filter="bali">🌺 Bali</button>
+          <button type="button" class="quick-filter-chip" data-filter="honeymoon">💍 Honeymoon</button>
+          <button type="button" class="quick-filter-chip" data-filter="under50k">💰 Under ₹50K</button>
+        </div>
+
+      </div>
+
+      <!-- 3D Floating Interactive Destination Cards Stage -->
+      <div class="relative z-20 w-full flex flex-col items-center justify-center mt-6">
         <div id="hero-cards-stage" class="hero-cards-stage" aria-label="Featured Luxury Destination Packages">
-          <!-- 5 Destination Cards injected and animated by JS -->
+          <!-- 5 Destination Cards injected and animated by hero-motion.js -->
         </div>
       </div>
 
-      <!-- 3 Supporting Trust Indicators with Professional Icons -->
+      <!-- 3 Supporting Trust Indicators with Dual-Tone Gold Icons -->
       <div class="relative z-10 w-full max-w-4xl mx-auto px-4 mt-2 mb-2">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/15 text-slate-300 text-xs sm:text-sm font-medium">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-200/90 text-slate-700 text-xs sm:text-sm font-semibold">
           <div class="flex items-center justify-center gap-2">
             <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span>24/7 Dedicated Assistance</span>
+            <span>24/7 Dedicated Concierge</span>
           </div>
           <div class="flex items-center justify-center gap-2">
             <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" stroke-width="2"/>
               <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor"/>
             </svg>
-            <span>Personalised Itinerary Planning</span>
+            <span>Personalised Itinerary Crafting</span>
           </div>
           <div class="flex items-center justify-center gap-2">
             <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <circle cx="12" cy="12" r="10" stroke-width="2"/>
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
             </svg>
-            <span>Domestic & Global Destinations</span>
+            <span>Domestic & Global Handcrafted Escapes</span>
           </div>
         </div>
       </div>
 
-      <!-- Subtle Scroll Indicator -->
-      <a href="#trust-strip" class="relative z-10 mt-1 flex flex-col items-center text-slate-400 hover:text-white transition-colors" aria-label="Scroll to next section">
-        <span class="text-[10px] tracking-widest uppercase mb-1">Scroll to Explore</span>
-        <svg class="w-3.5 h-3.5 animate-bounce text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-        </svg>
-      </a>
     </section>
 
-    <!-- 3. TRUST STRIP -->
+    <!-- 3. TRUST STRIP (Crisp White Canvas) -->
     <section id="trust-strip" class="bg-white border-y border-slate-100 py-6" aria-label="Brand Highlights">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-center text-xs sm:text-sm font-semibold tracking-wide text-brand-text">
+        <div class="flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-center text-xs sm:text-sm font-bold tracking-wide text-slate-800">
           <span>24/7 Travel Assistance</span>
           <span class="text-brand-orange select-none">•</span>
           <span>Personalised Itineraries</span>
           <span class="text-brand-orange select-none">•</span>
-          <span>Domestic & International</span>
+          <span>Domestic & International Escapes</span>
           <span class="text-brand-orange select-none">•</span>
-          <span>Trusted Travel Support</span>
+          <span>Trusted Owl Guidance</span>
         </div>
       </div>
     </section>
 
-    <!-- 4. POPULAR DESTINATIONS -->
-    <section class="py-24 bg-brand-bg" id="popular-destinations" aria-labelledby="dest-heading">
+    <!-- 4. CURATED PACKAGES SECTION (Interactive Dynamic Grid with Advance Search Integration) -->
+    <section class="py-24 bg-slate-50/60" id="curated-packages" aria-labelledby="packages-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">EXPLORE THE WORLD</span>
-            <h2 id="dest-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-              Where Will You Go Next?
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange">CURATED EXPERIENCES</span>
+              <span id="search-results-count" class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">
+                8 Packages Available
+              </span>
+            </div>
+            <h2 id="packages-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
+              Handcrafted Holiday Packages
             </h2>
-            <p class="text-brand-muted text-base sm:text-lg mt-3 max-w-xl">
-              Explore destinations worth travelling for. Handcrafted itineraries curated by destination specialists.
+            <p class="text-slate-600 text-base sm:text-lg mt-3 max-w-xl">
+              Thoughtfully organized travel experiences with flights, boutique stays, speedboats, and 24/7 personal coordinator.
             </p>
           </div>
-          <div class="mt-6 md:mt-0">
-            <a href="destinations.html" class="inline-flex items-center text-sm font-bold text-brand-navy hover:text-brand-orange transition-colors group">
-              View All Destinations
-              <svg class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Destination Cards Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <!-- Card 1: Dubai -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai Skyline and Burj Khalifa" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">International</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Dubai</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Ultra-modern skyline, premium desert safaris, and legendary luxury hospitality.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations/dubai.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Dubai holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2: Maldives -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives Overwater Resort Bungalows" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">Honeymoon</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Maldives</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Private overwater villas, vibrant coral reefs, and tranquil Indian Ocean sunsets.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations/maldives.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Maldives holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3: Singapore -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" alt="Singapore Marina Bay and Gardens by the Bay" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">Family</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Singapore</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Futuristic architecture, lush tropical gardens, Sentosa Island, and world-class culinary wonders.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations/singapore.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Singapore holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4: Thailand -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80" alt="Thailand Phuket Islands and Longtail Boats" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">Island Tour</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Thailand</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Phuket beaches, Phi Phi island hopping, Bangkok street food, and ornate Buddhist temples.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Thailand holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 5: Bali -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali Rice Terraces and Tropical Nature" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">Nature & Wellness</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Bali</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Emerald rice terraces, clifftop Uluwatu temples, volcanic hiking, and serene private pool villas.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Bali holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 6: Europe -->
-          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-subtle border border-slate-100 flex flex-col">
-            <div class="relative h-64 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80" alt="Paris and Swiss Alps Europe Tour" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
-              <span class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-brand-navy tracking-wide uppercase">Grand Tour</span>
-            </div>
-            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 class="text-2xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Europe</h3>
-                <p class="text-brand-muted text-sm mt-2 line-clamp-2">Swiss Alpine vistas, Paris romantic boulevards, Italian coastal gems, and timeless historic cities.</p>
-              </div>
-              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-brand-muted font-medium">Starting from <strong class="text-brand-navy text-sm font-bold">₹XX,XXX</strong></span>
-                <a href="destinations.html" class="inline-flex items-center text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors" aria-label="Explore Europe holiday packages">
-                  Explore <span class="ml-1 text-brand-orange">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 5. FEATURED PACKAGES -->
-    <section class="py-24 bg-white" id="featured-packages" aria-labelledby="packages-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">CURATED ITINERARIES</span>
-            <h2 id="packages-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-              Handpicked Holidays
-            </h2>
-            <p class="text-brand-muted text-base sm:text-lg mt-3 max-w-xl">
-              Travel experiences designed to make planning easier and memories better.
-            </p>
-          </div>
-          <div class="mt-6 md:mt-0">
-            <a href="packages.html" class="inline-flex items-center text-sm font-bold text-brand-navy hover:text-brand-orange transition-colors group">
+          <div class="mt-6 md:mt-0 flex items-center gap-3">
+            <a href="packages.html" class="inline-flex items-center text-sm font-bold text-slate-900 hover:text-brand-orange transition-colors group">
               Browse All Packages
               <svg class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -463,487 +399,32 @@
           </div>
         </div>
 
-        <!-- Package Grid (3 Columns) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <!-- Package 1: Dubai Luxury Escape -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-200/80 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="relative h-60 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai Luxury Escape" class="editorial-img w-full h-full object-cover" loading="lazy">
-                <div class="absolute top-4 left-4 bg-brand-navy/90 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold">
-                  Dubai • 5 Days / 4 Nights
-                </div>
-              </div>
-              <div class="p-6 sm:p-7">
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">
-                  Dubai Luxury Escape
-                </h3>
-                <ul class="mt-4 space-y-2 text-xs sm:text-sm text-brand-muted">
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Burj Khalifa 124th + 125th Floor Entry</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Premium Desert Safari with BBQ Dinner</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Dubai Marina Luxury Dhow Cruise</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7 pt-0 border-t border-slate-200/50 flex items-center justify-between mt-4">
-              <div>
-                <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Starting Price</span>
-                <span class="text-base font-extrabold text-brand-navy">Starting from ₹XX,XXX</span>
-              </div>
-              <a href="packages/dubai-luxury-escape.html" class="inline-flex items-center px-4 py-2 rounded-full bg-brand-navy text-white text-xs font-semibold hover:bg-brand-orange hover:text-brand-navy transition-all duration-300">
-                View Package →
-              </a>
-            </div>
-          </article>
-
-          <!-- Package 2: Maldives Honeymoon Dream -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-200/80 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="relative h-60 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives Honeymoon Dream" class="editorial-img w-full h-full object-cover" loading="lazy">
-                <div class="absolute top-4 left-4 bg-brand-navy/90 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold">
-                  Maldives • 4 Days / 3 Nights
-                </div>
-              </div>
-              <div class="p-6 sm:p-7">
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">
-                  Maldives Honeymoon Dream
-                </h3>
-                <ul class="mt-4 space-y-2 text-xs sm:text-sm text-brand-muted">
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Overwater Villa Stay with Ocean Access</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Speedboat / Seaplane Transfers Included</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Candlelight Beach Dinner for Couple</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7 pt-0 border-t border-slate-200/50 flex items-center justify-between mt-4">
-              <div>
-                <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Starting Price</span>
-                <span class="text-base font-extrabold text-brand-navy">Price on Request</span>
-              </div>
-              <a href="packages/maldives-honeymoon.html" class="inline-flex items-center px-4 py-2 rounded-full bg-brand-navy text-white text-xs font-semibold hover:bg-brand-orange hover:text-brand-navy transition-all duration-300">
-                View Package →
-              </a>
-            </div>
-          </article>
-
-          <!-- Package 3: Singapore Family Extravaganza -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-200/80 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="relative h-60 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" alt="Singapore Family Extravaganza" class="editorial-img w-full h-full object-cover" loading="lazy">
-                <div class="absolute top-4 left-4 bg-brand-navy/90 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold">
-                  Singapore • 6 Days / 5 Nights
-                </div>
-              </div>
-              <div class="p-6 sm:p-7">
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors">
-                  Singapore Family Discovery
-                </h3>
-                <ul class="mt-4 space-y-2 text-xs sm:text-sm text-brand-muted">
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Universal Studios Singapore Full-Day Pass</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Gardens by the Bay Flower Dome & Cloud Forest</span>
-                  </li>
-                  <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    <span>Night Safari Tram Ride & Private Hotel Pickups</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="p-6 sm:p-7 pt-0 border-t border-slate-200/50 flex items-center justify-between mt-4">
-              <div>
-                <span class="block text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Starting Price</span>
-                <span class="text-base font-extrabold text-brand-navy">Starting from ₹XX,XXX</span>
-              </div>
-              <a href="packages.html" class="inline-flex items-center px-4 py-2 rounded-full bg-brand-navy text-white text-xs font-semibold hover:bg-brand-orange hover:text-brand-navy transition-all duration-300">
-                View Package →
-              </a>
-            </div>
-          </article>
-
+        <!-- Interactive Packages Grid (Updated dynamically via advance-search.js) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="interactive-packages-grid">
+          <!-- Dynamic cards injected by js/advance-search.js -->
         </div>
 
       </div>
     </section>
 
-    <!-- 6. TRAVEL CATEGORIES -->
-    <section class="py-24 bg-brand-bg" id="travel-categories" aria-labelledby="cat-heading">
+    <!-- 5. POPULAR DESTINATIONS -->
+    <section class="py-24 bg-white" id="popular-destinations" aria-labelledby="dest-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">TAILORED EXPERIENCES</span>
-          <h2 id="cat-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-            Travel Your Way
-          </h2>
-          <p class="text-brand-muted text-base sm:text-lg mt-3">
-            Whether celebrating love, exploring with family, or planning corporate retreats, we tailor every moment.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-          
-          <!-- Cat 1: Honeymoon -->
-          <a href="packages.html?category=honeymoon" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Honeymoon</h3>
-            <span class="text-[11px] text-slate-400 mt-1">Romantic Escapes</span>
-          </a>
-
-          <!-- Cat 2: Family Holidays -->
-          <a href="packages.html?category=family" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Family Holidays</h3>
-            <span class="text-[11px] text-slate-400 mt-1">Joyful Together</span>
-          </a>
-
-          <!-- Cat 3: International -->
-          <a href="packages.html?category=international" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">International</h3>
-            <span class="text-[11px] text-slate-400 mt-1">Global Wonders</span>
-          </a>
-
-          <!-- Cat 4: Domestic -->
-          <a href="packages.html?category=domestic" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Domestic Tours</h3>
-            <span class="text-[11px] text-slate-400 mt-1">India & Nearby</span>
-          </a>
-
-          <!-- Cat 5: Group Tours -->
-          <a href="packages.html?category=group" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Group Tours</h3>
-            <span class="text-[11px] text-slate-400 mt-1">Shared Journeys</span>
-          </a>
-
-          <!-- Cat 6: Corporate Travel -->
-          <a href="packages.html?category=corporate" class="editorial-card group bg-white rounded-2xl p-6 text-center border border-slate-100 shadow-subtle hover:border-brand-orange/40 transition-all flex flex-col items-center">
-            <div class="w-14 h-14 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <h3 class="text-sm font-bold text-brand-navy group-hover:text-brand-orange transition-colors">Corporate Travel</h3>
-            <span class="text-[11px] text-slate-400 mt-1">Offsites & Events</span>
-          </a>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 7. WHY TWO247 (Deep Navy Section) -->
-    <section class="py-24 bg-brand-navy text-white relative overflow-hidden" id="why-two247" aria-labelledby="why-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div class="text-center max-w-3xl mx-auto mb-20">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">THE TWO247 ADVANTAGE</span>
-          <h2 id="why-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-            More Than a Trip. A Travel Partner.
-          </h2>
-          <p class="text-slate-300 text-base sm:text-lg mt-4">
-            We combine personalized trip curation with around-the-clock guidance so you can travel with complete peace of mind.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
-          <!-- Block 1 -->
-          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/40 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Personalised Planning</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Every itinerary is built around your travel rhythm, pace, hotel preferences, and specific bucket-list desires.
-            </p>
-          </div>
-
-          <!-- Block 2 -->
-          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/40 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">24/7 Assistance</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Real human support before departure, live assistance during transfers, and instant help whenever flight or plan adjustments occur.
-            </p>
-          </div>
-
-          <!-- Block 3 -->
-          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/40 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Expert Guidance</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Insider insights on seasonal timing, local visa rules, hidden neighborhood dining, and skip-the-line attractions.
-            </p>
-          </div>
-
-          <!-- Block 4 -->
-          <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 hover:border-brand-orange/40 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-6">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">Flexible Experiences</h3>
-            <p class="text-slate-300 text-sm leading-relaxed">
-              No rigid, cookie-cutter schedules. Modify activities, extend days, and customize room types effortlessly.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 8. HOW IT WORKS -->
-    <section class="py-24 bg-white" id="how-it-works" aria-labelledby="how-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-20">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">SEAMLESS PROCESS</span>
-          <h2 id="how-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-            Your Journey, Simplified.
-          </h2>
-          <p class="text-brand-muted text-base sm:text-lg mt-3">
-            From your first spark of inspiration to your journey home, here is how we make travel effortless.
-          </p>
-        </div>
-
-        <!-- 4-Step Process: Horizontal on Desktop, Vertical on Mobile -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-          
-          <!-- Step 1 -->
-          <div class="relative flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-orange font-extrabold text-xl flex items-center justify-center mb-6 shadow-md">
-              01
-            </div>
-            <h3 class="text-xl font-bold text-brand-navy mb-2">Tell Us Where</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Choose your destination or let our travel advisors recommend the ideal getaway based on your dates and style.
-            </p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="relative flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-orange font-extrabold text-xl flex items-center justify-center mb-6 shadow-md">
-              02
-            </div>
-            <h3 class="text-xl font-bold text-brand-navy mb-2">Share Requirements</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Let us know traveller count, preferred pace, hotel tier, budget expectations, and any special moments to celebrate.
-            </p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="relative flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-orange font-extrabold text-xl flex items-center justify-center mb-6 shadow-md">
-              03
-            </div>
-            <h3 class="text-xl font-bold text-brand-navy mb-2">We Plan Your Trip</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Our specialists draft a day-by-day customized itinerary with transparent pricing, hotel options, and curated activities.
-            </p>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="relative flex flex-col items-center md:items-start text-center md:text-left">
-            <div class="w-14 h-14 rounded-2xl bg-brand-navy text-brand-orange font-extrabold text-xl flex items-center justify-center mb-6 shadow-md">
-              04
-            </div>
-            <h3 class="text-xl font-bold text-brand-navy mb-2">You Travel</h3>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Depart with full confidence. Our 24/7 travel desk stays connected on WhatsApp for smooth coordination throughout.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 9. CUSTOM TRIP CTA (Cinematic Section) -->
-    <section class="relative py-28 bg-brand-navy overflow-hidden" aria-labelledby="custom-cta-heading">
-      <div class="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=2000&q=80" alt="Traveller Overlooking Mountain Valley Sunset" class="w-full h-full object-cover object-center" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/60"></div>
-      </div>
-
-      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-        <span class="inline-block text-xs font-bold tracking-widest uppercase text-brand-orange bg-brand-orange/10 border border-brand-orange/30 px-3.5 py-1 rounded-full mb-6">
-          Can't Find the Perfect Package?
-        </span>
-        <h2 id="custom-cta-heading" class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-          Tell us where you want to go.<br>
-          <span class="text-brand-orange">We'll plan the rest.</span>
-        </h2>
-        <p class="text-slate-200 text-base sm:text-xl max-w-2xl mb-10 leading-relaxed font-normal">
-          Whether you want a private family safari, a honeymoon island hideaway, or an offbeat European road trip, our travel team will build your itinerary from scratch.
-        </p>
-        <div>
-          <a href="custom-trip.html" class="btn-primary text-base px-8 py-4 shadow-xl">
-            Plan My Custom Trip →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10. TESTIMONIALS -->
-    <section class="py-24 bg-brand-bg" id="testimonials" aria-labelledby="test-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">GUEST EXPERIENCES</span>
-          <h2 id="test-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-            Travel Stories From Our Guests
-          </h2>
-          <p class="text-brand-muted text-base sm:text-lg mt-3">
-            Real feedback and genuine travel memories shared by families, couples, and explorers.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <!-- Testimonial 1 -->
-          <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-brand-navy text-sm sm:text-base italic leading-relaxed">
-                "The 24/7 travel desk helped us adjust our Dubai transfers seamlessly within minutes after our flight arrived late. Truly thoughtful trip planning and hotel recommendations."
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-blue text-white font-bold flex items-center justify-center text-sm">
-                AK
-              </div>
-              <div>
-                <h4 class="text-sm font-bold text-brand-navy">[Guest Name Placeholder]</h4>
-                <p class="text-xs text-brand-muted">Dubai Luxury Tour</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-brand-navy text-sm sm:text-base italic leading-relaxed">
-                "Everything in our Maldives honeymoon itinerary was handled before we even landed. From seaplane transfers to candlelight dinners, TWO247 made it completely stress-free."
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-brand-orange text-brand-navy font-bold flex items-center justify-center text-sm">
-                RS
-              </div>
-              <div>
-                <h4 class="text-sm font-bold text-brand-navy">[Guest Name Placeholder]</h4>
-                <p class="text-xs text-brand-muted">Maldives Honeymoon Package</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-subtle flex flex-col justify-between">
-            <div>
-              <div class="flex text-amber-400 mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-brand-navy text-sm sm:text-base italic leading-relaxed">
-                "Tailor-made Singapore family holiday with Universal Studios tickets and private airport vans. Highly recommend their responsive WhatsApp team for peace of mind."
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">
-                VM
-              </div>
-              <div>
-                <h4 class="text-sm font-bold text-brand-navy">[Guest Name Placeholder]</h4>
-                <p class="text-xs text-brand-muted">Singapore Family Discovery</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 11. TRAVEL INSPIRATION -->
-    <section class="py-24 bg-white" id="travel-inspiration" aria-labelledby="insp-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+        <!-- Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
           <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">TRAVEL STORIES & INSIGHTS</span>
-            <h2 id="insp-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
-              Travel Inspiration
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">EXPLORE THE WORLD</span>
+            <h2 id="dest-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
+              Where Will You Go Next?
             </h2>
-            <p class="text-brand-muted text-base sm:text-lg mt-3 max-w-xl">
-              Destination guides, local secrets, seasonal tips, and packing essentials from our travel specialists.
+            <p class="text-slate-600 text-base sm:text-lg mt-3 max-w-xl">
+              Explore destinations worth travelling for. Handcrafted itineraries curated by seasoned destination specialists.
             </p>
           </div>
           <div class="mt-6 md:mt-0">
-            <a href="blog.html" class="inline-flex items-center text-sm font-bold text-brand-navy hover:text-brand-orange transition-colors group">
-              Explore Travel Guides
+            <a href="destinations.html" class="inline-flex items-center text-sm font-bold text-slate-900 hover:text-brand-orange transition-colors group">
+              View All Destinations
               <svg class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -951,75 +432,142 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Destination Grid (6 Cards) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
-          <!-- Blog 1 -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-100 shadow-subtle flex flex-col">
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai Sunset Cityscape" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-navy">Destination Guide</span>
+          <!-- Card 1: Dubai -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai Skyline & Desert Oasis" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">International</span>
             </div>
             <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-xs text-brand-muted font-medium">5 Min Read</span>
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors mt-1.5 leading-snug">
-                  Best Time to Visit Dubai: Weather, Festivals & Insider Tips
-                </h3>
-                <p class="text-brand-muted text-sm mt-3 line-clamp-2">
-                  Learn when to catch the finest winter weather, avoid summer heat, and experience Dubai Shopping Festival like a local.
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Dubai, UAE</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Futuristic architecture, desert safaris, luxury shopping, and marina dinner cruises.
                 </p>
               </div>
-              <div class="pt-6 mt-6 border-t border-slate-200/50 flex items-center justify-between">
-                <a href="blog/dubai-travel-guide.html" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors inline-flex items-center">
-                  Read Guide <span class="ml-1 text-brand-orange">→</span>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹48,999</span>
+                <a href="packages.html?dest=dubai" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Blog 2 -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-100 shadow-subtle flex flex-col">
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives Clear Lagoon and Overwater Villa" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-navy">Honeymoon Tips</span>
+          <!-- Card 2: Maldives -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80" alt="Maldives Overwater Bungalow & Crystal Lagoon" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">Honeymoon</span>
             </div>
             <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-xs text-brand-muted font-medium">6 Min Read</span>
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors mt-1.5 leading-snug">
-                  Maldives Travel Guide: Choosing Between Speedboats & Seaplanes
-                </h3>
-                <p class="text-brand-muted text-sm mt-3 line-clamp-2">
-                  Everything you need to know about resort island transfers, meal plan selections (Full Board vs All-Inclusive), and budgeting.
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Maldives</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Private overwater villas, bioluminescent beaches, vibrant coral reefs, and tranquil sunsets.
                 </p>
               </div>
-              <div class="pt-6 mt-6 border-t border-slate-200/50 flex items-center justify-between">
-                <a href="blog.html" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors inline-flex items-center">
-                  Read Guide <span class="ml-1 text-brand-orange">→</span>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹84,999</span>
+                <a href="packages.html?dest=maldives" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- Blog 3 -->
-          <article class="editorial-card group bg-brand-bg rounded-3xl overflow-hidden border border-slate-100 shadow-subtle flex flex-col">
-            <div class="relative h-56 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" alt="Singapore Gardens by the Bay Supertrees" class="editorial-img w-full h-full object-cover" loading="lazy">
-              <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-navy">Family Travel</span>
+          <!-- Card 3: Switzerland -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Swiss Alps Alpine Meadow & Peaks" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">Scenic Alps</span>
             </div>
             <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
               <div>
-                <span class="text-xs text-brand-muted font-medium">4 Min Read</span>
-                <h3 class="text-xl font-bold text-brand-navy group-hover:text-brand-orange transition-colors mt-1.5 leading-snug">
-                  Singapore With Kids: 5-Day Perfect Family Itinerary
-                </h3>
-                <p class="text-brand-muted text-sm mt-3 line-clamp-2">
-                  A balanced family plan covering Sentosa attractions, Universal Studios, interactive museums, and child-friendly dining.
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Switzerland</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Scenic glacier express trains, pristine alpine peaks, turquoise lakes, and boutique ski chalets.
                 </p>
               </div>
-              <div class="pt-6 mt-6 border-t border-slate-200/50 flex items-center justify-between">
-                <a href="blog.html" class="text-xs font-bold text-brand-navy group-hover:text-brand-orange transition-colors inline-flex items-center">
-                  Read Guide <span class="ml-1 text-brand-orange">→</span>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹1,58,000</span>
+                <a href="packages.html?dest=switzerland" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Bali -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali Rice Terraces & Ancient Temple" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">Island Bliss</span>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Bali, Indonesia</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Emerald terraced rice fields, spiritual cliffside temples, private pool villas, and surf breaks.
+                </p>
+              </div>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹36,999</span>
+                <a href="packages.html?dest=bali" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Kashmir -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=800&q=80" alt="Kashmir Dal Lake Shikara at Dawn" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">Domestic Jewel</span>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Kashmir, India</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Dal Lake heritage houseboats, Gulmarg snow-covered slopes, pine valleys, and saffron meadows.
+                </p>
+              </div>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹28,999</span>
+                <a href="packages.html?dest=kashmir" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Singapore -->
+          <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/80 flex flex-col hover:border-amber-400/50 hover:shadow-xl transition-all duration-300">
+            <div class="relative h-72 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" alt="Singapore Marina Bay Sands & Gardens by the Bay" class="editorial-img w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-xs font-bold text-slate-900 tracking-wide uppercase shadow-sm">City & Coast</span>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-2xl font-bold text-slate-900 group-hover:text-brand-orange transition-colors">Singapore</h3>
+                <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                  Gardens by the Bay supertrees, Sentosa beach days, Michelin-star hawker fare, and wildlife safaris.
+                </p>
+              </div>
+              <div class="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Packages from ₹42,999</span>
+                <a href="packages.html?dest=singapore" class="text-xs font-bold text-slate-900 group-hover:text-brand-orange transition-colors inline-flex items-center">
+                  Explore <span class="ml-1 text-brand-orange">→</span>
                 </a>
               </div>
             </div>
@@ -1030,16 +578,272 @@
       </div>
     </section>
 
-    <!-- 12. FAQ (ACCESSIBLE ACCORDION) -->
-    <section class="py-24 bg-brand-bg" id="faq" aria-labelledby="faq-heading">
+    <!-- 6. WHY TRAVELLERS CHOOSE TWO247 (Clean White Primary Canvas, Gold Icons - Zero Blue) -->
+    <section class="py-24 bg-slate-50/70 border-y border-slate-100" id="why-choose-us" aria-labelledby="why-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">THE TWO247 ADVANTAGE</span>
+          <h2 id="why-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
+            Why Travellers Trust The White Owl
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg mt-3">
+            More than just booking hotels. We provide continuous concierge companionship so you travel without hesitation.
+          </p>
+        </div>
+
+        <!-- 4 Core Pillars Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <!-- Pillar 1 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-brand-orange flex items-center justify-center mb-6 shadow-sm border border-amber-200/60">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Bespoke Planning</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Every itinerary is calibrated around your pace, flight times, boutique hotel preferences, and dream experiences.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-brand-orange flex items-center justify-center mb-6 shadow-sm border border-amber-200/60">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">24/7 Human Desk</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              A real travel specialist on WhatsApp before departure, during airport transfers, and available anytime on your trip.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-brand-orange flex items-center justify-center mb-6 shadow-sm border border-amber-200/60">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Verified Stays</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Curated luxury resorts, private villas, and 5-star properties vetted personally for hygiene, location, and hospitality.
+            </p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-amber-400/50 transition-all duration-300">
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-brand-orange flex items-center justify-center mb-6 shadow-sm border border-amber-200/60">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Zero Rigid Schedules</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              No hurried tour buses or restrictive timetables. Explore at your leisure with private chauffeurs and flexible days.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. SEAMLESS 4-STEP PROCESS -->
+    <section class="py-24 bg-white" id="how-it-works" aria-labelledby="how-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">HOW IT WORKS</span>
+          <h2 id="how-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
+            Your Journey, Effortlessly Arranged
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg mt-3">
+            From the initial spark to your return flight, our four-stage journey is completely transparent.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+          
+          <!-- Step 1 -->
+          <div class="relative flex flex-col items-center md:items-start text-center md:text-left bg-slate-50 p-6 rounded-3xl border border-slate-100">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-amber-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+              01
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Share Destination</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Tell us your desired escape, travel window, and whether you seek romance, adventure, or family relaxation.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative flex flex-col items-center md:items-start text-center md:text-left bg-slate-50 p-6 rounded-3xl border border-slate-100">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-amber-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+              02
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Tailor Inclusions</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Select room categories, private transfers, overwater villas, romantic candlelight dinners, and curated tours.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative flex flex-col items-center md:items-start text-center md:text-left bg-slate-50 p-6 rounded-3xl border border-slate-100">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-amber-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+              03
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Transparent Booking</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Receive a detailed day-wise itinerary, transparent quotations, and instant voucher confirmations.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative flex flex-col items-center md:items-start text-center md:text-left bg-slate-50 p-6 rounded-3xl border border-slate-100">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-amber-400 font-extrabold text-lg flex items-center justify-center mb-5 shadow-sm">
+              04
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">24/7 Journey Care</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Travel peacefully with continuous round-the-clock WhatsApp support for any real-time adjustments.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. BESPOKE CUSTOM TRIP CALLOUT (Obsidian Charcoal Canvas - Zero Blue) -->
+    <section class="relative py-24 bg-slate-950 overflow-hidden text-white" aria-labelledby="custom-cta-heading">
+      <div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=2000&q=80" alt="Traveller Overlooking Mountain Valley Sunset" class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/60"></div>
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+        <span class="inline-block text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-400/10 border border-amber-400/30 px-3.5 py-1 rounded-full mb-6">
+          BESPOKE TRAVEL CONCIERGE
+        </span>
+        <h2 id="custom-cta-heading" class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight mb-6" data-text-appear="lines">
+          Have a Dream Itinerary in Mind?<br>
+          <span class="text-amber-400">We'll Craft the Entire Experience.</span>
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mb-8 leading-relaxed font-normal">
+          Whether you desire a private catamaran across Greek islands, a multi-city Swiss rail pass, or a secluded Andaman dive expedition, our travel planners will design your exact blueprint.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <a href="custom-trip.html" class="btn-primary text-sm sm:text-base px-8 py-3.5 shadow-xl w-full sm:w-auto">
+            Plan My Custom Itinerary →
+          </a>
+          <button onclick="window.sendWhatsAppEnquiry('Hello TWO247, I want to discuss a custom itinerary with a travel specialist.')" class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm sm:text-base transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-emerald-400 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/>
+            </svg>
+            <span>WhatsApp 24/7 Desk</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. TESTIMONIALS (Clean White Cards) -->
+    <section class="py-24 bg-slate-50/60" id="testimonials" aria-labelledby="test-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">TRAVELLER REVIEWS</span>
+          <h2 id="test-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
+            Experiences Shared by Our Guests
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg mt-3">
+            Real stories and peace-of-mind feedback from honeymooners, families, and solo travellers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Testimonial 1 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+            <div>
+              <div class="flex text-amber-400 text-sm mb-4" aria-label="5 out of 5 stars">
+                ★★★★★
+              </div>
+              <p class="text-slate-800 text-sm sm:text-base italic leading-relaxed">
+                "Our flight arrived in Dubai late at night, and the 24/7 WhatsApp concierge coordinated with our private van driver seamlessly. The desert safari and Burj Khalifa tickets were flawless."
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-slate-900 text-amber-400 font-bold flex items-center justify-center text-sm">
+                AK
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Ananya & Karan</h4>
+                <p class="text-xs text-slate-500">Dubai Luxury Tour</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+            <div>
+              <div class="flex text-amber-400 text-sm mb-4" aria-label="5 out of 5 stars">
+                ★★★★★
+              </div>
+              <p class="text-slate-800 text-sm sm:text-base italic leading-relaxed">
+                "Everything in our Maldives honeymoon was arranged to absolute perfection. Speedboat meet-and-greet, complimentary candlelight dinner, and overwater villa upgrade. Outstanding service!"
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500 text-slate-900 font-bold flex items-center justify-center text-sm">
+                RS
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Rahul & Sneha</h4>
+                <p class="text-xs text-slate-500">Maldives Overwater Honeymoon</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
+            <div>
+              <div class="flex text-amber-400 text-sm mb-4" aria-label="5 out of 5 stars">
+                ★★★★★
+              </div>
+              <p class="text-slate-800 text-sm sm:text-base italic leading-relaxed">
+                "Our family vacation to Singapore was so smoothly paced. Sentosa cable cars, Universal Studios pass, and child-friendly hotel suites. Truly appreciated having a 24/7 point of contact."
+              </p>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">
+                VM
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900">Vikram Malhotra & Family</h4>
+                <p class="text-xs text-slate-500">Singapore Family Discovery</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 10. FAQ (ACCESSIBLE ACCORDION - Clean White Primary) -->
+    <section class="py-24 bg-white" id="faq" aria-labelledby="faq-heading">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-16">
           <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">COMMON QUESTIONS</span>
-          <h2 id="faq-heading" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-navy tracking-tight">
+          <h2 id="faq-heading" class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight" data-text-appear="words">
             Frequently Asked Questions
           </h2>
-          <p class="text-brand-muted text-base sm:text-lg mt-3">
+          <p class="text-slate-600 text-base sm:text-lg mt-3">
             Quick clarity on how TWO247 designs, arranges, and manages holiday packages.
           </p>
         </div>
@@ -1047,80 +851,54 @@
         <div class="space-y-4">
           
           <!-- FAQ Item 1 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
               <span class="text-base sm:text-lg">How do I book a holiday package with TWO247?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="faq-icon w-5 h-5 text-slate-900 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div id="faq-ans-1" role="region" aria-labelledby="faq-btn-1" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
-              Booking is simple and personalized: browse our featured destinations or submit your preferred dates and budget via our enquiry form. A dedicated trip advisor will share a customized itinerary and quote, finalize inclusions with you, and confirm bookings upon advance approval.
+            <div id="faq-ans-1" role="region" aria-labelledby="faq-btn-1" class="faq-panel hidden px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              Booking is simple and personalized: use our Advance Search bar above or submit your preferred dates and budget via our enquiry form. A dedicated trip advisor will share a customized itinerary and quote, finalize inclusions with you, and confirm bookings upon advance approval.
             </div>
           </div>
 
           <!-- FAQ Item 2 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
               <span class="text-base sm:text-lg">Can I customise an existing package?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="faq-icon w-5 h-5 text-slate-900 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+            <div id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" class="faq-panel hidden px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
               Yes, absolutely! Every package listed on our website is flexible. You can adjust duration, upgrade hotels, add private transfers, swap activities, or combine multiple cities according to your travel style.
             </div>
           </div>
 
           <!-- FAQ Item 3 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
               <span class="text-base sm:text-lg">Do you provide international holidays?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="faq-icon w-5 h-5 text-slate-900 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
-              Yes. We organize international tours across popular destinations including Dubai, Maldives, Singapore, Thailand, Bali, Europe, and many more, complete with visa guidance, private transfers, and curated excursions.
+            <div id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" class="faq-panel hidden px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              Yes. We organize international tours across popular destinations including Dubai, Maldives, Singapore, Thailand, Bali, Switzerland, Europe, and many more, complete with visa guidance, private transfers, and curated excursions.
             </div>
           </div>
 
           <!-- FAQ Item 4 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
-              <span class="text-base sm:text-lg">Do you provide 24/7 travel assistance?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-900 hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+              <span class="text-base sm:text-lg">What does 24/7 Travel Assistance mean?</span>
+              <svg class="faq-icon w-5 h-5 text-slate-900 transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div id="faq-ans-4" role="region" aria-labelledby="faq-btn-4" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
-              Yes, our core brand promise is <strong>24/7 Travel Assistance</strong>. While you are traveling, you have a direct line to our support team on WhatsApp and phone for immediate coordination, airport pickup updates, and emergency troubleshooting.
-            </div>
-          </div>
-
-          <!-- FAQ Item 5 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
-              <span class="text-base sm:text-lg">Do you arrange honeymoon packages?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div id="faq-ans-5" role="region" aria-labelledby="faq-btn-5" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
-              Yes, we specialize in romantic honeymoon packages with complimentary inclusions such as beachside candlelight dinners, couple spa vouchers, honeymoon cake, bed decorations, and private villa upgrades wherever available.
-            </div>
-          </div>
-
-          <!-- FAQ Item 6 -->
-          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-subtle overflow-hidden">
-            <button type="button" class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-brand-navy hover:text-brand-orange transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
-              <span class="text-base sm:text-lg">How early should I plan my trip?</span>
-              <svg class="faq-icon w-5 h-5 text-brand-navy transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div id="faq-ans-6" role="region" aria-labelledby="faq-btn-6" class="faq-panel hidden px-6 pb-6 text-brand-muted text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
-              We recommend planning domestic trips 3 to 4 weeks in advance and international vacations 6 to 10 weeks in advance. This ensures favorable hotel availability, early-bird pricing, and timely visa processing.
+            <div id="faq-ans-4" role="region" aria-labelledby="faq-btn-4" class="faq-panel hidden px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              Our core promise is <strong>24/7 Real-Time Travel Assistance</strong>. While you are traveling, you have a direct dedicated WhatsApp and phone line to our emergency concierge desk for immediate transfer updates, hotel coordination, and on-ground support.
             </div>
           </div>
 
@@ -1129,34 +907,36 @@
       </div>
     </section>
 
-    <!-- 13. FINAL CTA -->
-    <section class="py-24 bg-brand-navy relative text-white overflow-hidden text-center" aria-labelledby="final-cta-heading">
+    <!-- 11. FINAL CTA (Sleek Obsidian Charcoal & Amber Glow - Zero Blue) -->
+    <section class="py-24 bg-slate-950 relative text-white overflow-hidden text-center" aria-labelledby="final-cta-heading">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.12),transparent_70%)] pointer-events-none"></div>
+      
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-3">YOUR HOLIDAY PARTNER</span>
-        <h2 id="final-cta-heading" class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-          Your Next Adventure Starts Here.
+        <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-3">YOUR JOURNEY. OUR GUIDANCE. 24/7.</span>
+        <h2 id="final-cta-heading" class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-6" data-text-appear="words">
+          Your Next Unforgettable Escape Begins Here.
         </h2>
-        <p class="text-slate-300 text-base sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Let TWO247 help you plan the journey. Share your vision and get a personalized itinerary within 24 hours.
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+          Let TWO247 craft an unforgettable itinerary tailored to your schedule and tastes. Connect with our travel specialists today.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="custom-trip.html" class="btn-primary w-full sm:w-auto text-base px-9 py-4 shadow-xl">
-            Plan Your Trip →
+            Plan Your Holiday →
           </a>
-          <a href="https://wa.me/919876543210?text=Hello%20TWO247,%20I%20would%20like%20to%20plan%20a%20holiday%20trip." target="_blank" rel="noopener noreferrer" class="btn-secondary w-full sm:w-auto text-base px-8 py-4 flex items-center justify-center gap-2">
-            <svg class="w-5 h-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+          <button onclick="window.sendWhatsAppEnquiry('Hello TWO247, I would like to plan a holiday trip.')" class="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-base transition-all w-full sm:w-auto flex items-center justify-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400 fill-current" viewBox="0 0 24 24">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/>
             </svg>
-            WhatsApp 24/7 Desk
-          </a>
+            <span>WhatsApp 24/7 Desk</span>
+          </button>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- 14. FOOTER -->
-  <footer class="bg-brand-navy border-t border-white/10 text-slate-300 py-16" aria-label="Site Footer">
+  <!-- 12. FOOTER (Zero Blue - Obsidian & Slate) -->
+  <footer class="bg-slate-950 border-t border-slate-800 text-slate-300 py-16" aria-label="Site Footer">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
@@ -1173,9 +953,9 @@
             A premier travel brand dedicated to curating bespoke vacations, international escapes, honeymoon getaways, and reliable 24/7 on-tour customer support.
           </p>
           <div class="text-xs text-slate-400 space-y-1">
-            <p><strong>Office:</strong> [Office Address Placeholder]</p>
-            <p><strong>Phone:</strong> [Phone Number Placeholder]</p>
-            <p><strong>Email:</strong> [Email Address Placeholder]</p>
+            <p><strong>Office:</strong> TWO247 The White Owl Holidays</p>
+            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Email:</strong> travel@two247holidays.com</p>
           </div>
         </div>
 
@@ -1201,7 +981,7 @@
             <li><a href="packages.html?category=honeymoon" class="hover:text-brand-orange transition-colors">Honeymoon Specials</a></li>
             <li><a href="packages.html?category=family" class="hover:text-brand-orange transition-colors">Family Vacations</a></li>
             <li><a href="packages.html?category=group" class="hover:text-brand-orange transition-colors">Group Holidays</a></li>
-            <li><a href="packages.html?category=corporate" class="hover:text-brand-orange transition-colors">Corporate Travel</a></li>
+            <li><a href="packages.html?category=luxury" class="hover:text-brand-orange transition-colors">Luxury Villas</a></li>
           </ul>
         </div>
 
@@ -1220,9 +1000,9 @@
 
       </div>
 
-      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4 text-center sm:text-left">
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4 text-center sm:text-left">
         <p>© <span id="current-year">2026</span> TWO247 — The White Owl Holidays. All rights reserved.</p>
-        <p class="text-[11px] text-slate-400">Crafted with precision for premium travel experiences.</p>
+        <p class="text-[11px] text-slate-400">Crafted with precision for luxury travel experiences.</p>
       </div>
 
     </div>

@@ -14,14 +14,15 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          navy: "#071A2B",      // Primary - Deep Navy
-          dark: "#051320",      // Extra deep for overlays
-          blue: "#123B5D",      // Secondary - Travel Blue
-          orange: "#F59E0B",    // Accent - Warm Orange (Primary CTA & 24/7)
+          navy: "#0F172A",      // Primary Neutral Obsidian (Zero blue hue)
+          dark: "#09090B",      // Extra deep neutral for overlays & text
+          blue: "#18181B",      // Replaced Travel Blue with Luxury Charcoal
+          orange: "#F59E0B",    // Accent - Warm Gold/Amber (Primary CTA & 24/7)
           orangeHover: "#D97706",
-          bg: "#F8FAFC",        // Light section background
-          surface: "#FFFFFF",   // Cards
-          text: "#0F172A",      // Primary Text
+          bg: "#FFFFFF",        // White is Primary Canvas
+          surface: "#FFFFFF",   // Cards & Components
+          surfaceMuted: "#F8FAFC", // Soft neutral contrast
+          text: "#0F172A",      // Primary Text - High Contrast Charcoal
           muted: "#64748B",     // Secondary Text
           border: "#E2E8F0"
         }

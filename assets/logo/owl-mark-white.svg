@@ -6,15 +6,15 @@
   <path d="M12 16C12 12 18 10 24 15C30 10 36 12 36 16C36 28 29 36 24 38C19 36 12 28 12 16Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5" stroke-linejoin="round"/>
   
   <!-- Sleek Midnight Guidance Feathers / Brows -->
-  <path d="M14 17C17 14 22 17 24 20C26 17 31 14 34 17" stroke="#071A2B" stroke-width="2" stroke-linecap="round"/>
+  <path d="M14 17C17 14 22 17 24 20C26 17 31 14 34 17" stroke="#111827" stroke-width="2" stroke-linecap="round"/>
   
   <!-- Alert Observant Eyes: Warm Amber (Day & Night 24/7 Vision) -->
   <circle cx="18" cy="22" r="3.2" fill="#F59E0B" />
-  <circle cx="18" cy="22" r="1.4" fill="#071A2B" />
+  <circle cx="18" cy="22" r="1.4" fill="#111827" />
   <circle cx="18.8" cy="21.2" r="0.6" fill="#FFFFFF" />
 
   <circle cx="30" cy="22" r="3.2" fill="#F59E0B" />
-  <circle cx="30" cy="22" r="1.4" fill="#071A2B" />
+  <circle cx="30" cy="22" r="1.4" fill="#111827" />
   <circle cx="30.8" cy="21.2" r="0.6" fill="#FFFFFF" />
 
   <!-- Compass Beak (Direction & Navigation) -->

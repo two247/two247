@@ -55,7 +55,7 @@
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-backdrop" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="mobile-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Navigation Drawer -->
   <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-6">
@@ -92,7 +92,7 @@
   </aside>
 
   <!-- Hero Header -->
-  <section class="relative pt-36 pb-20 bg-brand-navy text-white text-center overflow-hidden">
+  <section class="relative pt-36 pb-20 bg-slate-950 text-white text-center overflow-hidden">
     <div class="absolute inset-0 z-0 opacity-25">
       <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=2000&q=80" alt="World travel destination horizon" class="w-full h-full object-cover">
     </div>
@@ -114,7 +114,7 @@
       
       <!-- Category Filter Tabs: Domestic vs International -->
       <div class="flex items-center justify-center gap-3 mb-12 flex-wrap">
-        <button class="dest-btn px-6 py-2.5 rounded-full font-bold text-sm bg-brand-navy text-white shadow-md transition-all" data-region="all">All Destinations</button>
+        <button class="dest-btn px-6 py-2.5 rounded-full font-bold text-sm bg-slate-950 text-white shadow-md transition-all" data-region="all">All Destinations</button>
         <button class="dest-btn px-6 py-2.5 rounded-full font-bold text-sm bg-white text-brand-navy border border-slate-200 hover:border-brand-orange transition-all" data-region="International">International</button>
         <button class="dest-btn px-6 py-2.5 rounded-full font-bold text-sm bg-white text-brand-navy border border-slate-200 hover:border-brand-orange transition-all" data-region="Domestic">Domestic (India)</button>
       </div>
@@ -241,7 +241,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-brand-navy text-white pt-12 pb-8 text-center text-xs text-slate-400">
+  <footer class="bg-slate-950 text-white pt-12 pb-8 text-center text-xs text-slate-400">
     <p>© 2026 TWO247 — The White Owl Holidays. 24/7 Travel Support.</p>
   </footer>
 
@@ -253,10 +253,10 @@
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         buttons.forEach(b => {
-          b.classList.remove('bg-brand-navy', 'text-white');
+          b.classList.remove('bg-slate-950', 'text-white');
           b.classList.add('bg-white', 'text-brand-navy');
         });
-        btn.classList.add('bg-brand-navy', 'text-white');
+        btn.classList.add('bg-slate-950', 'text-white');
         btn.classList.remove('bg-white', 'text-brand-navy');
 
         const region = btn.dataset.region;

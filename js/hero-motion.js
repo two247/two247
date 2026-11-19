@@ -47,7 +47,7 @@ export function initHeroMotion() {
       const item = TICKER_ITEMS[idx];
       badgeEl.innerHTML = `
         <span class="ticker-icon-wrap">${item.icon}</span>
-        <span class="ticker-text font-medium text-slate-200 text-xs sm:text-sm tracking-wide">${item.text}</span>
+        <span class="ticker-text font-semibold text-slate-800 text-xs sm:text-sm tracking-wide">${item.text}</span>
       `;
     }
 
