@@ -69,8 +69,22 @@
 
   .hero-editorial-headline {
     font-family: 'Instrument Serif', Georgia, serif;
-    line-height: 0.95;
-    letter-spacing: -2.46px;
+    line-height: 1.05;
+    letter-spacing: -0.75px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-editorial-headline {
+      line-height: 0.98;
+      letter-spacing: -1.75px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-editorial-headline {
+      line-height: 0.95;
+      letter-spacing: -2.46px;
+    }
   }
 
   /* Subtle hero slow zoom */
@@ -155,8 +169,8 @@
   width: 24px;
   height: 24px;
   border-radius: 9999px;
-  background: rgba(245, 158, 11, 0.15);
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Floating Destination Cards Stage */
@@ -400,17 +414,17 @@
 }
 
 .quick-filter-chip:hover {
-  border-color: #F59E0B;
-  color: #0F172A;
-  background: #FFFBEB;
+  border-color: #000000;
+  color: #000000;
+  background: #F8FAFC;
 }
 
 .quick-filter-chip.active {
-  background: #F59E0B;
-  border-color: #F59E0B;
-  color: #0F172A;
+  background: #000000;
+  border-color: #000000;
+  color: #FFFFFF;
   font-weight: 700;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 /* Quick View Itinerary Modal */
@@ -451,9 +465,10 @@
 /* Video Background Layer */
 .hero-video-container {
   position: absolute;
-  top: 300px;
-  inset: auto 0 0 0;
-  height: 680px;
+  top: 260px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   pointer-events: none;
   overflow: hidden;
@@ -462,8 +477,9 @@
 
 @media (max-width: 768px) {
   .hero-video-container {
-    top: 360px;
-    height: 520px;
+    top: 180px;
+    bottom: 0;
+    height: auto;
   }
 }
 
@@ -479,7 +495,7 @@
 .hero-video-gradient-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.15) 70%, #FFFFFF 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.18) 25%, rgba(255, 255, 255, 0.18) 75%, #FFFFFF 100%);
   pointer-events: none;
   z-index: 1;
 }

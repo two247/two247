@@ -8,7 +8,7 @@
  */
 
 export function initHeroMotion() {
-  const heroSection = document.getElementById('hero-motion-section');
+  const heroSection = document.getElementById('hero-motion-section') || document.querySelector('section[aria-label="Hero Introduction"]') || document.querySelector('.hero-editorial-headline');
   if (!heroSection) return;
 
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -17,14 +17,14 @@ export function initHeroMotion() {
   const cardsStage = document.getElementById('hero-cards-stage');
   const tickerContainer = document.getElementById('hero-ticker-track');
 
-  // Professional SVG Icons Library
+  // Professional SVG Icons Library (Obsidian Palette #000000)
   const ICONS = {
-    flight: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>`,
-    island: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.8-2.2-5-5-5a5 5 0 0 0-5 5c2.8 0 5 2.2 5 5"/><path d="M13 7.1a5 5 0 0 1 5 4.9c-2.8 0-5 2.2-5 5"/><path d="M13 17.5v4.5"/><path d="M2 22h20"/><path d="M11 12a4 4 0 0 0-4-4"/></svg>`,
-    compass: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" fill-opacity="0.3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`,
-    yacht: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a4 4 0 0 0 4-2 4 4 0 0 1 4-2 4 4 0 0 1 4 2 4 4 0 0 0 4 2 4 4 0 0 0 4-2"/><path d="M4 14l2-8h12l2 8"/><path d="M12 6V2l4 2-4 2"/></svg>`,
-    concierge: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>`,
-    star: `<svg class="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
+    flight: `<svg class="w-4 h-4 text-[#000000] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>`,
+    island: `<svg class="w-4 h-4 text-[#000000] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.8-2.2-5-5-5a5 5 0 0 0-5 5c2.8 0 5 2.2 5 5"/><path d="M13 7.1a5 5 0 0 1 5 4.9c-2.8 0-5 2.2-5 5"/><path d="M13 17.5v4.5"/><path d="M2 22h20"/><path d="M11 12a4 4 0 0 0-4-4"/></svg>`,
+    compass: `<svg class="w-4 h-4 text-[#000000] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" fill-opacity="0.3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`,
+    yacht: `<svg class="w-4 h-4 text-[#000000] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a4 4 0 0 0 4-2 4 4 0 0 1 4-2 4 4 0 0 1 4 2 4 4 0 0 0 4 2 4 4 0 0 0 4-2"/><path d="M4 14l2-8h12l2 8"/><path d="M12 6V2l4 2-4 2"/></svg>`,
+    concierge: `<svg class="w-4 h-4 text-[#000000] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>`,
+    star: `<svg class="w-3.5 h-3.5 text-[#000000] fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
   };
 
   // 1. ROTATING HIGHLIGHT TICKER (Stable Layout, Zero Shift)
