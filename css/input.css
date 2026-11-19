@@ -7,7 +7,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Inter', 'Manrope', system-ui, -apple-system, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #000000;
     background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
@@ -18,11 +18,21 @@
     overflow-x: hidden;
     background-color: #FFFFFF;
     color: #000000;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
-  ::selection {
-    background-color: #000000;
-    color: #FFFFFF;
+  ::selection,
+  ::-moz-selection,
+  *::selection {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+  }
+
+  /* Editorial Headings - Instrument Serif Display Typography from index.html */
+  h1, h2, h3, .font-display, .font-serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+    letter-spacing: -0.02em;
+    font-weight: 400;
   }
 }
 

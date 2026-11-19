@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/output.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Article Structured Data -->
   <script type="application/ld+json">
   {
@@ -36,82 +36,82 @@
   }
   </script>
 </head>
-<body class="bg-brand-bg text-brand-text font-sans antialiased overflow-x-hidden pb-16 md:pb-0">
+<body class="bg-[#FFFFFF] text-[#000000] font-sans antialiased overflow-x-hidden selection:bg-[#000000] selection:text-[#FFFFFF] pb-16 md:pb-0">
 
-    <!-- 1. NAVBAR -->
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3.5 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100" id="navbar" data-solid="true">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between">
-        
-        <!-- Brand Logo -->
-        <a href="../index.html" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-orange rounded-lg" aria-label="TWO247 The White Owl Holidays Home">
-          <img src="../assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" id="nav-logo" class="h-10 sm:h-11 w-auto object-contain transition-all duration-300">
+  <!-- 1. NAVIGATION BAR (Aethera® / TWO247 Cinematic Standard) -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
+      
+      <!-- Brand Logo: [Aethera®TWO247] with official logo -->
+      <a href="../index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Aethera®TWO247 Home">
+        <img src="../assets/logo/two247-logo-transparent.png" alt="Aethera®TWO247 Logo" id="nav-logo" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0">
+        <span class="text-2xl sm:text-3xl tracking-tight font-display font-normal text-[#000000] border-l border-slate-200 pl-3">
+          Aethera<sup class="text-xs font-sans font-normal ml-0.5">®</sup>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <a href="../index.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Home</a>
+        <a href="../packages.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Studio</a>
+        <a href="../destinations.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Destinations</a>
+        <a href="../about.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">About</a>
+        <a href="../blog.html" class="nav-link text-sm font-medium text-[#000000] hover:text-[#000000] transition-colors duration-200">Journal</a>
+        <a href="../contact.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Reach Us</a>
+      </nav>
+
+      <!-- Navbar Right CTA button -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="../custom-trip.html" class="rounded-full px-6 py-2.5 text-sm font-medium bg-[#000000] text-[#FFFFFF] hover:scale-[1.03] transition-transform duration-300 shadow-sm inline-flex items-center justify-center">
+          Begin Journey
         </a>
-
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-          <a href="../index.html" class="nav-link text-brand-text hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Home</a>
-          <a href="../destinations.html" class="nav-link text-brand-text hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Destinations</a>
-          <a href="../packages.html" class="nav-link text-brand-text hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Packages</a>
-          <a href="../about.html" class="nav-link text-brand-text hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">About</a>
-          <a href="../blog.html" class="nav-link text-brand-orange font-bold text-[15px] tracking-tight transition-colors duration-200" aria-current="page">Blog</a>
-          <a href="../contact.html" class="nav-link text-brand-text hover:text-brand-orange font-medium text-[15px] tracking-tight transition-colors duration-200">Contact</a>
-        </nav>
-
-        <!-- Navbar Right CTA -->
-        <div class="hidden md:flex items-center gap-4">
-          <a href="../custom-trip.html" class="btn-primary text-sm tracking-tight py-2.5 px-6">
-            Plan Your Trip
-          </a>
-        </div>
-
-        <!-- Mobile Menu Toggle Button -->
-        <div class="flex md:hidden items-center">
-          <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" class="p-2.5 rounded-lg text-brand-navy focus:outline-none focus:ring-2 focus:ring-brand-orange" aria-label="Open Navigation Menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
-
       </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <div class="flex md:hidden items-center">
+        <button type="button" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" class="p-2 rounded-lg text-[#000000] hover:text-[#6F6F6F] focus:outline-none" aria-label="Open Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
     </div>
   </header>
 
   <!-- Mobile Drawer Backdrop -->
-  <div id="mobile-backdrop" class="fixed inset-0 bg-brand-navy/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="mobile-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <!-- Mobile Navigation Drawer -->
-  <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-6">
+  <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-8">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-slate-100">
-        <img src="../assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="h-8 w-auto object-contain">
-        <button type="button" id="mobile-menu-close" class="p-2 rounded-lg text-slate-500 hover:text-brand-navy focus:outline-none" aria-label="Close Navigation Menu">
+        <div class="flex items-center gap-2.5">
+          <img src="../assets/logo/two247-logo-transparent.png" alt="Aethera®TWO247 Logo" class="h-7 w-auto object-contain">
+          <span class="text-xl font-display font-normal text-[#000000] border-l border-slate-200 pl-2.5">Aethera<sup class="text-xs font-sans">®</sup></span>
+        </div>
+        <button type="button" id="mobile-menu-close" class="p-2 rounded-lg text-[#6F6F6F] hover:text-[#000000] focus:outline-none" aria-label="Close Navigation Menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
       </div>
 
-      <nav class="flex flex-col gap-4 mt-6" aria-label="Mobile Navigation">
-        <a href="../index.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Home</a>
-        <a href="../destinations.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Destinations</a>
-        <a href="../packages.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Packages</a>
-        <a href="../about.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">About</a>
-        <a href="../blog.html" class="mobile-nav-link text-base font-semibold text-brand-orange transition-colors" aria-current="page">Blog</a>
-        <a href="../contact.html" class="mobile-nav-link text-base font-semibold text-brand-navy hover:text-brand-orange transition-colors">Contact</a>
+      <nav class="flex flex-col gap-5 mt-8" aria-label="Mobile Navigation">
+        <a href="../index.html" class="mobile-nav-link text-base font-medium text-[#000000]">Home</a>
+        <a href="../packages.html" class="mobile-nav-link text-base font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors">Studio</a>
+        <a href="../destinations.html" class="mobile-nav-link text-base font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors">Destinations</a>
+        <a href="../about.html" class="mobile-nav-link text-base font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors">About</a>
+        <a href="../blog.html" class="mobile-nav-link text-base font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors">Journal</a>
+        <a href="../contact.html" class="mobile-nav-link text-base font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors">Reach Us</a>
       </nav>
     </div>
 
     <div class="pt-6 border-t border-slate-100 flex flex-col gap-3">
-      <a href="../custom-trip.html" class="btn-primary w-full text-center py-3 text-sm">Plan Your Trip</a>
-      <a href="https://wa.me/919876543210?text=Hello%20TWO247,%20I%20would%20like%20to%20enquire%20about%20a%20holiday%20package." target="_blank" rel="noopener noreferrer" class="btn-outline-dark w-full text-center py-2.5 text-xs flex items-center justify-center gap-2">
-        <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/>
-        </svg>
-        WhatsApp 24/7 Desk
+      <a href="../custom-trip.html" class="rounded-full px-6 py-3.5 text-center text-sm font-medium bg-[#000000] text-white hover:scale-[1.03] transition-transform shadow-md">
+        Begin Journey
       </a>
-      <p class="text-[11px] text-slate-400 text-center mt-2">© TWO247 — The White Owl Holidays</p>
+      <p class="text-[11px] text-[#6F6F6F] text-center mt-2">© Aethera® • TWO247 Travel</p>
     </div>
   </aside>
 
@@ -120,18 +120,18 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Visible Breadcrumb -->
-      <nav class="flex items-center gap-2 text-xs font-semibold text-brand-muted mb-6" aria-label="Breadcrumb">
-        <a href="../index.html" class="hover:text-brand-orange transition-colors">Home</a>
+      <nav class="flex items-center gap-2 text-xs font-semibold text-[#6F6F6F] mb-6" aria-label="Breadcrumb">
+        <a href="../index.html" class="hover:text-[#000000] transition-colors">Home</a>
         <span>&gt;</span>
-        <a href="../blog.html" class="hover:text-brand-orange transition-colors">Blog</a>
+        <a href="../blog.html" class="hover:text-[#000000] transition-colors">Journal</a>
         <span>&gt;</span>
-        <span class="text-brand-navy">Dubai Travel Guide</span>
+        <span class="text-[#000000]">Dubai Travel Guide</span>
       </nav>
 
       <!-- Eyebrow & Single H1 -->
-      <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-2">DESTINATION GUIDE</span>
-      <h1 class="text-3xl sm:text-5xl font-black text-brand-navy tracking-tight leading-tight mb-4">
-        Best Time to Visit Dubai: Seasons, Weather, & Festivals Explained
+      <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">DESTINATION GUIDE</span>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight leading-tight mb-4">
+        Best Time to Visit Dubai: <span class="italic text-[#6F6F6F]">Seasons, Weather, &amp; Festivals Explained</span>
       </h1>
 
       <!-- Author & Date -->
@@ -149,68 +149,68 @@
       </div>
 
       <!-- Article Body -->
-      <div class="prose prose-slate max-w-none space-y-8 text-brand-text text-base sm:text-lg leading-relaxed">
+      <div class="prose prose-slate max-w-none space-y-8 text-[#000000] text-base sm:text-lg leading-relaxed">
         
-        <p class="text-xl text-brand-navy font-medium leading-relaxed">
+        <p class="text-xl text-[#000000] font-normal leading-relaxed">
           Dubai is a global marvel where futuristic skyscrapers tower over timeless golden dunes. Yet because the city lies in the Arabian Desert, timing your trip correctly makes the difference between breezy al fresco dining by Dubai Marina and retreating indoors to air-conditioned mega-malls.
         </p>
 
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-10 mb-4">
-          1. The Peak Winter Season (November to March)
+        <h2 class="text-3xl sm:text-4xl font-display font-normal text-[#000000] tracking-tight mt-10 mb-4">
+          1. The Peak Winter Season <span class="italic text-[#6F6F6F]">(November to March)</span>
         </h2>
-        <p>
-          Without doubt, <strong>November through March</strong> represents the golden window for Dubai travel. Daytime temperatures hover between a delightful 24°C and 28°C, while evening breezes drop into the crisp high teens.
+        <p class="text-[#6F6F6F]">
+          Without doubt, <strong class="text-[#000000]">November through March</strong> represents the golden window for Dubai travel. Daytime temperatures hover between a delightful 24°C and 28°C, while evening breezes drop into the crisp high teens.
         </p>
-        <p>
+        <p class="text-[#6F6F6F]">
           During these months, outdoor life in the emirate is at its zenith:
         </p>
-        <ul class="list-disc pl-6 space-y-2 text-base text-brand-muted">
-          <li><strong>Desert Safaris:</strong> Comfortable conditions for sunset dune bashing and overnight Lahbab camps without scorching heat.</li>
-          <li><strong>Marina & Beach Walks:</strong> Perfect weather for beachfront strolls along JBR and open-air rooftop lounges.</li>
-          <li><strong>Outdoor Attractions:</strong> The Dubai Miracle Garden, Global Village, and Dubai Safari Park are in full operation.</li>
+        <ul class="list-disc pl-6 space-y-2 text-base text-[#6F6F6F]">
+          <li><strong class="text-[#000000]">Desert Safaris:</strong> Comfortable conditions for sunset dune bashing and overnight Lahbab camps without scorching heat.</li>
+          <li><strong class="text-[#000000]">Marina & Beach Walks:</strong> Perfect weather for beachfront strolls along JBR and open-air rooftop lounges.</li>
+          <li><strong class="text-[#000000]">Outdoor Attractions:</strong> The Dubai Miracle Garden, Global Village, and Dubai Safari Park are in full operation.</li>
         </ul>
 
-        <div class="p-6 rounded-2xl bg-amber-50 border-l-4 border-brand-orange my-6">
-          <p class="text-sm font-semibold text-brand-navy m-0">
-            <strong>Travel Tip:</strong> Because this is peak tourism season, flights and 5-star beach resorts book out rapidly. We advise securing your <a href="../package/package-details.html?pkg=luxury-dubai-escape" class="text-brand-orange underline font-bold">Luxury Dubai Escape Package</a> at least 6 to 8 weeks in advance.
+        <div class="p-6 rounded-2xl bg-slate-50 border-l-4 border-[#000000] my-6">
+          <p class="text-sm font-normal text-[#000000] m-0">
+            <strong>Travel Tip:</strong> Because this is peak tourism season, flights and 5-star beach resorts book out rapidly. We advise securing your <a href="../package/package-details.html?pkg=luxury-dubai-escape" class="text-[#000000] underline font-bold">Luxury Dubai Escape Package</a> at least 6 to 8 weeks in advance.
           </p>
         </div>
 
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-10 mb-4">
-          2. The Shoulder Months (April, May, September & October)
+        <h2 class="text-3xl sm:text-4xl font-display font-normal text-[#000000] tracking-tight mt-10 mb-4">
+          2. The Shoulder Months <span class="italic text-[#6F6F6F]">(April, May, September & October)</span>
         </h2>
-        <p>
+        <p class="text-[#6F6F6F]">
           The shoulder seasons provide a superb balance between pleasant sea temperatures and attractive hotel pricing. Daytime highs reach 33°C to 37°C, but hotel swimming pools, luxury yacht charters, and shaded beach clubs remain thoroughly enjoyable.
         </p>
-        <p>
+        <p class="text-[#6F6F6F]">
           If you want 5-star beachfront resorts on Palm Jumeirah at 30% to 40% lower rates than December, consider visiting during late October or April.
         </p>
 
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-10 mb-4">
-          3. Dubai Shopping Festival (DSF)
+        <h2 class="text-3xl sm:text-4xl font-display font-normal text-[#000000] tracking-tight mt-10 mb-4">
+          3. Dubai Shopping Festival <span class="italic text-[#6F6F6F]">(DSF)</span>
         </h2>
-        <p>
-          Held annually across January and February, the <strong>Dubai Shopping Festival</strong> transforms the city into a celebration of fireworks, celebrity concerts, raffle draws, and citywide retail discounts up to 75%.
+        <p class="text-[#6F6F6F]">
+          Held annually across January and February, the <strong class="text-[#000000]">Dubai Shopping Festival</strong> transforms the city into a celebration of fireworks, celebrity concerts, raffle draws, and citywide retail discounts up to 75%.
         </p>
 
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-10 mb-4">
-          Essential Travel Checklist for Dubai
+        <h2 class="text-3xl sm:text-4xl font-display font-normal text-[#000000] tracking-tight mt-10 mb-4">
+          Essential Travel Checklist for <span class="italic text-[#6F6F6F]">Dubai</span>
         </h2>
-        <ol class="list-decimal pl-6 space-y-3 text-base text-brand-muted">
-          <li><strong>Tourist Visa:</strong> Indian passport holders can easily obtain a 30-day or 60-day tourist visa through TWO247 within 48 to 72 hours.</li>
-          <li><strong>Dress Code:</strong> Resort wear and swimwear are completely normal at pools, private beaches, and clubs. Conservative attire covering shoulders and knees is courteous when visiting old heritage souks or mosques.</li>
-          <li><strong>Currency & Payments:</strong> The UAE Dirham (AED) is pegged to the USD. Credit and debit cards are accepted everywhere, from luxury boutiques to yellow water taxis.</li>
+        <ol class="list-decimal pl-6 space-y-3 text-base text-[#6F6F6F]">
+          <li><strong class="text-[#000000]">Tourist Visa:</strong> Indian passport holders can easily obtain a 30-day or 60-day tourist visa through TWO247 within 48 to 72 hours.</li>
+          <li><strong class="text-[#000000]">Dress Code:</strong> Resort wear and swimwear are completely normal at pools, private beaches, and clubs. Conservative attire covering shoulders and knees is courteous when visiting old heritage souks or mosques.</li>
+          <li><strong class="text-[#000000]">Currency & Payments:</strong> The UAE Dirham (AED) is pegged to the USD. Credit and debit cards are accepted everywhere, from luxury boutiques to yellow water taxis.</li>
         </ol>
 
         <!-- Related Package Callout -->
-        <div class="mt-12 p-8 rounded-3xl bg-brand-navy text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="mt-12 p-8 rounded-3xl bg-[#000000] text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div class="space-y-2">
-            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">RECOMMENDED TOUR</span>
-            <h3 class="text-2xl font-black text-white">Luxury Dubai Escape (5 Days / 4 Nights)</h3>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">RECOMMENDED TOUR</span>
+            <h3 class="text-2xl font-display font-normal text-white">Luxury Dubai Escape <span class="italic text-slate-300">(5 Days / 4 Nights)</span></h3>
             <p class="text-xs text-slate-300">Includes Burj Khalifa observatory, desert safari BBQ dinner, private marina dhow cruise, and 24/7 on-ground assistance.</p>
           </div>
           <div class="shrink-0 flex flex-col gap-2 w-full sm:w-auto">
-            <a href="../package/package-details.html?pkg=luxury-dubai-escape" class="btn-primary text-xs !h-10 !px-6 text-center">
+            <a href="../package/package-details.html?pkg=luxury-dubai-escape" class="rounded-full px-6 py-2.5 bg-white text-[#000000] hover:scale-[1.03] transition-transform text-xs font-medium text-center shadow-md">
               View Itinerary & Quote →
             </a>
             <a href="../destination/destination-details.html?dest=dubai" class="text-xs text-center text-slate-300 hover:text-white underline">
@@ -223,31 +223,31 @@
 
       <!-- FAQ Section in Blog -->
       <div class="mt-16 pt-12 border-t border-slate-200">
-        <h3 class="text-2xl font-bold text-brand-navy mb-6">Frequently Asked Questions</h3>
+        <h3 class="text-3xl font-display font-normal text-[#000000] tracking-tight mb-6">Frequently Asked <span class="italic text-[#6F6F6F]">Questions</span></h3>
         <div class="space-y-4">
           <div class="p-5 rounded-2xl bg-white border border-slate-200">
-            <h4 class="font-bold text-brand-navy text-base mb-1">Is Dubai suitable for elderly travellers or toddlers?</h4>
-            <p class="text-xs sm:text-sm text-brand-muted">Yes, Dubai is one of the most accessible cities in the world, with smooth ramps, air-conditioned metro transfers, and wheelchair assistance across all major sights.</p>
+            <h4 class="font-bold text-[#000000] text-base mb-1">Is Dubai suitable for elderly travellers or toddlers?</h4>
+            <p class="text-xs sm:text-sm text-[#6F6F6F]">Yes, Dubai is one of the most accessible cities in the world, with smooth ramps, air-conditioned metro transfers, and wheelchair assistance across all major sights.</p>
           </div>
           <div class="p-5 rounded-2xl bg-white border border-slate-200">
-            <h4 class="font-bold text-brand-navy text-base mb-1">Can TWO247 customize our Dubai itinerary?</h4>
-            <p class="text-xs sm:text-sm text-brand-muted">Yes, every package is 100% customisable. You can add tickets to Museum of the Future, Atlantis Aquaventure, or arrange private Ferrari World day excursions to Abu Dhabi.</p>
+            <h4 class="font-bold text-[#000000] text-base mb-1">Can TWO247 customize our Dubai itinerary?</h4>
+            <p class="text-xs sm:text-sm text-[#6F6F6F]">Yes, every package is 100% customisable. You can add tickets to Museum of the Future, Atlantis Aquaventure, or arrange private Ferrari World day excursions to Abu Dhabi.</p>
           </div>
         </div>
       </div>
 
       <!-- Internal Navigation Links -->
-      <div class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-bold text-brand-navy">
-        <a href="../destinations.html" class="hover:text-brand-orange transition-colors">← All Destinations</a>
-        <a href="../custom-trip.html" class="text-brand-orange hover:underline">Plan a Custom Dubai Trip →</a>
+      <div class="mt-12 pt-8 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-[#000000]">
+        <a href="../destinations.html" class="hover:text-[#6F6F6F] transition-colors">← All Destinations</a>
+        <a href="../custom-trip.html" class="text-[#000000] font-semibold hover:underline">Plan a Custom Dubai Trip →</a>
       </div>
 
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-brand-navy text-white pt-12 pb-8 text-center text-xs text-slate-400">
-    <p>© 2026 TWO247 — The White Owl Holidays. 24/7 Travel Support.</p>
+  <footer class="bg-[#000000] text-white pt-12 pb-8 text-center text-xs text-slate-400">
+    <p>© 2026 Aethera® • TWO247 Travel. All rights reserved.</p>
   </footer>
   <script type="module" src="../js/main.js"></script>
 
