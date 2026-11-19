@@ -46,68 +46,55 @@
 </head>
 <body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-brand-navy">
 
-  <!-- 0. TWO247 TRAVELER PRELOADER -->
-  <div id="two247-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-[#071A2B] text-white transition-all duration-500 ease-out select-none" aria-label="Loading TWO247 Experience" role="status">
-    <!-- Subtle Cinematic Background Atmosphere -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.12),transparent_70%)] rounded-full blur-2xl"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(7,26,43,0.8)_100%)]"></div>
+  <!-- 0. TWO247 LUXURY WHITE PRELOADER -->
+  <div id="two247-preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-brand-navy select-none" aria-label="TWO247 Luxury Travel Preloader" role="status">
+    <!-- Subtle Luxury Ambient Glow (Pure White with barely-there golden warmth) -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.07),transparent_70%)] rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] bg-[radial-gradient(circle_at_center,rgba(7,26,43,0.03),transparent_65%)] rounded-full blur-2xl"></div>
     </div>
 
-    <!-- Skip Button (Accessible & Instant) -->
-    <button id="preloader-skip" class="absolute top-6 right-6 text-xs uppercase tracking-widest text-slate-400 hover:text-white px-3.5 py-1.5 rounded-full border border-slate-700/80 hover:border-amber-400/60 bg-slate-900/40 backdrop-blur-md transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95" aria-label="Skip preloader">
+    <!-- Minimalist Skip Button (Top Right) -->
+    <button id="preloader-skip" class="absolute top-6 right-6 text-[11px] uppercase tracking-widest text-slate-400 hover:text-brand-navy px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-slate-400 bg-white/90 backdrop-blur-sm transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95" aria-label="Skip preloader">
       Skip ✕
     </button>
 
     <div class="relative z-10 flex flex-col items-center justify-center p-6 text-center max-w-sm w-full">
-      <!-- Traveler Animation Container -->
-      <div class="preloader-animation-container relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-6">
-        <!-- Outer Pulsing Glow Ring -->
-        <div class="absolute inset-0 rounded-full bg-brand-orange/15 blur-xl animate-pulse"></div>
-        <!-- Elegant Double Orbit Border -->
-        <div class="absolute inset-1 rounded-full border border-brand-orange/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]"></div>
-        <div class="absolute inset-3 rounded-full border border-white/10"></div>
-        
-        <!-- Traveler Animation (MP4 with GIF fallback from LottieFiles / IconScout #8443720) -->
-        <div class="relative z-10 w-36 h-36 sm:w-44 sm:h-44 rounded-full overflow-hidden flex items-center justify-center bg-[#0B2238]/90 backdrop-blur-md border border-white/15 shadow-2xl">
-          <video 
-            autoplay 
-            loop 
-            muted 
-            playsinline 
-            poster="assets/animation/traveler-luggage.png"
-            class="w-full h-full object-cover object-center transform scale-105"
-            aria-label="Traveler with airline tickets carrying luggage"
-          >
-            <source src="assets/animation/traveler-luggage.mp4" type="video/mp4">
-            <img src="assets/animation/traveler-luggage.gif" alt="Traveler with airline tickets carrying luggage" class="w-full h-full object-cover">
-          </video>
+      <!-- Central Luxury Orbital Flight Stage -->
+      <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-5">
+        <!-- Outer Golden Ambient Halo -->
+        <div class="absolute inset-0 rounded-full bg-amber-400/10 blur-xl animate-pulse"></div>
+
+        <!-- Outer Dotted Celestial Coordinates Track -->
+        <div class="absolute inset-2 rounded-full border border-dashed border-amber-500/25 animate-[spin_36s_linear_infinite]"></div>
+
+        <!-- Golden Flight Horizon Orbit Ring -->
+        <div class="absolute inset-5 rounded-full border border-amber-400/40 shadow-[0_0_24px_rgba(245,158,11,0.12)]"></div>
+
+        <!-- Orbiting Luxury Airplane Wrapper (Smooth 360° Flight Path) -->
+        <div class="preloader-orbit-wrapper absolute inset-5 rounded-full">
+          <div class="preloader-airplane-node">
+            <!-- Sleek Gold Vector Jet -->
+            <svg class="w-4 h-4 text-amber-500 drop-shadow-[0_2px_4px_rgba(245,158,11,0.45)] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Elevated Center Emblem with Crisp TWO247 Owl Mark -->
+        <div class="relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white shadow-[0_12px_36px_rgba(7,26,43,0.08),0_2px_6px_rgba(0,0,0,0.04)] border border-slate-100/90 flex items-center justify-center p-4 transition-transform duration-300 hover:scale-105">
+          <img src="assets/logo/owl-mark.svg" alt="TWO247 Owl Emblem" class="w-full h-full object-contain filter drop-shadow-sm">
         </div>
       </div>
 
-      <!-- Brand Typography Lockup -->
-      <div class="space-y-1 mb-6">
-        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white preloader-shimmer-text">
-          TWO<span class="text-brand-orange">247</span>
-        </h2>
-        <p class="text-[11px] uppercase tracking-[0.25em] text-slate-300 font-semibold">
-          The White Owl Holidays
-        </p>
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-orange/10 border border-brand-orange/20 mt-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping"></span>
-          <span class="text-[10px] text-amber-300 tracking-wider uppercase font-bold">24/7 Travel Assistance</span>
-        </div>
+      <!-- Official Brand Logo (No extra text, ONLY the official brand logo) -->
+      <div class="w-44 sm:w-52 mb-4 transition-transform duration-300">
+        <img src="assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="w-full h-auto object-contain">
       </div>
 
-      <!-- Loading Bar & Status -->
-      <div class="w-full max-w-[220px] space-y-2.5">
-        <div class="h-1.5 w-full bg-slate-800/90 rounded-full overflow-hidden border border-slate-700/60 p-[1px]">
-          <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-brand-orange via-amber-400 to-amber-200 rounded-full transition-all duration-75 w-0 shadow-[0_0_10px_rgba(245,158,11,0.6)]"></div>
-        </div>
-        <div class="flex items-center justify-between text-[11px] font-medium text-slate-400">
-          <span id="preloader-status" class="transition-all duration-200 text-left truncate mr-2">Packing flight tickets...</span>
-          <span id="preloader-percent" class="text-brand-orange font-bold font-mono flex-shrink-0">0%</span>
-        </div>
+      <!-- Minimalist Hairline Progress Bar (Zero text, silent luxury indicator) -->
+      <div class="w-28 sm:w-32 h-[2px] bg-slate-100 rounded-full overflow-hidden border border-slate-200/50">
+        <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-full transition-all duration-100 w-0 shadow-[0_0_8px_rgba(245,158,11,0.4)]"></div>
       </div>
     </div>
   </div>
