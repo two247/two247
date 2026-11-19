@@ -1,10 +1,10 @@
 /**
- * TWO247 — Hero Motion Controller ("Tides in Motion" & "Journeys in Motion")
- * Faithfully adapts the Tidewell motion system:
- * - 3D Paper plane Catmull-Rom flight & landing
- * - 7 Travel pixel icons pop-in & sequential icon-to-letter morphing headline
- * - Painterly coastal art cards fanning across the bottom with staggered entrance
- * - Scroll-reactive scattering with per-card inertia & interactive 3D pointer tilt
+ * TWO247 — Luxury Hero Motion Controller
+ * Features:
+ * - Zero-layout-shift animated typography & rotating luxury travel ticker
+ * - Professional dual-tone vector icons (Flights, Yachts, Tropical Islands, Compass, 24/7 Concierge)
+ * - 5 3D interactive floating destination cards with continuous ambient wave motion & mouse parallax
+ * - Fully responsive, stable sizing with zero cumulative layout shift (CLS)
  */
 
 export function initHeroMotion() {
@@ -14,525 +14,209 @@ export function initHeroMotion() {
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // DOM Elements
-  const paperPlaneEl = document.getElementById('hero-paper-plane');
-  const headlineGroupEl = document.getElementById('hero-headline-group');
-  const wordRowEl = document.getElementById('hero-word-row');
-  const morphGapEl = document.getElementById('hero-morph-gap');
-  const iconRowEl = document.getElementById('hero-icon-row');
-  const cardsStageEl = document.getElementById('hero-cards-stage');
+  const cardsStage = document.getElementById('hero-cards-stage');
+  const tickerContainer = document.getElementById('hero-ticker-track');
 
-  // Asset Configuration (Higgsfield Image Proxy & CloudFront)
-  const ASSET_PREFIX = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/';
-  function higgsUrl(srcFile, width) {
-    return `https://images.higgs.ai/?default=1&output=webp&url=${encodeURIComponent(ASSET_PREFIX + srcFile)}&w=${width}&q=85`;
-  }
-
-  const GRID_A = higgsUrl('hf_20261118_061436_77e1a13d-60a0-4746-bf7b-53b2365609f5.png', 900);
-  const GRID_B = higgsUrl('hf_20261118_061435_8a1828bc-a149-44ea-80fd-c4c33eef7407.png', 900);
-  const STICKER_PLANE = higgsUrl('hf_20261118_061547_979f8673-f904-4102-90a0-6458bce33bc8.png', 1200);
-
-  // 6 Coastal Travel Cards Data
-  const CARDS_DATA = [
-    { grid: GRID_B, pos: '100% 100%', title: 'Dawn Waters', dest: 'Maldives' },
-    { grid: GRID_A, pos: '100% 0%',   title: 'Lavender Isle', dest: 'Seychelles' },
-    { grid: GRID_A, pos: '0% 100%',   title: 'Harbour Haven', dest: 'Mediterranean' },
-    { grid: GRID_A, pos: '100% 100%', title: 'Golden Surf', dest: 'Bali & Tropics' },
-    { grid: GRID_B, pos: '0% 0%',     title: 'Guiding Light', dest: 'Nordic Coast' },
-    { grid: GRID_B, pos: '100% 0%',   title: 'Ocean Swell', dest: 'Dubai Marina' }
-  ];
-
-  // 7 Travel Pixel Icons (9x9 SVGs, shape-rendering: crispEdges)
-  const ICON_DATA = [
-    // 0: plane
-    ['........k', '......kkb', '....kkwkb', '..kkwwkb.', 'kkwwwkbb.', '..kkkbb..', '....kb...', '....k....', '.........'],
-    // 1: shell
-    ['...kkk...', '..kbwbk..', '.kbwbwbk.', 'kbwbwbwbk', 'kwbwbwbwk', '.kbwbwbk.', '..kbbbk..', '...kkk...', '.........'],
-    // 2: boat
-    ['....k....', '....kb...', '....kbb..', '...wkbbb.', '..wwkbbb.', '....k....', 'kkkkkkkkk', '.kpppppk.', '..kkkkk..'],
-    // 3: lighthouse
-    ['...kkk...', '..kbbbk..', '...kwk...', '...kbk...', '...kwk...', '...kbk...', '..kwwwk..', '..kbbbk..', '.kkkkkkk.'],
-    // 4: fish
-    ['.........', '...kkk..k', '..kbbbkkk', '.kbwbbbbk', 'kbbbbbkkk', '.kbbbbk.k', '..kkkk...', '.........', '.........'],
-    // 5: wave
-    ['.........', '...kkk...', '..kbbbk..', '.kbwwbbk.', 'kbw..kbbk', 'kb....kbk', 'bbbbbbbbb', 'kkkkkkkkk', '.........'],
-    // 6: sun
-    ['....p....', '.p..k..p.', '...kpk...', '..kpppk..', 'pkpppppkp', '..kpppk..', '...kpk...', '.p..k..p.', '....p....']
-  ];
-
-  const ICON_COLORS = {
-    k: '#071A2B',
-    b: '#38BDF8',
-    w: '#FFFFFF',
-    p: '#F59E0B'
+  // Professional SVG Icons Library
+  const ICONS = {
+    flight: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>`,
+    island: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8c0-2.8-2.2-5-5-5a5 5 0 0 0-5 5c2.8 0 5 2.2 5 5"/><path d="M13 7.1a5 5 0 0 1 5 4.9c-2.8 0-5 2.2-5 5"/><path d="M13 17.5v4.5"/><path d="M2 22h20"/><path d="M11 12a4 4 0 0 0-4-4"/></svg>`,
+    compass: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" fill-opacity="0.3"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>`,
+    yacht: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a4 4 0 0 0 4-2 4 4 0 0 1 4-2 4 4 0 0 1 4 2 4 4 0 0 0 4 2 4 4 0 0 0 4-2"/><path d="M4 14l2-8h12l2 8"/><path d="M12 6V2l4 2-4 2"/></svg>`,
+    concierge: `<svg class="w-4 h-4 text-brand-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>`,
+    star: `<svg class="w-3.5 h-3.5 text-amber-400 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>`
   };
 
-  function renderPixelIcon(iconIndex) {
-    const rows = ICON_DATA[iconIndex];
-    let rects = '';
-    for (let r = 0; r < 9; r++) {
-      for (let c = 0; c < 9; c++) {
-        const ch = rows[r][c];
-        if (ICON_COLORS[ch]) {
-          rects += `<rect x="${c}" y="${r}" width="1.02" height="1.02" fill="${ICON_COLORS[ch]}" />`;
-        }
-      }
+  // 1. ROTATING HIGHLIGHT TICKER (Stable Layout, Zero Shift)
+  const TICKER_ITEMS = [
+    { icon: ICONS.flight, text: "Curated International Escapes & Luxury Flights" },
+    { icon: ICONS.island, text: "Maldives & Tropical Overwater Villa Holidays" },
+    { icon: ICONS.compass, text: "Personalized Itineraries Planned by Specialists" },
+    { icon: ICONS.yacht, text: "Private Catamaran & Coastal Yacht Cruises" },
+    { icon: ICONS.concierge, text: "Continuous 24/7 Dedicated Trip Coordinator" }
+  ];
+
+  if (tickerContainer) {
+    tickerContainer.innerHTML = '';
+    const badgeEl = document.createElement('div');
+    badgeEl.className = 'hero-ticker-badge';
+    tickerContainer.appendChild(badgeEl);
+
+    let currentTickerIdx = 0;
+    function renderTickerItem(idx) {
+      const item = TICKER_ITEMS[idx];
+      badgeEl.innerHTML = `
+        <span class="ticker-icon-wrap">${item.icon}</span>
+        <span class="ticker-text font-medium text-slate-200 text-xs sm:text-sm tracking-wide">${item.text}</span>
+      `;
     }
-    return `<svg viewBox="0 0 9 9" shape-rendering="crispEdges" width="100%" height="100%">${rects}</svg>`;
-  }
 
-  // Setup Paper Plane Sprite
-  if (paperPlaneEl) {
-    paperPlaneEl.style.backgroundImage = `url(${STICKER_PLANE})`;
-  }
+    renderTickerItem(0);
 
-  // Headline Setup: "Journeys in Motion" (or "Tides in Motion")
-  const HEADLINE_TEXT = "Journeys in Motion";
-  const charElements = [];
-  wordRowEl.innerHTML = '';
-  for (let i = 0; i < HEADLINE_TEXT.length; i++) {
-    const ch = HEADLINE_TEXT[i];
-    if (ch === ' ') {
-      const sp = document.createElement('span');
-      sp.className = 'hero-char-space';
-      wordRowEl.appendChild(sp);
-      charElements.push(null);
-    } else {
-      const sp = document.createElement('span');
-      sp.className = 'hero-char-span';
-      sp.textContent = ch;
-      if (isReducedMotion) {
-        sp.style.clipPath = 'none';
-        sp.style.opacity = '1';
-      }
-      wordRowEl.appendChild(sp);
-      charElements.push(sp);
+    if (!isReducedMotion) {
+      setInterval(() => {
+        badgeEl.style.opacity = '0';
+        badgeEl.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          currentTickerIdx = (currentTickerIdx + 1) % TICKER_ITEMS.length;
+          renderTickerItem(currentTickerIdx);
+          badgeEl.style.opacity = '1';
+          badgeEl.style.transform = 'translateY(0)';
+        }, 300);
+      }, 3400);
     }
   }
 
-  // Pixel Icons Setup (7 slots)
-  const iconBoxes = [];
-  iconRowEl.innerHTML = '';
-  for (let i = 0; i < 7; i++) {
-    const box = document.createElement('div');
-    box.className = 'hero-icon-box';
-    box.innerHTML = renderPixelIcon(i);
-    if (isReducedMotion) {
-      box.style.display = 'none';
-    } else {
-      box.style.opacity = '0';
-      box.style.transform = 'scale(0)';
+  // 2. CURATED 5 DESTINATION CARDS
+  const DESTINATION_CARDS = [
+    {
+      title: "Maldives Romance",
+      tag: "MALDIVES",
+      price: "₹84,999",
+      rating: "5.0",
+      image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80",
+      link: "packages/maldives-honeymoon.html"
+    },
+    {
+      title: "Luxury Dubai Escape",
+      tag: "DUBAI",
+      price: "₹48,999",
+      rating: "4.9",
+      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
+      link: "packages/dubai-luxury-escape.html"
+    },
+    {
+      title: "Swiss Alpine Wonders",
+      tag: "EUROPE",
+      price: "₹1,58,000",
+      rating: "5.0",
+      image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80",
+      link: "packages.html"
+    },
+    {
+      title: "Bali Tropical Serenity",
+      tag: "INDONESIA",
+      price: "₹36,999",
+      rating: "4.9",
+      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80",
+      link: "packages.html"
+    },
+    {
+      title: "Singapore Skyline",
+      tag: "SINGAPORE",
+      price: "₹54,999",
+      rating: "4.9",
+      image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=600&q=80",
+      link: "destinations/singapore.html"
     }
-    iconRowEl.appendChild(box);
-    iconBoxes.push(box);
-  }
+  ];
 
-  // Cards Setup (6 Hero Cards)
+  if (!cardsStage) return;
+  cardsStage.innerHTML = '';
+
   const cardElements = [];
   const cardStates = [];
-  cardsStageEl.innerHTML = '';
 
-  for (let i = 0; i < 6; i++) {
-    const cEl = document.createElement('div');
-    cEl.className = 'hero-motion-card';
-    cEl.style.backgroundImage = `url(${CARDS_DATA[i].grid})`;
-    cEl.style.backgroundPosition = CARDS_DATA[i].pos;
+  DESTINATION_CARDS.forEach((cData, i) => {
+    const aEl = document.createElement('a');
+    aEl.href = cData.link;
+    aEl.className = 'hero-floating-card group';
+    aEl.setAttribute('aria-label', `${cData.title} package from ${cData.price}`);
 
-    // Inner Frosted Badge
-    const badge = document.createElement('div');
-    badge.className = 'hero-card-badge';
-    badge.innerHTML = `
-      <div class="text-[9px] uppercase tracking-wider text-amber-300 font-semibold truncate">${CARDS_DATA[i].dest}</div>
-      <div class="text-[11px] font-bold text-white truncate leading-tight">${CARDS_DATA[i].title}</div>
+    aEl.innerHTML = `
+      <div class="card-image-wrap">
+        <img src="${cData.image}" alt="${cData.title}" class="card-img" loading="eager">
+        <div class="card-gradient-overlay"></div>
+      </div>
+      <div class="card-content-badge">
+        <div class="flex items-center justify-between gap-1 mb-1">
+          <span class="card-dest-tag">${cData.tag}</span>
+          <div class="flex items-center gap-0.5 text-amber-400 text-[10px] font-bold">
+            ${ICONS.star}
+            <span>${cData.rating}</span>
+          </div>
+        </div>
+        <div class="card-title">${cData.title}</div>
+        <div class="flex items-center justify-between mt-1 pt-1 border-t border-white/15">
+          <span class="text-[9px] uppercase tracking-wider text-slate-300">From</span>
+          <span class="card-price">${cData.price}</span>
+        </div>
+      </div>
     `;
-    cEl.appendChild(badge);
 
-    cardsStageEl.appendChild(cEl);
-    cardElements.push(cEl);
+    cardsStage.appendChild(aEl);
+    cardElements.push(aEl);
     cardStates.push({
-      currentX: 0, currentY: 0, currentRot: 0, currentScale: 1, currentOpacity: 0,
-      targetX: 0, targetY: 0, targetRot: 0, targetScale: 1, targetOpacity: 0,
-      entranceDone: isReducedMotion
+      baseAngle: (i - 2) * 5.5, // gentle fan angles: -11, -5.5, 0, +5.5, +11
+      phase: i * 0.9,
+      currentY: 0,
+      currentRot: (i - 2) * 5.5,
+      isHovered: false
     });
-  }
 
-  // Scaling System
-  let W = window.innerWidth;
-  let H = window.innerHeight;
-  let isMobile = false;
-  let u = 1, n = 1, hfs = 56, ic = 36, cw = 200;
+    aEl.addEventListener('mouseenter', () => { cardStates[i].isHovered = true; });
+    aEl.addEventListener('mouseleave', () => { cardStates[i].isHovered = false; });
+  });
 
-  function updateScaling() {
-    W = window.innerWidth;
-    H = window.innerHeight;
-    isMobile = (W < 820 && W < H * 1.1);
+  // 3. MOUSE PARALLAX TRACKING
+  let mouseX = 0;
+  let mouseY = 0;
 
-    u = Math.min(W / 1440, H / 800);
-    n = isMobile ? Math.min(1, W / 560) : Math.min(Math.max(W / 1440, 0.62), 1.25);
-    hfs = isMobile ? Math.min(W * 0.085, H * 0.075) : Math.min(W * 0.052, H * 0.095);
-    ic = hfs * 0.62;
-    cw = isMobile ? Math.min(W * 0.28, H * 0.18) : Math.min(W / 1440, H / 780) * 205;
-
-    document.documentElement.style.setProperty('--u', `${u}px`);
-    document.documentElement.style.setProperty('--n', `${n}`);
-    document.documentElement.style.setProperty('--hfs', `${hfs}px`);
-    document.documentElement.style.setProperty('--ic', `${ic}px`);
-    document.documentElement.style.setProperty('--cw', `${cw}px`);
-  }
-
-  window.addEventListener('resize', updateScaling);
-  updateScaling();
-
-  // Mouse Parallax & Tilt
-  let pointerX = 0;
-  let pointerY = 0;
   heroSection.addEventListener('pointermove', (e) => {
     const rect = heroSection.getBoundingClientRect();
-    pointerX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-    pointerY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
   });
+
   heroSection.addEventListener('pointerleave', () => {
-    pointerX = 0;
-    pointerY = 0;
+    mouseX = 0;
+    mouseY = 0;
   });
 
-  // Math & Easing Helpers
-  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-  function easeInOutCubic(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-  function backOut(t, s = 1.15) {
-    const t1 = t - 1;
-    return t1 * t1 * ((s + 1) * t1 + s) + 1;
-  }
-  function lerp(a, b, t) { return a + (b - a) * t; }
-  function lerpPose(pA, pB, t) {
-    return {
-      x: lerp(pA.x, pB.x, t),
-      y: lerp(pA.y, pB.y, t),
-      rot: lerp(pA.rot, pB.rot, t),
-      scale: lerp(pA.scale, pB.scale, t),
-      opacity: lerp(pA.opacity, pB.opacity, t)
-    };
-  }
-
-  // Catmull-Rom Spline
-  function catmullRom(p0, p1, p2, p3, u) {
-    return 0.5 * (
-      (2 * p1) +
-      (-p0 + p2) * u +
-      (2 * p0 - 5 * p1 + 4 * p2 - p3) * (u * u) +
-      (-p0 + 3 * p1 - 3 * p2 + p3) * (u * u * u)
-    );
-  }
-
-  function catmullRomDeriv(p0, p1, p2, p3, u) {
-    return 0.5 * (
-      (-p0 + p2) +
-      2 * (2 * p0 - 5 * p1 + 4 * p2 - p3) * u +
-      3 * (-p0 + 3 * p1 - 3 * p2 + p3) * (u * u)
-    );
-  }
-
-  // Paper Plane Flight Waypoints (Exact from Tidewell specification)
-  const PLANE_PATH = [
-    { t: 0.33, x: -3.0, y: 73.0 },
-    { t: 0.45, x: 4.0,  y: 71.0 },
-    { t: 0.60, x: 13.0, y: 65.0 },
-    { t: 0.70, x: 22.0, y: 55.0 },
-    { t: 0.80, x: 31.0, y: 44.0 },
-    { t: 0.87, x: 32.5, y: 47.5 },
-    { t: 0.93, x: 26.0, y: 48.0 },
-    { t: 1.00, x: 21.5, y: 45.0 },
-    { t: 1.07, x: 22.5, y: 51.5 },
-    { t: 1.15, x: 27.0, y: 52.0 },
-    { t: 1.27, x: 38.0, y: 41.0 } // target landing slot
-  ];
-
-  // Card Pose Calculation (Fan & Scatter)
-  function getFanPose(i) {
-    const stageRect = cardsStageEl.getBoundingClientRect();
-    const sW = stageRect.width || W;
-    const sH = stageRect.height || 300;
-
-    const R = isMobile ? sW * 1.35 : 1250 * sW / 1440;
-    const stepR = 2 * Math.asin((1.05 * cw) / (2 * R));
-    const theta = (i - 2.5) * stepR;
-    const cx = sW * 0.5;
-    const cy = sH * 0.82 + R;
-
-    let x = cx + R * Math.sin(theta);
-    if (!isMobile) x -= sW * 0.015;
-    let y = cy - R * Math.cos(theta);
-    if (isMobile) y += cw * 0.15;
-    const rot = theta * 180 / Math.PI;
-
-    return { x, y, rot, scale: 1, opacity: 1 };
-  }
-
-  const SCATTER_DESKTOP = [
-    { xf: 0.06, yf: 0.45, rot: -20 },
-    { xf: 0.16, yf: 0.85, rot: -12 },
-    { xf: 0.84, yf: 0.82, rot: 14 },
-    { xf: 0.35, yf: 1.05, rot: -8 },
-    { xf: 0.94, yf: 0.42, rot: 16 },
-    { xf: 0.65, yf: 1.05, rot: 9 }
-  ];
-
-  const SCATTER_MOBILE = [
-    { xf: 0.06, yf: 0.60, rot: -20 },
-    { xf: 0.45, yf: 0.66, rot: 12 },
-    { xf: 0.94, yf: 0.60, rot: 16 },
-    { xf: 0.22, yf: 0.93, rot: -14 },
-    { xf: 0.72, yf: 0.96, rot: 9 },
-    { xf: 0.50, yf: 1.30, rot: 0 }
-  ];
-
-  function getScatterPose(i) {
-    const sc = isMobile ? SCATTER_MOBILE[i] : SCATTER_DESKTOP[i];
-    const sRect = cardsStageEl.getBoundingClientRect();
-    const sW = sRect.width || W;
-    const sH = sRect.height || 300;
-    return {
-      x: sc.xf * sW,
-      y: sc.yf * sH,
-      rot: sc.rot,
-      scale: 0.95,
-      opacity: 0.65
-    };
-  }
-
-  // Staggered Entrance Times for Cards 5, 2, 0, 1, 3, 4
-  const ENTRANCE_TIMES = {
-    5: 0.53,
-    2: 0.60,
-    0: 0.63,
-    1: 0.70,
-    3: 0.80,
-    4: 0.86
-  };
-
-  // Animation Loop
-  const startTime = performance.now();
-  let lastFrameTime = startTime;
+  // 4. ANIMATION TICK LOOP (Continuous Gentle Floating Wave + Parallax)
+  let startTime = performance.now();
+  let lastTime = startTime;
 
   function tick(now) {
-    const dt = Math.min(100, now - lastFrameTime);
-    lastFrameTime = now;
-    const t = (now - startTime) / 1000;
+    const elapsed = (now - startTime) / 1000;
+    const dt = Math.min(100, now - lastTime);
+    lastTime = now;
 
-    // Scroll progress within Hero Section
-    const scrollY = window.scrollY || window.pageYOffset || 0;
-    const heroH = heroSection.offsetHeight || H;
-    const scrollProgress = Math.max(0, Math.min(1, scrollY / (heroH * 0.75)));
+    // Entrance animation completion (first 1.2s)
+    const entranceProgress = Math.min(1, elapsed / 0.9);
+    const entranceEase = 1 - Math.pow(1 - entranceProgress, 3);
 
-    // 1. PAPER PLANE FLIGHT & LANDING
-    if (!isReducedMotion && paperPlaneEl) {
-      const heroRect = heroSection.getBoundingClientRect();
-      const iconRowRect = iconRowEl.getBoundingClientRect();
-      const landingX = (iconRowRect.left > 0 ? iconRowRect.left - heroRect.left + ic * 0.5 : W * 0.5 - 3.2 * ic);
-      const landingY = (iconRowRect.top > 0 ? iconRowRect.top - heroRect.top + ic * 0.5 : H * 0.35);
+    cardElements.forEach((el, i) => {
+      const state = cardStates[i];
 
-      PLANE_PATH[10].x = (landingX / W) * 100;
-      PLANE_PATH[10].y = (landingY / H) * 100;
-
-      if (t >= 0.33 && t <= 1.27) {
-        paperPlaneEl.style.display = 'block';
-        let segIdx = 0;
-        for (let i = 0; i < PLANE_PATH.length - 1; i++) {
-          if (PLANE_PATH[i].t <= t && t <= PLANE_PATH[i + 1].t) {
-            segIdx = i;
-            break;
-          }
-        }
-        const p0 = PLANE_PATH[Math.max(0, segIdx - 1)];
-        const p1 = PLANE_PATH[segIdx];
-        const p2 = PLANE_PATH[segIdx + 1];
-        const p3 = PLANE_PATH[Math.min(PLANE_PATH.length - 1, segIdx + 2)];
-        const segU = (t - p1.t) / (p2.t - p1.t);
-
-        const pxPct = catmullRom(p0.x, p1.x, p2.x, p3.x, segU);
-        const pyPct = catmullRom(p0.y, p1.y, p2.y, p3.y, segU);
-        const dX = catmullRomDeriv(p0.x, p1.x, p2.x, p3.x, segU);
-        const dY = catmullRomDeriv(p0.y, p1.y, p2.y, p3.y, segU);
-        const rotDeg = Math.atan2(dY * H, dX * W) * 180 / Math.PI + 18;
-
-        const px = (pxPct / 100) * W;
-        const py = (pyPct / 100) * H;
-        paperPlaneEl.style.transform = `translate3d(${px - u * 31}px, ${py - u * 31}px, 0) rotate(${rotDeg}deg)`;
-        paperPlaneEl.style.opacity = '1';
-      } else if (t > 1.27 && t <= 1.33) {
-        // Shrink to 0.6 and fade out into the pixel plane
-        const landU = (t - 1.27) / 0.06;
-        paperPlaneEl.style.transform = `translate3d(${landingX - u * 31}px, ${landingY - u * 31}px, 0) scale(${1 - 0.4 * landU})`;
-        paperPlaneEl.style.opacity = `${1 - landU}`;
-      } else if (t > 1.33) {
-        paperPlaneEl.style.display = 'none';
-      }
-    }
-
-    // 2. PIXEL ICONS POP-IN (1.27s - 1.70s)
-    if (!isReducedMotion) {
-      if (t >= 1.27) {
-        // Icon 0 (plane) appears as paper plane finishes landing
-        if (t >= 1.27 && t <= 1.9) {
-          const ic0U = Math.min(1, (t - 1.27) / 0.06);
-          iconBoxes[0].style.opacity = `${ic0U}`;
-          iconBoxes[0].style.transform = 'scale(1)';
-        }
-        // Icons 1 to 6 pop in sequentially
-        for (let j = 0; j < 6; j++) {
-          const tPop = 1.27 + (0.03 + j * 0.07);
-          if (t >= tPop && t <= 1.9) {
-            const popU = (t - tPop) / 0.32;
-            if (popU > 0) {
-              const scaleVal = backOut(Math.min(1, popU), 2.2);
-              const fadeVal = Math.min(1, (t - tPop) / 0.12);
-              iconBoxes[j + 1].style.opacity = `${fadeVal}`;
-              iconBoxes[j + 1].style.transform = `scale(${scaleVal})`;
-            }
-          }
-        }
+      if (isReducedMotion) {
+        el.style.transform = `rotate(${state.baseAngle}deg)`;
+        el.style.opacity = '1';
+        return;
       }
 
-      // 3. ICON-TO-LETTER MORPH (1.9s -> ~5.2s)
-      if (t >= 1.9) {
-        const morphStep = Math.floor((t - 1.9) / 0.22);
-        const totalChars = charElements.length;
+      // Sine wave breathing hover
+      const floatY = Math.sin(elapsed * 1.8 + state.phase) * 5;
+      const targetParallaxX = mouseX * (10 + (2 - Math.abs(i - 2)) * 4);
+      const targetParallaxY = mouseY * 6;
 
-        for (let c = 0; c < totalChars; c++) {
-          const charEl = charElements[c];
-          if (!charEl) continue; // space
-          const stepStart = 1.9 + c * 0.22;
-          if (t >= stepStart + 0.22) {
-            charEl.style.clipPath = 'inset(0 0% 0 0)';
-            charEl.style.opacity = '1';
-          } else if (t >= stepStart) {
-            const stepTau = (t - stepStart) / 0.22;
-            let wipeU = 0;
-            if (stepTau > 0.90) wipeU = 1;
-            else if (stepTau > 0.32) wipeU = (stepTau - 0.32) / (0.90 - 0.32);
-            charEl.style.clipPath = `inset(0 ${(1 - wipeU) * 100}% 0 0)`;
-            charEl.style.opacity = '1';
-          } else {
-            charEl.style.clipPath = 'inset(0 100% 0 0)';
-          }
-        }
+      const hoverLift = state.isHovered ? -16 : 0;
+      const hoverScale = state.isHovered ? 1.08 : 1;
+      const hoverRot = state.isHovered ? 0 : state.baseAngle + (mouseX * 2);
 
-        // Remaining icons: ceil(7 * lettersLeft / 16)
-        const lettersLeft = Math.max(0, totalChars - 1 - morphStep);
-        const iconsRemaining = Math.max(0, Math.min(7, Math.ceil(7 * lettersLeft / 16)));
+      // Staggered rise on entrance
+      const staggerDelay = i * 0.1;
+      const cardEntrance = Math.max(0, Math.min(1, (elapsed - staggerDelay) / 0.7));
+      const cardEase = 1 - Math.pow(1 - cardEntrance, 3);
+      const entranceOffsetY = (1 - cardEase) * 60;
 
-        for (let k = 0; k < 7; k++) {
-          const box = iconBoxes[k];
-          if (k < iconsRemaining) {
-            box.style.display = 'inline-flex';
-            box.style.transform = 'scale(1) rotate(0deg)';
-            box.style.filter = 'brightness(1)';
-            box.style.opacity = '1';
-          } else if (k === iconsRemaining && morphStep < totalChars) {
-            // Leftmost icon currently being consumed
-            box.style.display = 'inline-flex';
-            const stepStart = 1.9 + morphStep * 0.22;
-            const stepTau = Math.min(1, Math.max(0, (t - stepStart) / 0.22));
-            if (stepTau < 0.45) {
-              const p1 = stepTau / 0.45;
-              const sY = 1 - 0.84 * p1;
-              const sX = 1 + 0.25 * p1;
-              const rDeg = -28 * p1;
-              const bVal = 1 - p1;
-              box.style.transform = `scale(${sX}, ${sY}) rotate(${rDeg}deg)`;
-              box.style.filter = `brightness(${bVal})`;
-              box.style.opacity = '1';
-            } else {
-              const p2 = (stepTau - 0.45) / 0.55;
-              const rDeg = -28 - 62 * p2;
-              box.style.transform = `scale(1.25, 0.16) rotate(${rDeg}deg)`;
-              box.style.filter = 'brightness(0)';
-              box.style.opacity = `${1 - p2}`;
-            }
-          } else {
-            box.style.display = 'none';
-          }
-        }
+      const totalY = floatY + targetParallaxY + hoverLift + entranceOffsetY;
+      const totalX = targetParallaxX;
 
-        if (iconsRemaining === 0) {
-          morphGapEl.style.width = '0px';
-          iconRowEl.style.display = 'none';
-        }
-      }
-    }
-
-    // 4. CARDS CHOREOGRAPHY & INERTIA
-    const sH = cardsStageEl.offsetHeight || 300;
-    for (let i = 0; i < 6; i++) {
-      const card = cardStates[i];
-      let targetPose;
-
-      if (scrollProgress <= 0.05) {
-        targetPose = getFanPose(i);
-      } else {
-        const blendT = easeInOutCubic(Math.min(1, (scrollProgress - 0.05) / 0.70));
-        const fanP = getFanPose(i);
-        const scP = getScatterPose(i);
-        targetPose = lerpPose(fanP, scP, blendT);
-        // Fade out cards as user scrolls well into the next section
-        if (scrollProgress > 0.45) {
-          targetPose.opacity = Math.max(0, 1 - (scrollProgress - 0.45) * 2.5);
-        }
-      }
-
-      // Add gentle pointer tilt / parallax
-      const tiltX = pointerY * 4;
-      const tiltY = -pointerX * 5;
-      const shiftX = pointerX * (10 + i * 3);
-      const shiftY = pointerY * (6 + i * 2);
-
-      targetPose.x += shiftX;
-      targetPose.y += shiftY;
-      targetPose.rot += (pointerX * 2);
-
-      card.targetX = targetPose.x;
-      card.targetY = targetPose.y;
-      card.targetRot = targetPose.rot;
-      card.targetScale = targetPose.scale;
-      card.targetOpacity = targetPose.opacity;
-
-      // Staggered Entrance Animation (t < 2.0s, order 5, 2, 0, 1, 3, 4)
-      if (!isReducedMotion && t < 2.0 && scrollProgress < 0.01) {
-        const eStart = ENTRANCE_TIMES[i];
-        if (t < eStart) {
-          card.currentX = targetPose.x;
-          card.currentY = sH + cw * 1.2;
-          card.currentRot = targetPose.rot + 8;
-          card.currentOpacity = 1;
-        } else {
-          const eU = Math.min(1, (t - eStart) / 0.7);
-          const eEase = backOut(eU, 1.15);
-          card.currentX = targetPose.x;
-          card.currentY = (sH + cw * 1.2) + (targetPose.y - (sH + cw * 1.2)) * eEase;
-          card.currentRot = (targetPose.rot + 8) + (targetPose.rot - (targetPose.rot + 8)) * eEase;
-          card.currentOpacity = 1;
-          if (eU >= 1) card.entranceDone = true;
-        }
-      } else if (scrollProgress < 0.01 && card.entranceDone && !pointerX && !pointerY) {
-        card.currentX = targetPose.x;
-        card.currentY = targetPose.y;
-        card.currentRot = targetPose.rot;
-        card.currentScale = targetPose.scale;
-        card.currentOpacity = targetPose.opacity;
-      } else {
-        // Per-card inertia: k = 1 - (1 - w)^(dt / 16.67)
-        const wInertia = 0.055 + (i % 4) * 0.008;
-        const kInertia = 1 - Math.pow(1 - wInertia, dt / 16.67);
-        card.currentX += (targetPose.x - card.currentX) * kInertia;
-        card.currentY += (targetPose.y - card.currentY) * kInertia;
-        card.currentRot += (targetPose.rot - card.currentRot) * kInertia;
-        card.currentScale += (targetPose.scale - card.currentScale) * kInertia;
-        card.currentOpacity += (targetPose.opacity - card.currentOpacity) * kInertia;
-      }
-
-      // Apply transform & 3D tilt to card element
-      cardElements[i].style.transform = `translate3d(${card.currentX}px, ${card.currentY}px, 0) rotate(${card.currentRot}deg) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(${card.currentScale})`;
-      cardElements[i].style.opacity = `${card.currentOpacity}`;
-    }
+      el.style.transform = `translate3d(${totalX}px, ${totalY}px, 0) rotate(${hoverRot}deg) scale(${hoverScale})`;
+      el.style.opacity = `${cardEase}`;
+      el.style.zIndex = state.isHovered ? 30 : (10 + (2 - Math.abs(i - 2)));
+    });
 
     requestAnimationFrame(tick);
   }
