@@ -1,6 +1,7 @@
 /**
  * TWO247 Luxury White Preloader Controller
- * Minimalist White Background, Logo Only, Zero Text
+ * Minimalist White Background, Owl Animation + Logo Only
+ * Duration: Exactly 3.0 Seconds
  */
 
 export function initPreloader() {
@@ -19,13 +20,15 @@ export function initPreloader() {
   const progressBar = document.getElementById("preloader-progress-bar");
   const skipBtn = document.getElementById("preloader-skip");
 
-  let progress = 0;
+  const DURATION = 3000; // 3 seconds display time
+  const startTime = performance.now();
   let isDismissed = false;
+  let rafId = null;
 
   function dismissPreloader() {
     if (isDismissed || !preloader) return;
     isDismissed = true;
-    clearInterval(progressInterval);
+    if (rafId) cancelAnimationFrame(rafId);
 
     preloader.classList.add("preloader-hidden");
     document.body.classList.remove("overflow-hidden");
@@ -36,29 +39,26 @@ export function initPreloader() {
     }, 480);
   }
 
-  // Animate progress bar smoothly (finishes in ~1.1s)
-  const progressInterval = setInterval(() => {
+  // Smooth 60fps progress animation across the 3-second duration
+  function tick(now) {
     if (isDismissed) return;
-
-    // Organic non-linear acceleration
-    let step = 4;
-    if (progress < 40) step = Math.floor(Math.random() * 6) + 4;
-    else if (progress < 80) step = Math.floor(Math.random() * 8) + 6;
-    else step = Math.floor(Math.random() * 10) + 8;
-
-    progress = Math.min(100, progress + step);
+    const elapsed = now - startTime;
+    const progress = Math.min(100, (elapsed / (DURATION - 200)) * 100);
 
     if (progressBar) {
-      progressBar.style.width = `${progress}%`;
+      progressBar.style.width = `${progress.toFixed(1)}%`;
     }
 
-    if (progress >= 100) {
-      clearInterval(progressInterval);
-      setTimeout(dismissPreloader, 200);
+    if (elapsed >= DURATION) {
+      dismissPreloader();
+    } else {
+      rafId = requestAnimationFrame(tick);
     }
-  }, 35);
+  }
 
-  // Skip Button
+  rafId = requestAnimationFrame(tick);
+
+  // Skip Button for instant dismissal
   if (skipBtn) {
     skipBtn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -78,8 +78,8 @@ export function initPreloader() {
     }
   });
 
-  // Safety threshold: maximum display time 1.4s
-  setTimeout(dismissPreloader, 1400);
+  // Safety threshold fallback
+  setTimeout(dismissPreloader, DURATION + 200);
 }
 
 // Auto-run if script is loaded standalone or via module
