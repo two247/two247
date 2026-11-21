@@ -77,18 +77,19 @@
       </button>
     </header>
 
-    <div class="p-6 sm:p-10 space-y-6 max-w-7xl">
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl mx-auto w-full">
 
       <!-- Filter & Search Toolbar -->
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
-        <div class="w-full sm:w-80 relative">
+      <!-- FIX: flex-wrap + correct icon positioning for search input -->
+      <div class="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
+        <div class="w-full sm:w-80 relative search-with-icon">
+          <svg class="search-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" id="pkg-search" placeholder="Search by title or destination..."
             class="admin-input pl-10 pr-4 py-2 text-xs">
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
 
-        <div class="flex items-center gap-2 w-full sm:w-auto">
-          <select id="pkg-cat-filter" class="admin-select py-2 text-xs w-auto">
+        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <select id="pkg-cat-filter" class="admin-select py-2 text-xs">
             <option value="all">All Categories</option>
             <option value="International">International</option>
             <option value="Domestic">Domestic</option>

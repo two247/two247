@@ -69,7 +69,8 @@
   <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
     
     <!-- Top Header -->
-    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-5 flex items-center justify-between sticky top-0 z-20">
+    <!-- FIX: header wraps on small screens; gap added for proper spacing -->
+    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-4 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-20">
       <div>
         <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Executive Dashboard</h1>
         <p class="text-xs text-slate-500 mt-0.5">Real-time holiday packages, destinations & concierge operations</p>
@@ -88,7 +89,8 @@
     </header>
 
     <!-- Dashboard Body -->
-    <div class="p-6 sm:p-10 space-y-8 max-w-7xl">
+    <!-- FIX: added mx-auto so content is bounded at max-width and doesn't drift left -->
+    <div class="p-6 sm:p-10 space-y-8 max-w-7xl mx-auto w-full">
 
       <!-- 4 Stats Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -175,15 +177,15 @@
         </div>
 
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-slate-600">
+          <table class="w-full text-left text-xs text-slate-600 min-w-[560px]">
             <thead class="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-200">
               <tr>
-                <th class="px-6 py-3.5">Guest</th>
-                <th class="px-6 py-3.5">Destination</th>
-                <th class="px-6 py-3.5">Travel Month</th>
-                <th class="px-6 py-3.5">Budget</th>
-                <th class="px-6 py-3.5">Status</th>
-                <th class="px-6 py-3.5 text-right">Actions</th>
+                <th class="px-6 py-3.5 whitespace-nowrap">Guest</th>
+                <th class="px-6 py-3.5 whitespace-nowrap">Destination</th>
+                <th class="px-6 py-3.5 whitespace-nowrap">Travel Month</th>
+                <th class="px-6 py-3.5 whitespace-nowrap">Budget</th>
+                <th class="px-6 py-3.5 whitespace-nowrap">Status</th>
+                <th class="px-6 py-3.5 text-right whitespace-nowrap">Actions</th>
               </tr>
             </thead>
             <tbody id="dashboard-inquiries-body" class="divide-y divide-slate-100">
@@ -218,30 +220,47 @@
         if (inqs.length === 0) {
           tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-slate-400">No active customer leads in Firestore. New inquiries submitted through website forms or WhatsApp will appear here in real-time.</td></tr>`;
         } else {
-          tbody.innerHTML = inqs.slice(0, 5).map(inq => {
+          // FIX: Use DOM construction for user-sourced data to prevent XSS
+          tbody.innerHTML = "";
+          inqs.slice(0, 5).forEach(inq => {
             const name = inq.name || inq.guestName || "Traveler";
             const phone = inq.phone || "No phone";
             const cleanPhone = phone.replace(/[^0-9]/g, '');
             const dest = inq.destination || "Bespoke Trip";
             const dates = inq.travelMonth || inq.season || "Flexible";
             const status = inq.status || "new";
-            return `
-              <tr class="hover:bg-slate-50/80 transition-colors">
-                <td class="px-6 py-4 font-semibold text-slate-900">${name}<br><span class="text-slate-400 font-normal font-mono text-[11px]">${phone}</span></td>
-                <td class="px-6 py-4">${dest}</td>
-                <td class="px-6 py-4">${dates}</td>
-                <td class="px-6 py-4 font-medium text-slate-900">${inq.budget || "Flexible"}</td>
-                <td class="px-6 py-4">
-                  <span class="badge-pill uppercase text-[10px] font-bold ${status.toLowerCase() === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700'}">
-                    ${status}
-                  </span>
-                </td>
-                <td class="px-6 py-4 text-right">
-                  ${cleanPhone ? `<a href="https://wa.me/${cleanPhone}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] hover:bg-emerald-700 transition-colors inline-block">WhatsApp</a>` : '-'}
-                </td>
-              </tr>
+            const statusClass = status.toLowerCase() === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700';
+
+            const tr = document.createElement("tr");
+            tr.className = "hover:bg-slate-50/80 transition-colors";
+
+            const whatsAppCell = cleanPhone
+              ? `<a href="https://wa.me/${encodeURIComponent(cleanPhone)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] hover:bg-emerald-700 transition-colors inline-block">WhatsApp</a>`
+              : '-';
+
+            tr.innerHTML = `
+              <td class="px-6 py-4 font-semibold text-slate-900"></td>
+              <td class="px-6 py-4"></td>
+              <td class="px-6 py-4"></td>
+              <td class="px-6 py-4 font-medium text-slate-900"></td>
+              <td class="px-6 py-4"><span class="badge-pill uppercase text-[10px] font-bold ${statusClass}"></span></td>
+              <td class="px-6 py-4 text-right">${whatsAppCell}</td>
             `;
-          }).join('');
+
+            // Set text safely
+            const cells = tr.querySelectorAll("td");
+            cells[0].textContent = name;
+            const phoneSub = document.createElement("span");
+            phoneSub.className = "text-slate-400 font-normal font-mono text-[11px] block";
+            phoneSub.textContent = phone;
+            cells[0].appendChild(phoneSub);
+            cells[1].textContent = dest;
+            cells[2].textContent = dates;
+            cells[3].textContent = inq.budget || "Flexible";
+            cells[4].querySelector(".badge-pill").textContent = status;
+
+            tbody.appendChild(tr);
+          });
         }
       }
 

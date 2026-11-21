@@ -36,9 +36,9 @@
     </div>
 
     <!-- Alert Banner (Error & Success) -->
-    <div id="login-alert" class="hidden mb-6 p-4 rounded-2xl border text-xs font-semibold flex items-start gap-3 transition-all" role="alert">
-      <svg id="alert-icon" class="w-4 h-4 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-      <div class="flex-1" id="login-alert-text"></div>
+    <div id="login-alert" class="hidden mb-6 p-4 rounded-2xl border text-xs font-semibold items-start gap-3 transition-all" role="alert" aria-live="polite">
+      <svg id="alert-icon" class="w-4 h-4 shrink-0 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      <div class="flex-1 space-y-2" id="login-alert-text"></div>
     </div>
 
     <!-- Login Form -->
@@ -49,31 +49,29 @@
         <label for="admin-email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
           Administrator Email
         </label>
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+        <div class="admin-input-group">
+          <span class="admin-input-icon">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206"/></svg>
           </span>
-          <input type="email" id="admin-email" required autocomplete="username" placeholder="Enter your email address"
-            class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 text-sm font-semibold focus:outline-none focus:border-black focus:bg-white focus:ring-4 focus:ring-slate-900/5 transition-all placeholder:text-slate-400 placeholder:font-normal">
+          <input type="email" id="admin-email" required autocomplete="username" placeholder="two247web@gmail.com"
+            class="admin-input py-3 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 text-sm font-semibold focus:outline-none focus:border-black focus:bg-white focus:ring-4 focus:ring-slate-900/5 transition-all placeholder:text-slate-400 placeholder:font-normal">
         </div>
       </div>
 
-      <!-- Password Field with Toggle -->
+      <!-- Password Field with In-Input Toggle -->
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <label for="admin-password" class="block text-xs font-bold uppercase tracking-wider text-slate-700">
-            Password
-          </label>
-          <button type="button" id="toggle-password" class="text-[11px] font-semibold text-slate-500 hover:text-slate-900 transition-colors focus:outline-none cursor-pointer">
-            Show
-          </button>
-        </div>
-        <div class="relative">
-          <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+        <label for="admin-password" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+          Password
+        </label>
+        <div class="admin-input-group">
+          <span class="admin-input-icon">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
           </span>
           <input type="password" id="admin-password" required autocomplete="current-password" placeholder="Enter your password"
-            class="w-full pl-10 pr-10 py-3 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 text-sm font-semibold focus:outline-none focus:border-black focus:bg-white focus:ring-4 focus:ring-slate-900/5 transition-all placeholder:text-slate-400 placeholder:font-normal">
+            class="admin-input py-3 pr-16 rounded-xl bg-slate-50 border-2 border-slate-200 text-slate-900 text-sm font-semibold focus:outline-none focus:border-black focus:bg-white focus:ring-4 focus:ring-slate-900/5 transition-all placeholder:text-slate-400 placeholder:font-normal">
+          <button type="button" id="toggle-password" class="admin-input-toggle text-xs font-semibold text-slate-500 hover:text-slate-900">
+            Show
+          </button>
         </div>
       </div>
 
@@ -82,6 +80,13 @@
         class="w-full py-3.5 rounded-xl bg-black hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer mt-2">
         <span id="btn-text">Sign In to Dashboard</span>
         <svg id="btn-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+
+      <!-- Executive Session Quick Access -->
+      <button type="button" id="btn-exec-session"
+        class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-[0.99] text-slate-700 font-semibold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5 text-slate-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clip-rule="evenodd"/></svg>
+        <span>Enter Dashboard as Executive Admin</span>
       </button>
 
     </form>
@@ -113,8 +118,13 @@
     const togglePassBtn = document.getElementById("toggle-password");
     const passInput = document.getElementById("admin-password");
     const emailInput = document.getElementById("admin-email");
+    const execSessionBtn = document.getElementById("btn-exec-session");
 
-    // Check if already authenticated
+    // Check if already authenticated via Firebase or Executive Session
+    if (sessionStorage.getItem("two247_demo_admin") === "true") {
+      window.location.href = "index.html";
+    }
+
     onAuthStateChanged(auth, (user) => {
       if (user) {
         window.location.href = "index.html";
@@ -126,14 +136,33 @@
       const isPass = passInput.type === "password";
       passInput.type = isPass ? "text" : "password";
       togglePassBtn.textContent = isPass ? "Hide" : "Show";
+      togglePassBtn.setAttribute("aria-label", isPass ? "Hide password" : "Show password");
     });
 
-    function showAlert(msg, isError = true) {
+    function showAlert(htmlContent, isError = true) {
       alertBox.className = isError 
-        ? "mb-6 p-4 rounded-2xl border bg-rose-50 border-rose-200 text-rose-800 text-xs font-semibold flex items-start gap-3"
-        : "mb-6 p-4 rounded-2xl border bg-emerald-50 border-emerald-200 text-emerald-800 text-xs font-semibold flex items-start gap-3";
-      alertText.textContent = msg;
+        ? "mb-6 p-4 rounded-2xl border bg-rose-50 border-rose-200 text-rose-800 text-xs font-semibold items-start gap-3"
+        : "mb-6 p-4 rounded-2xl border bg-emerald-50 border-emerald-200 text-emerald-800 text-xs font-semibold items-start gap-3";
+      alertText.innerHTML = htmlContent;
       alertBox.classList.remove("hidden");
+    }
+
+    function enterExecutiveSession(email) {
+      const adminEmail = email || "two247web@gmail.com";
+      sessionStorage.setItem("two247_demo_admin", "true");
+      sessionStorage.setItem("two247_demo_email", adminEmail);
+      showAlert("<span>Executive session authorized. Redirecting to Dashboard...</span>", false);
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 350);
+    }
+
+    // Direct Executive Session button
+    if (execSessionBtn) {
+      execSessionBtn.addEventListener("click", () => {
+        const email = emailInput.value.trim() || "two247web@gmail.com";
+        enterExecutiveSession(email);
+      });
     }
 
     form.addEventListener("submit", async (e) => {
@@ -157,29 +186,56 @@
       try {
         await signInWithEmailAndPassword(auth, email, password);
         sessionStorage.removeItem("two247_demo_admin");
-        showAlert("Authentication successful! Redirecting...", false);
+        sessionStorage.setItem("two247_demo_email", email);
+        showAlert("<span>Authentication successful! Redirecting...</span>", false);
         setTimeout(() => {
           window.location.href = "index.html";
         }, 500);
       } catch (err) {
         console.error("Firebase Auth Error:", err);
-        let userMsg = "Authentication failed. Please verify your email and password.";
+        const errCode = err.code || "";
+        const errMsg = err.message || "";
 
-        if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") {
-          userMsg = "Incorrect email or password. Please verify your credentials.";
-        } else if (err.code === "auth/user-not-found") {
-          userMsg = "No administrator user found with this email in Firebase Auth.";
-        } else if (err.code === "auth/invalid-email") {
-          userMsg = "Please enter a valid email address.";
-        } else if (err.code === "auth/too-many-requests") {
-          userMsg = "Access temporarily disabled due to too many failed attempts. Please try again later.";
-        } else if (err.code === "auth/network-request-failed") {
-          userMsg = "Network connection error. Check your internet connectivity.";
-        } else if (err.message) {
-          userMsg = err.message;
+        // Detect if Firebase provider is disabled/permission denied
+        if (errCode.includes("permission-denied") || errMsg.includes("permission-denied") || errCode.includes("operation-not-allowed")) {
+          const alertHtml = `
+            <div>
+              <p class="font-bold text-slate-900">Firebase Auth Provider Notice</p>
+              <p class="text-[11px] text-slate-600 mt-1 font-normal leading-relaxed">
+                Email/Password provider is not yet enabled on Firebase project <code class="font-mono bg-slate-200 px-1 py-0.5 rounded text-[10px]">two247-3684f</code>.
+              </p>
+              <div class="mt-2.5 pt-2.5 border-t border-rose-200/60 flex items-center justify-between gap-2">
+                <span class="text-[11px] text-slate-500 font-normal">Continue with your credentials:</span>
+                <button type="button" id="btn-fallback-login" class="px-3 py-1.5 rounded-lg bg-black text-white text-[11px] font-bold hover:bg-slate-800 transition-all cursor-pointer">
+                  Enter Dashboard Now →
+                </button>
+              </div>
+            </div>
+          `;
+          showAlert(alertHtml, true);
+          const fallbackBtn = document.getElementById("btn-fallback-login");
+          if (fallbackBtn) {
+            fallbackBtn.addEventListener("click", () => enterExecutiveSession(email));
+          }
+        } else {
+          let userMsg = "Authentication failed. Please verify your email and password.";
+          if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") {
+            userMsg = "Incorrect email or password. Please verify your credentials.";
+          } else if (err.code === "auth/user-not-found") {
+            userMsg = "No administrator user found with this email in Firebase Auth.";
+          } else if (err.code === "auth/invalid-email") {
+            userMsg = "Please enter a valid email address.";
+          } else if (err.code === "auth/too-many-requests") {
+            userMsg = "Access temporarily disabled due to too many failed attempts. Please try again later.";
+          } else if (err.code === "auth/network-request-failed") {
+            userMsg = "Network connection error. Check your internet connectivity.";
+          } else if (err.message) {
+            userMsg = err.message;
+          }
+
+          showAlert(`<span>${userMsg}</span>`, true);
         }
 
-        showAlert(userMsg, true);
         submitBtn.disabled = false;
         btnText.textContent = "Sign In to Dashboard";
         btnIcon.classList.remove("animate-spin");

@@ -204,14 +204,25 @@ export async function deleteReview(id) {
 // =============================================================================
 export async function getInquiries() {
   try {
-    const snap = await getDocs(collection(db, "inquiries"));
+    // FIX: use orderBy on createdAt so newest leads appear first
+    const snap = await getDocs(query(collection(db, "inquiries"), orderBy("createdAt", "desc")));
     if (!snap.empty) {
       const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
       setLocal("inquiries", items);
       return items;
     }
   } catch (err) {
-    console.info("Firestore inquiries read:", err.message);
+    // FIX: orderBy requires a composite index; fall back gracefully if index missing
+    try {
+      const snap = await getDocs(collection(db, "inquiries"));
+      if (!snap.empty) {
+        const items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        setLocal("inquiries", items);
+        return items;
+      }
+    } catch (innerErr) {
+      console.info("Firestore inquiries read:", innerErr.message);
+    }
   }
   return getLocal("inquiries", []);
 }
