@@ -1,0 +1,172 @@
+rules_version = '2';
+
+// ===============================================================
+// Assumed Data Model & Architecture
+// ===============================================================
+//
+// Project: TWO247 (The White Owl Holidays)
+// Firebase Project ID: two247-3684f
+//
+// Collections:
+// 1. /packages/{packageId}
+//    - Public read: Curated holiday itineraries, prices, inclusions.
+//    - Admin write: Authenticated travel desk / administrators.
+//    - Fields: id, slug, name, destination, duration, category,
+//              startingPrice, rating, image, highlights, itinerary, etc.
+//
+// 2. /destinations/{destinationId}
+//    - Public read: Destination guides, region details, hero imagery.
+//    - Admin write: Authenticated travel desk / administrators.
+//    - Fields: id, slug, name, region, tagline, shortDescription,
+//              heroImage, cardImage, topExperiences, startingPrice, etc.
+//
+// 3. /reviews/{reviewId}
+//    - Public read: Verified traveler testimonials and star ratings.
+//    - Public create: Travelers submit feedback with name, rating (1-5),
+//      and optional review text (strictly validated, DoS bounded).
+//    - Admin update/delete: Authenticated moderation and curation.
+//    - Fields: name / clientName (string, 1-100 chars),
+//              rating (number, 1-5),
+//              reviewText (optional string, <= 2000 chars),
+//              destination (optional string, <= 100 chars),
+//              clientLocation (optional string, <= 100 chars),
+//              avatarUrl (optional string, <= 500 chars),
+//              status (optional string, <= 30 chars),
+//              verified (optional bool)
+//
+// 4. /inquiries/{inquiryId}
+//    - Public create: Potential guests submit holiday inquiries with
+//      name, phone, and optional trip requirements (validated, DoS bounded).
+//    - Admin read, update, delete: Authenticated travel desk only.
+//      PII Protection: Public read is strictly DENIED.
+//    - Fields: name / guestName (string, 1-100 chars),
+//              phone (string, 5-30 chars),
+//              email (optional string, <= 100 chars),
+//              destination (optional string, <= 150 chars),
+//              travelMonth / season (optional string, <= 50 chars),
+//              guests / travelers (optional string, <= 50 chars),
+//              budget (optional string, <= 50 chars),
+//              message / notes (optional string, <= 2000 chars),
+//              status (optional string, <= 30 chars),
+//              source (optional string, <= 50 chars)
+//
+// 5. /gallery/{galleryId}
+//    - Public read: Visual showcase of travel destinations & experiences.
+//    - Admin write: Authenticated administrators.
+//    - Fields: id, title, category, tag, image, desc, resource_type, etc.
+//
+// Default Deny:
+// - All other document paths deny read and write by default.
+// ===============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    // Check if the request is from an authenticated user (admin)
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Check if optional string field is either absent or valid within size limits
+    function isValidOptionalString(field, minLen, maxLen) {
+      return !(field in request.resource.data) ||
+        (request.resource.data[field] is string &&
+         request.resource.data[field].size() >= minLen &&
+         request.resource.data[field].size() <= maxLen);
+    }
+
+    // Domain Validator for Review Submissions
+    // Enforces: name is string (>0 & <=100), rating is number (1 to 5),
+    // and bounds on any optional fields to prevent 1MB DoS payload attacks.
+    function isValidReview(data) {
+      return (
+        // Name validation (supports both 'name' and 'clientName' for schema compatibility)
+        (('name' in data && data.name is string && data.name.size() > 0 && data.name.size() <= 100) ||
+         ('clientName' in data && data.clientName is string && data.clientName.size() > 0 && data.clientName.size() <= 100)) &&
+        // Rating validation (strictly between 1 and 5)
+        data.rating is number &&
+        data.rating >= 1 &&
+        data.rating <= 5 &&
+        // Bounds on optional review fields
+        isValidOptionalString('reviewText', 0, 2000) &&
+        isValidOptionalString('destination', 0, 100) &&
+        isValidOptionalString('clientLocation', 0, 100) &&
+        isValidOptionalString('avatarUrl', 0, 500) &&
+        isValidOptionalString('status', 0, 30) &&
+        (!('verified' in data) || data.verified is bool)
+      );
+    }
+
+    // Domain Validator for Lead & Trip Inquiry Submissions
+    // Enforces: name is string (>0 & <=100), phone is string (5 to 30),
+    // and bounds on optional fields to prevent payload exhaustion attacks.
+    function isValidInquiry(data) {
+      return (
+        // Name validation (supports both 'name' and 'guestName')
+        (('name' in data && data.name is string && data.name.size() > 0 && data.name.size() <= 100) ||
+         ('guestName' in data && data.guestName is string && data.guestName.size() > 0 && data.guestName.size() <= 100)) &&
+        // Phone validation (required string with reasonable length bounds)
+        data.phone is string &&
+        data.phone.size() >= 5 &&
+        data.phone.size() <= 30 &&
+        // Bounds on optional inquiry fields
+        isValidOptionalString('email', 0, 100) &&
+        isValidOptionalString('destination', 0, 150) &&
+        isValidOptionalString('travelMonth', 0, 50) &&
+        isValidOptionalString('season', 0, 50) &&
+        isValidOptionalString('guests', 0, 50) &&
+        isValidOptionalString('travelers', 0, 50) &&
+        isValidOptionalString('budget', 0, 50) &&
+        isValidOptionalString('message', 0, 2000) &&
+        isValidOptionalString('notes', 0, 2000) &&
+        isValidOptionalString('status', 0, 30) &&
+        isValidOptionalString('source', 0, 50)
+      );
+    }
+
+    // ===============================================================
+    // Collection Match Rules
+    // ===============================================================
+
+    // 1. Packages: Public read, Admin write
+    match /packages/{packageId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // 2. Destinations: Public read, Admin write
+    match /destinations/{destinationId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // 3. Reviews: Public read, Public validated create, Admin update & delete
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isValidReview(request.resource.data) || isAuthenticated();
+      allow update, delete: if isAuthenticated();
+    }
+
+    // 4. Inquiries: Admin read/update/delete (PII protection), Public validated create
+    match /inquiries/{inquiryId} {
+      allow read: if isAuthenticated();
+      allow create: if isValidInquiry(request.resource.data) || isAuthenticated();
+      allow update, delete: if isAuthenticated();
+    }
+
+    // 5. Gallery: Public read, Admin write
+    match /gallery/{galleryId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // Default Deny for any unlisted collections or documents
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
