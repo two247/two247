@@ -164,6 +164,18 @@
       let reviews = await getReviews();
 
       function render() {
+        if (!reviews || reviews.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full py-16 text-center bg-white rounded-2xl border border-slate-200 p-8">
+              <div class="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center mb-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+              </div>
+              <h3 class="text-sm font-bold text-slate-800">No client reviews in Firestore yet</h3>
+              <p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Click "Add Testimonial" above to publish your first verified client feedback or testimonial.</p>
+            </div>
+          `;
+          return;
+        }
         container.innerHTML = reviews.map(r => `
           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
             <div>

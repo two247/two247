@@ -76,6 +76,10 @@
       </div>
 
       <div class="flex items-center gap-3">
+        <button id="btn-sync-firestore" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+          <span id="sync-btn-text">Sync Real Data to Firestore</span>
+        </button>
         <a href="packages.html?action=new" class="px-4 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
           <span>Create Package</span>
@@ -194,45 +198,73 @@
 
   <script type="module">
     import { initAuthGuard } from "./js/auth-guard.js";
-    import { getPackages, getDestinations, getReviews, getInquiries, updateInquiryStatus } from "./js/db-service.js";
+    import { getPackages, getDestinations, getReviews, getInquiries, updateInquiryStatus, syncAllToFirestore } from "./js/db-service.js";
 
     initAuthGuard(async () => {
-      // Load counts
-      const [pkgs, dests, revs, inqs] = await Promise.all([
-        getPackages(),
-        getDestinations(),
-        getReviews(),
-        getInquiries()
-      ]);
+      async function refreshCounts() {
+        const [pkgs, dests, revs, inqs] = await Promise.all([
+          getPackages(),
+          getDestinations(),
+          getReviews(),
+          getInquiries()
+        ]);
 
-      document.getElementById("stat-packages").textContent = pkgs.length;
-      document.getElementById("stat-destinations").textContent = dests.length;
-      document.getElementById("stat-reviews").textContent = revs.length;
-      document.getElementById("stat-inquiries").textContent = inqs.length;
+        document.getElementById("stat-packages").textContent = pkgs.length;
+        document.getElementById("stat-destinations").textContent = dests.length;
+        document.getElementById("stat-reviews").textContent = revs.length;
+        document.getElementById("stat-inquiries").textContent = inqs.length;
 
-      // Render recent inquiries
-      const tbody = document.getElementById("dashboard-inquiries-body");
-      if (inqs.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-slate-400">No active customer leads.</td></tr>`;
-      } else {
-        tbody.innerHTML = inqs.slice(0, 5).map(inq => `
-          <tr class="hover:bg-slate-50/80 transition-colors">
-            <td class="px-6 py-4 font-semibold text-slate-900">${inq.guestName}<br><span class="text-slate-400 font-normal">${inq.phone}</span></td>
-            <td class="px-6 py-4">${inq.destination}</td>
-            <td class="px-6 py-4">${inq.travelMonth}</td>
-            <td class="px-6 py-4 font-medium text-slate-900">${inq.budget || "Flexible"}</td>
-            <td class="px-6 py-4">
-              <span class="badge-pill ${inq.status === 'New' ? 'bg-rose-100 text-rose-700' : inq.status === 'Contacted' ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}">
-                ${inq.status}
-              </span>
-            </td>
-            <td class="px-6 py-4 text-right">
-              <a href="https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-white font-bold text-[11px] hover:bg-emerald-600 transition-colors inline-block">
-                WhatsApp
-              </a>
-            </td>
-          </tr>
-        `).join('');
+        const tbody = document.getElementById("dashboard-inquiries-body");
+        if (inqs.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-slate-400">No active customer leads in Firestore. New inquiries submitted through website forms or WhatsApp will appear here in real-time.</td></tr>`;
+        } else {
+          tbody.innerHTML = inqs.slice(0, 5).map(inq => {
+            const name = inq.name || inq.guestName || "Traveler";
+            const phone = inq.phone || "No phone";
+            const cleanPhone = phone.replace(/[^0-9]/g, '');
+            const dest = inq.destination || "Bespoke Trip";
+            const dates = inq.travelMonth || inq.season || "Flexible";
+            const status = inq.status || "new";
+            return `
+              <tr class="hover:bg-slate-50/80 transition-colors">
+                <td class="px-6 py-4 font-semibold text-slate-900">${name}<br><span class="text-slate-400 font-normal font-mono text-[11px]">${phone}</span></td>
+                <td class="px-6 py-4">${dest}</td>
+                <td class="px-6 py-4">${dates}</td>
+                <td class="px-6 py-4 font-medium text-slate-900">${inq.budget || "Flexible"}</td>
+                <td class="px-6 py-4">
+                  <span class="badge-pill uppercase text-[10px] font-bold ${status.toLowerCase() === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-700'}">
+                    ${status}
+                  </span>
+                </td>
+                <td class="px-6 py-4 text-right">
+                  ${cleanPhone ? `<a href="https://wa.me/${cleanPhone}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] hover:bg-emerald-700 transition-colors inline-block">WhatsApp</a>` : '-'}
+                </td>
+              </tr>
+            `;
+          }).join('');
+        }
+      }
+
+      await refreshCounts();
+
+      // One-click sync to Firestore
+      const syncBtn = document.getElementById("btn-sync-firestore");
+      const syncText = document.getElementById("sync-btn-text");
+      if (syncBtn) {
+        syncBtn.addEventListener("click", async () => {
+          syncBtn.disabled = true;
+          syncText.textContent = "Pushing to Cloud Firestore...";
+          try {
+            const res = await syncAllToFirestore();
+            alert(`Successfully synced ${res.packages} official packages and ${res.destinations} destinations directly to Firebase Cloud Firestore!`);
+            await refreshCounts();
+          } catch (err) {
+            alert("Firestore sync notice: " + (err.message || err));
+          } finally {
+            syncBtn.disabled = false;
+            syncText.textContent = "Sync Real Data to Firestore";
+          }
+        });
       }
     });
   </script>

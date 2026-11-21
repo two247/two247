@@ -124,9 +124,14 @@
 
   <script type="module">
     import { auth } from '../js/firebase-config.js';
+    import { initAuthGuard } from './js/auth-guard.js';
     import { getInquiries, updateInquiryStatus } from './js/db-service.js';
 
     let allInquiries = [];
+
+    initAuthGuard(async () => {
+      loadInquiries();
+    });
 
     window.loadInquiries = async function() {
       const tbody = document.getElementById('inquiries-tbody');
@@ -137,45 +142,7 @@
         renderInquiries(allInquiries);
       } catch (err) {
         console.error("Failed to load inquiries:", err);
-        // Fallback sample inquiries
-        allInquiries = [
-          {
-            id: 'inq_001',
-            name: 'Priya Sundaram',
-            phone: '+919840123456',
-            destination: 'Maldives Overwater Villa',
-            season: 'Winter (Dec - Jan)',
-            budget: '₹85,000 - ₹1,20,000',
-            travelers: '2 Adults (Honeymoon)',
-            status: 'new',
-            createdAt: '2026-11-21T09:15:00Z',
-            notes: 'Looking for all-inclusive package with seaplane transfers.'
-          },
-          {
-            id: 'inq_002',
-            name: 'Vikram Malhotra',
-            phone: '+919820987654',
-            destination: 'Swiss Alpine Wonders',
-            season: 'Summer (Jun - Jul)',
-            budget: '₹1,50,000+',
-            travelers: '4 (Family)',
-            status: 'quoted',
-            createdAt: '2026-11-20T14:30:00Z',
-            notes: 'First time Europe trip. Requested Glacier Express tickets.'
-          },
-          {
-            id: 'inq_003',
-            name: 'Ananya Sharma',
-            phone: '+919988776655',
-            destination: 'Bali Tropical Serenity',
-            season: 'Spring (Apr)',
-            budget: 'Under ₹50,000',
-            travelers: '2 Adults',
-            status: 'contacted',
-            createdAt: '2026-11-19T18:00:00Z',
-            notes: 'Ubud private pool villa + Seminyak beach stay.'
-          }
-        ];
+        allInquiries = [];
         renderInquiries(allInquiries);
       }
     };
