@@ -17,7 +17,7 @@ export const destinations = [
       "Private Yacht Cruise in Dubai Marina",
       "Old Dubai Gold & Spice Souks"
     ],
-    startingPrice: "₹45,999",
+    startingPrice: "₹48,000",
     featured: true
   },
   {
@@ -57,7 +57,7 @@ export const destinations = [
       "Universal Studios Sentosa",
       "Night Safari Tram Experience"
     ],
-    startingPrice: "₹52,999",
+    startingPrice: "₹48,000",
     featured: true
   },
   {
@@ -77,7 +77,147 @@ export const destinations = [
       "Bangkok Grand Palace & River Cruise",
       "Railay Beach Rock Climbing & Kayaking"
     ],
-    startingPrice: "₹34,999",
+    startingPrice: "₹14,000",
+    featured: true
+  },
+  {
+    id: "malaysia",
+    slug: "malaysia",
+    name: "Malaysia",
+    region: "International",
+    tagline: "Twin Towers skyline, rainforest retreats, and tropical islands",
+    shortDescription: "Kuala Lumpur modern heritage, Langkawi geopark beaches, and Penang street food capitals.",
+    heroImage: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "December to April",
+    idealDuration: "5 to 7 Days",
+    topExperiences: [
+      "Petronas Twin Towers Skybridge & Observation Deck",
+      "Langkawi Mangrove Forest & Island Catamaran",
+      "Batu Caves Temple & Cultural Tour",
+      "Penang UNESCO George Town Heritage Walk"
+    ],
+    startingPrice: "₹14,000",
+    featured: true
+  },
+  {
+    id: "turkey",
+    slug: "turkey",
+    name: "Turkey",
+    region: "International",
+    tagline: "Where East meets West in timeless Byzantine & Ottoman grandeur",
+    shortDescription: "Bosphorus cruises, surreal fairy chimneys of Cappadocia, and hot air balloon horizons.",
+    heroImage: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "April to May & September to November",
+    idealDuration: "7 to 10 Days",
+    topExperiences: [
+      "Sunrise Hot Air Balloon Over Cappadocia",
+      "Private Bosphorus Sunset Yacht Cruise",
+      "Hagia Sophia & Grand Bazaar Private Guide",
+      "Pamukkale Thermal Travertine Terraces"
+    ],
+    startingPrice: "₹1,40,000",
+    featured: true
+  },
+  {
+    id: "netherlands",
+    slug: "netherlands",
+    name: "Netherlands",
+    region: "International",
+    tagline: "Picturesque canals, tulip blooms, and golden age art",
+    shortDescription: "Amsterdam canal cruises, historic windmills of Zaanse Schans, and Keukenhof tulip gardens.",
+    heroImage: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "April to October",
+    idealDuration: "5 to 7 Days",
+    topExperiences: [
+      "Private Amsterdam Canal Salon Boat Cruise",
+      "Keukenhof Tulip Gardens & Bulb Fields",
+      "Rijksmuseum & Van Gogh Masterpiece Tour",
+      "Zaanse Schans Windmills & Cheese Farm"
+    ],
+    startingPrice: "₹1,31,000",
+    featured: true
+  },
+  {
+    id: "poland",
+    slug: "poland",
+    name: "Poland",
+    region: "International",
+    tagline: "Gothic castles, royal history, and vibrant cobblestone squares",
+    shortDescription: "Krakow's medieval charm, royal Wawel castle, Tatra alpine mountains, and Warsaw heritage.",
+    heroImage: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "May to October",
+    idealDuration: "6 to 8 Days",
+    topExperiences: [
+      "Krakow Old Town & Wawel Royal Castle Tour",
+      "Wieliczka Underground Salt Cathedral",
+      "Tatra Mountains & Zakopane Alpine Resort",
+      "Warsaw Royal Route & Lazienki Palace"
+    ],
+    startingPrice: "₹1,52,000",
+    featured: true
+  },
+  {
+    id: "australia",
+    slug: "australia",
+    name: "Australia",
+    region: "International",
+    tagline: "Iconic harbor views, vibrant coral reefs, and ancient red sands",
+    shortDescription: "Sydney Opera House, Great Barrier Reef catamaran cruises, and Melbourne laneway culture.",
+    heroImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "September to November & March to May",
+    idealDuration: "8 to 12 Days",
+    topExperiences: [
+      "Sydney Harbor Sunset Private Yacht Cruise",
+      "Great Barrier Reef Outer Reef Snorkel & Dive",
+      "Blue Mountains Scenic Cableway & Vistas",
+      "Melbourne Yarra Valley Wine & Gastronomy"
+    ],
+    startingPrice: "₹1,67,000",
+    featured: true
+  },
+  {
+    id: "sweden",
+    slug: "sweden",
+    name: "Sweden",
+    region: "International",
+    tagline: "Nordic serenity, Stockholm waterways, and arctic wonder",
+    shortDescription: "Stockholm archipelago, historic Gamla Stan, design capitals, and magical Northern Lights.",
+    heroImage: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "May to September (Summer) & Dec to March (Aurora)",
+    idealDuration: "6 to 8 Days",
+    topExperiences: [
+      "Stockholm Archipelago Private Boat Cruise",
+      "Gamla Stan Royal Palace Walking Tour",
+      "Kiruna Icehotel & Aurora Glass Cabin",
+      "Abisko National Park Northern Lights Chase"
+    ],
+    startingPrice: "₹1,69,000",
+    featured: true
+  },
+  {
+    id: "new-zealand",
+    slug: "new-zealand",
+    name: "New Zealand",
+    region: "International",
+    tagline: "Dramatic glacial fjords, alpine peaks, and geothermal wonders",
+    shortDescription: "Milford Sound cruises, Queenstown adventure, Rotorua Maori culture, and Southern Alps.",
+    heroImage: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "November to April",
+    idealDuration: "9 to 14 Days",
+    topExperiences: [
+      "Milford Sound Luxury Nature Cruise",
+      "Queenstown Helicopter Flight to Glacier",
+      "Rotorua Geothermal Springs & Maori Feast",
+      "Hobbiton Movie Set Private Tour"
+    ],
+    startingPrice: "₹1,71,000",
     featured: true
   },
   {

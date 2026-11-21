@@ -52,13 +52,13 @@ export const siteConfig = {
 
   // Contact & Conversion Channels
   contact: {
-    phone: "+91 98765 43210",
-    phoneDisplay: "+91 98765 43210",
-    whatsapp: "919876543210",
+    phone: "+91 94999 07081",
+    phoneDisplay: "+91 94999 07081",
+    whatsapp: "919499907081",
     whatsappDefaultMessage: "Hi TWO247 team, I would like to enquire about planning a holiday.",
-    email: "travel@two247holidays.com",
-    supportEmail: "support@two247holidays.com",
-    officeAddress: "Mumbai / Delhi, India", // To be finalized
+    email: "info@two247.in",
+    supportEmail: "info@two247.in",
+    officeAddress: "39A, Bollineni Hillside, Perumbakkam, Chennai 600100, Tamil Nadu, India",
     businessHours: "24 Hours / 7 Days a Week",
   },
 

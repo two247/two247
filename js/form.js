@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // WhatsApp Quick Direct Action
   window.sendWhatsAppEnquiry = (customMsg) => {
-    const config = window.siteConfig || { contact: { whatsapp: "919876543210" } };
+    const config = window.siteConfig || { contact: { whatsapp: "919499907081" } };
     const phone = config.contact.whatsapp;
     const defaultMsg = customMsg || "Hi TWO247 team, I would like to plan a holiday with your 24/7 travel assistance.";
     const encoded = encodeURIComponent(defaultMsg);

@@ -1,3 +1,5 @@
+import { switchHeroVideo, resetHeroVideo } from './hero-video.js';
+
 /**
  * TWO247 — Luxury Hero Motion Controller
  * Features:
@@ -75,15 +77,17 @@ export function initHeroMotion() {
       price: "₹84,999",
       rating: "5.0",
       image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=600&q=80",
-      link: "packages/maldives-honeymoon.html"
+      link: "packages/maldives-honeymoon.html",
+      video: "https://res.cloudinary.com/n4bywdyq/video/upload/v1795243230/vidssave.com_Maldives_12K_HDR_60fps_Dolby_Vision_480P.mp4"
     },
     {
       title: "Luxury Dubai Escape",
       tag: "DUBAI",
-      price: "₹48,999",
+      price: "₹48,000",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80",
-      link: "packages/dubai-luxury-escape.html"
+      link: "packages/dubai-luxury-escape.html",
+      video: "https://res.cloudinary.com/n4bywdyq/video/upload/v1795243380/vidssave.com_DUBAI_IN_1_MINUTE_360P.mp4"
     },
     {
       title: "Swiss Alpine Wonders",
@@ -91,7 +95,8 @@ export function initHeroMotion() {
       price: "₹1,58,000",
       rating: "5.0",
       image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80",
-      link: "packages.html"
+      link: "packages.html",
+      video: "https://res.cloudinary.com/n4bywdyq/video/upload/v1795243638/vidssave.com_Paris_Status_I_Paris_Whatsapp_Status_Video_I_Paris_Attractions_I_Paris_Whatsapp_Status_%E0%A4%AA%E0%A5%87%E0%A4%B0%E0%A4%BF%E0%A4%B8_%E0%A4%B8%E0%A5%8D%E0%A4%9F%E0%A5%87%E0%A4%9F%E0%A4%B8_1080P.mp4"
     },
     {
       title: "Bali Tropical Serenity",
@@ -99,15 +104,17 @@ export function initHeroMotion() {
       price: "₹36,999",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=600&q=80",
-      link: "packages.html"
+      link: "packages.html",
+      video: "https://res.cloudinary.com/n4bywdyq/video/upload/v1795245269/New_project_3_2026-11-21_12-23.mp4"
     },
     {
       title: "Singapore Skyline",
       tag: "SINGAPORE",
-      price: "₹54,999",
+      price: "₹48,000",
       rating: "4.9",
       image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=600&q=80",
-      link: "destinations/singapore.html"
+      link: "destinations/singapore.html",
+      video: "https://res.cloudinary.com/n4bywdyq/video/upload/v1795244169/vidssave.com_Singapore_Status_I_Singapore_Whatsapp_Status_Video_Singapore_Attractions_Singapore_Whatsapp_Status_480P.mp4"
     }
   ];
 
@@ -122,6 +129,7 @@ export function initHeroMotion() {
     aEl.href = cData.link;
     aEl.className = 'hero-floating-card group';
     aEl.setAttribute('aria-label', `${cData.title} package from ${cData.price}`);
+    aEl.setAttribute('data-video', cData.video);
 
     aEl.innerHTML = `
       <div class="card-image-wrap">
@@ -154,8 +162,23 @@ export function initHeroMotion() {
       isHovered: false
     });
 
-    aEl.addEventListener('mouseenter', () => { cardStates[i].isHovered = true; });
-    aEl.addEventListener('mouseleave', () => { cardStates[i].isHovered = false; });
+    aEl.addEventListener('mouseenter', () => {
+      cardStates[i].isHovered = true;
+      switchHeroVideo(cData.video);
+    });
+
+    aEl.addEventListener('mouseleave', () => {
+      cardStates[i].isHovered = false;
+    });
+
+    aEl.addEventListener('touchstart', () => {
+      switchHeroVideo(cData.video);
+    }, { passive: true });
+  });
+
+  // Revert to default background when cursor leaves cards area
+  cardsStage.addEventListener('mouseleave', () => {
+    resetHeroVideo(300);
   });
 
   // 3. MOUSE PARALLAX TRACKING
@@ -171,6 +194,7 @@ export function initHeroMotion() {
   heroSection.addEventListener('pointerleave', () => {
     mouseX = 0;
     mouseY = 0;
+    resetHeroVideo(250);
   });
 
   // 4. ANIMATION TICK LOOP (Continuous Gentle Floating Wave + Parallax)

@@ -124,7 +124,7 @@ export function initForms() {
         }
 
         // WhatsApp direct link (standard Indian business format or company placeholder)
-        const waUrl = `https://wa.me/919876543210?text=${waText}`;
+        const waUrl = `https://wa.me/919499907081?text=${waText}`;
         window.open(waUrl, '_blank', 'noopener,noreferrer');
 
         if (submitBtn) {

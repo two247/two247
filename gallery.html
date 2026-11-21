@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Travel Gallery & Visual Journal | TWO247</title>
+  <meta name="description" content="Explore curated photography of bespoke holidays, overwater villas, alpine peaks, and cultural wonders handcrafted by TWO247 – The White Owl Holidays.">
+  <link rel="canonical" href="https://two247.in/gallery.html">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/owl-mark.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    .gallery-masonry {
+      column-count: 1;
+      column-gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .gallery-masonry { column-count: 2; }
+    }
+    @media (min-width: 1024px) {
+      .gallery-masonry { column-count: 3; }
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+    .lightbox-backdrop {
+      background: rgba(10, 10, 12, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="bg-[#FFFFFF] text-[#000000] font-sans antialiased selection:bg-black selection:text-white">
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center">
+      <a href="index.html" class="flex items-center group focus:outline-none" aria-label="TWO247 The White Owl Holidays Home">
+        <img src="assets/logo/two247-logo-transparent.png" alt="TWO247 The White Owl Holidays" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0">
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Home</a>
+        <a href="packages.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Studio</a>
+        <a href="destinations.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Destinations</a>
+        <a href="gallery.html" class="nav-link text-sm font-semibold text-[#000000] transition-colors duration-200" aria-current="page">Gallery</a>
+        <a href="about.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">About</a>
+        <a href="contact.html" class="nav-link text-sm font-medium text-[#6F6F6F] hover:text-[#000000] transition-colors duration-200">Reach Us</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a href="custom-trip.html" class="rounded-full px-6 py-2.5 text-sm font-medium bg-[#000000] text-[#FFFFFF] hover:scale-[1.03] transition-transform duration-300 shadow-sm inline-flex items-center justify-center">
+          Begin Journey
+        </a>
+      </div>
+
+      <div class="flex md:hidden items-center">
+        <button type="button" id="mobile-menu-btn" aria-expanded="false" class="p-2 rounded-lg text-[#000000] focus:outline-none" aria-label="Open Navigation Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop & Drawer -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col justify-between p-8">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-slate-100">
+        <img src="assets/logo/two247-logo-transparent.png" alt="TWO247" class="h-8 w-auto object-contain">
+        <button type="button" id="mobile-menu-close" class="p-2 text-[#6F6F6F] hover:text-[#000000]"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+      </div>
+      <nav class="flex flex-col gap-5 mt-8">
+        <a href="index.html" class="text-base font-medium text-[#6F6F6F]">Home</a>
+        <a href="packages.html" class="text-base font-medium text-[#6F6F6F]">Studio</a>
+        <a href="destinations.html" class="text-base font-medium text-[#6F6F6F]">Destinations</a>
+        <a href="gallery.html" class="text-base font-semibold text-[#000000]">Gallery</a>
+        <a href="about.html" class="text-base font-medium text-[#6F6F6F]">About</a>
+        <a href="contact.html" class="text-base font-medium text-[#6F6F6F]">Reach Us</a>
+      </nav>
+    </div>
+    <div class="pt-6 border-t border-slate-100">
+      <a href="custom-trip.html" class="block w-full rounded-full py-3.5 text-center text-sm font-medium bg-[#000000] text-white">Begin Journey</a>
+    </div>
+  </aside>
+
+  <!-- Hero Header -->
+  <section class="pt-36 sm:pt-44 pb-16 px-4 sm:px-6 lg:px-8 text-center bg-gradient-to-b from-slate-50/70 to-white">
+    <div class="max-w-4xl mx-auto">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold text-slate-700 tracking-wide uppercase mb-6">
+        Curated Visual Dossier
+      </span>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-normal text-slate-950 tracking-tight leading-[1.08]">
+        Moments Captured Across <span class="italic text-slate-500">the Horizons</span>
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto mt-6 leading-relaxed">
+        Glimpses into bespoke journeys crafted by White Owl: overwater sanctuaries, snowbound peaks, ancient royal quarters, and private ocean voyages.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-10" id="gallery-filters">
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-[#000000] text-white shadow-sm" data-category="all">
+          All Moments
+        </button>
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-black" data-category="islands">
+          🏝️ Overwater & Islands
+        </button>
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-black" data-category="skylines">
+          🏙️ Skylines & Deserts
+        </button>
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-black" data-category="alpine">
+          ❄️ Alpine & Aurora
+        </button>
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-black" data-category="heritage">
+          🏰 Heritage & Canals
+        </button>
+        <button type="button" class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-black" data-category="wildlife">
+          🌊 Fjords & Reefs
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Masonry Gallery Grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-28">
+    <div id="gallery-container" class="gallery-masonry">
+      <!-- Items dynamically injected by JS below -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="gallery-empty" class="hidden py-24 text-center">
+      <p class="text-slate-500 text-sm">No photos found in this category.</p>
+    </div>
+  </main>
+
+  <!-- Interactive Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 lightbox-backdrop flex items-center justify-center p-4 sm:p-8" role="dialog" aria-modal="true">
+    <button type="button" id="lightbox-close" class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all focus:outline-none" aria-label="Close image viewer">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+
+    <div class="relative max-w-5xl w-full max-h-[90vh] bg-slate-950/80 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+      <!-- Image Display -->
+      <div class="flex-1 bg-black flex items-center justify-center p-2 relative">
+        <img id="lightbox-img" src="" alt="" class="max-h-[60vh] md:max-h-[82vh] w-auto max-w-full object-contain rounded-2xl">
+      </div>
+      <!-- Info Panel -->
+      <div class="w-full md:w-80 p-6 sm:p-8 flex flex-col justify-between text-white border-t md:border-t-0 md:border-l border-white/10 bg-slate-900/90">
+        <div>
+          <span id="lightbox-tag" class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-[10px] font-bold uppercase tracking-wider inline-block mb-3"></span>
+          <h3 id="lightbox-title" class="text-2xl font-display font-normal text-white"></h3>
+          <p id="lightbox-desc" class="text-slate-300 text-xs sm:text-sm mt-3 leading-relaxed"></p>
+        </div>
+
+        <div class="pt-6 border-t border-white/10 mt-6">
+          <button id="lightbox-inquire" class="w-full rounded-full py-3 bg-white text-black font-semibold text-xs tracking-wide hover:bg-slate-200 transition-colors shadow-lg">
+            Inquire for This Destination →
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-16 text-center text-xs text-[#6F6F6F] border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-center mb-6">
+        <img src="assets/logo/two247-logo-white.png" alt="TWO247" class="h-8 w-auto opacity-80">
+      </div>
+      <p class="max-w-md mx-auto mb-6">Bespoke luxury holidays, private air & catamaran itineraries, and continuous 24/7 human WhatsApp guidance.</p>
+      <p>© 2026 TWO247 — The White Owl Holidays. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initNavbar } from './js/navbar.js';
+    import { initMobileMenu } from './js/mobile-menu.js';
+
+    // Curated Gallery Catalog (with Cloudinary & Unsplash high-res assets)
+    const GALLERY_ITEMS = [
+      {
+        id: "maldives-water-villa",
+        title: "Maldives Overwater Sanctuary",
+        category: "islands",
+        tag: "MALDIVES",
+        image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=85",
+        desc: "Private ocean villa with direct lagoon access, glass flooring, and infinity pool overlooking coral atolls."
+      },
+      {
+        id: "cappadocia-balloons",
+        title: "Cappadocia Sunrise Balloons",
+        category: "heritage",
+        tag: "TURKEY",
+        image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85",
+        desc: "Dozens of vibrant hot-air balloons ascending over fairy chimneys and ancient valleys of Goreme at dawn."
+      },
+      {
+        id: "dubai-desert-safari",
+        title: "Lahbab Red Dune Sunset",
+        category: "skylines",
+        tag: "DUBAI",
+        image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
+        desc: "Private luxury 4x4 desert safari camp nestled in deep crimson sands under starry Arabian skies."
+      },
+      {
+        id: "swiss-alps-chalet",
+        title: "Swiss Alpine Jungfrau Ridge",
+        category: "alpine",
+        tag: "SWITZERLAND",
+        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=85",
+        desc: "Snowcapped Eiger and Jungfrau summits framing green mountain meadows and historic cogwheel trains."
+      },
+      {
+        id: "amsterdam-canals",
+        title: "Keizersgracht Historic Bridges",
+        category: "heritage",
+        tag: "NETHERLANDS",
+        image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85",
+        desc: "Twilight salon boat cruise through Amsterdam's Golden Age canal rings and illuminated arched bridges."
+      },
+      {
+        id: "singapore-gardens",
+        title: "Gardens by the Bay Supertrees",
+        category: "skylines",
+        tag: "SINGAPORE",
+        image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=85",
+        desc: "Futuristic illuminated grove and OCBC Skyway connecting botanical marvels under the Marina Bay skyline."
+      },
+      {
+        id: "bali-tegallalang",
+        title: "Ubud Sacred Rice Terraces",
+        category: "islands",
+        tag: "BALI",
+        image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85",
+        desc: "Early morning mist clearing over emerald stepped hillsides and traditional Balinese subak water temples."
+      },
+      {
+        id: "krakow-wawel",
+        title: "Wawel Royal Cathedral",
+        category: "heritage",
+        tag: "POLAND",
+        image: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1200&q=85",
+        desc: "Gothic and Renaissance coronation castle overlooking the Vistula River in the heart of historic Krakow."
+      },
+      {
+        id: "sweden-archipelago",
+        title: "Stockholm Baltic Archipelago",
+        category: "alpine",
+        tag: "SWEDEN",
+        image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=1200&q=85",
+        desc: "Private wooden boat weaving past granite skerries, red fishing cottages, and northern summer twilights."
+      },
+      {
+        id: "sydney-harbour-opera",
+        title: "Sydney Harbour at Twilight",
+        category: "wildlife",
+        tag: "AUSTRALIA",
+        image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=85",
+        desc: "Iconic architectural sails of the Sydney Opera House glowing against deep harbour waters."
+      },
+      {
+        id: "new-zealand-milford",
+        title: "Milford Sound Glacial Cascades",
+        category: "wildlife",
+        tag: "NEW ZEALAND",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=85",
+        desc: "Dramatic sheer cliffs rising out of dark glacial fjords with thundering waterfalls tumbling into the sea."
+      },
+      {
+        id: "malaysia-langkawi",
+        title: "Langkawi Limestone Sea Caves",
+        category: "islands",
+        tag: "MALAYSIA",
+        image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=85",
+        desc: "Ancient Andaman sea karst pillars and mangrove sanctuaries explored by private speedboat."
+      },
+      {
+        id: "thailand-maya-bay",
+        title: "Phi Phi Maya Bay Lagoons",
+        category: "islands",
+        tag: "THAILAND",
+        image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=85",
+        desc: "Crystal turquoise waters enclosed by colossal limestone cliffs and pristine white sands."
+      },
+      {
+        id: "kashmir-dal-lake",
+        title: "Dal Lake Shikara Serenity",
+        category: "alpine",
+        tag: "KASHMIR",
+        image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=1200&q=85",
+        desc: "Silent sunrise shikara ride gliding across mirror-still lotus waters with snowcapped Pir Panjal peaks beyond."
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavbar();
+      initMobileMenu();
+
+      const container = document.getElementById('gallery-container');
+      const emptyState = document.getElementById('gallery-empty');
+      const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+
+      // Lightbox Elements
+      const modal = document.getElementById('lightbox-modal');
+      const modalImg = document.getElementById('lightbox-img');
+      const modalTitle = document.getElementById('lightbox-title');
+      const modalDesc = document.getElementById('lightbox-desc');
+      const modalTag = document.getElementById('lightbox-tag');
+      const modalClose = document.getElementById('lightbox-close');
+      const modalInquire = document.getElementById('lightbox-inquire');
+
+      let currentActiveItem = null;
+
+      function renderGallery(category = 'all') {
+        const filtered = category === 'all' 
+          ? GALLERY_ITEMS 
+          : GALLERY_ITEMS.filter(item => item.category === category);
+
+        if (filtered.length === 0) {
+          container.innerHTML = '';
+          emptyState.classList.remove('hidden');
+          return;
+        }
+
+        emptyState.classList.add('hidden');
+        container.innerHTML = filtered.map(item => `
+          <div class="gallery-item group relative rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200/80 cursor-pointer bg-slate-900" data-id="${item.id}">
+            <div class="relative overflow-hidden aspect-[4/3] sm:aspect-auto">
+              <img src="${item.image}" alt="${item.title}" class="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-wider uppercase text-black shadow-sm">
+                  ${item.tag}
+                </span>
+              </div>
+
+              <div class="absolute bottom-0 left-0 right-0 p-5 transform transition-transform duration-300 group-hover:-translate-y-1">
+                <h3 class="text-xl font-display font-normal text-white">${item.title}</h3>
+                <p class="text-slate-300 text-xs mt-1 line-clamp-2">${item.desc}</p>
+                <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-400 mt-2">
+                  View Full Moment ↗
+                </span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        // Attach click to open lightbox
+        container.querySelectorAll('.gallery-item').forEach(card => {
+          card.addEventListener('click', () => {
+            const id = card.dataset.id;
+            const item = GALLERY_ITEMS.find(x => x.id === id);
+            if (item) openLightbox(item);
+          });
+        });
+      }
+
+      function openLightbox(item) {
+        currentActiveItem = item;
+        modalImg.src = item.image;
+        modalImg.alt = item.title;
+        modalTitle.textContent = item.title;
+        modalDesc.textContent = item.desc;
+        modalTag.textContent = item.tag;
+
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          modal.classList.remove('opacity-0');
+        });
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+          modalImg.src = '';
+          document.body.style.overflow = '';
+        }, 300);
+      }
+
+      modalClose.addEventListener('click', closeLightbox);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeLightbox();
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeLightbox();
+        }
+      });
+
+      modalInquire.addEventListener('click', () => {
+        if (!currentActiveItem) return;
+        const msg = encodeURIComponent(`Hello TWO247, I saw the photo "${currentActiveItem.title}" in ${currentActiveItem.tag} and would like to plan a bespoke holiday there.`);
+        window.open(`https://wa.me/919499907081?text=${msg}`, '_blank');
+      });
+
+      // Filter clicks
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-[#000000]', 'text-white', 'shadow-sm');
+            b.classList.add('bg-white', 'text-slate-700');
+          });
+          btn.classList.add('bg-[#000000]', 'text-white', 'shadow-sm');
+          btn.classList.remove('bg-white', 'text-slate-700');
+
+          renderGallery(btn.dataset.category);
+        });
+      });
+
+      renderGallery('all');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | TWO247 Admin Portal</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/owl-mark.svg">
+  <link rel="stylesheet" href="../css/output.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar w-64 flex-shrink-0 flex flex-col justify-between p-6 hidden md:flex border-r border-slate-800">
+    <div>
+      <!-- Brand -->
+      <div class="flex items-center gap-3 pb-6 mb-6 border-b border-white/10">
+        <img src="../assets/logo/two247-logo-white.png" alt="TWO247" class="h-8 w-auto">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">Admin</span>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="space-y-1.5">
+        <a href="index.html" class="admin-nav-item active">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="packages.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Packages CRUD</span>
+        </a>
+        <a href="destinations.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          <span>Destinations & Base Prices</span>
+        </a>
+        <a href="feedback.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>Reviews & Feedbacks</span>
+        </a>
+        <a href="media.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Cloudinary Media Studio</span>
+        </a>
+        <a href="inquiries.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>Customer Leads</span>
+        </a>
+        <a href="../gallery.html" target="_blank" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span>View Public Gallery ↗</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- User & Sign Out -->
+    <div class="pt-6 border-t border-white/10">
+      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">admin@two247.in</div>
+      <button onclick="handleAdminSignOut()" class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Stage -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    
+    <!-- Top Header -->
+    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-5 flex items-center justify-between sticky top-0 z-20">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Executive Dashboard</h1>
+        <p class="text-xs text-slate-500 mt-0.5">Real-time holiday packages, destinations & concierge operations</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="packages.html?action=new" class="px-4 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          <span>Create Package</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Dashboard Body -->
+    <div class="p-6 sm:p-10 space-y-8 max-w-7xl">
+
+      <!-- 4 Stats Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Live Packages</span>
+            <span id="stat-packages" class="text-3xl font-extrabold text-slate-900 mt-1 block">...</span>
+            <span class="text-[11px] text-emerald-600 font-semibold mt-1 inline-block">100% Verified Stays</span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Destinations</span>
+            <span id="stat-destinations" class="text-3xl font-extrabold text-slate-900 mt-1 block">...</span>
+            <span class="text-[11px] text-indigo-600 font-semibold mt-1 inline-block">International & Domestic</span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Verified Reviews</span>
+            <span id="stat-reviews" class="text-3xl font-extrabold text-slate-900 mt-1 block">...</span>
+            <span class="text-[11px] text-amber-500 font-semibold mt-1 inline-block">★ 4.9 Average Rating</span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Guest Leads</span>
+            <span id="stat-inquiries" class="text-3xl font-extrabold text-slate-900 mt-1 block">...</span>
+            <span class="text-[11px] text-rose-500 font-semibold mt-1 inline-block">Awaiting Follow-up</span>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0 1 18 0z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <a href="packages.html" class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black hover:shadow-md transition-all group block">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-black">Manage Packages</h3>
+            <span class="text-slate-400 group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed">Edit itineraries, adjust duration, add inclusions, and update prices for all holiday packages.</p>
+        </a>
+
+        <a href="destinations.html" class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black hover:shadow-md transition-all group block">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-black">Destination Base Prices</h3>
+            <span class="text-slate-400 group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed">Update starting prices for Turkey, Dubai, Sweden, Singapore, Poland, Thailand, and more.</p>
+        </a>
+
+        <a href="media.html" class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black hover:shadow-md transition-all group block">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-black">Cloudinary Media Studio</h3>
+            <span class="text-slate-400 group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed">Drag-and-drop photos and videos directly into your Cloudinary cloud (preset: two247) and copy CDN URLs.</p>
+        </a>
+      </div>
+
+      <!-- Recent Customer Inquiries Table -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Recent Customer Inquiries</h3>
+            <p class="text-xs text-slate-500 mt-0.5">Leads received through website consultation & custom trip requests</p>
+          </div>
+          <a href="inquiries.html" class="text-xs font-semibold text-black hover:underline">View All Leads →</a>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-600">
+            <thead class="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-400 border-b border-slate-200">
+              <tr>
+                <th class="px-6 py-3.5">Guest</th>
+                <th class="px-6 py-3.5">Destination</th>
+                <th class="px-6 py-3.5">Travel Month</th>
+                <th class="px-6 py-3.5">Budget</th>
+                <th class="px-6 py-3.5">Status</th>
+                <th class="px-6 py-3.5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dashboard-inquiries-body" class="divide-y divide-slate-100">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script type="module">
+    import { initAuthGuard } from "./js/auth-guard.js";
+    import { getPackages, getDestinations, getReviews, getInquiries, updateInquiryStatus } from "./js/db-service.js";
+
+    initAuthGuard(async () => {
+      // Load counts
+      const [pkgs, dests, revs, inqs] = await Promise.all([
+        getPackages(),
+        getDestinations(),
+        getReviews(),
+        getInquiries()
+      ]);
+
+      document.getElementById("stat-packages").textContent = pkgs.length;
+      document.getElementById("stat-destinations").textContent = dests.length;
+      document.getElementById("stat-reviews").textContent = revs.length;
+      document.getElementById("stat-inquiries").textContent = inqs.length;
+
+      // Render recent inquiries
+      const tbody = document.getElementById("dashboard-inquiries-body");
+      if (inqs.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-6 py-8 text-center text-slate-400">No active customer leads.</td></tr>`;
+      } else {
+        tbody.innerHTML = inqs.slice(0, 5).map(inq => `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="px-6 py-4 font-semibold text-slate-900">${inq.guestName}<br><span class="text-slate-400 font-normal">${inq.phone}</span></td>
+            <td class="px-6 py-4">${inq.destination}</td>
+            <td class="px-6 py-4">${inq.travelMonth}</td>
+            <td class="px-6 py-4 font-medium text-slate-900">${inq.budget || "Flexible"}</td>
+            <td class="px-6 py-4">
+              <span class="badge-pill ${inq.status === 'New' ? 'bg-rose-100 text-rose-700' : inq.status === 'Contacted' ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700'}">
+                ${inq.status}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-right">
+              <a href="https://wa.me/${inq.phone.replace(/[^0-9]/g, '')}" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-white font-bold text-[11px] hover:bg-emerald-600 transition-colors inline-block">
+                WhatsApp
+              </a>
+            </td>
+          </tr>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

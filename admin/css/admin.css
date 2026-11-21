@@ -1,0 +1,102 @@
+/* =========================================================================
+   TWO247 ADMIN PORTAL STYLESHEET
+   Obsidian & Clean Canvas Luxury Theme
+   ========================================================================= */
+
+:root {
+  --admin-bg: #F8FAFC;
+  --admin-sidebar: #0A0A0C;
+  --admin-card: #FFFFFF;
+  --admin-border: #E2E8F0;
+  --admin-text-main: #0F172A;
+  --admin-text-muted: #64748B;
+  --admin-accent: #000000;
+  --admin-gold: #F59E0B;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--admin-bg);
+  color: var(--admin-text-main);
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar Navigation */
+.admin-sidebar {
+  background: var(--admin-sidebar);
+  color: #FFFFFF;
+}
+
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.admin-nav-item:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.admin-nav-item.active {
+  color: #000000;
+  background: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Modals */
+.modal-overlay {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom Scrollbars */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Cloudinary Dropzone */
+.cloudinary-dropzone {
+  border: 2px dashed #CBD5E1;
+  border-radius: 1rem;
+  background: #F8FAFC;
+  transition: all 0.25s ease;
+}
+.cloudinary-dropzone.dragover {
+  border-color: #000000;
+  background: #F1F5F9;
+  transform: scale(1.01);
+}
+
+/* Badge styling */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
