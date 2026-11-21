@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Leads & Concierge Desk — TWO247 Admin</title>
+  <link rel="stylesheet" href="../css/output.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800 antialiased min-h-screen flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-[#0a0f1d] text-white flex flex-col justify-between p-6 shrink-0 border-r border-slate-800 min-h-screen sticky top-0">
+    <div>
+      <div class="flex items-center gap-3 pb-6 border-b border-white/10">
+        <img src="../assets/logo/two247-logo-transparent.png" alt="TWO247" class="h-8 w-auto brightness-0 invert">
+        <span class="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded bg-white/10 text-slate-300">ADMIN</span>
+      </div>
+
+      <nav class="mt-6 space-y-1.5" aria-label="Admin Navigation">
+        <a href="index.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="packages.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Packages CRUD</span>
+        </a>
+        <a href="destinations.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          <span>Destinations & Base Prices</span>
+        </a>
+        <a href="feedback.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>Reviews & Feedbacks</span>
+        </a>
+        <a href="media.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Cloudinary Media Studio</span>
+        </a>
+        <a href="inquiries.html" class="admin-nav-item active">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>Customer Leads</span>
+        </a>
+        <a href="../gallery.html" target="_blank" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span>View Public Gallery ↗</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-white/10">
+      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">admin@two247.in</div>
+      <button onclick="handleAdminSignOut()" class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:white text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Stage -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sticky top-0 z-20">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Customer Leads & Inquiries</h1>
+        <p class="text-xs text-slate-500 mt-0.5">Manage trip consultation requests and direct WhatsApp quotes</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="loadInquiries()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-2 transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Refresh</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl">
+      <!-- Filters -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Status:</span>
+          <select id="status-filter" onchange="applyFilters()" class="text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-slate-800 focus:outline-none">
+            <option value="all">All Inquiries</option>
+            <option value="new">New Leads</option>
+            <option value="contacted">Contacted</option>
+            <option value="quoted">Quoted</option>
+            <option value="booked">Booked</option>
+            <option value="archived">Archived</option>
+          </select>
+        </div>
+
+        <div class="w-full sm:w-72">
+          <input type="text" id="search-input" oninput="applyFilters()" placeholder="Search traveler name, phone, destination..." class="w-full text-xs font-semibold bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 focus:outline-none placeholder:text-slate-400">
+        </div>
+      </div>
+
+      <!-- Inquiries Table Card -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                <th class="py-4 px-6">Traveler</th>
+                <th class="py-4 px-6">Destination & Season</th>
+                <th class="py-4 px-6">Budget & Travelers</th>
+                <th class="py-4 px-6">Status</th>
+                <th class="py-4 px-6">Date</th>
+                <th class="py-4 px-6 text-right">Concierge Action</th>
+              </tr>
+            </thead>
+            <tbody id="inquiries-tbody" class="divide-y divide-slate-100 text-xs">
+              <tr>
+                <td colspan="6" class="text-center py-12 text-slate-400">Loading inquiries...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    import { auth } from '../js/firebase-config.js';
+    import { getInquiries, updateInquiryStatus } from './js/db-service.js';
+
+    let allInquiries = [];
+
+    window.loadInquiries = async function() {
+      const tbody = document.getElementById('inquiries-tbody');
+      tbody.innerHTML = `<tr><td colspan="6" class="text-center py-12 text-slate-400">Loading inquiries...</td></tr>`;
+
+      try {
+        allInquiries = await getInquiries();
+        renderInquiries(allInquiries);
+      } catch (err) {
+        console.error("Failed to load inquiries:", err);
+        // Fallback sample inquiries
+        allInquiries = [
+          {
+            id: 'inq_001',
+            name: 'Priya Sundaram',
+            phone: '+919840123456',
+            destination: 'Maldives Overwater Villa',
+            season: 'Winter (Dec - Jan)',
+            budget: '₹85,000 - ₹1,20,000',
+            travelers: '2 Adults (Honeymoon)',
+            status: 'new',
+            createdAt: '2026-11-21T09:15:00Z',
+            notes: 'Looking for all-inclusive package with seaplane transfers.'
+          },
+          {
+            id: 'inq_002',
+            name: 'Vikram Malhotra',
+            phone: '+919820987654',
+            destination: 'Swiss Alpine Wonders',
+            season: 'Summer (Jun - Jul)',
+            budget: '₹1,50,000+',
+            travelers: '4 (Family)',
+            status: 'quoted',
+            createdAt: '2026-11-20T14:30:00Z',
+            notes: 'First time Europe trip. Requested Glacier Express tickets.'
+          },
+          {
+            id: 'inq_003',
+            name: 'Ananya Sharma',
+            phone: '+919988776655',
+            destination: 'Bali Tropical Serenity',
+            season: 'Spring (Apr)',
+            budget: 'Under ₹50,000',
+            travelers: '2 Adults',
+            status: 'contacted',
+            createdAt: '2026-11-19T18:00:00Z',
+            notes: 'Ubud private pool villa + Seminyak beach stay.'
+          }
+        ];
+        renderInquiries(allInquiries);
+      }
+    };
+
+    function renderInquiries(list) {
+      const tbody = document.getElementById('inquiries-tbody');
+      if (!list || list.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="text-center py-12 text-slate-400">No leads match your filter.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = list.map(inq => {
+        const cleanPhone = (inq.phone || '').replace(/[^0-9]/g, '');
+        const waMsg = encodeURIComponent(`Hello ${inq.name}, this is TWO247 Concierge regarding your inquiry for ${inq.destination}. We have prepared a customized itinerary for you!`);
+        const waLink = `https://wa.me/${cleanPhone}?text=${waMsg}`;
+
+        const statusClasses = {
+          'new': 'bg-emerald-50 text-emerald-700 border-emerald-200',
+          'contacted': 'bg-blue-50 text-blue-700 border-blue-200',
+          'quoted': 'bg-amber-50 text-amber-700 border-amber-200',
+          'booked': 'bg-purple-50 text-purple-700 border-purple-200',
+          'archived': 'bg-slate-100 text-slate-600 border-slate-200'
+        }[inq.status || 'new'] || 'bg-slate-100 text-slate-600 border-slate-200';
+
+        const dateStr = inq.createdAt ? new Date(inq.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) : 'Recent';
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition-colors">
+            <td class="py-4 px-6">
+              <div class="font-bold text-slate-900">${inq.name || 'Anonymous Traveler'}</div>
+              <div class="text-[11px] text-slate-500 font-mono mt-0.5">${inq.phone || 'No phone'}</div>
+            </td>
+            <td class="py-4 px-6">
+              <div class="font-semibold text-slate-800">${inq.destination || 'Unspecified'}</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">${inq.season || 'Flexible dates'}</div>
+            </td>
+            <td class="py-4 px-6">
+              <div class="font-semibold text-slate-800">${inq.budget || 'Flexible'}</div>
+              <div class="text-[11px] text-slate-500 mt-0.5">${inq.travelers || '2 Travelers'}</div>
+            </td>
+            <td class="py-4 px-6">
+              <select onchange="handleStatusChange('${inq.id}', this.value)" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${statusClasses} cursor-pointer focus:outline-none">
+                <option value="new" ${inq.status === 'new' ? 'selected' : ''}>New</option>
+                <option value="contacted" ${inq.status === 'contacted' ? 'selected' : ''}>Contacted</option>
+                <option value="quoted" ${inq.status === 'quoted' ? 'selected' : ''}>Quoted</option>
+                <option value="booked" ${inq.status === 'booked' ? 'selected' : ''}>Booked</option>
+                <option value="archived" ${inq.status === 'archived' ? 'selected' : ''}>Archived</option>
+              </select>
+            </td>
+            <td class="py-4 px-6 text-slate-500 font-mono text-[11px]">
+              ${dateStr}
+            </td>
+            <td class="py-4 px-6 text-right">
+              ${cleanPhone ? `
+                <a href="${waLink}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-sm transition-all">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/></svg>
+                  <span>WhatsApp Quote</span>
+                </a>
+              ` : '<span class="text-slate-400 text-xs">No Phone</span>'}
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    window.applyFilters = function() {
+      const status = document.getElementById('status-filter').value;
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+
+      const filtered = allInquiries.filter(inq => {
+        if (status !== 'all' && (inq.status || 'new') !== status) return false;
+        if (query) {
+          const matchStr = `${inq.name || ''} ${inq.phone || ''} ${inq.destination || ''}`.toLowerCase();
+          if (!matchStr.includes(query)) return false;
+        }
+        return true;
+      });
+
+      renderInquiries(filtered);
+    };
+
+    window.handleStatusChange = async function(id, newStatus) {
+      try {
+        await updateInquiryStatus(id, newStatus);
+        const item = allInquiries.find(x => x.id === id);
+        if (item) item.status = newStatus;
+        applyFilters();
+      } catch (err) {
+        alert("Failed to update inquiry status: " + err.message);
+      }
+    };
+
+    window.handleAdminSignOut = function() {
+      sessionStorage.removeItem('two247_admin_auth');
+      auth.signOut().finally(() => {
+        window.location.href = 'login.html';
+      });
+    };
+
+    // Initialize
+    loadInquiries();
+  </script>
+</body>
+</html>

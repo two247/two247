@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations & Base Prices | TWO247 Admin Portal</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/owl-mark.svg">
+  <link rel="stylesheet" href="../css/output.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar w-64 flex-shrink-0 flex flex-col justify-between p-6 hidden md:flex border-r border-slate-800">
+    <div>
+      <div class="flex items-center gap-3 pb-6 mb-6 border-b border-white/10">
+        <img src="../assets/logo/two247-logo-white.png" alt="TWO247" class="h-8 w-auto">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">Admin</span>
+      </div>
+
+      <nav class="space-y-1.5">
+        <a href="index.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="packages.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Packages CRUD</span>
+        </a>
+        <a href="destinations.html" class="admin-nav-item active">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          <span>Destinations & Base Prices</span>
+        </a>
+        <a href="feedback.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>Reviews & Feedbacks</span>
+        </a>
+        <a href="media.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Cloudinary Media Studio</span>
+        </a>
+        <a href="inquiries.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>Customer Leads</span>
+        </a>
+        <a href="../destinations.html" target="_blank" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span>View Public Destinations ↗</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-white/10">
+      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">admin@two247.in</div>
+      <button onclick="handleAdminSignOut()" class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Work Stage -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    
+    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-5 flex items-center justify-between sticky top-0 z-20">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Destinations & Base Prices</h1>
+        <p class="text-xs text-slate-500 mt-0.5">Edit base starting prices for all 10+ countries, curate top highlights & hero visuals</p>
+      </div>
+
+      <button id="btn-add-dest" class="px-4 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+        <span>Add Destination</span>
+      </button>
+    </header>
+
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl">
+
+      <!-- Destinations Grid -->
+      <div id="destinations-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Destination Modal -->
+  <div id="dest-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 modal-overlay flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+      
+      <div class="px-6 sm:px-8 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div>
+          <h2 id="dest-modal-title" class="text-lg font-bold text-slate-900">Edit Destination</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Manage starting price, experiences, and imagery</p>
+        </div>
+        <button type="button" id="dest-modal-close" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="dest-form" class="flex-1 overflow-y-auto p-6 sm:p-8 space-y-5 custom-scroll">
+        <input type="hidden" id="form-dest-id">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Destination Name *</label>
+            <input type="text" id="dest-name" required placeholder="e.g. Turkey"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">URL Slug *</label>
+            <input type="text" id="dest-slug" required placeholder="e.g. turkey"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Base Starting Price *</label>
+            <input type="text" id="dest-price" required placeholder="e.g. ₹1,40,000"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Region *</label>
+            <select id="dest-region" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+              <option value="International">International</option>
+              <option value="Domestic">Domestic (India)</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Editorial Tagline</label>
+            <input type="text" id="dest-tagline" placeholder="Where East meets West in timeless Byzantine grandeur"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Short Description</label>
+            <textarea id="dest-desc" rows="2" placeholder="Bosphorus cruises, surreal fairy chimneys of Cappadocia..."
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black"></textarea>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Card Image URL (Cloudinary or Unsplash)</label>
+            <div class="flex gap-2">
+              <input type="url" id="dest-img" required placeholder="https://res.cloudinary.com/n4bywdyq/..."
+                class="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+              <label class="px-3 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-slate-700 flex items-center gap-1.5 shrink-0">
+                <span>Upload</span>
+                <input type="file" id="dest-file-upload" accept="image/*" class="hidden">
+              </label>
+            </div>
+            <span id="dest-upload-status" class="text-[11px] text-emerald-600 font-semibold mt-1 block hidden">Uploaded!</span>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-xs font-bold text-slate-700 mb-1.5">Top Experiences (One per line)</label>
+            <textarea id="dest-experiences" rows="3" placeholder="Sunrise Hot Air Balloon Over Cappadocia&#10;Private Bosphorus Sunset Yacht&#10;Hagia Sophia Guided Tour"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black"></textarea>
+          </div>
+        </div>
+      </form>
+
+      <div class="px-6 sm:px-8 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-3">
+        <button type="button" id="dest-cancel-btn" class="px-5 py-2 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100">
+          Cancel
+        </button>
+        <button type="submit" form="dest-form" class="px-6 py-2 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 shadow-md">
+          Save Destination
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module">
+    import { initAuthGuard } from "./js/auth-guard.js";
+    import { getDestinations, saveDestination, deleteDestination } from "./js/db-service.js";
+    import { uploadToCloudinary } from "../js/cloudinary-config.js";
+
+    initAuthGuard(async () => {
+      const grid = document.getElementById("destinations-grid");
+      const modal = document.getElementById("dest-modal");
+      const form = document.getElementById("dest-form");
+      const modalTitle = document.getElementById("dest-modal-title");
+      const addBtn = document.getElementById("btn-add-dest");
+      const closeBtn = document.getElementById("dest-modal-close");
+      const cancelBtn = document.getElementById("dest-cancel-btn");
+      const fileUpload = document.getElementById("dest-file-upload");
+      const uploadStatus = document.getElementById("dest-upload-status");
+
+      let destinations = await getDestinations();
+
+      function render() {
+        grid.innerHTML = destinations.map(d => `
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div class="relative h-44 overflow-hidden bg-slate-100">
+                <img src="${d.cardImage || d.heroImage}" alt="${d.name}" class="w-full h-full object-cover">
+                <span class="absolute top-3 left-3 badge-pill bg-white/95 text-black border border-slate-200">
+                  ${d.region}
+                </span>
+                <span class="absolute bottom-3 right-3 badge-pill bg-black text-white">
+                  ${d.startingPrice}
+                </span>
+              </div>
+              <div class="p-5">
+                <h3 class="text-base font-bold text-slate-900">${d.name}</h3>
+                <p class="text-xs text-slate-500 mt-1 line-clamp-2">${d.shortDescription || d.tagline || ""}</p>
+                
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span class="text-[11px] text-slate-400 font-medium">Starting from:</span>
+                  <input type="text" class="quick-price-input text-right font-extrabold text-xs text-slate-900 w-28 px-2 py-1 bg-slate-50 border border-slate-200 rounded-lg focus:border-black"
+                    value="${d.startingPrice}" data-id="${d.id || d.slug}">
+                </div>
+              </div>
+            </div>
+
+            <div class="px-5 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+              <span class="text-[10px] text-slate-400">Slug: ${d.slug}</span>
+              <div class="flex items-center gap-2">
+                <button class="btn-edit-dest px-3 py-1.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-[11px] font-bold text-slate-700 cursor-pointer" data-id="${d.id || d.slug}">
+                  Edit
+                </button>
+                <button class="btn-del-dest px-3 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 text-[11px] font-bold text-rose-700 cursor-pointer" data-id="${d.id || d.slug}">
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        // Quick price inline update listener
+        grid.querySelectorAll(".quick-price-input").forEach(input => {
+          input.addEventListener("change", async () => {
+            const id = input.dataset.id;
+            const dest = destinations.find(x => x.id === id || x.slug === id);
+            if (dest) {
+              dest.startingPrice = input.value.trim();
+              await saveDestination(dest, dest.id || dest.slug);
+              input.classList.add("bg-emerald-50", "border-emerald-500");
+              setTimeout(() => input.classList.remove("bg-emerald-50", "border-emerald-500"), 1500);
+            }
+          });
+        });
+
+        grid.querySelectorAll(".btn-edit-dest").forEach(btn => {
+          btn.addEventListener("click", () => openEditModal(btn.dataset.id));
+        });
+        grid.querySelectorAll(".btn-del-dest").forEach(btn => {
+          btn.addEventListener("click", () => handleDelete(btn.dataset.id));
+        });
+      }
+
+      fileUpload.addEventListener("change", async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        uploadStatus.classList.remove("hidden");
+        uploadStatus.textContent = "Uploading to Cloudinary...";
+
+        try {
+          const res = await uploadToCloudinary(file);
+          document.getElementById("dest-img").value = res.secure_url;
+          uploadStatus.textContent = "✓ Uploaded!";
+          setTimeout(() => uploadStatus.classList.add("hidden"), 3000);
+        } catch (err) {
+          uploadStatus.textContent = `Upload failed: ${err.message}`;
+        }
+      });
+
+      function openModal() {
+        modal.classList.remove("hidden");
+        requestAnimationFrame(() => modal.classList.remove("opacity-0"));
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.add("opacity-0");
+        setTimeout(() => {
+          modal.classList.add("hidden");
+          form.reset();
+          document.getElementById("form-dest-id").value = "";
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      addBtn.addEventListener("click", () => {
+        modalTitle.textContent = "Add New Destination";
+        form.reset();
+        openModal();
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      cancelBtn.addEventListener("click", closeModal);
+
+      function openEditModal(id) {
+        const d = destinations.find(x => x.id === id || x.slug === id);
+        if (!d) return;
+
+        modalTitle.textContent = `Edit Destination: ${d.name}`;
+        document.getElementById("form-dest-id").value = d.id || d.slug;
+        document.getElementById("dest-name").value = d.name || "";
+        document.getElementById("dest-slug").value = d.slug || "";
+        document.getElementById("dest-price").value = d.startingPrice || "";
+        document.getElementById("dest-region").value = d.region || "International";
+        document.getElementById("dest-tagline").value = d.tagline || "";
+        document.getElementById("dest-desc").value = d.shortDescription || "";
+        document.getElementById("dest-img").value = d.cardImage || d.heroImage || "";
+        document.getElementById("dest-experiences").value = (d.topExperiences || []).join("\n");
+
+        openModal();
+      }
+
+      async function handleDelete(id) {
+        if (!confirm("Are you sure you want to delete this destination?")) return;
+        await deleteDestination(id);
+        destinations = await getDestinations();
+        render();
+      }
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const id = document.getElementById("form-dest-id").value || null;
+        const payload = {
+          name: document.getElementById("dest-name").value.trim(),
+          slug: document.getElementById("dest-slug").value.trim().toLowerCase(),
+          startingPrice: document.getElementById("dest-price").value.trim(),
+          region: document.getElementById("dest-region").value,
+          tagline: document.getElementById("dest-tagline").value.trim(),
+          shortDescription: document.getElementById("dest-desc").value.trim(),
+          cardImage: document.getElementById("dest-img").value.trim(),
+          heroImage: document.getElementById("dest-img").value.trim(),
+          topExperiences: document.getElementById("dest-experiences").value.split("\n").map(s => s.trim()).filter(Boolean),
+          featured: true
+        };
+
+        await saveDestination(payload, id);
+        destinations = await getDestinations();
+        closeModal();
+        render();
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>

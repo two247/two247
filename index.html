@@ -390,105 +390,94 @@
         </a>
       </div>
 
-      <!-- Rotating Travel Highlights Pill (Zero Shift, Minimalist Obsidian Glass) -->
-      <div class="hero-ticker-container w-full max-w-[92vw] sm:max-w-md mx-auto mt-8 sm:mt-10 px-2"
-        id="hero-ticker-track"></div>
-
       <!-- ADVANCE SEARCH ENGINE (Interactive Tour Travel Agency) -->
       <div id="advance-search-section"
-        class="advance-search-container mt-8 sm:mt-12 max-w-5xl mx-auto w-full px-2 sm:px-4 md:px-6 relative z-20">
+        class="advance-search-container mt-10 sm:mt-14 max-w-5xl mx-auto w-full px-2 sm:px-4 md:px-6 relative z-20">
 
-        <!-- Advance Search Filter Card (Responsive Mobile One-Line & Desktop 4-Col) -->
+        <!-- Search Category Tabs -->
+        <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-3">
+          <button type="button" class="search-tab-pill active" data-category="all">🏖️ All Packages</button>
+          <button type="button" class="search-tab-pill" data-category="international">✈️ International</button>
+          <button type="button" class="search-tab-pill" data-category="domestic">🇮🇳 Domestic Escapes</button>
+          <button type="button" class="search-tab-pill" data-category="honeymoon">💍 Honeymoon</button>
+          <button type="button" class="search-tab-pill" data-category="luxury">👑 Luxury & Villas</button>
+        </div>
+
+        <!-- Advance Search Filter Card (Editorial Palette #000000, #6F6F6F, #FFFFFF) -->
         <form id="advance-search-form"
-          class="advance-search-card p-3 sm:p-4 flex flex-col lg:grid lg:grid-cols-4 gap-2.5 sm:gap-3 items-stretch lg:items-center">
+          class="advance-search-card p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
 
-          <!-- Row 1 on Mobile / Col 1 on Desktop: Destination & Search Button in ONE LINE -->
-          <div class="flex items-center gap-2 w-full lg:contents">
-            <div
-              class="flex-1 flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <div class="flex-1 min-w-0 text-left">
-                <label for="search-destination"
-                  class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Destination</label>
-                <input type="text" id="search-destination" placeholder="Where to? (e.g. Maldives, Bali)"
-                  class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] placeholder:text-slate-400 focus:outline-none truncate">
-              </div>
-            </div>
-
-            <!-- Mobile View Search Button (Right on the same line!) -->
-            <button type="submit" id="search-submit-btn-mobile"
-              class="lg:hidden px-4 sm:px-5 py-3 rounded-2xl bg-[#000000] text-white hover:bg-zinc-800 active:scale-95 transition-all text-xs font-semibold shadow-md flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer"
-              aria-label="Search Holiday Packages">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <span>Search</span>
-            </button>
-          </div>
-
-          <!-- Row 2 on Mobile / Cols 2 & 3 on Desktop: Season & Style in a balanced 2-column row -->
-          <div class="grid grid-cols-2 gap-2 w-full lg:contents">
-            <!-- Travel Month / Season -->
-            <div
-              class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              <div class="flex-1 min-w-0 text-left">
-                <label for="search-season"
-                  class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Season</label>
-                <select id="search-season"
-                  class="w-full bg-transparent text-[11px] sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
-                  <option value="all">Any Season</option>
-                  <option value="winter">Winter (Nov - Feb)</option>
-                  <option value="spring">Spring (Mar - May)</option>
-                  <option value="summer">Summer (Jun - Aug)</option>
-                  <option value="festive">Festive Celebrations</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Travel Style -->
-            <div
-              class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" stroke-width="2" />
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" />
-              </svg>
-              <div class="flex-1 min-w-0 text-left">
-                <label for="search-style" class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Trip Style</label>
-                <select id="search-style"
-                  class="w-full bg-transparent text-[11px] sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
-                  <option value="all">All Styles</option>
-                  <option value="honeymoon">Honeymoon</option>
-                  <option value="family">Family Trip</option>
-                  <option value="luxury">Luxury Villas</option>
-                </select>
-              </div>
+          <!-- Destination -->
+          <div
+            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <div class="flex-1 min-w-0 text-left">
+              <label for="search-destination"
+                class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Destination</label>
+              <input type="text" id="search-destination" placeholder="Where to? (e.g. Maldives, Bali)"
+                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] placeholder:text-slate-400 focus:outline-none truncate">
             </div>
           </div>
 
-          <!-- Col 4 on Desktop / Row 3 on Mobile: Budget & Desktop Search Button -->
-          <div class="flex items-center gap-2 w-full lg:w-auto">
-            <div class="flex-1 text-left">
+          <!-- Travel Month / Season -->
+          <div
+            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <div class="flex-1 min-w-0 text-left">
+              <label for="search-season"
+                class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Travel Season</label>
+              <select id="search-season"
+                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
+                <option value="all">Any Season / Flexible</option>
+                <option value="winter">Winter Escapes (Nov - Feb)</option>
+                <option value="spring">Spring & Blooms (Mar - May)</option>
+                <option value="summer">Summer Vacations (Jun - Aug)</option>
+                <option value="festive">Festive Celebrations</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Travel Style -->
+          <div
+            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke-width="2" />
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" />
+            </svg>
+            <div class="flex-1 min-w-0 text-left">
+              <label for="search-style" class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Trip
+                Style</label>
+              <select id="search-style"
+                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
+                <option value="all">All Trip Types</option>
+                <option value="honeymoon">Romantic Honeymoon</option>
+                <option value="family">Family Adventure</option>
+                <option value="luxury">Luxury & Private Villas</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Submit Search Button -->
+          <div class="flex items-center gap-2">
+            <div class="flex-1 hidden sm:block text-left">
               <select id="search-budget"
-                class="w-full bg-slate-50 px-3 py-2 sm:py-2.5 rounded-2xl border border-slate-200/80 text-[11px] sm:text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer">
+                class="w-full bg-slate-50 px-3 py-2.5 rounded-2xl border border-slate-200/80 text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer">
                 <option value="all">Any Budget</option>
                 <option value="under50k">Under ₹50,000</option>
                 <option value="50k-100k">₹50,000 - ₹1,00,000</option>
                 <option value="above100k">Above ₹1,00,000</option>
               </select>
             </div>
-            <!-- Desktop Submit Search Button -->
             <button type="submit" id="search-submit-btn"
-              class="hidden lg:inline-flex px-6 py-3 rounded-full bg-[#000000] text-white hover:scale-[1.03] transition-transform duration-300 text-sm font-medium shadow-md items-center justify-center gap-2 flex-shrink-0 cursor-pointer"
+              class="w-full sm:w-auto px-6 py-3 rounded-full bg-[#000000] text-white hover:scale-[1.03] transition-transform duration-300 text-sm font-medium shadow-md flex items-center justify-center gap-2 flex-shrink-0 cursor-pointer"
               aria-label="Search Holiday Packages">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -499,6 +488,18 @@
           </div>
 
         </form>
+
+        <!-- Quick Popular Filter Chips -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+          <span class="text-[#6F6F6F] font-bold uppercase tracking-wider text-[11px] mr-1">Trending:</span>
+          <button type="button" class="quick-filter-chip active" data-filter="all">⚡ All Packages</button>
+          <button type="button" class="quick-filter-chip" data-filter="maldives">🏝️ Maldives</button>
+          <button type="button" class="quick-filter-chip" data-filter="switzerland">❄️ Switzerland</button>
+          <button type="button" class="quick-filter-chip" data-filter="dubai">🏜️ Dubai</button>
+          <button type="button" class="quick-filter-chip" data-filter="bali">🌺 Bali</button>
+          <button type="button" class="quick-filter-chip" data-filter="honeymoon">💍 Honeymoon</button>
+          <button type="button" class="quick-filter-chip" data-filter="under50k">💰 Under ₹50K</button>
+        </div>
 
       </div>
 
