@@ -10,14 +10,11 @@ import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/
 const isLoginPage = window.location.pathname.endsWith("login.html");
 
 export function initAuthGuard(onUserReady) {
-  // Check local demo bypass state (useful before Firebase users are created)
-  const isDemoAdmin = sessionStorage.getItem("two247_demo_admin") === "true";
-
   onAuthStateChanged(auth, (user) => {
-    if (user || isDemoAdmin) {
-      const email = user ? user.email : "admin@two247.in";
-      const emailEl = document.getElementById("admin-user-email");
-      if (emailEl) emailEl.textContent = email;
+    if (user) {
+      const email = user.email || "Administrator";
+      const emailEls = document.querySelectorAll("#admin-user-email");
+      emailEls.forEach(el => el.textContent = email);
 
       if (isLoginPage) {
         window.location.href = "index.html";
@@ -25,7 +22,7 @@ export function initAuthGuard(onUserReady) {
       }
 
       if (typeof onUserReady === "function") {
-        onUserReady(user || { email, isDemo: true });
+        onUserReady(user);
       }
     } else {
       if (!isLoginPage) {

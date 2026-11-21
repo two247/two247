@@ -21,7 +21,7 @@
         <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">Admin</span>
       </div>
 
-      <nav class="space-y-1.5">
+      <nav class="space-y-1.5" aria-label="Admin Navigation">
         <a href="index.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           <span>Dashboard</span>
@@ -46,15 +46,15 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
           <span>Customer Leads</span>
         </a>
-        <a href="../packages.html" target="_blank" class="admin-nav-item">
+        <a href="../gallery.html" target="_blank" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          <span>View Public Packages ↗</span>
+          <span>View Public Gallery ↗</span>
         </a>
       </nav>
     </div>
 
     <div class="pt-6 border-t border-white/10">
-      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">admin@two247.in</div>
+      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">Administrator</div>
       <button onclick="handleAdminSignOut()" class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
         <span>Sign Out</span>
@@ -83,20 +83,21 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
         <div class="w-full sm:w-80 relative">
           <input type="text" id="pkg-search" placeholder="Search by title or destination..."
-            class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black transition-all">
-          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            class="admin-input pl-10 pr-4 py-2 text-xs">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
         </div>
 
         <div class="flex items-center gap-2 w-full sm:w-auto">
-          <select id="pkg-cat-filter" class="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 focus:outline-none focus:border-black">
+          <select id="pkg-cat-filter" class="admin-select py-2 text-xs w-auto">
             <option value="all">All Categories</option>
-            <option value="Luxury">Luxury</option>
+            <option value="International">International</option>
+            <option value="Domestic">Domestic</option>
             <option value="Honeymoon">Honeymoon</option>
+            <option value="Luxury">Luxury</option>
             <option value="Family">Family</option>
             <option value="Adventure">Adventure</option>
-            <option value="International">International</option>
           </select>
-          <span id="pkg-total-count" class="text-xs text-slate-500 font-medium px-2">Loading...</span>
+          <span id="pkg-total-count" class="text-xs text-slate-500 font-semibold px-2 whitespace-nowrap">Loading...</span>
         </div>
       </div>
 
@@ -109,16 +110,16 @@
   </main>
 
   <!-- Package Add / Edit Modal -->
-  <div id="pkg-modal" class="fixed inset-0 z-50 hidden opacity-0 transition-opacity duration-300 modal-overlay flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
-    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] flex flex-col shadow-2xl overflow-hidden border border-slate-200">
+  <div id="pkg-modal" class="admin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="admin-modal-card max-w-3xl">
       
       <!-- Modal Header -->
-      <div class="px-6 sm:px-8 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+      <div class="px-6 sm:px-8 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0">
         <div>
           <h2 id="modal-title" class="text-lg font-bold text-slate-900">Create New Holiday Package</h2>
           <p class="text-xs text-slate-500 mt-0.5">Fill in details, day-by-day itinerary, and pricing</p>
         </div>
-        <button type="button" id="modal-close-btn" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200 transition-colors">
+        <button type="button" id="modal-close-btn" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200 transition-colors cursor-pointer" aria-label="Close modal">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
@@ -129,44 +130,38 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Package Title *</label>
-            <input type="text" id="form-title" required placeholder="e.g. Turkey Bosphorus Elegance & Cappadocia Horizons"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-title" class="admin-label">Package Title *</label>
+            <input type="text" id="form-title" required placeholder="e.g. Turkey Bosphorus Elegance & Cappadocia Horizons" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">URL Slug *</label>
-            <input type="text" id="form-slug" required placeholder="e.g. turkey-cappadocia-horizons"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-slug" class="admin-label">URL Slug *</label>
+            <input type="text" id="form-slug" required placeholder="e.g. turkey-cappadocia-horizons" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Destination Name *</label>
-            <input type="text" id="form-dest" required placeholder="e.g. Turkey"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-dest" class="admin-label">Destination Name *</label>
+            <input type="text" id="form-dest" required placeholder="e.g. Turkey" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Starting Price (Formatted) *</label>
-            <input type="text" id="form-price" required placeholder="e.g. ₹1,40,000"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-price" class="admin-label">Starting Price (Formatted) *</label>
+            <input type="text" id="form-price" required placeholder="e.g. ₹1,40,000" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Price Number (For Filters) *</label>
-            <input type="number" id="form-price-num" required placeholder="140000"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-price-num" class="admin-label">Price Number (For Filters) *</label>
+            <input type="number" id="form-price-num" required placeholder="140000" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Duration *</label>
-            <input type="text" id="form-duration" required placeholder="e.g. 7 Days / 6 Nights"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-duration" class="admin-label">Duration *</label>
+            <input type="text" id="form-duration" required placeholder="e.g. 7 Days / 6 Nights" class="admin-input">
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Category *</label>
-            <select id="form-category" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-category" class="admin-label">Category *</label>
+            <select id="form-category" class="admin-select">
               <option value="International">International</option>
               <option value="Domestic">Domestic</option>
               <option value="Honeymoon">Honeymoon</option>
@@ -177,35 +172,31 @@
           </div>
 
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Cover Image (Cloudinary or Unsplash URL) *</label>
+            <label for="form-image" class="admin-label">Cover Image (Cloudinary or Image URL) *</label>
             <div class="flex gap-2">
-              <input type="url" id="form-image" required placeholder="https://res.cloudinary.com/n4bywdyq/..."
-                class="flex-1 px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
-              <label class="px-4 py-3 bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-slate-700 flex items-center gap-1.5 shrink-0">
+              <input type="url" id="form-image" required placeholder="https://res.cloudinary.com/n4bywdyq/..." class="admin-input flex-1">
+              <label class="px-4 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-slate-700 flex items-center gap-1.5 shrink-0 transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-                <span>Upload to Cloudinary</span>
+                <span>Upload</span>
                 <input type="file" id="form-file-upload" accept="image/*" class="hidden">
               </label>
             </div>
-            <span id="upload-status" class="text-[11px] text-emerald-600 font-semibold mt-1 block hidden">Uploaded to Cloudinary!</span>
+            <span id="upload-status" class="text-xs text-emerald-600 font-semibold mt-1.5 block hidden">Uploaded to Cloudinary!</span>
           </div>
 
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Key Highlights (Comma-separated)</label>
-            <input type="text" id="form-highlights" placeholder="Sunrise Hot Air Balloon, Private Bosphorus Yacht, 5-Star Stays"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black">
+            <label for="form-highlights" class="admin-label">Key Highlights (Comma-separated)</label>
+            <input type="text" id="form-highlights" placeholder="Sunrise Hot Air Balloon, Private Bosphorus Yacht, 5-Star Stays" class="admin-input">
           </div>
 
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Inclusions (One per line)</label>
-            <textarea id="form-inclusions" rows="3" placeholder="4 Nights 5-Star Hotel Stay&#10;Daily Buffet Breakfast&#10;Private Airport AC Transfers"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black"></textarea>
+            <label for="form-inclusions" class="admin-label">Inclusions (One per line)</label>
+            <textarea id="form-inclusions" rows="3" placeholder="4 Nights 5-Star Hotel Stay&#10;Daily Buffet Breakfast&#10;Private Airport AC Transfers" class="admin-textarea"></textarea>
           </div>
 
           <div class="sm:col-span-2">
-            <label class="block text-xs font-bold text-slate-700 mb-1.5">Exclusions (One per line)</label>
-            <textarea id="form-exclusions" rows="2" placeholder="International Airfare&#10;Tourist Visa Fees&#10;Personal Expenses"
-              class="w-full px-4 py-3 rounded-xl border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-black"></textarea>
+            <label for="form-exclusions" class="admin-label">Exclusions (One per line)</label>
+            <textarea id="form-exclusions" rows="2" placeholder="International Airfare&#10;Tourist Visa Fees&#10;Personal Expenses" class="admin-textarea"></textarea>
           </div>
         </div>
 
@@ -216,7 +207,7 @@
               <h3 class="text-sm font-bold text-slate-900">Day-by-Day Itinerary Plan</h3>
               <p class="text-xs text-slate-500">Add daily schedule and activities</p>
             </div>
-            <button type="button" id="btn-add-day" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-700 transition-colors">
+            <button type="button" id="btn-add-day" class="px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition-colors cursor-pointer">
               + Add Day
             </button>
           </div>
@@ -228,12 +219,12 @@
       </form>
 
       <!-- Modal Footer -->
-      <div class="px-6 sm:px-8 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-3">
-        <button type="button" id="btn-cancel-modal" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100">
+      <div class="px-6 sm:px-8 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-3 shrink-0">
+        <button type="button" id="btn-cancel-modal" class="px-5 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
           Cancel
         </button>
-        <button type="submit" form="pkg-form" id="btn-save-pkg" class="px-6 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 shadow-md">
-          Save Package
+        <button type="submit" form="pkg-form" id="btn-save-pkg" class="px-6 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md cursor-pointer flex items-center gap-2">
+          <span>Save Package</span>
         </button>
       </div>
 
@@ -244,6 +235,7 @@
     import { initAuthGuard } from "./js/auth-guard.js";
     import { getPackages, savePackage, deletePackage } from "./js/db-service.js";
     import { uploadToCloudinary } from "../js/cloudinary-config.js";
+    import { showToast, parseCurrencyNumber, formatCurrencyIndian } from "./js/ui-utils.js";
 
     initAuthGuard(async () => {
       const container = document.getElementById("packages-list-container");
@@ -258,17 +250,34 @@
       const openNewBtn = document.getElementById("btn-open-new-pkg");
       const closeBtn = document.getElementById("modal-close-btn");
       const cancelBtn = document.getElementById("btn-cancel-modal");
+      const saveBtn = document.getElementById("btn-save-pkg");
       const fileUpload = document.getElementById("form-file-upload");
       const uploadStatus = document.getElementById("upload-status");
       const itinContainer = document.getElementById("itinerary-container");
       const addDayBtn = document.getElementById("btn-add-day");
+
+      const priceInput = document.getElementById("form-price");
+      const priceNumInput = document.getElementById("form-price-num");
+
+      // Price synchronization
+      priceInput.addEventListener("input", () => {
+        const num = parseCurrencyNumber(priceInput.value);
+        if (num > 0) priceNumInput.value = num;
+      });
+
+      priceNumInput.addEventListener("input", () => {
+        const num = parseInt(priceNumInput.value, 10);
+        if (!isNaN(num) && num > 0) {
+          priceInput.value = formatCurrencyIndian(num);
+        }
+      });
 
       let allPackages = await getPackages();
 
       function render(items = allPackages) {
         totalCount.textContent = `${items.length} Packages`;
         if (items.length === 0) {
-          container.innerHTML = `<div class="col-span-full py-16 text-center text-slate-400">No holiday packages found.</div>`;
+          container.innerHTML = `<div class="col-span-full py-16 text-center text-slate-400">No holiday packages found matching your criteria.</div>`;
           return;
         }
 
@@ -324,7 +333,7 @@
         const cat = catFilter.value;
         const filtered = allPackages.filter(p => {
           const matchQ = (p.name || p.title || "").toLowerCase().includes(query) || (p.destination || "").toLowerCase().includes(query);
-          const matchC = cat === "all" || p.category === cat || p.categoryType === cat.toLowerCase();
+          const matchC = cat === "all" || p.category === cat || (p.categoryType && p.categoryType.toLowerCase() === cat.toLowerCase());
           return matchQ && matchC;
         });
         render(filtered);
@@ -338,52 +347,65 @@
         const file = e.target.files[0];
         if (!file) return;
         uploadStatus.classList.remove("hidden");
-        uploadStatus.textContent = "Uploading to Cloudinary...";
+        uploadStatus.className = "text-xs text-slate-600 font-semibold mt-1.5 block";
+        uploadStatus.textContent = "Uploading image to Cloudinary...";
 
         try {
           const res = await uploadToCloudinary(file);
           document.getElementById("form-image").value = res.secure_url;
+          uploadStatus.className = "text-xs text-emerald-600 font-semibold mt-1.5 block";
           uploadStatus.textContent = "✓ Uploaded to Cloudinary successfully!";
+          showToast("Image uploaded to Cloudinary", "success");
           setTimeout(() => uploadStatus.classList.add("hidden"), 3000);
         } catch (err) {
+          uploadStatus.className = "text-xs text-rose-600 font-semibold mt-1.5 block";
           uploadStatus.textContent = `Upload failed: ${err.message}`;
+          showToast("Upload failed: " + err.message, "error");
         }
       });
+
+      // Renumber Itinerary Helper
+      function renumberItinerary() {
+        itinContainer.querySelectorAll(".itin-day-card").forEach((card, idx) => {
+          const label = card.querySelector(".itin-day-label");
+          if (label) label.textContent = `Day ${idx + 1}`;
+        });
+      }
 
       // Itinerary Builder
       function addItineraryDay(dayNum = itinContainer.children.length + 1, title = "", desc = "") {
         const row = document.createElement("div");
-        row.className = "p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2 relative";
+        row.className = "itin-day-card p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5 relative";
         row.innerHTML = `
           <div class="flex items-center justify-between">
-            <span class="text-xs font-bold text-slate-700">Day ${dayNum}</span>
-            <button type="button" class="text-rose-500 hover:text-rose-700 text-xs font-semibold remove-day-btn">Remove</button>
+            <span class="itin-day-label text-xs font-bold text-slate-800">Day ${dayNum}</span>
+            <button type="button" class="text-rose-600 hover:text-rose-800 text-xs font-bold remove-day-btn cursor-pointer">Remove</button>
           </div>
-          <input type="text" placeholder="Day Title (e.g. Arrival & Sunset Yacht Cruise)" value="${title}" class="itin-title w-full px-3 py-1.5 rounded-lg border border-slate-200 text-xs">
-          <textarea placeholder="Day description..." rows="2" class="itin-desc w-full px-3 py-1.5 rounded-lg border border-slate-200 text-xs">${desc}</textarea>
+          <input type="text" placeholder="Day Title (e.g. Arrival & Sunset Yacht Cruise)" value="${title}" class="itin-title admin-input text-xs py-2">
+          <textarea placeholder="Day description and inclusions..." rows="2" class="itin-desc admin-textarea text-xs py-2">${desc}</textarea>
         `;
-        row.querySelector(".remove-day-btn").addEventListener("click", () => row.remove());
+        row.querySelector(".remove-day-btn").addEventListener("click", () => {
+          row.remove();
+          renumberItinerary();
+        });
         itinContainer.appendChild(row);
       }
 
       addDayBtn.addEventListener("click", () => addItineraryDay());
 
-      // Open Modal Helpers
+      // Open / Close Modal Helpers
       function openModal() {
-        modal.classList.remove("hidden");
-        requestAnimationFrame(() => modal.classList.remove("opacity-0"));
+        modal.classList.add("is-open");
         document.body.style.overflow = "hidden";
       }
 
       function closeModal() {
-        modal.classList.add("opacity-0");
-        setTimeout(() => {
-          modal.classList.add("hidden");
-          form.reset();
-          itinContainer.innerHTML = "";
-          document.getElementById("form-pkg-id").value = "";
-          document.body.style.overflow = "";
-        }, 300);
+        modal.classList.remove("is-open");
+        form.reset();
+        itinContainer.innerHTML = "";
+        document.getElementById("form-pkg-id").value = "";
+        uploadStatus.classList.add("hidden");
+        document.body.style.overflow = "";
       }
 
       openNewBtn.addEventListener("click", () => {
@@ -397,6 +419,18 @@
       closeBtn.addEventListener("click", closeModal);
       cancelBtn.addEventListener("click", closeModal);
 
+      // Close on backdrop click
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Close on Escape key
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
       function openEditModal(id) {
         const pkg = allPackages.find(p => p.id === id || p.slug === id);
         if (!pkg) return;
@@ -407,7 +441,7 @@
         document.getElementById("form-slug").value = pkg.slug || "";
         document.getElementById("form-dest").value = pkg.destination || "";
         document.getElementById("form-price").value = pkg.startingPrice || "";
-        document.getElementById("form-price-num").value = pkg.startingPriceNum || "";
+        document.getElementById("form-price-num").value = pkg.startingPriceNum || parseCurrencyNumber(pkg.startingPrice);
         document.getElementById("form-duration").value = pkg.duration || "";
         document.getElementById("form-category").value = pkg.category || "International";
         document.getElementById("form-image").value = pkg.image || "";
@@ -416,32 +450,49 @@
         document.getElementById("form-exclusions").value = (pkg.exclusions || []).join("\n");
 
         itinContainer.innerHTML = "";
-        (pkg.itinerary || []).forEach(d => {
-          addItineraryDay(d.day, d.title, d.description);
-        });
+        const itin = pkg.itinerary || [];
+        if (itin.length > 0) {
+          itin.forEach(d => {
+            addItineraryDay(d.day, d.title, d.description);
+          });
+        } else {
+          addItineraryDay(1);
+        }
 
         openModal();
       }
 
       async function handleDelete(id) {
         if (!confirm("Are you sure you want to permanently delete this package?")) return;
-        await deletePackage(id);
-        allPackages = await getPackages();
-        render();
+        try {
+          await deletePackage(id);
+          allPackages = await getPackages();
+          render();
+          showToast("Package deleted successfully", "info");
+        } catch (err) {
+          showToast("Error deleting package: " + err.message, "error");
+        }
       }
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = `<span>Saving...</span>`;
+
         const id = document.getElementById("form-pkg-id").value || null;
         const itinerary = [];
         itinContainer.querySelectorAll(".itin-title").forEach((tInput, idx) => {
           const dInput = itinContainer.querySelectorAll(".itin-desc")[idx];
-          itinerary.push({
-            day: idx + 1,
-            title: tInput.value.trim(),
-            description: dInput.value.trim()
-          });
+          if (tInput.value.trim() || (dInput && dInput.value.trim())) {
+            itinerary.push({
+              day: idx + 1,
+              title: tInput.value.trim(),
+              description: dInput ? dInput.value.trim() : ""
+            });
+          }
         });
+
+        const rawPriceNum = parseInt(document.getElementById("form-price-num").value) || parseCurrencyNumber(document.getElementById("form-price").value);
 
         const payload = {
           name: document.getElementById("form-title").value.trim(),
@@ -450,7 +501,7 @@
           destination: document.getElementById("form-dest").value.trim(),
           destinationSlug: document.getElementById("form-dest").value.trim().toLowerCase(),
           startingPrice: document.getElementById("form-price").value.trim(),
-          startingPriceNum: parseInt(document.getElementById("form-price-num").value) || 0,
+          startingPriceNum: rawPriceNum,
           duration: document.getElementById("form-duration").value.trim(),
           category: document.getElementById("form-category").value,
           categoryType: document.getElementById("form-category").value.toLowerCase(),
@@ -463,10 +514,19 @@
           reviewCount: 30
         };
 
-        await savePackage(payload, id);
-        allPackages = await getPackages();
-        closeModal();
-        render();
+        try {
+          await savePackage(payload, id);
+          allPackages = await getPackages();
+          closeModal();
+          render();
+          showToast(id ? "Package updated successfully!" : "New package published to Firestore!", "success");
+        } catch (err) {
+          console.error("Save package error:", err);
+          showToast("Error saving package: " + err.message, "error");
+        } finally {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = `<span>Save Package</span>`;
+        }
       });
 
       render();
