@@ -55,6 +55,11 @@
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  /* Universal Travel Card for consistent borders, shadows & hover state */
+  .travel-card {
+    @apply rounded-3xl bg-white border border-slate-200/90 shadow-sm transition-all duration-300 hover:border-black/30 hover:shadow-xl overflow-hidden;
+  }
+
   /* MotionSites Editorial Primary Button */
   .btn-primary {
     @apply inline-flex items-center justify-center font-semibold rounded-full bg-[#000000] text-white px-7 py-3.5 transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-95;
@@ -110,6 +115,64 @@
 
   .hero-zoom {
     animation: slowZoom 24s ease-out infinite alternate;
+  }
+}
+
+/* =========================================================================
+   TWO247 EDITORIAL MOTION & APPEAR EFFECTS (Text & Card Reveals)
+   ========================================================================= */
+
+/* Text Appear Animation — Silky rise and fade */
+.appear-text {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.appear-text.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Card Appear Animation with Dynamic Stagger */
+.appear-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+  transition-delay: var(--stagger-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.appear-card.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.appear-card.is-visible:hover {
+  transform: translateY(-6px);
+}
+
+/* Soft Fade Reveal */
+.appear-fade {
+  opacity: 0;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--stagger-delay, 0ms);
+  will-change: opacity;
+}
+
+.appear-fade.is-visible {
+  opacity: 1 !important;
+}
+
+/* Respect Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .appear-text,
+  .appear-card,
+  .appear-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
@@ -447,6 +510,14 @@
 /* =========================================================================
    CINEMATIC HERO ANIMATIONS (MotionSites Standard)
    ========================================================================= */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes fadeRise {
   0% {
     opacity: 0;

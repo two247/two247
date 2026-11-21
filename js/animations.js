@@ -1,29 +1,66 @@
 /**
- * TWO247 — Scroll Reveal & Micro Animations
- * Uses IntersectionObserver to trigger subtle editorial reveal transitions.
+ * TWO247 — Editorial Motion & Micro Animations
+ * High-performance IntersectionObserver for text reveals, card cascades, and stagger effects.
+ * Inspired by luxury editorial travel design (Aman, Black Tomato, Pelorus).
  */
+
 export function initAnimations() {
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (isReducedMotion) return;
 
-  const revealElements = document.querySelectorAll('.reveal-on-scroll');
-  if (!revealElements.length) return;
+  // Reduced motion: immediate reveal
+  if (isReducedMotion) {
+    document.querySelectorAll('.appear-text, .appear-card, .appear-fade, .reveal-on-scroll').forEach(el => {
+      el.classList.add('is-visible');
+    });
+    return;
+  }
 
-  const observer = new IntersectionObserver((entries, obs) => {
+  // 1. Setup Stagger Groups (Container dynamically delays its cards)
+  const staggerGroups = document.querySelectorAll('[data-stagger-group]');
+  staggerGroups.forEach(group => {
+    const items = group.children;
+    Array.from(items).forEach((item, index) => {
+      if (!item.classList.contains('appear-card')) {
+        item.classList.add('appear-card');
+      }
+      item.style.setProperty('--stagger-delay', `${Math.min(index * 80, 480)}ms`);
+    });
+  });
+
+  // 2. Global Intersection Observer for Scroll Reveals
+  const observerOptions = {
+    threshold: 0.08,
+    rootMargin: '0px 0px -40px 0px'
+  };
+
+  const revealObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0', 'translate-y-6');
-        entry.target.classList.add('opacity-100', 'translate-y-0');
+        entry.target.classList.add('is-visible');
         obs.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+  }, observerOptions);
+
+  // Observe all elements with appear classes
+  const elementsToObserve = document.querySelectorAll('.appear-text, .appear-card, .appear-fade, .reveal-on-scroll');
+  elementsToObserve.forEach(el => {
+    revealObserver.observe(el);
   });
 
-  revealElements.forEach(el => {
-    el.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-6');
-    observer.observe(el);
-  });
+  // 3. Dynamic Card Stagger Helper (for dynamic search/filter renders)
+  window.triggerCardAppear = (container) => {
+    if (!container) return;
+    const cards = container.querySelectorAll('.editorial-card, .travel-card, .appear-card');
+    cards.forEach((card, idx) => {
+      card.classList.add('appear-card');
+      card.style.setProperty('--stagger-delay', `${Math.min(idx * 75, 450)}ms`);
+      // Double rAF ensures the initial opacity:0 is registered before transition kicks in
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          card.classList.add('is-visible');
+        });
+      });
+    });
+  };
 }

@@ -4,16 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TWO247 — Beyond silence, we build the eternal.</title>
+  <title>TWO247 — Luxury Holiday Packages & Bespoke Travel Agency India</title>
   <meta name="description"
-    content="Building platforms for brilliant minds, fearless makers, and thoughtful souls. Bespoke luxury holidays, timeless voyages, and 24/7 dedicated travel guidance.">
+    content="Book bespoke luxury holiday packages from India with verified 5-star stays, transparent quotations, and 24/7 WhatsApp concierge. Kashmir, Bali, Maldives, Dubai, Switzerland & Europe.">
+  <meta name="keywords"
+    content="bespoke holiday packages, luxury travel agency India, customized honeymoon packages from India, Bali tour package under 40000, Maldives overwater villa package, Kashmir luxury houseboat tour, Dubai family holiday, 24/7 travel concierge">
   <meta name="google-site-verification" content="qTUBuvlFFd-kHEy04D0BjERwg2lDKnPOOvsFlyAfVog">
   <link rel="canonical" href="https://two247.in/">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="TWO247 — Beyond silence, we build the eternal.">
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:title" content="TWO247 — Luxury Holiday Packages & Bespoke Travel">
   <meta property="og:description"
-    content="Bespoke luxury holidays, curated itineraries, and continuous 24/7 travel assistance.">
+    content="Curated luxury holiday packages with handpicked boutique stays, private transfers, and 24/7 dedicated WhatsApp concierge support.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://two247.in/">
   <meta property="og:image" content="assets/logo/two247-logo.jpg">
@@ -27,7 +29,17 @@
     href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- Structured Data JSON-LD -->
+  <!-- Preloader Single-Session Guard (Prevent flash when clicking Home or navigating) -->
+  <script>
+    if (sessionStorage.getItem('two247_preloader_seen') === 'true') {
+      document.documentElement.classList.add('preloader-done');
+    }
+  </script>
+  <style>
+    .preloader-done #two247-preloader { display: none !important; }
+  </style>
+
+  <!-- Structured Data JSON-LD (SEO, GEO & AEO Rich Snippets) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,10 +48,59 @@
         "@type": "TravelAgency",
         "@id": "https://two247.in/#organization",
         "name": "TWO247 — The White Owl Holidays",
+        "alternateName": ["TWO247", "The White Owl Holidays", "TWO247 Travel Agency"],
         "url": "https://two247.in",
         "logo": "https://two247.in/assets/logo/two247-logo-transparent.png",
-        "description": "Bespoke holiday packages and personalized trip planning with 24/7 customer travel assistance.",
-        "slogan": "Beyond silence, we build the eternal."
+        "image": "https://two247.in/assets/logo/two247-logo.jpg",
+        "description": "TWO247 (The White Owl Holidays) is a premier Indian luxury travel agency specializing in bespoke domestic and international holiday packages from ₹22,999 to ₹1,85,000+. Headquartered in India, TWO247 provides verified boutique stays, private transfers, and continuous 24/7 human WhatsApp concierge support for honeymoons, family retreats, and luxury journeys.",
+        "slogan": "Curated voyages, crafted for timeless memories.",
+        "priceRange": "₹22,999 - ₹1,85,000+",
+        "currenciesAccepted": "INR, USD, EUR, THB, AED",
+        "telephone": "+91-9876543210",
+        "email": "concierge@two247.in",
+        "areaServed": [
+          "India", "Maldives", "Bali", "Thailand", "Dubai", "Singapore", "Switzerland", "Japan", "Kenya", "Iceland", "Italy"
+        ],
+        "knowsAbout": [
+          "Bespoke Holiday Planning", "Luxury Honeymoon Packages", "Private Overwater Villas", 
+          "Kashmir Houseboat Stays", "24/7 Real-Time Travel Assistance", "Customized International Tours"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Holiday Packages & Bespoke Tours",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Trip",
+                "name": "Thailand Phuket & Krabi Island Explorer",
+                "description": "6 Days 5 Nights island tour including Phi Phi Islands, Maya Bay catamaran, and 4-star resort stay."
+              },
+              "price": "34999",
+              "priceCurrency": "INR"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Trip",
+                "name": "Maldives Luxury Overwater Pool Villa",
+                "description": "5 Days 4 Nights luxury overwater villa escape with speedboat transfers and all-inclusive dining."
+              },
+              "price": "84999",
+              "priceCurrency": "INR"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Trip",
+                "name": "Japan Cherry Blossoms & Kyoto Ryokan Living",
+                "description": "7 Days 6 Nights bespoke journey including bullet train pass, private tea ceremony, and onsen ryokan stay."
+              },
+              "price": "168000",
+              "priceCurrency": "INR"
+            }
+          ]
+        }
       },
       {
         "@type": "WebSite",
@@ -49,6 +110,92 @@
         "publisher": {
           "@id": "https://two247.in/#organization"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://two247.in/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much will a customized Thailand trip cost from India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 5 to 7-day Thailand holiday package typically costs between ₹35,000 to ₹75,000 ($420 – $900) per person including flights, 4-star stays, and island catamaran transfers. Daily personal expenses average 1,500 – 3,500 THB for dining, street food, and local BTS/MRT transport."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do Indian tourists really need 20,000 baht to enter Thailand?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, under official Thai Immigration regulations, tourists entering on standard Tourist Visas or Visa Exemptions must carry proof of at least 20,000 THB (or foreign currency equivalent) per person, or 40,000 THB per family. Having physical cash or mobile banking statements prevents immigration delays."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a bespoke Maldives honeymoon package cost from India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 4-night bespoke Maldives honeymoon package typically ranges from ₹84,999 to ₹2,50,000 per couple depending on resort tier, villa type (beach villa vs overwater pool villa), speedboat vs seaplane transfers, and meal plans (All-Inclusive vs Half-Board)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in a TWO247 bespoke holiday package?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every TWO247 package includes verified 4-star, 5-star, or boutique villa accommodations, private airport and sightseeing transfers, daily breakfast, pre-booked guided excursions, and guaranteed 24/7 dedicated human WhatsApp concierge assistance throughout the journey."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes TWO247’s 24/7 Travel Assistance different from booking portals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike automated call centers or chatbots, TWO247 provides a dedicated human trip coordinator on WhatsApp before departure, during airport transfers, and anytime during your holiday to instantly handle schedule adjustments, hotel coordination, and emergency support."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ₹50,000 enough for an international holiday package?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, ₹50,000 per person is sufficient for 5 to 6-day Southeast Asian itineraries including Bali, Thailand, or Dubai, covering boutique resort accommodations, airport transfers, sightseeing day-trips, and select meals when booked in advance through TWO247."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customize hotels and activities after receiving a quote?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all TWO247 itineraries are 100% customizable. Travelers can freely swap hotel properties, upgrade villa categories, request private chauffeurs, add romantic candlelit dinners, or adjust travel dates prior to confirming final booking vouchers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best time to book a European holiday from India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The optimal booking window for European destinations like Switzerland, France, or Italy is 3 to 4 months in advance (February–March for summer visits; August–September for autumn). This guarantees Schengen visa appointments and locked-in promotional airfares."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book a customized holiday package through TWO247?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Travelers can submit preferred destinations and dates through the online Advance Search engine or directly message the White Owl 24/7 WhatsApp desk (+91-9876543210). A destination designer creates a tailored itinerary quote within hours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment terms and booking protection does TWO247 offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TWO247 operates with structured milestone payments: a partial advance to secure hotel and flight reservations, followed by balanced disbursements before travel vouchers are issued. Transparent cancellation policies and invoice documentation are provided upfront."
+            }
+          }
+        ]
       }
     ]
   }
@@ -61,28 +208,15 @@
   <div id="two247-preloader"
     class="fixed inset-0 z-[9999] flex items-center justify-center bg-white text-[#000000] select-none"
     aria-label="TWO247 Preloader" role="status">
-    <!-- Subtle Ambient Pearl/Gold Glow -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.03),transparent_70%)] rounded-full blur-3xl">
-      </div>
-    </div>
-
-    <!-- Minimalist Skip Button (Top Right) -->
-    <button id="preloader-skip"
-      class="absolute top-6 right-6 text-[11px] uppercase tracking-widest text-[#6F6F6F] hover:text-[#000000] px-3.5 py-1.5 rounded-full border border-slate-200 hover:border-slate-400 bg-white/90 backdrop-blur-sm transition-all duration-200 z-30 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
-      aria-label="Skip preloader">
-      Skip ✕
-    </button>
 
     <div class="relative z-10 flex flex-col items-center justify-center p-6 text-center max-w-sm w-full">
       <!-- Clean Owl Animation (IconScout #9223780 - Watermark Free) -->
-      <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-3">
+      <div class="relative w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center mb-3" style="mix-blend-mode: multiply;">
         <video autoplay loop muted playsinline poster="assets/animation/owl-animation.png"
-          class="w-full h-full object-contain" aria-label="TWO247 White Owl Animation">
+          class="w-full h-full object-contain mix-blend-multiply" style="mix-blend-mode: multiply;" aria-label="TWO247 White Owl Animation">
           <source src="assets/animation/owl-animation.mp4" type="video/mp4">
           <img src="assets/animation/owl-animation.gif" alt="TWO247 White Owl Animation"
-            class="w-full h-full object-contain">
+            class="w-full h-full object-contain mix-blend-multiply" style="mix-blend-mode: multiply;">
         </video>
       </div>
 
@@ -230,20 +364,14 @@
       -->
       <h1
         class="hero-editorial-headline text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[96px] 2xl:text-[104px] max-w-5xl lg:max-w-7xl mx-auto font-normal text-[#000000] animate-fade-rise select-none px-2 sm:px-4">
-        Beyond <span class="italic text-[#6F6F6F]">silence,</span> we build <span class="italic text-[#6F6F6F]">the
-          eternal.</span>
+        Curated <span class="italic text-[#6F6F6F]">voyages,</span> crafted for <span class="italic text-[#6F6F6F]">timeless
+          memories.</span>
       </h1>
 
-      <!-- Description:
-           Text: "Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows."
-           Styling: text-sm sm:text-base md:text-lg, max-w-xl sm:max-w-2xl, mt-6 sm:mt-8, leading-relaxed
-           Color: #6F6F6F
-           Animation: animate-fade-rise-delay
-      -->
+      <!-- Description: High-converting luxury travel copy optimized for SEO & GEO -->
       <p
         class="text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl mx-auto mt-6 sm:mt-8 px-2 sm:px-0 leading-relaxed text-[#6F6F6F] animate-fade-rise-delay font-normal">
-        Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft
-        digital havens for deep work and pure flows.
+        Bespoke domestic and international holiday packages tailored to your rhythm. Handpicked luxury stays, seamless private transfers, and 24/7 on-ground WhatsApp concierge support.
       </p>
 
       <!-- Hero CTA Button:
@@ -266,92 +394,99 @@
 
       <!-- ADVANCE SEARCH ENGINE (Interactive Tour Travel Agency) -->
       <div id="advance-search-section"
-        class="advance-search-container mt-10 sm:mt-14 max-w-5xl mx-auto w-full px-2 sm:px-4 md:px-6 relative z-20">
+        class="advance-search-container mt-8 sm:mt-12 max-w-5xl mx-auto w-full px-2 sm:px-4 md:px-6 relative z-20">
 
-        <!-- Search Category Tabs -->
-        <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-3">
-          <button type="button" class="search-tab-pill active" data-category="all">🏖️ All Packages</button>
-          <button type="button" class="search-tab-pill" data-category="international">✈️ International</button>
-          <button type="button" class="search-tab-pill" data-category="domestic">🇮🇳 Domestic Escapes</button>
-          <button type="button" class="search-tab-pill" data-category="honeymoon">💍 Honeymoon</button>
-          <button type="button" class="search-tab-pill" data-category="luxury">👑 Luxury & Villas</button>
-        </div>
-
-        <!-- Advance Search Filter Card (Editorial Palette #000000, #6F6F6F, #FFFFFF) -->
+        <!-- Advance Search Filter Card (Responsive Mobile One-Line & Desktop 4-Col) -->
         <form id="advance-search-form"
-          class="advance-search-card p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
+          class="advance-search-card p-3 sm:p-4 flex flex-col lg:grid lg:grid-cols-4 gap-2.5 sm:gap-3 items-stretch lg:items-center">
 
-          <!-- Destination -->
-          <div
-            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <div class="flex-1 min-w-0 text-left">
-              <label for="search-destination"
-                class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Destination</label>
-              <input type="text" id="search-destination" placeholder="Where to? (e.g. Maldives, Bali)"
-                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] placeholder:text-slate-400 focus:outline-none truncate">
+          <!-- Row 1 on Mobile / Col 1 on Desktop: Destination & Search Button in ONE LINE -->
+          <div class="flex items-center gap-2 w-full lg:contents">
+            <div
+              class="flex-1 flex items-center gap-2.5 sm:gap-3 px-3.5 sm:px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <div class="flex-1 min-w-0 text-left">
+                <label for="search-destination"
+                  class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Destination</label>
+                <input type="text" id="search-destination" placeholder="Where to? (e.g. Maldives, Bali)"
+                  class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] placeholder:text-slate-400 focus:outline-none truncate">
+              </div>
+            </div>
+
+            <!-- Mobile View Search Button (Right on the same line!) -->
+            <button type="submit" id="search-submit-btn-mobile"
+              class="lg:hidden px-4 sm:px-5 py-3 rounded-2xl bg-[#000000] text-white hover:bg-zinc-800 active:scale-95 transition-all text-xs font-semibold shadow-md flex items-center justify-center gap-1.5 flex-shrink-0 cursor-pointer"
+              aria-label="Search Holiday Packages">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <span>Search</span>
+            </button>
+          </div>
+
+          <!-- Row 2 on Mobile / Cols 2 & 3 on Desktop: Season & Style in a balanced 2-column row -->
+          <div class="grid grid-cols-2 gap-2 w-full lg:contents">
+            <!-- Travel Month / Season -->
+            <div
+              class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div class="flex-1 min-w-0 text-left">
+                <label for="search-season"
+                  class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Season</label>
+                <select id="search-season"
+                  class="w-full bg-transparent text-[11px] sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
+                  <option value="all">Any Season</option>
+                  <option value="winter">Winter (Nov - Feb)</option>
+                  <option value="spring">Spring (Mar - May)</option>
+                  <option value="summer">Summer (Jun - Aug)</option>
+                  <option value="festive">Festive Celebrations</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Travel Style -->
+            <div
+              class="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 sm:py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke-width="2" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" />
+              </svg>
+              <div class="flex-1 min-w-0 text-left">
+                <label for="search-style" class="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Trip Style</label>
+                <select id="search-style"
+                  class="w-full bg-transparent text-[11px] sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
+                  <option value="all">All Styles</option>
+                  <option value="honeymoon">Honeymoon</option>
+                  <option value="family">Family Trip</option>
+                  <option value="luxury">Luxury Villas</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <!-- Travel Month / Season -->
-          <div
-            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-            <div class="flex-1 min-w-0 text-left">
-              <label for="search-season"
-                class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Travel Season</label>
-              <select id="search-season"
-                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
-                <option value="all">Any Season / Flexible</option>
-                <option value="winter">Winter Escapes (Nov - Feb)</option>
-                <option value="spring">Spring & Blooms (Mar - May)</option>
-                <option value="summer">Summer Vacations (Jun - Aug)</option>
-                <option value="festive">Festive Celebrations</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Travel Style -->
-          <div
-            class="flex items-center gap-3 px-4 py-2.5 bg-slate-50 hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-colors">
-            <svg class="w-5 h-5 text-[#000000] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10" stroke-width="2" />
-              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" />
-            </svg>
-            <div class="flex-1 min-w-0 text-left">
-              <label for="search-style" class="block text-[10px] font-bold uppercase tracking-wider text-[#6F6F6F]">Trip
-                Style</label>
-              <select id="search-style"
-                class="w-full bg-transparent text-xs sm:text-sm font-semibold text-[#000000] focus:outline-none cursor-pointer truncate">
-                <option value="all">All Trip Types</option>
-                <option value="honeymoon">Romantic Honeymoon</option>
-                <option value="family">Family Adventure</option>
-                <option value="luxury">Luxury & Private Villas</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Submit Search Button -->
-          <div class="flex items-center gap-2">
-            <div class="flex-1 hidden sm:block text-left">
+          <!-- Col 4 on Desktop / Row 3 on Mobile: Budget & Desktop Search Button -->
+          <div class="flex items-center gap-2 w-full lg:w-auto">
+            <div class="flex-1 text-left">
               <select id="search-budget"
-                class="w-full bg-slate-50 px-3 py-2.5 rounded-2xl border border-slate-200/80 text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer">
+                class="w-full bg-slate-50 px-3 py-2 sm:py-2.5 rounded-2xl border border-slate-200/80 text-[11px] sm:text-xs font-semibold text-slate-800 focus:outline-none cursor-pointer">
                 <option value="all">Any Budget</option>
                 <option value="under50k">Under ₹50,000</option>
                 <option value="50k-100k">₹50,000 - ₹1,00,000</option>
                 <option value="above100k">Above ₹1,00,000</option>
               </select>
             </div>
+            <!-- Desktop Submit Search Button -->
             <button type="submit" id="search-submit-btn"
-              class="w-full sm:w-auto px-6 py-3 rounded-full bg-[#000000] text-white hover:scale-[1.03] transition-transform duration-300 text-sm font-medium shadow-md flex items-center justify-center gap-2 flex-shrink-0 cursor-pointer"
+              class="hidden lg:inline-flex px-6 py-3 rounded-full bg-[#000000] text-white hover:scale-[1.03] transition-transform duration-300 text-sm font-medium shadow-md items-center justify-center gap-2 flex-shrink-0 cursor-pointer"
               aria-label="Search Holiday Packages">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -362,18 +497,6 @@
           </div>
 
         </form>
-
-        <!-- Quick Popular Filter Chips -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
-          <span class="text-[#6F6F6F] font-bold uppercase tracking-wider text-[11px] mr-1">Trending:</span>
-          <button type="button" class="quick-filter-chip active" data-filter="all">⚡ All Packages</button>
-          <button type="button" class="quick-filter-chip" data-filter="maldives">🏝️ Maldives</button>
-          <button type="button" class="quick-filter-chip" data-filter="switzerland">❄️ Switzerland</button>
-          <button type="button" class="quick-filter-chip" data-filter="dubai">🏜️ Dubai</button>
-          <button type="button" class="quick-filter-chip" data-filter="bali">🌺 Bali</button>
-          <button type="button" class="quick-filter-chip" data-filter="honeymoon">💍 Honeymoon</button>
-          <button type="button" class="quick-filter-chip" data-filter="under50k">💰 Under ₹50K</button>
-        </div>
 
       </div>
 
@@ -411,7 +534,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 appear-text">
           <div>
             <div class="flex items-center gap-3 mb-2">
               <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F]">STUDIO ESCAPES</span>
@@ -441,20 +564,125 @@
           </div>
         </div>
 
+        <!-- Package Category Tabs (Filter Directly in Packages Showcase) -->
+        <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-3 scrollbar-none mb-8 -mx-2 px-2 sm:mx-0 sm:px-0 appear-text">
+          <button type="button" class="search-tab-pill active cursor-pointer" data-category="all">🏖️ All Packages</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="international">✈️ International</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="domestic">🇮🇳 Domestic Escapes</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="honeymoon">💍 Honeymoon</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="luxury">👑 Luxury & Villas</button>
+        </div>
+
         <!-- Interactive Packages Grid (Updated dynamically via advance-search.js) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="interactive-packages-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="interactive-packages-grid" data-stagger-group>
           <!-- Dynamic cards injected by js/advance-search.js -->
         </div>
 
       </div>
     </section>
 
-    <!-- 5. POPULAR DESTINATIONS -->
+    <!-- 5. TRAVEL CATEGORIES (Holidays by Theme) -->
+    <section class="py-24 bg-white border-t border-slate-100" id="travel-categories" aria-labelledby="categories-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-14 appear-text">
+          <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">HOLIDAYS BY THEME</span>
+          <h2 id="categories-heading"
+            class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight">
+            Curated For <span class="italic text-[#6F6F6F]">Every Voyager</span>
+          </h2>
+          <p class="text-[#6F6F6F] text-base sm:text-lg mt-3">
+            Whatever your travel celebration, TWO247 designs signature itineraries crafted around your distinct journey style.
+          </p>
+        </div>
+
+        <!-- Categories Grid (6 Signature Themes) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6" data-stagger-group>
+
+          <!-- 1. Honeymoon -->
+          <a href="#curated-packages" data-category-trigger="honeymoon"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              💍
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">Honeymoon</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Private & Romantic</span>
+            </div>
+          </a>
+
+          <!-- 2. Family Escapes -->
+          <a href="#curated-packages" data-category-trigger="all"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              👨‍👩‍👧
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">Family Trips</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Fun For All Ages</span>
+            </div>
+          </a>
+
+          <!-- 3. International Grand Tours -->
+          <a href="#curated-packages" data-category-trigger="international"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              🌍
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">International</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Global Horizons</span>
+            </div>
+          </a>
+
+          <!-- 4. Domestic Escapes -->
+          <a href="#curated-packages" data-category-trigger="domestic"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              🇮🇳
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">Incredible India</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Domestic Escapes</span>
+            </div>
+          </a>
+
+          <!-- 5. Luxury & Private Villas -->
+          <a href="#curated-packages" data-category-trigger="luxury"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              👑
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">Private Villas</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Ultra Luxury Living</span>
+            </div>
+          </a>
+
+          <!-- 6. Group & Corporate MICE -->
+          <a href="custom-trip.html"
+            class="group bg-white p-6 rounded-3xl text-center border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-between h-full cursor-pointer">
+            <div class="w-14 h-14 rounded-2xl bg-slate-50 group-hover:bg-[#000000] group-hover:text-white flex items-center justify-center text-2xl mb-4 transition-all duration-300">
+              🏢
+            </div>
+            <div>
+              <h3 class="font-display font-normal text-lg text-[#000000] group-hover:text-[#6F6F6F] transition-colors">Executive MICE</h3>
+              <span class="text-xs text-[#6F6F6F] mt-1 block">Group & Corporate</span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. POPULAR DESTINATIONS -->
     <section class="py-24 bg-white" id="popular-destinations" aria-labelledby="dest-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 appear-text">
           <div>
             <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">EXPLORE THE WORLD</span>
             <h2 id="dest-heading"
@@ -478,7 +706,7 @@
         </div>
 
         <!-- Destination Grid (6 Cards) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" data-stagger-group>
 
           <!-- Card 1: Dubai -->
           <article
@@ -667,12 +895,203 @@
       </div>
     </section>
 
+    <!-- 5.5 SIGNATURE TRAVEL HORIZONS (Editorial Concepts Gathered from Leading Global Travel Curators) -->
+    <section class="py-24 bg-[#0a0a0c] text-white relative overflow-hidden" id="signature-horizons" aria-labelledby="horizons-heading">
+      <!-- Ambient background subtle light glow -->
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 appear-text">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-2">CURATED EDITORIAL DOSSIER</span>
+            <h2 id="horizons-heading" class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-white tracking-tight">
+              Signature <span class="italic text-slate-300">Travel Horizons</span>
+            </h2>
+            <p class="text-slate-400 text-base sm:text-lg mt-3 max-w-xl">
+              Inspired by the world’s foremost journeys: rare access, extraordinary landscapes, and immersive moments arranged exclusively by White Owl 24/7.
+            </p>
+          </div>
+          <div class="mt-6 md:mt-0">
+            <button onclick="window.sendWhatsAppEnquiry('Hello TWO247, I want to discuss a bespoke Signature Horizon trip.')"
+              class="inline-flex items-center text-sm font-semibold text-white bg-white/10 hover:bg-white hover:text-black border border-white/20 px-6 py-3 rounded-full transition-all duration-300 cursor-pointer">
+              Enquire Custom Horizon →
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Global Horizons Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-stagger-group>
+
+          <!-- Horizon 1: Japan -->
+          <article class="group bg-zinc-900/90 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div class="relative h-64 overflow-hidden bg-zinc-800">
+              <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"
+                alt="Kyoto Japan Cherry Blossom and Pagoda" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-black/75 backdrop-blur-md rounded-full text-[11px] font-bold text-amber-300 tracking-wider uppercase border border-amber-400/30">
+                Zen Sanctuary
+              </span>
+              <div class="absolute bottom-3 left-4 text-xs font-semibold text-slate-200">
+                Kyoto & Tokyo • 7 Days
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-display font-normal text-white group-hover:text-amber-300 transition-colors mb-2">
+                  Japan Cherry Blossoms & Ryokan Living
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Private tea ceremonies with Grandmasters, high-speed Shinkansen across the Japanese Alps, and secluded hot spring onsens.
+                </p>
+                <div class="text-[11px] text-zinc-400 flex items-center gap-1.5 mb-6">
+                  <span class="text-amber-400 font-bold">★ 5.0</span>
+                  <span>(48 Verified Voyagers)</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">From</span>
+                  <span class="text-lg font-bold text-white">₹1,68,000</span>
+                </div>
+                <button onclick="window.bookPackageInstant('japan-cherry-blossom-zen')"
+                  class="text-xs font-bold bg-white text-black px-4 py-2 rounded-full hover:bg-amber-300 transition-colors cursor-pointer">
+                  Reserve
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Horizon 2: Kenya Safari -->
+          <article class="group bg-zinc-900/90 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div class="relative h-64 overflow-hidden bg-zinc-800">
+              <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80"
+                alt="Kenya Amboseli Elephants Kilimanjaro" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-black/75 backdrop-blur-md rounded-full text-[11px] font-bold text-amber-300 tracking-wider uppercase border border-amber-400/30">
+                Wilderness Reserve
+              </span>
+              <div class="absolute bottom-3 left-4 text-xs font-semibold text-slate-200">
+                Masai Mara & Amboseli • 7 Days
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-display font-normal text-white group-hover:text-amber-300 transition-colors mb-2">
+                  Kenya Masai Mara & Kilimanjaro Safari
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Sunrise hot-air balloon with champagne breakfast, private tented safari suites under Kilimanjaro, and expert Big Five trackers.
+                </p>
+                <div class="text-[11px] text-zinc-400 flex items-center gap-1.5 mb-6">
+                  <span class="text-amber-400 font-bold">★ 5.0</span>
+                  <span>(36 Verified Voyagers)</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">From</span>
+                  <span class="text-lg font-bold text-white">₹1,85,000</span>
+                </div>
+                <button onclick="window.bookPackageInstant('kenya-masai-mara-safari')"
+                  class="text-xs font-bold bg-white text-black px-4 py-2 rounded-full hover:bg-amber-300 transition-colors cursor-pointer">
+                  Reserve
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Horizon 3: Iceland Aurora -->
+          <article class="group bg-zinc-900/90 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div class="relative h-64 overflow-hidden bg-zinc-800">
+              <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80"
+                alt="Iceland Aurora Borealis" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-black/75 backdrop-blur-md rounded-full text-[11px] font-bold text-amber-300 tracking-wider uppercase border border-amber-400/30">
+                Arctic Aurora
+              </span>
+              <div class="absolute bottom-3 left-4 text-xs font-semibold text-slate-200">
+                Reykjavik & Glaciers • 6 Days
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-display font-normal text-white group-hover:text-amber-300 transition-colors mb-2">
+                  Iceland Aurora & Geothermal Glaciers
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Private superjeep glacier traverses, VIP retreat in Blue Lagoon silica pools, and private glass-roof aurora lodges.
+                </p>
+                <div class="text-[11px] text-zinc-400 flex items-center gap-1.5 mb-6">
+                  <span class="text-amber-400 font-bold">★ 4.9</span>
+                  <span>(41 Verified Voyagers)</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">From</span>
+                  <span class="text-lg font-bold text-white">₹1,54,000</span>
+                </div>
+                <button onclick="window.bookPackageInstant('iceland-northern-lights-lagoon')"
+                  class="text-xs font-bold bg-white text-black px-4 py-2 rounded-full hover:bg-amber-300 transition-colors cursor-pointer">
+                  Reserve
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Horizon 4: Amalfi Coast -->
+          <article class="group bg-zinc-900/90 rounded-3xl overflow-hidden border border-zinc-800 hover:border-amber-400/50 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div class="relative h-64 overflow-hidden bg-zinc-800">
+              <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80"
+                alt="Amalfi Coast Positano Village" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent"></div>
+              <span class="absolute top-4 left-4 px-3 py-1 bg-black/75 backdrop-blur-md rounded-full text-[11px] font-bold text-amber-300 tracking-wider uppercase border border-amber-400/30">
+                Mediterranean Romance
+              </span>
+              <div class="absolute bottom-3 left-4 text-xs font-semibold text-slate-200">
+                Positano & Capri • 6 Days
+              </div>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-display font-normal text-white group-hover:text-amber-300 transition-colors mb-2">
+                  Amalfi Coast Villas & Capri Yacht Cruise
+                </h3>
+                <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                  Private Riva boat charter to Capri and Blue Grotto, cliffside boutique villa stays, and sunset lemon grove wine tastings in Ravello.
+                </p>
+                <div class="text-[11px] text-zinc-400 flex items-center gap-1.5 mb-6">
+                  <span class="text-amber-400 font-bold">★ 4.9</span>
+                  <span>(39 Verified Voyagers)</span>
+                </div>
+              </div>
+              <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-zinc-500 uppercase tracking-wider block">From</span>
+                  <span class="text-lg font-bold text-white">₹1,72,000</span>
+                </div>
+                <button onclick="window.bookPackageInstant('amalfi-capri-dolce-vita')"
+                  class="text-xs font-bold bg-white text-black px-4 py-2 rounded-full hover:bg-amber-300 transition-colors cursor-pointer">
+                  Reserve
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- 6. WHY TRAVELLERS CHOOSE TWO247 -->
     <section class="py-24 bg-slate-50/70 border-y border-slate-100" id="why-choose-us" aria-labelledby="why-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16 appear-text">
           <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">THE WHITE OWL
             ADVANTAGE</span>
           <h2 id="why-heading"
@@ -685,70 +1104,90 @@
         </div>
 
         <!-- 4 Core Pillars Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-stagger-group>
 
           <!-- Pillar 1 -->
           <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              </svg>
+            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Bespoke Planning</h3>
+              <p class="text-[#6F6F6F] text-sm leading-relaxed">
+                Every itinerary is calibrated around your pace, flight times, boutique hotel preferences, and dream
+                experiences.
+              </p>
             </div>
-            <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Bespoke Planning</h3>
-            <p class="text-[#6F6F6F] text-sm leading-relaxed">
-              Every itinerary is calibrated around your pace, flight times, boutique hotel preferences, and dream
-              experiences.
-            </p>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#000000]">
+              Tailored Itineraries →
+            </div>
           </div>
 
           <!-- Pillar 2 -->
           <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-display font-normal text-[#000000] mb-2">24/7 Human Desk</h3>
+              <p class="text-[#6F6F6F] text-sm leading-relaxed">
+                A real travel specialist on WhatsApp before departure, during airport transfers, and available anytime on
+                your trip.
+              </p>
             </div>
-            <h3 class="text-xl font-display font-normal text-[#000000] mb-2">24/7 Human Desk</h3>
-            <p class="text-[#6F6F6F] text-sm leading-relaxed">
-              A real travel specialist on WhatsApp before departure, during airport transfers, and available anytime on
-              your trip.
-            </p>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#000000]">
+              Continuous Support →
+            </div>
           </div>
 
           <!-- Pillar 3 -->
           <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
+            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Verified Stays</h3>
+              <p class="text-[#6F6F6F] text-sm leading-relaxed">
+                Curated luxury resorts, private villas, and 5-star properties vetted personally for hygiene, location, and
+                hospitality.
+              </p>
             </div>
-            <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Verified Stays</h3>
-            <p class="text-[#6F6F6F] text-sm leading-relaxed">
-              Curated luxury resorts, private villas, and 5-star properties vetted personally for hygiene, location, and
-              hospitality.
-            </p>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#000000]">
+              Premium Handpicked →
+            </div>
           </div>
 
           <!-- Pillar 4 -->
           <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300">
-            <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
+            class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-black/30 transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center mb-6 shadow-sm">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Pure Flexibility</h3>
+              <p class="text-[#6F6F6F] text-sm leading-relaxed">
+                No hurried tour buses or restrictive timetables. Explore at your leisure with private chauffeurs and
+                flexible days.
+              </p>
             </div>
-            <h3 class="text-xl font-display font-normal text-[#000000] mb-2">Pure Flexibility</h3>
-            <p class="text-[#6F6F6F] text-sm leading-relaxed">
-              No hurried tour buses or restrictive timetables. Explore at your leisure with private chauffeurs and
-              flexible days.
-            </p>
+            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center text-xs font-semibold text-[#000000]">
+              Your Pace & Schedule →
+            </div>
           </div>
 
         </div>
@@ -760,7 +1199,7 @@
     <section class="py-24 bg-white" id="how-it-works" aria-labelledby="how-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="text-center max-w-2xl mx-auto mb-16 appear-text">
           <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">HOW IT WORKS</span>
           <h2 id="how-heading"
             class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight">
@@ -771,7 +1210,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative" data-stagger-group>
 
           <!-- Step 1 -->
           <div
@@ -865,7 +1304,122 @@
       </div>
     </section>
 
-    <!-- 9. TESTIMONIALS (Clean White Cards) -->
+    <!-- 10. TRAVEL JOURNAL & INSPIRATION (Editorial Articles) -->
+    <section class="py-24 bg-white border-t border-slate-100" id="travel-journal" aria-labelledby="journal-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 appear-text">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">TRAVEL JOURNAL</span>
+            <h2 id="journal-heading"
+              class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight">
+              Stories & <span class="italic text-[#6F6F6F]">Travel Insights</span>
+            </h2>
+            <p class="text-[#6F6F6F] text-base sm:text-lg mt-3 max-w-xl">
+              Practical guides, insider tips, and destination dispatches curated by our seasoned journey architects.
+            </p>
+          </div>
+          <div class="mt-6 md:mt-0">
+            <a href="blog.html"
+              class="inline-flex items-center text-sm font-medium text-[#000000] hover:text-[#6F6F6F] transition-colors group">
+              View All Articles
+              <svg class="w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-stagger-group>
+          
+          <!-- Article 1: Maldives Guide -->
+          <article class="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80"
+                  alt="Maldives overwater villas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-[#000000] tracking-wider uppercase shadow-sm">
+                  Travel Tips
+                </span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs text-[#6F6F6F] block mb-2">4 Min Read • Maldives Specialist</span>
+                <h3 class="text-xl font-display font-normal text-[#000000] group-hover:text-[#6F6F6F] transition-colors mb-2 leading-snug">
+                  <a href="blog.html">5 Things to Know Before Booking Your First Maldives Vacation</a>
+                </h3>
+                <p class="text-xs text-[#6F6F6F] leading-relaxed line-clamp-2">
+                  Seaplane vs speedboat transfers, choosing between beach and overwater villas, and all-inclusive packages explained.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <a href="blog.html" class="text-xs font-bold text-[#000000] hover:text-[#6F6F6F] inline-flex items-center gap-1 transition-colors">
+                Read Article <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 2: Dubai Guide -->
+          <article class="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
+                  alt="Dubai skyline" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-[#000000] tracking-wider uppercase shadow-sm">
+                  Itinerary Guide
+                </span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs text-[#6F6F6F] block mb-2">5 Min Read • Middle East Escapes</span>
+                <h3 class="text-xl font-display font-normal text-[#000000] group-hover:text-[#6F6F6F] transition-colors mb-2 leading-snug">
+                  <a href="blog/dubai-travel-guide.html">The Modern Luxury Dubai Guide: 5 Days of Magic</a>
+                </h3>
+                <p class="text-xs text-[#6F6F6F] leading-relaxed line-clamp-2">
+                  From sunrise hot-air ballooning over the Arabian desert to private yachts in Dubai Marina and Michelin dining.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <a href="blog/dubai-travel-guide.html" class="text-xs font-bold text-[#000000] hover:text-[#6F6F6F] inline-flex items-center gap-1 transition-colors">
+                Read Article <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Article 3: Singapore Guide -->
+          <article class="group bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm hover:border-black/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full">
+            <div>
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80"
+                  alt="Singapore Marina Bay" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-[#000000] tracking-wider uppercase shadow-sm">
+                  City Explorer
+                </span>
+              </div>
+              <div class="p-6">
+                <span class="text-xs text-[#6F6F6F] block mb-2">6 Min Read • Urban Journeys</span>
+                <h3 class="text-xl font-display font-normal text-[#000000] group-hover:text-[#6F6F6F] transition-colors mb-2 leading-snug">
+                  <a href="blog.html">Ultimate Singapore Travel Guide: City in a Garden</a>
+                </h3>
+                <p class="text-xs text-[#6F6F6F] leading-relaxed line-clamp-2">
+                  A day-by-day plan covering Marina Bay Sands, Sentosa thrill parks, Michelin-star hawker centres, and Cloud Forest.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <a href="blog.html" class="text-xs font-bold text-[#000000] hover:text-[#6F6F6F] inline-flex items-center gap-1 transition-colors">
+                Read Article <span class="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 11. TESTIMONIALS (Clean White Cards) -->
     <section class="py-24 bg-slate-50/60" id="testimonials" aria-labelledby="test-heading">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -963,7 +1517,7 @@
     <section class="py-24 bg-white" id="faq" aria-labelledby="faq-heading">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 appear-text">
           <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">COMMON QUESTIONS</span>
           <h2 id="faq-heading"
             class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight">
@@ -1032,6 +1586,144 @@
             </div>
           </div>
 
+          <!-- People Also Ask / Destination Insights Divider Header -->
+          <div class="pt-6 pb-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-bold text-[#000000] uppercase tracking-wider">
+              <span>💡</span>
+              <span>People Also Ask • Trending Travel & Destination Insights</span>
+            </span>
+          </div>
+
+          <!-- FAQ Item 4: Thailand Trip Cost -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+              <span class="text-base sm:text-lg">How much will a Thailand trip cost?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-4" role="region" aria-labelledby="faq-btn-4"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              A standard 5 to 7-day Thailand holiday package typically costs between <strong>₹35,000 to ₹75,000 ($420 – $900) per person</strong>. On average:
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-700">
+                <li><strong>Budget traveler:</strong> 1,500 – 2,500 THB/day (hostels, street food, BTS trains).</li>
+                <li><strong>Mid-range traveler:</strong> 3,500 – 5,500 THB/day (4-star beachfront hotels, island ferries, cafe dining).</li>
+                <li><strong>Luxury traveler:</strong> 8,000 – 20,000+ THB/day (5-star private pool villas in Phuket/Samui, private catamarans).</li>
+              </ul>
+              TWO247 packages include verified resort stays, airport transfers, and island excursions with zero hidden costs.
+            </div>
+          </div>
+
+          <!-- FAQ Item 5: 20,000 Baht Requirement -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
+              <span class="text-base sm:text-lg">Do I really need 20,000 baht to enter Thailand?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-5" role="region" aria-labelledby="faq-btn-5"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              <strong>Yes, legally under Thai Immigration regulations.</strong> When entering on a standard Tourist Visa or 60-day Visa Exemption, tourists must have proof of at least <strong>20,000 THB in cash</strong> (or equivalent in USD/INR/EUR) per individual traveler, or <strong>40,000 THB per family</strong>. For Visa on Arrival (VoA), the requirement is <strong>10,000 THB per person</strong> (20,000 THB per family). While immigration officers perform random spot-checks, carrying hard cash or an active bank statement is strongly recommended to guarantee smooth entry.
+            </div>
+          </div>
+
+          <!-- FAQ Item 6: Is 10,000 THB enough for 7 days -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
+              <span class="text-base sm:text-lg">Is 10,000 Thai baht enough for 7 days?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-6" role="region" aria-labelledby="faq-btn-6"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              <strong>Yes, 10,000 THB (approx. ₹23,500 / $280) is enough for pocket spending</strong> if your hotels, flights, and major tours are already prepaid through your TWO247 itinerary. 10,000 THB gives you roughly <strong>1,420 THB/day</strong>, which comfortably covers delicious street food meals (60 – 120 THB each), local 7-Eleven snacks, BTS/MRT train rides, and temple tickets. If you plan to indulge in scuba diving, private longtail boats, fine-dining rooftops, or vibrant nightlife, budgeting <strong>18,000 – 25,000 THB</strong> is recommended.
+            </div>
+          </div>
+
+          <!-- FAQ Item 7: Is Thailand safe -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-7" id="faq-btn-7">
+              <span class="text-base sm:text-lg">Is it safe to visit Thailand right now?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-7" role="region" aria-labelledby="faq-btn-7"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              <strong>Yes, Thailand is exceptionally safe for tourists</strong> and ranks among the most peaceful, hospitable vacation spots in Asia. Major corridors including Bangkok, Phuket, Krabi, Koh Samui, and Chiang Mai welcome millions of tourists annually with active Tourist Police (Emergency Hotline 1155). Standard travel safety guidelines:
+              <ul class="list-disc list-inside mt-2 space-y-1 text-slate-700">
+                <li>Use metered taxis or the Grab ride-hailing app rather than unmetered cabs.</li>
+                <li>Drink sealed bottled water and dine at busy, hygienic food stalls.</li>
+                <li>Keep emergency contact numbers handy — every TWO247 traveler receives our <strong>24/7 dedicated WhatsApp on-ground concierge support</strong>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- FAQ Item 8: Maldives Honeymoon Cost -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-8" id="faq-btn-8">
+              <span class="text-base sm:text-lg">How much does a bespoke Maldives honeymoon package cost from India?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-8" role="region" aria-labelledby="faq-btn-8"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              A 4-night bespoke Maldives honeymoon package typically ranges from <strong>₹84,999 to ₹2,50,000 per couple</strong> depending on resort category (4-star vs 5-star private island), villa choice (beachfront bungalow vs private overwater pool villa), transfers (speedboat vs scenic seaplane), and meal plans (All-Inclusive vs Half-Board). TWO247 coordinates romantic perks including complimentary honeymoon cakes, bed decorations, and sunset dolphin cruises.
+            </div>
+          </div>
+
+          <!-- FAQ Item 9: Budget 50k -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-9" id="faq-btn-9">
+              <span class="text-base sm:text-lg">Is ₹50,000 enough for an international holiday package?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-9" role="region" aria-labelledby="faq-btn-9"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              <strong>Yes, ₹50,000 per person is sufficient</strong> for 5 to 6-day Southeast Asian getaways including <strong>Bali (from ₹36,999)</strong>, <strong>Thailand (from ₹34,999)</strong>, or <strong>Dubai (from ₹48,999)</strong>. When planned through TWO247, this budget includes verified boutique resort accommodations, private airport transfers, curated island tours, and daily breakfast.
+            </div>
+          </div>
+
+          <!-- FAQ Item 10: Payment and Protection -->
+          <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+            <button type="button"
+              class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-[#000000] hover:text-[#6F6F6F] transition-colors focus:outline-none"
+              aria-expanded="false" aria-controls="faq-ans-10" id="faq-btn-10">
+              <span class="text-base sm:text-lg">What payment terms and booking protection does TWO247 offer?</span>
+              <svg class="faq-icon w-5 h-5 text-[#000000] transition-transform duration-300 flex-shrink-0" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-10" role="region" aria-labelledby="faq-btn-10"
+              class="faq-panel hidden px-6 pb-6 text-[#6F6F6F] text-sm sm:text-base leading-relaxed border-t border-slate-100 pt-4">
+              TWO247 provides complete booking security with structured milestones: an initial deposit confirms your hotel vouchers and flights, with remaining payments scheduled prior to departure. Every booking receives transparent invoices, flexible cancellation terms, and verified voucher confirmation numbers directly from partner resorts.
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -1071,7 +1763,7 @@
   </main>
 
   <!-- 12. FOOTER (Zero Blue - Obsidian & Slate) -->
-  <footer class="bg-[#000000] border-t border-slate-900 text-slate-400 py-16" aria-label="Site Footer">
+  <footer class="bg-[#000000] border-t border-slate-900 text-slate-400 pt-16 pb-28 md:pb-16" aria-label="Site Footer">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
@@ -1082,12 +1774,11 @@
             <img src="assets/logo/two247-logo-white.png" alt="TWO247 The White Owl Holidays"
               class="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105 shrink-0">
           </a>
-          <p class="text-[#6F6F6F] font-semibold text-xs tracking-wider uppercase mb-3">
-            Beyond silence, we build the eternal.
+          <p class="text-white font-semibold text-xs tracking-wider uppercase mb-3">
+            The White Owl Holidays
           </p>
           <p class="text-xs text-[#6F6F6F] leading-relaxed max-w-sm mb-6">
-            Building platforms for brilliant minds, fearless makers, and thoughtful souls. Crafting bespoke journeys
-            with continuous 24/7 travel care.
+            TWO247 (The White Owl Holidays) is a premier Indian luxury travel agency curating bespoke domestic and international holiday packages from ₹22,999 to ₹1,85,000+. Featuring verified stays, private transfers, and continuous 24/7 human WhatsApp concierge support.
           </p>
           <div class="text-xs text-[#6F6F6F] space-y-1">
             <p><strong>Desk:</strong> +91 98765 43210</p>
@@ -1150,6 +1841,23 @@
 
     </div>
   </footer>
+
+  <!-- 13. PERSISTENT MOBILE CONVERSION BAR -->
+  <aside class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex items-center gap-2.5 shadow-2xl" aria-label="Quick Actions">
+    <button onclick="window.sendWhatsAppEnquiry('Hello TWO247, I would like to enquire about holiday packages.')"
+      class="flex-1 py-3 px-4 rounded-full bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
+      aria-label="Contact 24/7 Concierge on WhatsApp">
+      <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z" />
+      </svg>
+      <span>WhatsApp (24/7)</span>
+    </button>
+    <a href="custom-trip.html"
+      class="flex-1 py-3 px-4 rounded-full bg-[#000000] hover:bg-zinc-800 active:scale-95 text-white font-semibold text-xs text-center shadow-sm transition-all inline-flex items-center justify-center gap-1.5">
+      <span>Plan My Trip</span>
+      <span>→</span>
+    </a>
+  </aside>
 
   <!-- Scripts -->
   <script type="module" src="js/main.js"></script>

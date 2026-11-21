@@ -85,37 +85,52 @@ export function initTextAppear() {
 }
 
 /**
- * Splits text content of an element into masked word tokens
+ * Splits text content of an element into masked word tokens safely,
+ * traversing text nodes while preserving existing HTML element nodes (e.g. <span>, <em>).
  */
 function splitElementIntoWords(el, baseDelay = 0, stagger = 0.04) {
-  // Preserve inner HTML structure if contains special spans like highlights
-  const rawHTML = el.innerHTML.trim();
-  
-  // Quick parse: split words by whitespace while preserving tags
-  const tokens = rawHTML.split(/(\s+)/);
   let wordIdx = 0;
 
-  const fragment = document.createDocumentFragment();
+  function tokenizeNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent;
+      if (!text) return document.createDocumentFragment();
+      const tokens = text.split(/(\s+)/);
+      const frag = document.createDocumentFragment();
+      tokens.forEach(token => {
+        if (!token) return;
+        if (/^\s+$/.test(token)) {
+          frag.appendChild(document.createTextNode(token));
+          return;
+        }
+        const wrap = document.createElement('span');
+        wrap.className = 'text-reveal-wrap';
 
-  tokens.forEach(token => {
-    if (/^\s+$/.test(token)) {
-      fragment.appendChild(document.createTextNode(token));
-      return;
+        const item = document.createElement('span');
+        item.className = 'text-reveal-item';
+        item.textContent = token;
+
+        const computedDelay = (baseDelay + wordIdx * stagger).toFixed(3);
+        item.style.transitionDelay = `${computedDelay}s`;
+
+        wrap.appendChild(item);
+        frag.appendChild(wrap);
+        wordIdx++;
+      });
+      return frag;
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      const clone = node.cloneNode(false);
+      Array.from(node.childNodes).forEach(child => {
+        clone.appendChild(tokenizeNode(child));
+      });
+      return clone;
     }
+    return node.cloneNode(true);
+  }
 
-    const wrap = document.createElement('span');
-    wrap.className = 'text-reveal-wrap';
-
-    const item = document.createElement('span');
-    item.className = 'text-reveal-item';
-    item.innerHTML = token;
-    
-    const computedDelay = (baseDelay + wordIdx * stagger).toFixed(3);
-    item.style.transitionDelay = `${computedDelay}s`;
-    
-    wrap.appendChild(item);
-    fragment.appendChild(wrap);
-    wordIdx++;
+  const fragment = document.createDocumentFragment();
+  Array.from(el.childNodes).forEach(child => {
+    fragment.appendChild(tokenizeNode(child));
   });
 
   el.innerHTML = '';

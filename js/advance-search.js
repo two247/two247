@@ -142,6 +142,91 @@ export const PACKAGES_DATA = [
     badge: "Beach Sanctuary",
     highlights: ["Radhanagar Beach Sunset Experience", "Havelock Catamaran Cruise Transfers", "Snorkeling / Coral Reef Adventure", "Beachside Candlelight Dinner"],
     seasons: ["all", "winter", "spring"]
+  },
+  {
+    id: "thailand-island-hopping",
+    title: "Thailand Phuket & Krabi Island Explorer",
+    destination: "thailand",
+    category: "international",
+    type: "family",
+    duration: 6,
+    durationText: "6 Days / 5 Nights",
+    basePrice: 34999,
+    priceFormatted: "₹34,999",
+    rating: "4.9",
+    reviews: 54,
+    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80",
+    badge: "Trending Island",
+    highlights: ["Phi Phi Islands Maya Bay Speedboat Tour", "Krabi 4-Island Sunset Catamaran Cruise", "Bangkok Grand Palace & River Dinner Cruise", "4-Star Beachfront Resort Accommodations"],
+    seasons: ["all", "winter", "spring"]
+  },
+  {
+    id: "japan-cherry-blossom-zen",
+    title: "Japan Cherry Blossoms, Kyoto Ryokan & Bullet Train",
+    destination: "japan",
+    category: "international",
+    type: "luxury",
+    duration: 7,
+    durationText: "7 Days / 6 Nights",
+    basePrice: 168000,
+    priceFormatted: "₹1,68,000",
+    rating: "5.0",
+    reviews: 48,
+    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80",
+    badge: "Zen Sanctuary",
+    highlights: ["Private Kyoto Tea Ceremony with Grandmaster", "First-Class Shinkansen Bullet Train Pass", "Traditional Onsen Ryokan Stay with Kaiseki Dinner", "Tokyo Skyline Helicopter Experience"],
+    seasons: ["all", "spring", "festive"]
+  },
+  {
+    id: "kenya-masai-mara-safari",
+    title: "Kenya Masai Mara & Amboseli Kilimanjaro Safari",
+    destination: "kenya",
+    category: "international",
+    type: "luxury",
+    duration: 7,
+    durationText: "7 Days / 6 Nights",
+    basePrice: 185000,
+    priceFormatted: "₹1,85,000",
+    rating: "5.0",
+    reviews: 36,
+    image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=800&q=80",
+    badge: "Wilderness Reserve",
+    highlights: ["Sunrise Hot-Air Balloon Over Masai Mara", "Luxury Tented Camps with Views of Kilimanjaro", "Private 4x4 Game Drives with Master Trackers", "Big Five & Elephant Conservation Encounters"],
+    seasons: ["all", "summer", "winter", "festive"]
+  },
+  {
+    id: "iceland-northern-lights-lagoon",
+    title: "Iceland Aurora Borealis & Geothermal Glaciers",
+    destination: "iceland",
+    category: "international",
+    type: "luxury",
+    duration: 6,
+    durationText: "6 Days / 5 Nights",
+    basePrice: 154000,
+    priceFormatted: "₹1,54,000",
+    rating: "4.9",
+    reviews: 41,
+    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=800&q=80",
+    badge: "Arctic Aurora",
+    highlights: ["Private Superjeep Golden Circle & Glacier Excursion", "Blue Lagoon & Sky Lagoon VIP Retreat Access", "Crystal Ice Cave Guided Expedition", "Private Stargazing Glass Villa for Northern Lights"],
+    seasons: ["all", "winter", "spring"]
+  },
+  {
+    id: "amalfi-capri-dolce-vita",
+    title: "Amalfi Coast Clifftop Villas & Capri Private Cruise",
+    destination: "italy",
+    category: "international",
+    type: "honeymoon",
+    duration: 6,
+    durationText: "6 Days / 5 Nights",
+    basePrice: 172000,
+    priceFormatted: "₹1,72,000",
+    rating: "4.9",
+    reviews: 39,
+    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80",
+    badge: "Mediterranean Romance",
+    highlights: ["Private Riva Yacht Charter to Capri & Blue Grotto", "Cliffside Positano Boutique Hotel with Sea Balcony", "Sunset Ravello Wine & Lemon Grove Tasting", "Private Chauffeur Along Panoramic Amalfi Drive"],
+    seasons: ["all", "spring", "summer", "festive"]
   }
 ];
 
@@ -166,17 +251,74 @@ export function initAdvanceSearch() {
       tabPills.forEach(p => p.classList.remove("active"));
       pill.classList.add("active");
       activeTab = pill.dataset.category || "all";
+      // Clear quick filter chips on category tab change to prevent filter collisions
+      activeQuickFilter = "all";
+      quickFilters.forEach(c => c.classList.remove("active"));
       runFilter();
     });
   });
 
-  // 2. Quick Filter Chips
+  // 2. Quick Filter Chips (with toggle and conflict resolution)
   quickFilters.forEach(chip => {
     chip.addEventListener("click", () => {
+      const chipFilter = chip.dataset.filter || "all";
+
+      // If already active, toggle off
+      if (chip.classList.contains("active")) {
+        chip.classList.remove("active");
+        activeQuickFilter = "all";
+        runFilter();
+        return;
+      }
+
       quickFilters.forEach(c => c.classList.remove("active"));
       chip.classList.add("active");
-      activeQuickFilter = chip.dataset.filter || "all";
+      activeQuickFilter = chipFilter;
+
+      // If destination chip selected, reset tab to 'all' to avoid category collision (e.g. Domestic tab + Maldives chip)
+      if (["maldives", "switzerland", "dubai", "bali", "thailand", "japan", "kenya", "iceland", "italy"].includes(chipFilter)) {
+        activeTab = "all";
+        tabPills.forEach(p => {
+          if (p.dataset.category === "all") p.classList.add("active");
+          else p.classList.remove("active");
+        });
+      }
+
       runFilter();
+    });
+  });
+
+  // Global reset helper to guarantee user never gets stuck with 0 packages
+  window.resetTwo247Filters = function() {
+    activeTab = "all";
+    activeQuickFilter = "all";
+    if (destInput) destInput.value = "";
+    if (seasonSelect) seasonSelect.value = "all";
+    if (styleSelect) styleSelect.value = "all";
+    if (budgetSelect) budgetSelect.value = "all";
+    tabPills.forEach(p => {
+      if (p.dataset.category === "all") p.classList.add("active");
+      else p.classList.remove("active");
+    });
+    quickFilters.forEach(c => c.classList.remove("active"));
+    runFilter();
+  };
+
+  // 2b. External Theme/Category Triggers (from Travel Categories section)
+  document.querySelectorAll("[data-category-trigger]").forEach(trigger => {
+    trigger.addEventListener("click", (e) => {
+      const cat = trigger.dataset.categoryTrigger;
+      if (cat) {
+        tabPills.forEach(p => {
+          if (p.dataset.category === cat) {
+            p.classList.add("active");
+          } else {
+            p.classList.remove("active");
+          }
+        });
+        activeTab = cat;
+        runFilter();
+      }
     });
   });
 
@@ -227,6 +369,11 @@ export function initAdvanceSearch() {
         if (activeQuickFilter === "switzerland" && pkg.destination !== "switzerland") return false;
         if (activeQuickFilter === "dubai" && pkg.destination !== "dubai") return false;
         if (activeQuickFilter === "bali" && pkg.destination !== "bali") return false;
+        if (activeQuickFilter === "thailand" && pkg.destination !== "thailand") return false;
+        if (activeQuickFilter === "japan" && pkg.destination !== "japan") return false;
+        if (activeQuickFilter === "kenya" && pkg.destination !== "kenya") return false;
+        if (activeQuickFilter === "iceland" && pkg.destination !== "iceland") return false;
+        if (activeQuickFilter === "italy" && pkg.destination !== "italy") return false;
       }
 
       // Destination input match
@@ -284,17 +431,22 @@ function renderPackagesGrid(items, container) {
           </svg>
         </div>
         <h3 class="text-xl font-bold text-slate-900 mb-2">No Matching Packages Found</h3>
-        <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">We curate custom trips for every location worldwide. Let our 24/7 travel designers craft this exact itinerary for you.</p>
-        <button onclick="window.sendWhatsAppEnquiry('Hello TWO247, I am looking for a custom holiday package.')" class="btn-primary text-sm">
-          Plan Custom Itinerary with White Owl 24/7 Desk
-        </button>
+        <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">We curate custom trips for every location worldwide. Let our 24/7 travel designers craft this exact itinerary for you, or reset your filters to explore all featured packages.</p>
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button type="button" onclick="window.resetTwo247Filters && window.resetTwo247Filters()" class="btn-primary text-xs sm:text-sm !bg-slate-950 hover:!bg-black cursor-pointer">
+            Reset All Filters (Show All Packages)
+          </button>
+          <button type="button" onclick="window.sendWhatsAppEnquiry('Hello TWO247, I am looking for a custom holiday package.')" class="btn-secondary text-xs sm:text-sm cursor-pointer">
+            Plan Custom Itinerary with White Owl 24/7 Desk
+          </button>
+        </div>
       </div>
     `;
     return;
   }
 
   container.innerHTML = items.map(pkg => `
-    <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 hover:border-amber-400/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between" data-package-id="${pkg.id}">
+    <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 hover:border-black/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full" data-package-id="${pkg.id}">
       
       <!-- Top Image & Badges -->
       <div class="relative h-60 w-full overflow-hidden bg-slate-100">
@@ -367,6 +519,11 @@ function renderPackagesGrid(items, container) {
 
     </article>
   `).join('');
+
+  // Smoothly trigger card appear animation with stagger
+  if (window.triggerCardAppear) {
+    window.triggerCardAppear(container);
+  }
 }
 
 /**

@@ -2,11 +2,20 @@
  * TWO247 Luxury White Preloader Controller
  * Minimalist White Background, Owl Animation + Logo Only
  * Duration: Exactly 3.0 Seconds
+ * Session-Persistent: Shows ONLY ONCE per user session (not on subsequent page/home clicks)
  */
 
 export function initPreloader() {
   const preloader = document.getElementById("two247-preloader");
   if (!preloader) return;
+
+  // Single-session check: if user has already seen the preloader in this session, hide immediately
+  if (sessionStorage.getItem("two247_preloader_seen") === "true") {
+    preloader.style.display = "none";
+    preloader.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("overflow-hidden");
+    return;
+  }
 
   // Respect reduced motion preference
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -18,7 +27,6 @@ export function initPreloader() {
   document.body.classList.add("overflow-hidden");
 
   const progressBar = document.getElementById("preloader-progress-bar");
-  const skipBtn = document.getElementById("preloader-skip");
 
   const DURATION = 3000; // 3 seconds display time
   const startTime = performance.now();
@@ -29,6 +37,9 @@ export function initPreloader() {
     if (isDismissed || !preloader) return;
     isDismissed = true;
     if (rafId) cancelAnimationFrame(rafId);
+
+    // Mark as seen for this browser session so Home clicks and internal navigation never re-show it
+    sessionStorage.setItem("two247_preloader_seen", "true");
 
     preloader.classList.add("preloader-hidden");
     document.body.classList.remove("overflow-hidden");
@@ -57,14 +68,6 @@ export function initPreloader() {
   }
 
   rafId = requestAnimationFrame(tick);
-
-  // Skip Button for instant dismissal
-  if (skipBtn) {
-    skipBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dismissPreloader();
-    });
-  }
 
   // Click anywhere on preloader to dismiss instantly
   preloader.addEventListener("click", () => {
