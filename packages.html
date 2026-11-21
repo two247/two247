@@ -249,18 +249,12 @@
         <div class="travel-card flex flex-col h-full bg-white">
           <div class="relative aspect-[16/10] overflow-hidden">
             <img src="${pkg.image}" alt="${pkg.name}" class="card-zoom-img w-full h-full object-cover">
-            <span class="absolute top-4 left-4 bg-slate-950/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-              ${pkg.destination}
-            </span>
-            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-navy px-3 py-1 rounded-full text-xs font-extrabold">
-              ${pkg.duration}
-            </span>
           </div>
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between text-xs text-amber-500 font-bold mb-1">
                 <span>★ ${pkg.rating} (${pkg.reviewCount} reviews)</span>
-                <span class="text-brand-orange uppercase">${pkg.category}</span>
+                <span class="text-[#6F6F6F] uppercase text-[11px] font-semibold">${pkg.duration}</span>
               </div>
               <h3 class="text-xl font-bold text-brand-navy hover:text-brand-orange transition-colors mb-3">
                 <a href="package/package-details.html?pkg=${pkg.slug}">${pkg.name}</a>

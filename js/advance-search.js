@@ -53,7 +53,7 @@ export const PACKAGES_DATA = [
     priceFormatted: "₹1,58,000",
     rating: "5.0",
     reviews: 34,
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=800&q=80",
     badge: "Scenic Alps",
     highlights: ["Swiss First Class Travel Pass", "Jungfraujoch Top of Europe Excursion", "Lake Geneva Private Boat Cruise", "Interlaken & Lucerne Boutique Hotels"],
     seasons: ["all", "winter", "summer"]
@@ -87,7 +87,7 @@ export const PACKAGES_DATA = [
     priceFormatted: "₹28,999",
     rating: "4.9",
     reviews: 73,
-    image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80",
     badge: "Domestic Jewel",
     highlights: ["Dal Lake Luxury Houseboat Stay", "Gulmarg Gondola Phase 1 & 2 Tickets", "Pahalgam Betaab Valley Sightseeing", "Private Chauffeur Throughout"],
     seasons: ["all", "winter", "spring", "summer"]
@@ -448,42 +448,38 @@ function renderPackagesGrid(items, container) {
   container.innerHTML = items.map(pkg => `
     <article class="editorial-card group relative bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 hover:border-black/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full" data-package-id="${pkg.id}">
       
-      <!-- Top Image & Badges -->
+      <!-- Top Image (Clean, No Overlay Cards or Text) -->
       <div class="relative h-60 w-full overflow-hidden bg-slate-100">
         <img src="${pkg.image}" alt="${pkg.title}" class="card-img w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
-        
-        <!-- Category Badge -->
-        <span class="absolute top-4 left-4 px-3 py-1 bg-white/95 backdrop-blur-md rounded-full text-[11px] font-bold text-slate-900 tracking-wider uppercase shadow-sm">
-          ${pkg.badge}
-        </span>
-
-        <!-- Rating Badge -->
-        <div class="absolute top-4 right-4 px-2.5 py-1 bg-slate-900/80 backdrop-blur-md rounded-full text-[11px] font-bold text-amber-400 flex items-center gap-1 shadow-sm">
-          <span>★</span>
-          <span>${pkg.rating}</span>
-          <span class="text-slate-300 font-normal">(${pkg.reviews})</span>
-        </div>
-
-        <!-- Duration Pin -->
-        <div class="absolute bottom-3 left-4 text-xs font-semibold text-white flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
-          </svg>
-          <span>${pkg.durationText}</span>
-        </div>
       </div>
 
       <!-- Content Area -->
       <div class="p-6 flex-1 flex flex-col justify-between">
         <div>
-          <span class="text-[10px] font-extrabold uppercase tracking-widest text-brand-orange block mb-1">
-            ${pkg.destination.toUpperCase()} • 24/7 SUPPORT
-          </span>
-          <h3 class="text-lg font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-snug mb-3">
+          <!-- Meta Top: Destination + Rating -->
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-[#6F6F6F]">
+              ${pkg.destination.toUpperCase()} • 24/7 SUPPORT
+            </span>
+            <div class="flex items-center gap-1 text-xs font-semibold text-slate-900">
+              <span class="text-amber-500">★</span>
+              <span>${pkg.rating}</span>
+              <span class="text-slate-400 font-normal text-[11px]">(${pkg.reviews})</span>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-900 group-hover:text-neutral-700 transition-colors leading-snug mb-2">
             ${pkg.title}
           </h3>
+
+          <!-- Duration Line -->
+          <div class="flex items-center gap-1.5 text-xs text-slate-500 font-medium mb-4">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2"/>
+            </svg>
+            <span>${pkg.durationText}</span>
+          </div>
           
           <ul class="space-y-1.5 mb-6 text-xs text-slate-600">
             ${pkg.highlights.slice(0, 3).map(h => `

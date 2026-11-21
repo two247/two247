@@ -194,7 +194,7 @@ export const packages = [
     startingPriceNum: 26999,
     rating: 4.9,
     reviewCount: 54,
-    image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80",
     highlights: [
       "Stay in Handcrafted Dal Lake Houseboat",
       "Gulmarg Gondola Ride (Phase 1 & 2)",
