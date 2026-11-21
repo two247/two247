@@ -1,0 +1,13 @@
+{
+  "visa": {
+    "dubai": { "india": { "required": true, "type": "Visa on Arrival / e-Visa", "cost": "$20-50", "processing": "24-72 hours", "validity": "30 days", "requirements": ["Passport 6 months validity", "Return ticket", "Hotel booking", "Photo"] } },
+    "thailand": { "india": { "required": true, "type": "Visa on Arrival", "cost": "$30", "processing": "On arrival", "validity": "15 days", "requirements": ["Passport 6 months", "Return ticket", "Proof of funds 10,000 THB", "Photo"] } },
+    "singapore": { "india": { "required": true, "type": "e-Visa", "cost": "$30", "processing": "3-5 working days", "validity": "30 days", "requirements": ["Passport 6 months", "Photo", "Bank statement", "Itinerary"] } },
+    "malaysia": { "india": { "required": true, "type": "e-Visa / Visa on Arrival", "cost": "$20", "processing": "24-48 hours", "validity": "30 days", "requirements": ["Passport 6 months", "Return ticket", "Hotel booking"] } },
+    "turkey": { "india": { "required": true, "type": "e-Visa", "cost": "$50", "processing": "24 hours", "validity": "30 days", "requirements": ["Passport 6 months", "Photo", "Return ticket", "Hotel booking"] } },
+    "switzerland": { "india": { "required": true, "type": "Schengen Visa", "cost": "€80", "processing": "15 working days", "validity": "90 days", "requirements": ["Passport 6 months", "Photo", "Travel insurance", "Bank statement", "Itinerary"] } },
+    "france": { "india": { "required": true, "type": "Schengen Visa", "cost": "€80", "processing": "15 working days", "validity": "90 days", "requirements": ["Passport 6 months", "Photo", "Travel insurance", "Bank statement", "Itinerary"] } },
+    "bali": { "india": { "required": true, "type": "Visa on Arrival", "cost": "$35", "processing": "On arrival", "validity": "30 days", "requirements": ["Passport 6 months", "Return ticket"] } },
+    "maldives": { "india": { "required": false, "type": "Free Visa on Arrival", "cost": "Free", "processing": "On arrival", "validity": "30 days", "requirements": ["Passport 6 months", "Return ticket", "Hotel booking"] } }
+  }
+}

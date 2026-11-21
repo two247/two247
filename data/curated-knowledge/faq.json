@@ -1,0 +1,9 @@
+{
+  "faqs": [
+    { "q": "How to book a package?", "a": "Click Enquire on any package or chat with our agent via WhatsApp. We confirm availability and share payment link." },
+    { "q": "Payment options?", "a": "Bank transfer, UPI, cards. 30% advance to confirm, balance before travel." },
+    { "q": "Cancellation policy?", "a": "Free cancellation up to 15 days before travel; charges apply after. See cancellation-policy page." },
+    { "q": "Do you offer custom trips?", "a": "Yes, bespoke itineraries for any destination and budget." },
+    { "q": "Visa assistance?", "a": "We provide visa guidance and document checklist for all destinations." }
+  ]
+}

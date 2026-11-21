@@ -15,7 +15,7 @@ import { initHeroVideo } from './hero-video.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
-  const phone = "919876543210";
+  const phone = "919499907081";
   const defaultMsg = customMsg || "Hello TWO247, I would like to enquire about a holiday package.";
   const encoded = encodeURIComponent(defaultMsg);
   window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank", "noopener,noreferrer");
@@ -39,3 +39,5 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 });
+
+import "/chatbot/widget.js";

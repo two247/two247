@@ -1,0 +1,6 @@
+{
+  "honeymoon": {
+    "maldives": { "experiences": ["Overwater villa", "Private dinner on sandbank", "Snorkeling", "Sunset cruise"], "packages": ["maldives-overwater-romance"] },
+    "switzerland": { "experiences": ["Glacier Express", "Jungfraujoch", "Lucerne lake cruise", "Paris extension"], "packages": ["swiss-alps-paris-romance"] }
+  }
+}

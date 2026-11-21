@@ -1,0 +1,13 @@
+{
+  "bestTime": {
+    "dubai": { "months": "Nov-Mar", "summary": "Pleasant weather, ideal for sightseeing and desert safaris." },
+    "thailand": { "months": "Nov-Feb", "summary": "Cool dry season, best for beaches and islands." },
+    "maldives": { "months": "Nov-Apr", "summary": "Dry season with clear skies, perfect for honeymoon." },
+    "switzerland": { "months": "Jun-Sep & Dec-Mar", "summary": "Summer for hiking, winter for snow sports." },
+    "bali": { "months": "Apr-Oct", "summary": "Dry season, best for beaches and temples." },
+    "turkey": { "months": "Apr-Jun & Sep-Nov", "summary": "Mild weather, ideal for Istanbul and Cappadocia." },
+    "singapore": { "months": "Year-round", "summary": "Tropical; Feb-Apr slightly drier." },
+    "malaysia": { "months": "Dec-Mar & Jul-Sep", "summary": "Best for beaches and highlands." },
+    "kashmir": { "months": "Mar-Oct", "summary": "Spring blooms to autumn; winter for snow." }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "highlights": {
+    "dubai": ["Burj Khalifa", "Desert Safari", "Dubai Marina", "Palm Jumeirah"],
+    "maldives": ["Overwater villas", "Snorkeling", "Bioluminescent beaches"],
+    "switzerland": ["Jungfraujoch", "Glacier Express", "Lucerne"],
+    "bali": ["Ubud", "Seminyak", "Temples", "Rice terraces"],
+    "thailand": ["Bangkok", "Phuket", "Krabi", "Phi Phi"]
+  }
+}

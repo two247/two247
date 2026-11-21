@@ -1,0 +1,9 @@
+{
+  "services": [
+    { "name": "Custom Trip Planning", "desc": "Bespoke itineraries tailored to your dates, budget and interests." },
+    { "name": "Holiday Packages", "desc": "Curated ready-to-book packages across India and abroad." },
+    { "name": "Corporate Travel", "desc": "MICE, offsites and incentive trips." },
+    { "name": "Group Tours", "desc": "Fixed-departure group tours with expert guides." },
+    { "name": "Visa Assistance", "desc": "Guidance and document support for all destinations." }
+  ]
+}
