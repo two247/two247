@@ -12,7 +12,7 @@ export const siteConfig = {
   },
   domain: {
     // Easily configurable domain
-    url: "https://two247holidays.com",
+    url: "https://two247.in",
     previewUrl: "https://two247.vercel.app",
   },
   contact: {
