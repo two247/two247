@@ -191,7 +191,7 @@
 
   <script type="module" src="js/tilt3d.js"></script>
   <script type="module">
-    import { packages } from "./data/packages.js";
+    import { getPackages } from "./js/data-service.js";
     import { init3DTilt } from "./js/tilt3d.js";
 
     const grid = document.getElementById('packages-grid');
@@ -205,6 +205,24 @@
     if (params.get('cat')) typeFilter.value = params.get('cat').toLowerCase();
     if (params.get('dest')) destFilter.value = params.get('dest').toLowerCase();
 
+    // Dynamically fetch from Firestore (single source of truth)
+    const packages = await getPackages();
+
+    // Populate all available destinations into select
+    const existingDests = new Set(Array.from(destFilter.options).map(o => o.value.toLowerCase()));
+    packages.forEach(p => {
+      const slug = (p.destinationSlug || p.destination || '').toLowerCase();
+      if (slug && !existingDests.has(slug)) {
+        const opt = document.createElement('option');
+        opt.value = slug;
+        opt.textContent = p.destination || slug.toUpperCase();
+        destFilter.appendChild(opt);
+        existingDests.add(slug);
+      }
+    });
+
+    if (params.get('dest')) destFilter.value = params.get('dest').toLowerCase();
+
     function render() {
       const selectedDest = destFilter.value.toLowerCase();
       const selectedType = typeFilter.value.toLowerCase();
@@ -213,7 +231,11 @@
 
       const filtered = packages.filter(pkg => {
         // Destination filter
-        if (selectedDest !== 'all' && pkg.destinationSlug.toLowerCase() !== selectedDest) return false;
+        if (selectedDest !== 'all') {
+          const pSlug = (pkg.destinationSlug || '').toLowerCase();
+          const pDest = (pkg.destination || '').toLowerCase();
+          if (pSlug !== selectedDest && !pDest.includes(selectedDest) && !selectedDest.includes(pSlug)) return false;
+        }
         
         // Type filter
         if (selectedType !== 'all') {

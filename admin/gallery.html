@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery Management | TWO247 Admin Portal</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/owl-mark.svg">
+  <link rel="stylesheet" href="../css/output.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#F8FAFC] flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar w-64 flex-shrink-0 flex flex-col justify-between p-6 hidden md:flex border-r border-slate-800">
+    <div>
+      <div class="flex items-center gap-3 pb-6 mb-6 border-b border-white/10">
+        <img src="../assets/logo/two247-logo-white.png" alt="TWO247" class="h-8 w-auto">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20">Admin</span>
+      </div>
+
+      <nav class="space-y-1.5" aria-label="Admin Navigation">
+        <a href="index.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="packages.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Packages CRUD</span>
+        </a>
+        <a href="destinations.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/></svg>
+          <span>Destinations & Base Prices</span>
+        </a>
+        <a href="feedback.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>Reviews & Feedbacks</span>
+        </a>
+        <a href="gallery.html" class="admin-nav-item active">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>Gallery Management</span>
+        </a>
+        <a href="inquiries.html" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>Customer Leads</span>
+        </a>
+        <a href="../gallery.html" target="_blank" class="admin-nav-item">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <span>View Public Gallery ↗</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-white/10">
+      <div class="text-xs text-slate-400 truncate mb-3" id="admin-user-email">Administrator</div>
+      <button onclick="handleAdminSignOut()" class="w-full py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Work Stage -->
+  <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+    <header class="bg-white border-b border-slate-200 px-6 sm:px-10 py-5 flex items-center justify-between sticky top-0 z-20">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">Gallery Management</h1>
+        <p class="text-xs text-slate-500 mt-0.5">Upload photos, manage visual journal moments & synchronize with public gallery</p>
+      </div>
+
+      <button id="btn-add-photo" class="px-4 py-2.5 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md flex items-center gap-1.5 cursor-pointer">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+        <span>Add Photo to Gallery</span>
+      </button>
+    </header>
+
+    <div class="p-6 sm:p-10 space-y-6 max-w-7xl mx-auto w-full">
+
+      <!-- Category Filter Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-slate-700">Filter:</span>
+          <select id="gal-cat-filter" class="admin-select py-1.5 text-xs">
+            <option value="all">All Categories</option>
+            <option value="islands">Overwater & Islands</option>
+            <option value="skylines">Skylines & Deserts</option>
+            <option value="alpine">Alpine & Aurora</option>
+            <option value="heritage">Heritage & Canals</option>
+            <option value="wildlife">Fjords & Reefs</option>
+          </select>
+        </div>
+        <span id="gal-total-count" class="text-xs text-slate-500 font-semibold">Loading...</span>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Add / Edit Photo Modal -->
+  <div id="photo-modal" class="admin-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="admin-modal-card max-w-xl">
+      <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50 shrink-0">
+        <div>
+          <h2 id="modal-title" class="text-lg font-bold text-slate-900">Add Photo to Gallery</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Upload high-res photography to Cloudinary & Firestore</p>
+        </div>
+        <button type="button" id="modal-close-btn" class="p-2 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-200 transition-colors cursor-pointer" aria-label="Close modal">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="photo-form" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scroll">
+        <input type="hidden" id="form-photo-id">
+
+        <div>
+          <label for="form-photo-title" class="admin-label">Photo Title / Caption *</label>
+          <input type="text" id="form-photo-title" required placeholder="e.g. Maldives Overwater Sunset Villa" class="admin-input">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="form-photo-category" class="admin-label">Category *</label>
+            <select id="form-photo-category" class="admin-select">
+              <option value="islands">Overwater & Islands</option>
+              <option value="skylines">Skylines & Deserts</option>
+              <option value="alpine">Alpine & Aurora</option>
+              <option value="heritage">Heritage & Canals</option>
+              <option value="wildlife">Fjords & Reefs</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="form-photo-tag" class="admin-label">Destination Tag *</label>
+            <input type="text" id="form-photo-tag" required placeholder="e.g. MALDIVES" class="admin-input uppercase">
+          </div>
+        </div>
+
+        <div>
+          <label for="form-photo-url" class="admin-label">Image (Upload File or Enter URL) *</label>
+          <div class="flex gap-2">
+            <input type="url" id="form-photo-url" required placeholder="https://res.cloudinary.com/n4bywdyq/..." class="admin-input flex-1">
+            <label class="px-3.5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-slate-700 flex items-center gap-1.5 shrink-0 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+              <span>Upload</span>
+              <input type="file" id="form-file-upload" accept="image/*" class="hidden">
+            </label>
+          </div>
+          <span id="photo-upload-status" class="text-xs text-emerald-600 font-semibold mt-1.5 block hidden">Uploaded!</span>
+        </div>
+
+        <div>
+          <label for="form-photo-desc" class="admin-label">Short Description / Story</label>
+          <textarea id="form-photo-desc" rows="3" placeholder="Private ocean villa with direct lagoon access, glass flooring, and infinity pool overlooking coral atolls." class="admin-textarea"></textarea>
+        </div>
+      </form>
+
+      <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-end gap-3 shrink-0">
+        <button type="button" id="btn-cancel-modal" class="px-4 py-2 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer">
+          Cancel
+        </button>
+        <button type="submit" form="photo-form" id="btn-save-photo" class="px-5 py-2 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-800 transition-all shadow-md cursor-pointer flex items-center gap-1.5">
+          <span>Save to Gallery</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initAuthGuard } from "./js/auth-guard.js";
+    import { getGalleryItems, saveGalleryItem, deleteGalleryItem } from "./js/db-service.js";
+    import { uploadToCloudinary } from "../js/cloudinary-config.js";
+    import { showToast } from "./js/ui-utils.js";
+
+    initAuthGuard(async () => {
+      const grid = document.getElementById("gallery-grid");
+      const totalCount = document.getElementById("gal-total-count");
+      const catFilter = document.getElementById("gal-cat-filter");
+      const modal = document.getElementById("photo-modal");
+      const form = document.getElementById("photo-form");
+      const addBtn = document.getElementById("btn-add-photo");
+      const closeBtn = document.getElementById("modal-close-btn");
+      const cancelBtn = document.getElementById("btn-cancel-modal");
+      const saveBtn = document.getElementById("btn-save-photo");
+      const fileUpload = document.getElementById("form-file-upload");
+      const uploadStatus = document.getElementById("photo-upload-status");
+
+      let galleryItems = await getGalleryItems();
+
+      function render(items = galleryItems) {
+        totalCount.textContent = `${items.length} Photos`;
+        if (items.length === 0) {
+          grid.innerHTML = `<div class="col-span-full py-16 text-center text-slate-400">No gallery moments found. Click "+ Add Photo" to upload your first visual asset.</div>`;
+          return;
+        }
+
+        grid.innerHTML = items.map(item => `
+          <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div>
+              <div class="relative h-44 overflow-hidden bg-slate-100">
+                <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur text-white text-[10px] font-bold uppercase tracking-wider">
+                  ${item.tag || item.category}
+                </span>
+              </div>
+              <div class="p-4">
+                <h3 class="text-sm font-bold text-slate-900 leading-snug">${item.title}</h3>
+                <p class="text-xs text-slate-500 mt-1 line-clamp-2">${item.desc || ""}</p>
+              </div>
+            </div>
+
+            <div class="px-4 py-3 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between text-xs">
+              <span class="text-[11px] text-slate-400 uppercase font-semibold">${item.category}</span>
+              <button class="btn-del-photo px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition-colors cursor-pointer" data-id="${item.id}">
+                Delete
+              </button>
+            </div>
+          </div>
+        `).join("");
+
+        grid.querySelectorAll(".btn-del-photo").forEach(btn => {
+          btn.addEventListener("click", async () => {
+            if (!confirm("Are you sure you want to delete this photo from the gallery?")) return;
+            try {
+              await deleteGalleryItem(btn.dataset.id);
+              galleryItems = await getGalleryItems();
+              applyFilter();
+              showToast("Photo removed from gallery", "info");
+            } catch (err) {
+              showToast("Failed to delete: " + err.message, "error");
+            }
+          });
+        });
+      }
+
+      function applyFilter() {
+        const cat = catFilter.value;
+        const filtered = cat === "all" ? galleryItems : galleryItems.filter(i => (i.category || "").toLowerCase() === cat.toLowerCase());
+        render(filtered);
+      }
+
+      catFilter.addEventListener("change", applyFilter);
+
+      // Cloudinary File Upload Integration
+      fileUpload.addEventListener("change", async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        uploadStatus.classList.remove("hidden");
+        uploadStatus.className = "text-xs text-slate-600 font-semibold mt-1.5 block";
+        uploadStatus.textContent = "Uploading to Cloudinary...";
+
+        try {
+          const res = await uploadToCloudinary(file);
+          document.getElementById("form-photo-url").value = res.secure_url;
+          uploadStatus.className = "text-xs text-emerald-600 font-semibold mt-1.5 block";
+          uploadStatus.textContent = "✓ Photo uploaded successfully!";
+          showToast("Photo uploaded to Cloudinary", "success");
+        } catch (err) {
+          uploadStatus.className = "text-xs text-rose-600 font-semibold mt-1.5 block";
+          uploadStatus.textContent = `Upload failed: ${err.message}`;
+          showToast("Upload failed: " + err.message, "error");
+        }
+      });
+
+      function openModal() {
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        form.reset();
+        document.getElementById("form-photo-id").value = "";
+        uploadStatus.classList.add("hidden");
+        fileUpload.value = "";
+        document.body.style.overflow = "";
+      }
+
+      addBtn.addEventListener("click", () => {
+        form.reset();
+        openModal();
+      });
+
+      closeBtn.addEventListener("click", closeModal);
+      cancelBtn.addEventListener("click", closeModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = `<span>Saving...</span>`;
+
+        const payload = {
+          title: document.getElementById("form-photo-title").value.trim(),
+          category: document.getElementById("form-photo-category").value,
+          tag: document.getElementById("form-photo-tag").value.trim().toUpperCase(),
+          image: document.getElementById("form-photo-url").value.trim(),
+          desc: document.getElementById("form-photo-desc").value.trim()
+        };
+
+        try {
+          await saveGalleryItem(payload);
+          galleryItems = await getGalleryItems();
+          closeModal();
+          applyFilter();
+          showToast("Photo added to public gallery!", "success");
+        } catch (err) {
+          showToast("Failed to save: " + err.message, "error");
+        } finally {
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = `<span>Save to Gallery</span>`;
+        }
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>

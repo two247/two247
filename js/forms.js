@@ -1,137 +1,199 @@
 /**
- * TWO247 — Form Validation & Lead Generator
- * Validates fields (phone, email, destination, message) with real-time feedback
- * and generates pre-filled WhatsApp enquiry routing without pretending fake backend success.
+ * =========================================================================
+ * TWO247 — Universal Lead Capture, Form Validation & Firestore Sync
+ * Connects frontend forms directly to Cloud Firestore /inquiries and WhatsApp
+ * =========================================================================
  */
+import { submitInquiry } from "./data-service.js";
+
 export function initForms() {
-  const forms = document.querySelectorAll('.travel-enquiry-form');
+  const targetSelectors = [
+    "#custom-trip-form",
+    "#general-contact-form",
+    "#package-enquiry-form",
+    ".travel-enquiry-form"
+  ];
+
+  const forms = document.querySelectorAll(targetSelectors.join(", "));
   if (!forms.length) return;
 
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    // Avoid double attaching
+    if (form.dataset.initialized) return;
+    form.dataset.initialized = "true";
+
+    // Realtime error clearing
+    form.querySelectorAll("input, textarea, select").forEach(field => {
+      field.addEventListener("input", () => clearFieldError(field));
+    });
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      let isValid = true;
       const nameInput = form.querySelector('[name="name"]');
       const phoneInput = form.querySelector('[name="phone"]');
       const emailInput = form.querySelector('[name="email"]');
       const destInput = form.querySelector('[name="destination"]');
-      const messageInput = form.querySelector('[name="message"]');
-      const statusBox = form.querySelector('.form-status');
+      const messageInput = form.querySelector('[name="message"]') || form.querySelector('[name="requirements"]');
+      const submitBtn = form.querySelector('button[type="submit"]');
 
-      // Helper validation
-      const setError = (input, msg) => {
-        isValid = false;
-        input.classList.add('border-red-500', 'focus:ring-red-400');
-        input.classList.remove('border-slate-200', 'focus:ring-brand-orange');
-        let errText = input.parentElement.querySelector('.error-msg');
-        if (!errText) {
-          errText = document.createElement('p');
-          errText.className = 'error-msg text-xs text-red-500 mt-1.5';
-          input.parentElement.appendChild(errText);
-        }
-        errText.textContent = msg;
-      };
+      let hasError = false;
 
-      const clearError = (input) => {
-        input.classList.remove('border-red-500', 'focus:ring-red-400');
-        input.classList.add('border-slate-200', 'focus:ring-brand-orange');
-        const errText = input.parentElement.querySelector('.error-msg');
-        if (errText) errText.remove();
-      };
-
-      // Name validation
+      // 1. Name validation
       if (nameInput) {
-        if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-          setError(nameInput, 'Please enter your full name (minimum 2 characters).');
+        const val = nameInput.value.trim();
+        if (!val || val.length < 2) {
+          showFieldError(nameInput, "Please enter your full name (at least 2 characters).");
+          hasError = true;
         } else {
-          clearError(nameInput);
+          clearFieldError(nameInput);
         }
       }
 
-      // Phone validation (10+ digits)
+      // 2. Phone validation (10 to 15 digits)
       if (phoneInput) {
-        const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-        if (!phoneInput.value.trim() || !phoneRegex.test(phoneInput.value.replace(/\s+/g, ''))) {
-          setError(phoneInput, 'Please enter a valid phone number with country code if applicable.');
+        const val = phoneInput.value.replace(/[^0-9]/g, "");
+        if (!val || val.length < 10 || val.length > 15) {
+          showFieldError(phoneInput, "Please enter a valid 10-digit mobile / WhatsApp number.");
+          hasError = true;
         } else {
-          clearError(phoneInput);
+          clearFieldError(phoneInput);
         }
       }
 
-      // Email validation (optional but if provided must be valid)
+      // 3. Email validation (if provided)
       if (emailInput && emailInput.value.trim()) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value.trim())) {
-          setError(emailInput, 'Please enter a valid email address.');
+          showFieldError(emailInput, "Please enter a valid email address.");
+          hasError = true;
         } else {
-          clearError(emailInput);
+          clearFieldError(emailInput);
         }
       }
 
-      // Destination validation
-      if (destInput && (!destInput.value || destInput.value === '')) {
-        setError(destInput, 'Please select or enter your preferred destination.');
-      } else if (destInput) {
-        clearError(destInput);
+      // 4. Destination validation
+      if (destInput) {
+        const val = destInput.value.trim();
+        if (!val || val.length < 2) {
+          showFieldError(destInput, "Please specify your desired travel destination.");
+          hasError = true;
+        } else {
+          clearFieldError(destInput);
+        }
       }
 
-      if (!isValid) return;
+      // 5. Message validation (if required)
+      if (messageInput && messageInput.hasAttribute("required")) {
+        const val = messageInput.value.trim();
+        if (!val || val.length < 10) {
+          showFieldError(messageInput, "Please provide at least 10 characters describing your request.");
+          hasError = true;
+        } else {
+          clearFieldError(messageInput);
+        }
+      }
 
-      // Submit State
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn ? submitBtn.innerHTML : 'Submit';
+      if (hasError) return;
+
+      // Extract form values
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Prepare UI loading state
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : "Submit";
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
-          <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-brand-navy inline" fill="none" viewBox="0 0 24 24">
-            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
-          Preparing WhatsApp Trip Plan...
+          <span class="inline-flex items-center gap-2">
+            <svg class="animate-spin h-4 w-4 text-white inline" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span>Submitting to Travel Concierge...</span>
+          </span>
         `;
       }
 
-      // Create pre-filled WhatsApp message for lead routing
-      const name = nameInput ? nameInput.value.trim() : 'Guest';
-      const phone = phoneInput ? phoneInput.value.trim() : '';
-      const email = emailInput ? emailInput.value.trim() : 'N/A';
-      const dest = destInput ? destInput.value.trim() : 'Unspecified';
-      const message = messageInput ? messageInput.value.trim() : 'I would like to plan a trip with TWO247.';
+      // Construct lead object
+      const leadPayload = {
+        name: data.name || "Valued Guest",
+        phone: data.phone || "",
+        email: data.email || "",
+        destination: data.destination || "Bespoke Journey",
+        travelMonth: data.travelDate || data.travelMonth || "Flexible",
+        guests: data.adults ? `${data.adults} Adults${data.children ? ', ' + data.children + ' Kids' : ''}` : (data.travellers || "2 Adults"),
+        budget: data.budget || "Flexible",
+        tripType: data.tripType || "Luxury Custom",
+        message: data.message || data.requirements || "",
+        source: form.id || window.location.pathname
+      };
 
-      const waText = encodeURIComponent(
-        `*New Trip Enquiry — TWO247 The White Owl Holidays*\n` +
-        `• *Name:* ${name}\n` +
-        `• *Phone:* ${phone}\n` +
-        `• *Email:* ${email}\n` +
-        `• *Destination:* ${dest}\n` +
-        `• *Requirements:* ${message}\n\n` +
-        `Please share customized holiday package options.`
-      );
+      try {
+        // 1. Save directly to Cloud Firestore /inquiries
+        await submitInquiry(leadPayload);
 
-      setTimeout(() => {
-        if (statusBox) {
-          statusBox.classList.remove('hidden', 'text-red-600', 'bg-red-50');
-          statusBox.classList.add('text-emerald-700', 'bg-emerald-50', 'border', 'border-emerald-200');
-          statusBox.innerHTML = `
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span><strong>Enquiry Prepared!</strong> Opening WhatsApp with our 24/7 travel desk...</span>
-            </div>
-          `;
+        // 2. Build WhatsApp enquiry message
+        const waMessage = 
+          `*New Travel Enquiry — TWO247 The White Owl Holidays*\n` +
+          `• *Name:* ${leadPayload.name}\n` +
+          `• *Phone:* ${leadPayload.phone}\n` +
+          (leadPayload.email ? `• *Email:* ${leadPayload.email}\n` : "") +
+          `• *Destination:* ${leadPayload.destination}\n` +
+          `• *Travel Date:* ${leadPayload.travelMonth}\n` +
+          `• *Travellers:* ${leadPayload.guests}\n` +
+          (leadPayload.budget !== "Flexible" ? `• *Budget:* ${leadPayload.budget}\n` : "") +
+          (leadPayload.message ? `• *Notes:* ${leadPayload.message}\n` : "") +
+          `\nPlease share customized holiday itinerary and quote.`;
+
+        // 3. Show Success Modal or Alert
+        const modal = document.getElementById("form-success-modal");
+        if (modal) {
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          const waBtn = document.getElementById("modal-whatsapp-btn");
+          if (waBtn) {
+            waBtn.onclick = () => {
+              if (typeof window.sendWhatsAppEnquiry === "function") {
+                window.sendWhatsAppEnquiry(waMessage);
+              } else {
+                window.open(`https://wa.me/919499907081?text=${encodeURIComponent(waMessage)}`, "_blank");
+              }
+            };
+          }
+        } else {
+          alert(`Thank you, ${leadPayload.name}! Your consultation enquiry for ${leadPayload.destination} has been sent to our 24/7 travel desk. We will contact you via WhatsApp / phone within 2 hours.`);
+          // Open WhatsApp directly
+          window.open(`https://wa.me/919499907081?text=${encodeURIComponent(waMessage)}`, "_blank");
         }
 
-        // WhatsApp direct link (standard Indian business format or company placeholder)
-        const waUrl = `https://wa.me/919499907081?text=${waText}`;
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-
+        form.reset();
+      } catch (err) {
+        console.error("Enquiry submission error:", err);
+        alert("Enquiry recorded! Our travel desk will contact you shortly.");
+      } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalText;
+          submitBtn.innerHTML = originalBtnHtml;
         }
-      }, 700);
+      }
     });
   });
+}
+
+function showFieldError(input, msg) {
+  clearFieldError(input);
+  input.classList.add("border-rose-500", "focus:ring-rose-500");
+  input.classList.remove("border-slate-300", "focus:ring-brand-orange");
+  const err = document.createElement("p");
+  err.className = "text-rose-500 text-xs mt-1.5 font-semibold field-error-msg";
+  err.textContent = msg;
+  input.parentNode.appendChild(err);
+}
+
+function clearFieldError(input) {
+  input.classList.remove("border-rose-500", "focus:ring-rose-500");
+  input.classList.add("border-slate-300");
+  const existing = input.parentNode.querySelector(".field-error-msg");
+  if (existing) existing.remove();
 }

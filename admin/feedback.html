@@ -38,9 +38,9 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
           <span>Reviews & Feedbacks</span>
         </a>
-        <a href="media.html" class="admin-nav-item">
+        <a href="gallery.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <span>Cloudinary Media Studio</span>
+          <span>Gallery Management</span>
         </a>
         <a href="inquiries.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -137,14 +137,19 @@
         </div>
 
         <div>
-          <label for="rev-avatar" class="admin-label">Guest Photo / Avatar (Cloudinary Upload or URL)</label>
-          <div class="flex gap-2">
-            <input type="url" id="rev-avatar" placeholder="https://res.cloudinary.com/n4bywdyq/..." class="admin-input flex-1">
-            <label class="px-3.5 py-2.5 bg-slate-900 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-slate-700 flex items-center gap-1.5 shrink-0 transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-              <span>Upload</span>
-              <input type="file" id="rev-file-upload" accept="image/*" class="hidden">
-            </label>
+          <label class="admin-label">Guest Photo / Avatar (Upload to Cloudinary or Enter URL)</label>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full border-2 border-slate-200 overflow-hidden bg-slate-100 flex items-center justify-center shrink-0 shadow-inner">
+              <img id="avatar-preview-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Avatar preview" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1 flex gap-2">
+              <input type="url" id="rev-avatar" placeholder="https://res.cloudinary.com/n4bywdyq/..." class="admin-input flex-1">
+              <label class="px-4 py-2.5 bg-black hover:bg-slate-800 text-white rounded-xl text-xs font-bold cursor-pointer flex items-center gap-1.5 shrink-0 transition-colors shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                <span>Upload</span>
+                <input type="file" id="rev-file-upload" accept="image/*" class="hidden">
+              </label>
+            </div>
           </div>
           <span id="rev-upload-status" class="text-xs text-emerald-600 font-semibold mt-1.5 block hidden">Uploaded!</span>
         </div>
@@ -190,6 +195,7 @@
         try {
           const res = await uploadToCloudinary(file);
           document.getElementById("rev-avatar").value = res.secure_url;
+          document.getElementById("avatar-preview-img").src = res.secure_url;
           uploadStatus.className = "text-xs text-emerald-600 font-semibold mt-1.5 block";
           uploadStatus.textContent = "✓ Avatar uploaded successfully!";
           showToast("Avatar uploaded to Cloudinary", "success");
@@ -198,6 +204,13 @@
           uploadStatus.className = "text-xs text-rose-600 font-semibold mt-1.5 block";
           uploadStatus.textContent = `Upload failed: ${err.message}`;
           showToast("Upload failed: " + err.message, "error");
+        }
+      });
+
+      document.getElementById("rev-avatar").addEventListener("input", (e) => {
+        const url = e.target.value.trim();
+        if (url) {
+          document.getElementById("avatar-preview-img").src = url;
         }
       });
 
@@ -260,6 +273,7 @@
         modal.classList.remove("is-open");
         form.reset();
         document.getElementById("form-review-id").value = "";
+        document.getElementById("avatar-preview-img").src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80";
         uploadStatus.classList.add("hidden");
         fileUpload.value = "";
         document.body.style.overflow = "";
@@ -268,6 +282,7 @@
       addBtn.addEventListener("click", () => {
         modalTitle.textContent = "Add Client Testimonial";
         form.reset();
+        document.getElementById("avatar-preview-img").src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80";
         openModal();
       });
 
@@ -296,6 +311,7 @@
         document.getElementById("rev-status").value = r.status || "published";
         document.getElementById("rev-text").value = r.reviewText || "";
         document.getElementById("rev-avatar").value = r.avatarUrl || "";
+        document.getElementById("avatar-preview-img").src = r.avatarUrl || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80";
         openModal();
       }
 

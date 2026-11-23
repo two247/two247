@@ -287,26 +287,56 @@
 
   <script type="module" src="../js/tilt3d.js"></script>
   <script type="module">
-    import { packages } from "../data/packages.js";
+    import { getPackageBySlug, getPackages } from "../js/data-service.js";
     import { db } from "../js/firebase-config.js";
     import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
     const params = new URLSearchParams(window.location.search);
     const pkgSlug = params.get('pkg') || 'luxury-dubai-escape';
-    const pkg = packages.find(p => p.slug === pkgSlug) || packages[0];
+    const pkg = (await getPackageBySlug(pkgSlug)) || (await getPackages())[0] || {};
+
+    // Robust price resolver (ensures price is never blank or undefined)
+    function resolvePrice(p) {
+      if (!p) return "₹48,000";
+      const s = p.startingPrice;
+      if (s && typeof s === "string" && s.trim() !== "" && s !== "undefined" && s !== "null") {
+        return s.startsWith("₹") ? s : `₹${s}`;
+      }
+      if (p.startingPriceNum && !isNaN(p.startingPriceNum) && Number(p.startingPriceNum) > 0) {
+        return "₹" + Number(p.startingPriceNum).toLocaleString("en-IN");
+      }
+      if (p.priceFormatted && typeof p.priceFormatted === "string" && p.priceFormatted.trim() !== "") {
+        return p.priceFormatted;
+      }
+      if (p.basePrice && !isNaN(p.basePrice) && Number(p.basePrice) > 0) {
+        return "₹" + Number(p.basePrice).toLocaleString("en-IN");
+      }
+      return "₹48,000";
+    }
+
+    const priceText = resolvePrice(pkg);
 
     // Page title and hero details
-    document.title = `${pkg.name} | TWO247 — The White Owl Holidays`;
-    document.getElementById('pkg-hero-img').src = pkg.image;
-    document.getElementById('pkg-dest-badge').textContent = pkg.destination;
-    document.getElementById('pkg-duration-badge').textContent = pkg.duration;
-    document.getElementById('pkg-title').textContent = pkg.name;
-    document.getElementById('pkg-price').innerHTML = `${pkg.startingPrice} <span class="text-xs font-normal text-slate-400">/ person</span>`;
-    document.getElementById('pkg-rating').textContent = `★ ${pkg.rating} (${pkg.reviewCount} Verified Reviews)`;
+    document.title = `${pkg.name || 'Luxury Holiday Package'} | TWO247 — The White Owl Holidays`;
+    document.getElementById('pkg-hero-img').src = pkg.image || "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80";
+    document.getElementById('pkg-dest-badge').textContent = pkg.destination || "Exclusive Tour";
+    document.getElementById('pkg-duration-badge').textContent = pkg.duration || "5 Days / 4 Nights";
+    document.getElementById('pkg-title').textContent = pkg.name || "Luxury Dubai Escape";
+    document.getElementById('pkg-summary').textContent = pkg.summary || pkg.description || "Experience iconic architecture, desert safaris, and private marina cruising with round-the-clock guidance.";
+    document.getElementById('pkg-price').innerHTML = `${priceText} <span class="text-xs font-normal text-slate-400">/ person</span>`;
+    document.getElementById('pkg-rating').textContent = `★ ${pkg.rating || 4.9} (${pkg.reviewCount || 42} Verified Reviews)`;
 
     // Highlights
     const hlContainer = document.getElementById('pkg-highlights');
-    hlContainer.innerHTML = pkg.highlights.map(h => `
+    const highlights = (Array.isArray(pkg.highlights) && pkg.highlights.length > 0)
+      ? pkg.highlights
+      : [
+          "Burj Khalifa 124th + 125th Floor Entry",
+          "Premium Desert Safari with BBQ Dinner",
+          "Dubai Marina Luxury Dhow Cruise",
+          "Private 4-Star / 5-Star Hotel Transfers"
+        ];
+    hlContainer.innerHTML = highlights.map(h => `
       <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 hover:border-black/30 hover:shadow-sm transition-all">
         <span class="text-amber-500 font-bold text-base mt-0.5 shrink-0">✦</span>
         <span class="text-sm font-bold text-slate-900 leading-snug">${h}</span>
@@ -315,10 +345,17 @@
 
     // Itinerary
     const itContainer = document.getElementById('pkg-itinerary');
-    itContainer.innerHTML = pkg.itinerary.map((item, idx) => `
+    const itinerary = (Array.isArray(pkg.itinerary) && pkg.itinerary.length > 0)
+      ? pkg.itinerary
+      : [
+          { day: 1, title: "Arrival in Dubai & Marina Dhow Cruise", description: "Welcome to Dubai! Our airport representative greets you in the arrival hall and transfers you to your luxury hotel. Evening private pickup for a scenic Dubai Marina Dhow cruise with gourmet dinner." },
+          { day: 2, title: "Half-Day City Tour & Burj Khalifa Sky View", description: "Discover Dubai's historic creek and Gold Souk followed by the modern metropolis. Sunset observation deck tickets to Burj Khalifa 124th + 125th floors." },
+          { day: 3, title: "Desert Safari, Dune Bashing & Arabian Feast", description: "Thrilling 4x4 red dune bashing in Lahbab desert, camel trekking, sandboarding, and an authentic evening barbecue buffet under the starlit Arabian desert." }
+        ];
+    itContainer.innerHTML = itinerary.map((item, idx) => `
       <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-2">
         <div class="flex items-center gap-3">
-          <span class="px-2.5 py-0.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider">Day ${item.day}</span>
+          <span class="px-2.5 py-0.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider">Day ${item.day || (idx + 1)}</span>
           <h4 class="font-bold text-base text-slate-900">${item.title}</h4>
         </div>
         <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-1 sm:pl-3">${item.description}</p>
@@ -327,7 +364,16 @@
 
     // Inclusions & Exclusions
     const incContainer = document.getElementById('pkg-inclusions');
-    incContainer.innerHTML = pkg.inclusions.map(inc => `
+    const inclusions = (Array.isArray(pkg.inclusions) && pkg.inclusions.length > 0)
+      ? pkg.inclusions
+      : [
+          "4 Nights 4★/5★ Luxury Hotel Accommodation",
+          "Daily Buffet Breakfast & Selected Dinners",
+          "Private Airport & Sightseeing Transfers in AC Vehicle",
+          "Burj Khalifa At the Top & Desert Safari Tickets",
+          "24/7 Dedicated Concierge Guidance"
+        ];
+    incContainer.innerHTML = inclusions.map(inc => `
       <li class="flex items-start gap-2">
         <span class="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
         <span>${inc}</span>
@@ -335,7 +381,15 @@
     `).join('');
 
     const excContainer = document.getElementById('pkg-exclusions');
-    excContainer.innerHTML = pkg.exclusions.map(exc => `
+    const exclusions = (Array.isArray(pkg.exclusions) && pkg.exclusions.length > 0)
+      ? pkg.exclusions
+      : [
+          "International Flight Airfare",
+          "UAE Tourist Visa Fees",
+          "Personal Expenses, Mini Bar & Hotel Incidentals",
+          "Tourism Dirham Fee (paid directly at hotel check-in)"
+        ];
+    excContainer.innerHTML = exclusions.map(exc => `
       <li class="flex items-start gap-2">
         <span class="text-rose-500 font-bold shrink-0 mt-0.5">✕</span>
         <span>${exc}</span>

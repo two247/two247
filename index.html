@@ -402,9 +402,10 @@
         <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none mb-3">
           <button type="button" class="search-tab-pill active" data-category="all">🏖️ All Packages</button>
           <button type="button" class="search-tab-pill" data-category="international">✈️ International</button>
-          <button type="button" class="search-tab-pill" data-category="domestic">🇮🇳 Domestic Escapes</button>
+          <button type="button" class="search-tab-pill" data-category="domestic">🇮🇳 Domestic</button>
           <button type="button" class="search-tab-pill" data-category="honeymoon">💍 Honeymoon</button>
-          <button type="button" class="search-tab-pill" data-category="luxury">👑 Luxury & Villas</button>
+          <button type="button" class="search-tab-pill" data-category="luxury">👑 Luxury</button>
+          <button type="button" class="search-tab-pill" data-category="villas">🏡 Villas</button>
         </div>
 
         <!-- Advance Search Filter Card (Editorial Palette #000000, #6F6F6F, #FFFFFF) -->
@@ -492,19 +493,6 @@
           </div>
 
         </form>
-
-        <!-- Quick Popular Filter Chips -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
-          <span class="text-[#6F6F6F] font-bold uppercase tracking-wider text-[11px] mr-1">Trending:</span>
-          <button type="button" class="quick-filter-chip active" data-filter="all">⚡ All Packages</button>
-          <button type="button" class="quick-filter-chip" data-filter="maldives">🏝️ Maldives</button>
-          <button type="button" class="quick-filter-chip" data-filter="switzerland">❄️ Switzerland</button>
-          <button type="button" class="quick-filter-chip" data-filter="dubai">🏜️ Dubai</button>
-          <button type="button" class="quick-filter-chip" data-filter="bali">🌺 Bali</button>
-          <button type="button" class="quick-filter-chip" data-filter="honeymoon">💍 Honeymoon</button>
-          <button type="button" class="quick-filter-chip" data-filter="under50k">💰 Under ₹50K</button>
-        </div>
-
       </div>
 
       <!-- 3D Floating Interactive Destination Cards Stage -->
@@ -575,14 +563,54 @@
         <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-3 scrollbar-none mb-8 -mx-2 px-2 sm:mx-0 sm:px-0 appear-text">
           <button type="button" class="search-tab-pill active cursor-pointer" data-category="all">🏖️ All Packages</button>
           <button type="button" class="search-tab-pill cursor-pointer" data-category="international">✈️ International</button>
-          <button type="button" class="search-tab-pill cursor-pointer" data-category="domestic">🇮🇳 Domestic Escapes</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="domestic">🇮🇳 Domestic</button>
           <button type="button" class="search-tab-pill cursor-pointer" data-category="honeymoon">💍 Honeymoon</button>
-          <button type="button" class="search-tab-pill cursor-pointer" data-category="luxury">👑 Luxury & Villas</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="luxury">👑 Luxury</button>
+          <button type="button" class="search-tab-pill cursor-pointer" data-category="villas">🏡 Villas</button>
         </div>
 
         <!-- Interactive Packages Grid (Updated dynamically via advance-search.js) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="interactive-packages-grid" data-stagger-group>
           <!-- Dynamic cards injected by js/advance-search.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4.5. CUSTOMER REVIEWS & AUTO-MOVING HORIZONTAL CAROUSEL -->
+    <section class="py-20 bg-slate-50/70 border-t border-slate-100 overflow-hidden" id="testimonials" aria-labelledby="test-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">VERIFIED REVIEWS</span>
+            <h2 id="test-heading" class="text-3xl sm:text-4xl md:text-5xl font-display font-normal text-[#000000] tracking-tight">
+              Journeys Shared by <span class="italic text-[#6F6F6F]">Our Voyagers</span>
+            </h2>
+            <p class="text-[#6F6F6F] text-sm sm:text-base mt-2 max-w-xl">
+              Authentic stories and 5-star experiences from travellers with our 24/7 on-ground concierge support.
+            </p>
+          </div>
+
+          <!-- Carousel Navigation Controls -->
+          <div class="flex items-center gap-2 shrink-0">
+            <button id="rev-scroll-prev" type="button" class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 flex items-center justify-center text-slate-800 transition-all shadow-sm cursor-pointer" aria-label="Previous review">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="rev-scroll-next" type="button" class="w-10 h-10 rounded-full border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 flex items-center justify-center text-slate-800 transition-all shadow-sm cursor-pointer" aria-label="Next review">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Carousel Track Wrapper (No layout overflow, smooth horizontal scroll) -->
+        <div class="relative w-full -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+          <div id="reviews-carousel-track"
+            class="flex gap-6 overflow-x-auto scrollbar-none py-4 snap-x snap-mandatory scroll-smooth"
+            style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+            <!-- Dynamically populated from Firestore /reviews via data-service.js -->
+            <div class="w-full text-center py-10 text-slate-400 text-sm">Loading traveller reviews...</div>
+          </div>
         </div>
 
       </div>
@@ -1420,100 +1448,6 @@
               </a>
             </div>
           </article>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 11. TESTIMONIALS (Clean White Cards) -->
-    <section class="py-24 bg-slate-50/60" id="testimonials" aria-labelledby="test-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-bold uppercase tracking-widest text-[#6F6F6F] block mb-2">TRAVELLER REVIEWS</span>
-          <h2 id="test-heading"
-            class="text-4xl sm:text-5xl md:text-6xl font-display font-normal text-[#000000] tracking-tight">
-            Journeys Shared by <span class="italic text-[#6F6F6F]">Our Voyagers</span>
-          </h2>
-          <p class="text-[#6F6F6F] text-base sm:text-lg mt-3">
-            Real stories and peace-of-mind feedback from honeymooners, families, and solo travellers.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          <!-- Testimonial 1 -->
-          <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
-            <div>
-              <div class="flex text-[#000000] text-sm mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-[#000000] text-sm sm:text-base italic leading-relaxed">
-                "Our flight arrived in Dubai late at night, and the 24/7 WhatsApp concierge coordinated with our private
-                van driver seamlessly. The desert safari and Burj Khalifa tickets were flawless."
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div
-                class="w-10 h-10 rounded-full bg-[#000000] text-white font-mono text-sm flex items-center justify-center">
-                AK
-              </div>
-              <div>
-                <h4 class="text-sm font-semibold text-[#000000]">Ananya & Karan</h4>
-                <p class="text-xs text-[#6F6F6F]">Dubai Luxury Tour</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
-            <div>
-              <div class="flex text-[#000000] text-sm mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-[#000000] text-sm sm:text-base italic leading-relaxed">
-                "Everything in our Maldives honeymoon was arranged to absolute perfection. Speedboat meet-and-greet,
-                complimentary candlelight dinner, and overwater villa upgrade. Outstanding service!"
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div
-                class="w-10 h-10 rounded-full bg-[#000000] text-white font-mono text-sm flex items-center justify-center">
-                RS
-              </div>
-              <div>
-                <h4 class="text-sm font-semibold text-[#000000]">Rahul & Sneha</h4>
-                <p class="text-xs text-[#6F6F6F]">Maldives Overwater Honeymoon</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div
-            class="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-lg transition-shadow">
-            <div>
-              <div class="flex text-[#000000] text-sm mb-4" aria-label="5 out of 5 stars">
-                ★★★★★
-              </div>
-              <p class="text-[#000000] text-sm sm:text-base italic leading-relaxed">
-                "Our family vacation to Singapore was so smoothly paced. Sentosa cable cars, Universal Studios pass, and
-                child-friendly hotel suites. Truly appreciated having a 24/7 point of contact."
-              </p>
-            </div>
-            <div class="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3">
-              <div
-                class="w-10 h-10 rounded-full bg-[#000000] text-white font-mono text-sm flex items-center justify-center">
-                VM
-              </div>
-              <div>
-                <h4 class="text-sm font-semibold text-[#000000]">Vikram Malhotra & Family</h4>
-                <p class="text-xs text-[#6F6F6F]">Singapore Family Discovery</p>
-              </div>
-            </div>
-          </div>
 
         </div>
 

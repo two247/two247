@@ -178,8 +178,8 @@
           userMsg = "Access temporarily disabled due to too many failed attempts. Please try again later.";
         } else if (err.code === "auth/network-request-failed") {
           userMsg = "Network connection error. Check your internet connectivity.";
-        } else if (err.code === "auth/operation-not-allowed" || (err.message && err.message.includes("permission-denied"))) {
-          userMsg = "Firebase Auth Error: Email/Password provider is not enabled on this project. Please enable it in Firebase Console > Authentication > Sign-in method.";
+        } else if (err.code === "auth/operation-not-allowed" || (err.message && (err.message.includes("permission-denied") || err.message.includes("permission-denied-on-the-service")))) {
+          userMsg = "Google Cloud / Firebase API Error (permission-denied-on-the-service): The API key has API restrictions enabled in Google Cloud Console blocking Identity Toolkit API. To resolve: Open Google Cloud Console > APIs & Services > Credentials > Edit your Web API Key > Under API restrictions, select 'Don't restrict key' (or add 'Identity Toolkit API' and 'Token Service API') and click Save.";
         } else if (err.message) {
           userMsg = err.message;
         }

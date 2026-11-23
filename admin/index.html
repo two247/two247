@@ -40,9 +40,9 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
           <span>Reviews & Feedbacks</span>
         </a>
-        <a href="media.html" class="admin-nav-item">
+        <a href="gallery.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <span>Cloudinary Media Studio</span>
+          <span>Gallery Management</span>
         </a>
         <a href="inquiries.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -157,12 +157,12 @@
           <p class="text-xs text-slate-500 leading-relaxed">Update starting prices for Turkey, Dubai, Sweden, Singapore, Poland, Thailand, and more.</p>
         </a>
 
-        <a href="media.html" class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black hover:shadow-md transition-all group block">
+        <a href="gallery.html" class="p-6 rounded-2xl bg-white border border-slate-200 hover:border-black hover:shadow-md transition-all group block">
           <div class="flex items-center justify-between mb-3">
-            <h3 class="text-base font-bold text-slate-900 group-hover:text-black">Cloudinary Media Studio</h3>
+            <h3 class="text-base font-bold text-slate-900 group-hover:text-black">Gallery Management</h3>
             <span class="text-slate-400 group-hover:translate-x-1 transition-transform">→</span>
           </div>
-          <p class="text-xs text-slate-500 leading-relaxed">Drag-and-drop photos and videos directly into your Cloudinary cloud (preset: two247) and copy CDN URLs.</p>
+          <p class="text-xs text-slate-500 leading-relaxed">Upload and curate visual journal photos to Cloudinary & Firestore; instantly updates the public gallery.</p>
         </a>
       </div>
 
@@ -278,7 +278,13 @@
             alert(`Successfully synced ${res.packages} official packages and ${res.destinations} destinations directly to Firebase Cloud Firestore!`);
             await refreshCounts();
           } catch (err) {
-            alert("Firestore sync notice: " + (err.message || err));
+            console.error("Firestore sync error:", err);
+            const msg = err.message || String(err);
+            if (msg.includes("Missing or insufficient permissions") || msg.includes("permission-denied")) {
+              alert("Firestore Permission Notice:\nFirestore denied write access ('Missing or insufficient permissions').\n\nPlease ensure you have deployed 'firestore.rules' in Firebase Console > Firestore Database > Rules tab, and that you are signed in as an administrator.");
+            } else {
+              alert("Firestore sync notice: " + msg);
+            }
           } finally {
             syncBtn.disabled = false;
             syncText.textContent = "Sync Real Data to Firestore";

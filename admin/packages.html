@@ -38,9 +38,9 @@
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
           <span>Reviews & Feedbacks</span>
         </a>
-        <a href="media.html" class="admin-nav-item">
+        <a href="gallery.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          <span>Cloudinary Media Studio</span>
+          <span>Gallery Management</span>
         </a>
         <a href="inquiries.html" class="admin-nav-item">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
@@ -90,11 +90,12 @@
 
         <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <select id="pkg-cat-filter" class="admin-select py-2 text-xs">
-            <option value="all">All Categories</option>
+            <option value="all">All Packages</option>
             <option value="International">International</option>
             <option value="Domestic">Domestic</option>
             <option value="Honeymoon">Honeymoon</option>
             <option value="Luxury">Luxury</option>
+            <option value="Villas">Villas</option>
             <option value="Family">Family</option>
             <option value="Adventure">Adventure</option>
           </select>
@@ -167,6 +168,7 @@
               <option value="Domestic">Domestic</option>
               <option value="Honeymoon">Honeymoon</option>
               <option value="Luxury">Luxury</option>
+              <option value="Villas">Villas</option>
               <option value="Family">Family</option>
               <option value="Adventure">Adventure</option>
             </select>
@@ -274,6 +276,21 @@
       });
 
       let allPackages = await getPackages();
+      let currentEditingPackage = null;
+
+      function syncCategoryFilterOptions() {
+        const existingVals = new Set(Array.from(catFilter.options).map(o => o.value.toLowerCase()));
+        allPackages.forEach(p => {
+          if (p.category && !existingVals.has(p.category.toLowerCase())) {
+            const opt = document.createElement("option");
+            opt.value = p.category;
+            opt.textContent = p.category;
+            catFilter.appendChild(opt);
+            existingVals.add(p.category.toLowerCase());
+          }
+        });
+      }
+      syncCategoryFilterOptions();
 
       function render(items = allPackages) {
         totalCount.textContent = `${items.length} Packages`;
@@ -328,14 +345,29 @@
         });
       }
 
-      // Filter & Search
+      // Filter & Search (Supports All, International, Domestic, Honeymoon, Luxury, Villas, and any Firestore category)
       function applyFilters() {
         const query = searchInput.value.toLowerCase().trim();
-        const cat = catFilter.value;
+        const cat = catFilter.value.toLowerCase();
         const filtered = allPackages.filter(p => {
-          const matchQ = (p.name || p.title || "").toLowerCase().includes(query) || (p.destination || "").toLowerCase().includes(query);
-          const matchC = cat === "all" || p.category === cat || (p.categoryType && p.categoryType.toLowerCase() === cat.toLowerCase());
-          return matchQ && matchC;
+          const pName = (p.name || p.title || "").toLowerCase();
+          const pDest = (p.destination || "").toLowerCase();
+          const matchQ = pName.includes(query) || pDest.includes(query);
+          if (!matchQ) return false;
+          if (cat === "all") return true;
+
+          const pCat = (p.category || "").toLowerCase();
+          const pCatType = (p.categoryType || "").toLowerCase();
+          const pType = (p.type || "").toLowerCase();
+          const pBadge = (p.badge || "").toLowerCase();
+
+          if (cat === "villas" || cat === "villa") {
+            return pCat.includes("villa") || pCatType.includes("villa") || pType.includes("villa") || pBadge.includes("villa") || pName.includes("villa");
+          }
+          if (cat === "luxury") {
+            return pCat === "luxury" || pCatType === "luxury" || pType === "luxury" || pBadge.includes("luxury") || pName.includes("luxury");
+          }
+          return pCat === cat || pCatType === cat || pType === cat;
         });
         render(filtered);
       }
@@ -410,6 +442,7 @@
       }
 
       openNewBtn.addEventListener("click", () => {
+        currentEditingPackage = null;
         modalTitle.textContent = "Create New Holiday Package";
         form.reset();
         itinContainer.innerHTML = "";
@@ -435,6 +468,7 @@
       function openEditModal(id) {
         const pkg = allPackages.find(p => p.id === id || p.slug === id);
         if (!pkg) return;
+        currentEditingPackage = pkg;
 
         modalTitle.textContent = `Edit: ${pkg.name || pkg.title}`;
         document.getElementById("form-pkg-id").value = pkg.id || pkg.slug;
@@ -494,15 +528,21 @@
         });
 
         const rawPriceNum = parseInt(document.getElementById("form-price-num").value) || parseCurrencyNumber(document.getElementById("form-price").value);
+        const formattedPrice = document.getElementById("form-price").value.trim();
 
+        // Safe Merge: preserve all existing fields (gallery, heroImage, overview, badge, faq, etc.)
+        const existingData = currentEditingPackage ? { ...currentEditingPackage } : {};
         const payload = {
+          ...existingData,
           name: document.getElementById("form-title").value.trim(),
           title: document.getElementById("form-title").value.trim(),
           slug: document.getElementById("form-slug").value.trim().toLowerCase(),
           destination: document.getElementById("form-dest").value.trim(),
           destinationSlug: document.getElementById("form-dest").value.trim().toLowerCase(),
-          startingPrice: document.getElementById("form-price").value.trim(),
+          startingPrice: formattedPrice,
           startingPriceNum: rawPriceNum,
+          basePrice: rawPriceNum,
+          priceFormatted: formattedPrice,
           duration: document.getElementById("form-duration").value.trim(),
           category: document.getElementById("form-category").value,
           categoryType: document.getElementById("form-category").value.toLowerCase(),
@@ -510,14 +550,15 @@
           highlights: document.getElementById("form-highlights").value.split(",").map(s => s.trim()).filter(Boolean),
           inclusions: document.getElementById("form-inclusions").value.split("\n").map(s => s.trim()).filter(Boolean),
           exclusions: document.getElementById("form-exclusions").value.split("\n").map(s => s.trim()).filter(Boolean),
-          itinerary,
-          rating: 5.0,
-          reviewCount: 30
+          itinerary: itinerary.length > 0 ? itinerary : (existingData.itinerary || []),
+          rating: existingData.rating || 5.0,
+          reviewCount: existingData.reviewCount || 30
         };
 
         try {
           await savePackage(payload, id);
           allPackages = await getPackages();
+          syncCategoryFilterOptions();
           closeModal();
           render();
           showToast(id ? "Package updated successfully!" : "New package published to Firestore!", "success");

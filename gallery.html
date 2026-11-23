@@ -181,124 +181,9 @@
   <script type="module">
     import { initNavbar } from './js/navbar.js';
     import { initMobileMenu } from './js/mobile-menu.js';
+    import { getGalleryItems } from './js/data-service.js';
 
-    // Curated Gallery Catalog (with Cloudinary & Unsplash high-res assets)
-    const GALLERY_ITEMS = [
-      {
-        id: "maldives-water-villa",
-        title: "Maldives Overwater Sanctuary",
-        category: "islands",
-        tag: "MALDIVES",
-        image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=85",
-        desc: "Private ocean villa with direct lagoon access, glass flooring, and infinity pool overlooking coral atolls."
-      },
-      {
-        id: "cappadocia-balloons",
-        title: "Cappadocia Sunrise Balloons",
-        category: "heritage",
-        tag: "TURKEY",
-        image: "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=1200&q=85",
-        desc: "Dozens of vibrant hot-air balloons ascending over fairy chimneys and ancient valleys of Goreme at dawn."
-      },
-      {
-        id: "dubai-desert-safari",
-        title: "Lahbab Red Dune Sunset",
-        category: "skylines",
-        tag: "DUBAI",
-        image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85",
-        desc: "Private luxury 4x4 desert safari camp nestled in deep crimson sands under starry Arabian skies."
-      },
-      {
-        id: "swiss-alps-chalet",
-        title: "Swiss Alpine Jungfrau Ridge",
-        category: "alpine",
-        tag: "SWITZERLAND",
-        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=85",
-        desc: "Snowcapped Eiger and Jungfrau summits framing green mountain meadows and historic cogwheel trains."
-      },
-      {
-        id: "amsterdam-canals",
-        title: "Keizersgracht Historic Bridges",
-        category: "heritage",
-        tag: "NETHERLANDS",
-        image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?auto=format&fit=crop&w=1200&q=85",
-        desc: "Twilight salon boat cruise through Amsterdam's Golden Age canal rings and illuminated arched bridges."
-      },
-      {
-        id: "singapore-gardens",
-        title: "Gardens by the Bay Supertrees",
-        category: "skylines",
-        tag: "SINGAPORE",
-        image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=85",
-        desc: "Futuristic illuminated grove and OCBC Skyway connecting botanical marvels under the Marina Bay skyline."
-      },
-      {
-        id: "bali-tegallalang",
-        title: "Ubud Sacred Rice Terraces",
-        category: "islands",
-        tag: "BALI",
-        image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85",
-        desc: "Early morning mist clearing over emerald stepped hillsides and traditional Balinese subak water temples."
-      },
-      {
-        id: "krakow-wawel",
-        title: "Wawel Royal Cathedral",
-        category: "heritage",
-        tag: "POLAND",
-        image: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?auto=format&fit=crop&w=1200&q=85",
-        desc: "Gothic and Renaissance coronation castle overlooking the Vistula River in the heart of historic Krakow."
-      },
-      {
-        id: "sweden-archipelago",
-        title: "Stockholm Baltic Archipelago",
-        category: "alpine",
-        tag: "SWEDEN",
-        image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=1200&q=85",
-        desc: "Private wooden boat weaving past granite skerries, red fishing cottages, and northern summer twilights."
-      },
-      {
-        id: "sydney-harbour-opera",
-        title: "Sydney Harbour at Twilight",
-        category: "wildlife",
-        tag: "AUSTRALIA",
-        image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=85",
-        desc: "Iconic architectural sails of the Sydney Opera House glowing against deep harbour waters."
-      },
-      {
-        id: "new-zealand-milford",
-        title: "Milford Sound Glacial Cascades",
-        category: "wildlife",
-        tag: "NEW ZEALAND",
-        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=85",
-        desc: "Dramatic sheer cliffs rising out of dark glacial fjords with thundering waterfalls tumbling into the sea."
-      },
-      {
-        id: "malaysia-langkawi",
-        title: "Langkawi Limestone Sea Caves",
-        category: "islands",
-        tag: "MALAYSIA",
-        image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1200&q=85",
-        desc: "Ancient Andaman sea karst pillars and mangrove sanctuaries explored by private speedboat."
-      },
-      {
-        id: "thailand-maya-bay",
-        title: "Phi Phi Maya Bay Lagoons",
-        category: "islands",
-        tag: "THAILAND",
-        image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1200&q=85",
-        desc: "Crystal turquoise waters enclosed by colossal limestone cliffs and pristine white sands."
-      },
-      {
-        id: "kashmir-dal-lake",
-        title: "Dal Lake Shikara Serenity",
-        category: "alpine",
-        tag: "KASHMIR",
-        image: "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=1200&q=85",
-        desc: "Silent sunrise shikara ride gliding across mirror-still lotus waters with snowcapped Pir Panjal peaks beyond."
-      }
-    ];
-
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       initNavbar();
       initMobileMenu();
 
@@ -316,11 +201,16 @@
       const modalInquire = document.getElementById('lightbox-inquire');
 
       let currentActiveItem = null;
+      let activeCategory = 'all';
+
+      // Load dynamically from Firestore (or instant local cache)
+      let galleryList = await getGalleryItems();
 
       function renderGallery(category = 'all') {
-        const filtered = category === 'all' 
-          ? GALLERY_ITEMS 
-          : GALLERY_ITEMS.filter(item => item.category === category);
+        const cat = category.toLowerCase();
+        const filtered = cat === 'all' 
+          ? galleryList 
+          : galleryList.filter(item => (item.category || '').toLowerCase() === cat);
 
         if (filtered.length === 0) {
           container.innerHTML = '';
@@ -337,13 +227,13 @@
               
               <div class="absolute top-4 left-4">
                 <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-wider uppercase text-black shadow-sm">
-                  ${item.tag}
+                  ${item.tag || item.category || 'MOMENT'}
                 </span>
               </div>
 
               <div class="absolute bottom-0 left-0 right-0 p-5 transform transition-transform duration-300 group-hover:-translate-y-1">
                 <h3 class="text-xl font-display font-normal text-white">${item.title}</h3>
-                <p class="text-slate-300 text-xs mt-1 line-clamp-2">${item.desc}</p>
+                <p class="text-slate-300 text-xs mt-1 line-clamp-2">${item.desc || ''}</p>
                 <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-400 mt-2">
                   View Full Moment ↗
                 </span>
@@ -356,7 +246,7 @@
         container.querySelectorAll('.gallery-item').forEach(card => {
           card.addEventListener('click', () => {
             const id = card.dataset.id;
-            const item = GALLERY_ITEMS.find(x => x.id === id);
+            const item = galleryList.find(x => x.id === id);
             if (item) openLightbox(item);
           });
         });

@@ -12,6 +12,7 @@ import { initPreloader } from './preloader.js';
 import { initTextAppear } from './text-appear.js';
 import { initAdvanceSearch } from './advance-search.js';
 import { initHeroVideo } from './hero-video.js';
+import { initReviewsCarousel } from './reviews-carousel.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTextAppear();
   initAdvanceSearch();
   initHeroVideo();
+  initReviewsCarousel();
 
   // Dynamic Copyright Year
   const yearEl = document.getElementById('current-year');

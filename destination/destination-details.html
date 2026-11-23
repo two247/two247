@@ -211,12 +211,12 @@
 
   <script type="module" src="../js/tilt3d.js"></script>
   <script type="module">
-    import { destinations } from "../data/destinations.js";
-    import { packages } from "../data/packages.js";
+    import { getDestinationBySlug, getDestinations, getPackages } from "../js/data-service.js";
 
     const params = new URLSearchParams(window.location.search);
     const destSlug = params.get('dest') || 'dubai';
-    const dest = destinations.find(d => d.slug === destSlug) || destinations[0];
+    const dest = (await getDestinationBySlug(destSlug)) || (await getDestinations())[0];
+    const packages = await getPackages();
 
     // Populate Hero & Details
     document.title = `${dest.name} Travel Guide | TWO247 — The White Owl Holidays`;
