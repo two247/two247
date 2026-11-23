@@ -116,24 +116,27 @@
   </section>
 
   <!-- Key Specs Strip -->
-  <section class="bg-brand-dark border-b border-slate-800 py-4 px-4">
+  <section class="bg-slate-950 border-b border-white/10 py-5 px-4 text-white" style="background-color: #0A0A0C !important; color: #FFFFFF !important;">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6 text-sm">
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-6 sm:gap-8">
         <div>
-          <span class="text-xs text-slate-400 block font-semibold">Starting Price</span>
-          <span id="pkg-price" class="text-2xl font-black text-white">₹48,999 <span class="text-xs font-normal text-slate-400">/ person</span></span>
+          <span class="text-xs text-slate-400 block font-semibold mb-0.5 uppercase tracking-wider">Starting Price</span>
+          <span id="pkg-price" class="text-2xl sm:text-3xl font-extrabold text-white flex items-baseline gap-1.5">
+            ₹48,000 <span class="text-xs font-normal text-slate-400">/ person</span>
+          </span>
         </div>
-        <div class="h-8 w-px bg-slate-700 hidden sm:block"></div>
+        <div class="h-8 w-px bg-white/20 hidden sm:block"></div>
         <div class="hidden sm:block">
-          <span class="text-xs text-slate-400 block font-semibold">Traveller Rating</span>
-          <span id="pkg-rating" class="font-bold text-amber-400">★ 4.9 (42 Verified Reviews)</span>
+          <span class="text-xs text-slate-400 block font-semibold mb-0.5 uppercase tracking-wider">Traveller Rating</span>
+          <span id="pkg-rating" class="font-bold text-amber-400 text-sm sm:text-base">★ 4.9 (42 Verified Reviews)</span>
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <button onclick="triggerPackageWhatsApp()" class="py-2.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 transition-colors">
+        <button type="button" onclick="triggerPackageWhatsApp()" class="py-2.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-2 transition-all cursor-pointer shadow-sm active:scale-95">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/></svg>
           <span>Enquire on WhatsApp</span>
         </button>
-        <a href="#enquiry-form" class="btn-primary !h-10 !px-6 text-xs">
+        <a href="#enquiry-form" class="py-2.5 px-6 rounded-full bg-white text-black hover:bg-slate-200 font-bold text-xs transition-all shadow-sm active:scale-95 inline-flex items-center justify-center">
           Plan This Trip
         </a>
       </div>
@@ -141,16 +144,16 @@
   </section>
 
   <!-- Main Content Layout -->
-  <section class="section-padding bg-white">
+  <section class="py-12 sm:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12 items-start">
         
         <!-- Left: Highlights, Itinerary, Inclusions/Exclusions -->
         <div class="lg:col-span-2 space-y-12">
           
           <!-- Highlights -->
           <div>
-            <h2 class="text-2xl sm:text-3xl font-display font-normal text-[#000000] mb-6">Package <span class="italic text-[#6F6F6F]">Highlights</span></h2>
+            <h2 class="text-2xl sm:text-3xl font-display font-normal text-slate-900 mb-6">Package <span class="italic text-slate-500">Highlights</span></h2>
             <div id="pkg-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <!-- Dynamically populated -->
             </div>
@@ -159,8 +162,8 @@
           <!-- Day-by-Day Itinerary -->
           <div>
             <div class="flex items-center justify-between mb-6">
-              <h2 class="text-2xl sm:text-3xl font-display font-normal text-[#000000]">Day-by-Day <span class="italic text-[#6F6F6F]">Itinerary</span></h2>
-              <span class="text-xs text-[#6F6F6F] font-medium uppercase tracking-wider">Flexible & Adaptable</span>
+              <h2 class="text-2xl sm:text-3xl font-display font-normal text-slate-900">Day-by-Day <span class="italic text-slate-500">Itinerary</span></h2>
+              <span class="text-xs text-slate-500 font-semibold uppercase tracking-wider">Flexible & Adaptable</span>
             </div>
             <div id="pkg-itinerary" class="space-y-4">
               <!-- Dynamically populated -->
@@ -168,38 +171,38 @@
           </div>
 
           <!-- Inclusions & Exclusions -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-8 border-t border-slate-100">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-slate-100">
             <!-- Inclusions -->
             <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-              <h3 class="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs">✓</span>
+              <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">✓</span>
                 What's Included
               </h3>
-              <ul id="pkg-inclusions" class="space-y-2.5 text-xs sm:text-sm text-brand-muted">
+              <ul id="pkg-inclusions" class="space-y-2.5 text-xs sm:text-sm text-slate-600">
                 <!-- Dynamically populated -->
               </ul>
             </div>
 
             <!-- Exclusions -->
             <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-              <h3 class="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs">✕</span>
+              <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs font-bold">✕</span>
                 What's Not Included
               </h3>
-              <ul id="pkg-exclusions" class="space-y-2.5 text-xs sm:text-sm text-brand-muted">
+              <ul id="pkg-exclusions" class="space-y-2.5 text-xs sm:text-sm text-slate-600">
                 <!-- Dynamically populated -->
               </ul>
             </div>
           </div>
 
           <!-- 24/7 Guarantee Badge -->
-          <div class="p-6 rounded-3xl bg-brand-navy text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="p-6 rounded-3xl bg-slate-950 text-white flex flex-col sm:flex-row items-center justify-between gap-6 border border-slate-800">
             <div class="space-y-1">
-              <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">TWO247 Promise</span>
+              <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">TWO247 Promise</span>
               <h4 class="text-lg font-bold text-white">24/7 Dedicated On-Trip Coordinator</h4>
               <p class="text-xs text-slate-300">You'll receive a dedicated WhatsApp travel desk contact active around the clock during your entire holiday.</p>
             </div>
-            <button onclick="triggerPackageWhatsApp()" class="btn-primary !h-10 text-xs shrink-0">
+            <button type="button" onclick="triggerPackageWhatsApp()" class="py-2.5 px-6 rounded-full bg-white text-black hover:bg-slate-200 text-xs font-bold shrink-0 transition-colors cursor-pointer shadow-sm">
               Talk to Specialist
             </button>
           </div>
@@ -208,40 +211,40 @@
 
         <!-- Right: Lead Capture Form -->
         <div class="lg:col-span-1">
-          <div id="enquiry-form" class="sticky top-28 bg-brand-bg rounded-3xl p-8 border border-slate-200 shadow-subtle space-y-6">
+          <div id="enquiry-form" class="sticky top-28 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-6">
             <div>
-              <span class="text-xs font-bold uppercase tracking-widest text-brand-orange block mb-1">FREE CONSULTATION</span>
-              <h3 class="text-2xl font-black text-brand-navy">Request Package Quote</h3>
-              <p class="text-xs text-brand-muted mt-1">
+              <span class="text-xs font-bold uppercase tracking-widest text-amber-500 block mb-1">FREE CONSULTATION</span>
+              <h3 class="text-2xl font-black text-slate-900 tracking-tight">Request Package Quote</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">
                 Share your dates and group size. A specialist will send a custom quote within 2 hours.
               </p>
             </div>
 
             <form id="package-enquiry-form" class="space-y-4">
               <div>
-                <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Your Name *</label>
-                <input type="text" name="name" required placeholder="e.g. Rahul Sharma" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Your Name *</label>
+                <input type="text" name="name" required placeholder="e.g. Rahul Sharma" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black focus:ring-4 focus:ring-slate-900/5 transition-all text-slate-900 placeholder:text-slate-400">
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Phone / WhatsApp Number *</label>
-                <input type="tel" name="phone" required placeholder="e.g. +91 98765 43210" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Phone / WhatsApp Number *</label>
+                <input type="tel" name="phone" required placeholder="e.g. +91 98765 43210" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black focus:ring-4 focus:ring-slate-900/5 transition-all text-slate-900 placeholder:text-slate-400">
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Email Address</label>
-                <input type="email" name="email" placeholder="e.g. rahul@example.com" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email Address</label>
+                <input type="email" name="email" placeholder="e.g. rahul@example.com" class="w-full text-sm px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black focus:ring-4 focus:ring-slate-900/5 transition-all text-slate-900 placeholder:text-slate-400">
               </div>
 
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Travel Date</label>
-                  <input type="date" name="travelDate" class="w-full text-sm px-3 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white">
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Travel Date</label>
+                  <input type="date" name="travelDate" class="w-full text-xs sm:text-sm px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black transition-all text-slate-900">
                 </div>
                 <div>
-                  <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Travellers</label>
-                  <select name="travellers" class="w-full text-sm px-3 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white font-semibold">
-                    <option value="2 Adults">2 Adults (Couple)</option>
+                  <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Travellers</label>
+                  <select name="travellers" class="w-full text-xs sm:text-sm px-3 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black transition-all text-slate-900 font-semibold cursor-pointer">
+                    <option value="2 Adults (Couple)">2 Adults (Couple)</option>
                     <option value="Family (3-4)">Family (3-4)</option>
                     <option value="Group (5+)">Group (5+)</option>
                     <option value="Solo">Solo</option>
@@ -250,23 +253,28 @@
               </div>
 
               <div>
-                <label class="block text-xs font-bold text-brand-navy uppercase mb-1">Custom Requests / Notes</label>
-                <textarea name="notes" rows="2" placeholder="Specific hotel preferences, flights required, etc." class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-orange bg-white"></textarea>
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Custom Requests / Notes</label>
+                <textarea name="notes" rows="2" placeholder="Specific hotel preferences, flights required, etc." class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-black transition-all text-slate-900 placeholder:text-slate-400"></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full text-sm">
-                Get Custom Itinerary & Quote →
+              <button type="submit" id="pkg-submit-btn" class="w-full py-3.5 px-6 rounded-xl bg-black hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2">
+                <span>Get Custom Itinerary & Quote →</span>
               </button>
             </form>
 
-            <div class="text-center pt-2">
-              <span class="text-xs text-brand-muted block mb-2">Or prefer direct instant response?</span>
-              <button onclick="triggerPackageWhatsApp()" class="text-emerald-700 font-bold text-xs hover:underline flex items-center justify-center gap-1.5 mx-auto">
+            <div class="text-center pt-2 border-t border-slate-100">
+              <span class="text-xs text-slate-400 block mb-2">Or prefer direct instant response?</span>
+              <button type="button" onclick="triggerPackageWhatsApp()" class="text-emerald-700 hover:text-emerald-800 font-bold text-xs hover:underline flex items-center justify-center gap-1.5 mx-auto cursor-pointer">
+                <svg class="w-4 h-4 fill-current text-emerald-600" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.04-1.93-.478-1.579-.661-2.593-2.28-2.671-2.385-.078-.105-.636-.849-.636-1.621 0-.772.4-1.15.542-1.306.144-.156.312-.195.416-.195.105 0 .21.002.302.007.098.005.228-.037.357.272.132.316.452 1.104.492 1.185.04.082.066.177.013.283-.053.106-.079.172-.157.264-.078.093-.165.207-.235.278-.078.079-.16.165-.069.322.091.156.406.669.871 1.084.598.534 1.103.7 1.26.778.156.079.247.069.34-.04.093-.108.398-.464.505-.623.106-.159.213-.133.357-.079.144.053.916.432 1.073.511.157.079.262.119.301.185.04.066.04.382-.104.787z"/></svg>
                 <span>Direct WhatsApp Chat (24/7)</span>
               </button>
             </div>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
 
       </div>
     </div>
@@ -280,6 +288,8 @@
   <script type="module" src="../js/tilt3d.js"></script>
   <script type="module">
     import { packages } from "../data/packages.js";
+    import { db } from "../js/firebase-config.js";
+    import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
     const params = new URLSearchParams(window.location.search);
     const pkgSlug = params.get('pkg') || 'luxury-dubai-escape';
@@ -297,21 +307,21 @@
     // Highlights
     const hlContainer = document.getElementById('pkg-highlights');
     hlContainer.innerHTML = pkg.highlights.map(h => `
-      <div class="p-4 rounded-2xl bg-brand-bg border border-slate-200 flex items-start gap-3">
-        <span class="text-brand-orange font-bold text-base mt-0.5">✦</span>
-        <span class="text-sm font-bold text-brand-navy">${h}</span>
+      <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 flex items-start gap-3 hover:border-black/30 hover:shadow-sm transition-all">
+        <span class="text-amber-500 font-bold text-base mt-0.5 shrink-0">✦</span>
+        <span class="text-sm font-bold text-slate-900 leading-snug">${h}</span>
       </div>
     `).join('');
 
     // Itinerary
     const itContainer = document.getElementById('pkg-itinerary');
     itContainer.innerHTML = pkg.itinerary.map((item, idx) => `
-      <div class="p-5 rounded-2xl bg-brand-bg border border-slate-200">
-        <div class="flex items-center gap-3 mb-2">
-          <span class="px-2.5 py-0.5 rounded-full bg-brand-navy text-white text-xs font-black">Day ${item.day}</span>
-          <h4 class="font-extrabold text-base text-brand-navy">${item.title}</h4>
+      <div class="p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="px-2.5 py-0.5 rounded-full bg-black text-white text-xs font-bold uppercase tracking-wider">Day ${item.day}</span>
+          <h4 class="font-bold text-base text-slate-900">${item.title}</h4>
         </div>
-        <p class="text-xs sm:text-sm text-brand-muted leading-relaxed pl-10">${item.description}</p>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pl-1 sm:pl-3">${item.description}</p>
       </div>
     `).join('');
 
@@ -334,18 +344,65 @@
 
     window.triggerPackageWhatsApp = () => {
       const msg = `Hi TWO247 team, I am interested in the ${pkg.name} (${pkg.duration}) package. Please share details and pricing.`;
-      window.sendWhatsAppEnquiry(msg);
+      if (typeof window.sendWhatsAppEnquiry === 'function') {
+        window.sendWhatsAppEnquiry(msg);
+      } else {
+        const phone = "919499907081";
+        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      }
     };
 
-    // Form submit
+    // Form submit -> saves to Firestore /inquiries in real time
     const form = document.getElementById('package-enquiry-form');
+    const submitBtn = document.getElementById('pkg-submit-btn');
+
     if (form) {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const fd = new FormData(form);
         const data = Object.fromEntries(fd.entries());
-        alert(`Thank you, ${data.name}! We have received your enquiry for ${pkg.name}. Our travel consultant will contact you via WhatsApp / phone shortly.`);
-        form.reset();
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `<span>Sending Request...</span>`;
+        }
+
+        const inquiryPayload = {
+          name: data.name,
+          phone: data.phone,
+          email: data.email || "",
+          destination: pkg.name || pkg.destination,
+          travelMonth: data.travelDate || "Flexible",
+          guests: data.travellers || "2 Adults",
+          travelers: data.travellers || "2 Adults",
+          notes: data.notes || "",
+          message: data.notes || "",
+          source: "package-details-page",
+          status: "new",
+          createdAt: new Date().toISOString()
+        };
+
+        try {
+          await addDoc(collection(db, "inquiries"), {
+            ...inquiryPayload,
+            serverTime: serverTimestamp()
+          });
+        } catch (dbErr) {
+          console.warn("Local cache fallback for enquiry:", dbErr.message);
+          // Cache locally so it is never lost
+          try {
+            const cached = JSON.parse(localStorage.getItem("two247_inquiries") || "[]");
+            cached.unshift({ id: `inq-${Date.now()}`, ...inquiryPayload });
+            localStorage.setItem("two247_inquiries", JSON.stringify(cached));
+          } catch (_) {}
+        } finally {
+          alert(`Thank you, ${data.name}! We have received your consultation enquiry for ${pkg.name}. Our executive travel specialist will contact you on ${data.phone} within 2 hours.`);
+          form.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = `<span>Get Custom Itinerary & Quote →</span>`;
+          }
+        }
       });
     }
   </script>

@@ -241,10 +241,7 @@
     };
 
     window.handleAdminSignOut = function() {
-      // FIX: use the imported handleAdminSignOut from auth-guard instead of inline signOut
-      // to ensure the session key matches and signout fully clears state
-      sessionStorage.removeItem('two247_admin_auth');
-      sessionStorage.removeItem('two247_demo_admin');
+      sessionStorage.clear();
       auth.signOut().finally(() => {
         window.location.href = 'login.html';
       });
