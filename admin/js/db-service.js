@@ -21,7 +21,6 @@ export {
   getGalleryItems,
   saveGalleryItem,
   deleteGalleryItem,
-  syncAllToFirestore,
   getLocalCache,
   setLocalCache
 } from "../../js/data-service.js";

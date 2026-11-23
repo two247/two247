@@ -277,21 +277,22 @@ function renderPackagesGrid(items, container) {
         </div>
 
         <!-- Price & Action Footer -->
-        <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-          <div>
-            <span class="text-[11px] text-slate-400 block font-medium">Starting from</span>
-            <div class="text-xl font-extrabold text-slate-900">
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+          <div class="min-w-0 shrink-0">
+            <span class="text-[10px] sm:text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Starting from</span>
+            <div class="text-base sm:text-lg lg:text-xl font-extrabold text-slate-900 leading-tight whitespace-nowrap">
               ${pkg.priceFormatted}
-              <span class="text-[11px] font-normal text-slate-500">/ person</span>
+              <span class="text-[10px] sm:text-[11px] font-normal text-slate-500 whitespace-nowrap">/ person</span>
             </div>
           </div>
           
-          <div class="flex items-center gap-2">
-            <button onclick="window.openPackageModal('${pkg.id}')" class="px-3.5 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all cursor-pointer" aria-label="View Itinerary for ${pkg.title}">
+          <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <button onclick="window.openPackageModal('${pkg.id}')" class="whitespace-nowrap shrink-0 px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200 text-xs font-bold text-slate-800 hover:bg-slate-50 hover:border-slate-300 transition-all cursor-pointer" aria-label="View Itinerary for ${pkg.title}">
               Quick View
             </button>
-            <a href="package/package-details.html?pkg=${pkg.slug || pkg.id}" class="btn-primary text-xs py-2 px-4 shadow-sm" aria-label="View details for ${pkg.title}">
-              Details →
+            <a href="package/package-details.html?pkg=${pkg.slug || pkg.id}" class="whitespace-nowrap shrink-0 inline-flex items-center justify-center gap-1 px-3 sm:px-3.5 py-1.5 rounded-full bg-black hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-sm active:scale-95" aria-label="View details for ${pkg.title}">
+              <span>Details</span>
+              <span class="text-xs">→</span>
             </a>
           </div>
         </div>

@@ -324,8 +324,8 @@ export const packages = [
     duration: "8 Days / 7 Nights",
     category: "Honeymoon",
     categoryType: "honeymoon",
-    startingPrice: "₹1,58,000",
-    startingPriceNum: 158000,
+    startingPrice: "₹2,40,000",
+    startingPriceNum: 240000,
     rating: 5.0,
     reviewCount: 22,
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
@@ -683,6 +683,93 @@ export const packages = [
       { day: 7, title: "Glacier Heli-Hike & Hot Pools", description: "Helicopter landing onto Franz Josef Glacier for guided ice walk, followed by private mineral hot pools." },
       { day: 8, title: "TranzAlpine Scenic Train to Christchurch", description: "Board one of the world's most spectacular train journeys crossing the Southern Alps gorges." },
       { day: 9, title: "Christchurch Departure", description: "Private luxury transfer to Christchurch International Airport for your flight back home." }
+    ],
+    featured: true
+  },
+  {
+    id: "japan-tokyo-kyoto-fuji",
+    slug: "japan-tokyo-kyoto-fuji",
+    name: "Tokyo, Kyoto & Mount Fuji Odyssey",
+    destination: "Japan",
+    destinationSlug: "japan",
+    duration: "7 Days / 6 Nights",
+    category: "International",
+    categoryType: "luxury",
+    startingPrice: "₹1,28,000",
+    startingPriceNum: 128000,
+    rating: 4.9,
+    reviewCount: 38,
+    image: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80",
+    highlights: [
+      "Mount Fuji 5th Station & Lake Ashi Pirate Ship Cruise",
+      "Kyoto Fushimi Inari Torii Gates & Arashiyama Bamboo Grove",
+      "Shinkansen Bullet Train Experience (Tokyo to Kyoto)",
+      "Tokyo Shibuya Sky, Meiji Shrine & TeamLab Borderless"
+    ],
+    inclusions: [
+      "6 Nights in 4★/5★ Handpicked Hotels in Tokyo and Kyoto",
+      "Daily Japanese & Continental Buffet Breakfast",
+      "7-Day Japan Rail Pass / Shinkansen Reserved Seats",
+      "All Sightseeing Transfers & Licensed English-Speaking Guide",
+      "Mount Fuji Lake Ashi Scenic Ropeway & Cruise Tickets"
+    ],
+    exclusions: [
+      "International Flights",
+      "Japan Visa Fees",
+      "Personal Expenses & Meals not listed"
+    ],
+    itinerary: [
+      { day: 1, title: "Arrival in Tokyo & Shibuya Crossing", description: "Airport meet and greeting with private limousine transfer to Shinjuku luxury hotel. Evening Shibuya Sky panoramic view." },
+      { day: 2, title: "Modern & Historic Tokyo Tour", description: "Visit Asakusa Senso-ji temple, Nakamise shopping street, Meiji Jingu shrine, and Harajuku." },
+      { day: 3, title: "Mount Fuji & Hakone Day Excursion", description: "Ascend to Fuji 5th Station, cruise Lake Ashi aboard pirate boat, and ride Owakudani cable car." },
+      { day: 4, title: "Shinkansen Bullet Train to Kyoto", description: "High-speed 320km/h bullet train to ancient capital Kyoto. Evening walk through Gion geisha quarter." },
+      { day: 5, title: "Kyoto Golden Pavilion & Bamboo Forest", description: "Visit Kinkaku-ji (Golden Pavilion), Tenryu-ji zen temple, and ethereal Arashiyama Bamboo Grove." },
+      { day: 6, title: "Fushimi Inari 10,000 Torii Gates & Nara Deer Park", description: "Early morning hike along the crimson torii gates of Inari shrine followed by friendly sacred deer of Nara." },
+      { day: 7, title: "Osaka Kansai Departure", description: "Private airport transfer to Osaka Kansai or Tokyo Narita for your flight back home." }
+    ],
+    featured: true
+  },
+  {
+    id: "china-great-wall-imperial-heritage",
+    slug: "china-great-wall-imperial-heritage",
+    name: "Imperial China: Beijing, Xi'an & Shanghai Skyline",
+    destination: "China",
+    destinationSlug: "china",
+    duration: "8 Days / 7 Nights",
+    category: "International",
+    categoryType: "luxury",
+    startingPrice: "₹1,43,000",
+    startingPriceNum: 143000,
+    rating: 4.8,
+    reviewCount: 29,
+    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80",
+    highlights: [
+      "Mutianyu Great Wall Private Cable Car & Toboggan",
+      "Beijing Forbidden City & Temple of Heaven",
+      "Xi'an UNESCO Terracotta Warriors Archaeological Site",
+      "Shanghai Bund Sunset Skyline & Huangpu River Private Cruise"
+    ],
+    inclusions: [
+      "7 Nights Luxury 5★ Accommodation (Beijing, Xi'an, Shanghai)",
+      "Daily Buffet Breakfast & Authentic Peking Duck Welcome Dinner",
+      "Internal High-Speed Bullet Trains (Beijing - Xi'an - Shanghai)",
+      "All VIP Entry Passes & Dedicated English Tour Specialists",
+      "All Airport & High-Speed Station Private Transfers"
+    ],
+    exclusions: [
+      "International Flights",
+      "China Tourist Visa",
+      "Personal Expenses & Tips"
+    ],
+    itinerary: [
+      { day: 1, title: "Arrival in Beijing", description: "VIP airport reception and private transfer to luxury hotel in central Beijing. Evening Peking Duck banquet." },
+      { day: 2, title: "Forbidden City & Tiananmen Square", description: "Private guided exploration through the imperial palaces of the Ming and Qing dynasties." },
+      { day: 3, title: "Mutianyu Great Wall", description: "Ascend the Great Wall via cable car with scenic ridge walking and optional toboggan descent." },
+      { day: 4, title: "Bullet Train to Xi'an & Tang Dynasty Show", description: "High-speed rail to ancient Silk Road capital Xi'an. Evening Tang Dynasty dance and dumpling banquet." },
+      { day: 5, title: "Terracotta Army & Ancient City Wall", description: "Marvel at the world wonder Terracotta Warriors and bicycle atop the 600-year-old ancient city wall." },
+      { day: 6, title: "Bullet Train to Shanghai & The Bund", description: "Travel to Shanghai. Stroll along the colonial Bund waterfront and explore Yu Garden." },
+      { day: 7, title: "Shanghai Tower & Huangpu River Cruise", description: "Ascend Shanghai Tower observation deck and enjoy evening skyline cruise along Huangpu River." },
+      { day: 8, title: "Shanghai Departure", description: "Private Maglev high-speed train or airport car transfer to Pudong International Airport." }
     ],
     featured: true
   }

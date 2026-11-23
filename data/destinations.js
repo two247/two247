@@ -223,10 +223,10 @@ export const destinations = [
   {
     id: "europe",
     slug: "europe",
-    name: "Europe",
+    name: "All of Europe",
     region: "International",
     tagline: "Alpine serenity, storybook castles, and cultural capitals",
-    shortDescription: "Swiss alpine peaks, Parisian romance, and timeless Mediterranean coastlines.",
+    shortDescription: "Swiss alpine peaks, Parisian romance, and timeless Mediterranean coastlines across all major European capitals.",
     heroImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=80",
     cardImage: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
     bestTimeToVisit: "May to October",
@@ -237,7 +237,47 @@ export const destinations = [
       "Tuscan Vineyard Tasting Tour",
       "Amalfi Coast Scenic Cliffside Drive"
     ],
-    startingPrice: "₹1,45,000",
+    startingPrice: "₹2,40,000",
+    featured: true
+  },
+  {
+    id: "japan",
+    slug: "japan",
+    name: "Japan",
+    region: "International",
+    tagline: "Cherry blossom shrines, Shinkansen speed, and timeless Zen gardens",
+    shortDescription: "Tokyo neon skyline, Kyoto golden temples, Mount Fuji serenity, and Osaka culinary excellence.",
+    heroImage: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "March to May (Sakura) & September to November",
+    idealDuration: "7 to 10 Days",
+    topExperiences: [
+      "Mount Fuji 5th Station & Lake Ashi Cruise",
+      "Kyoto Fushimi Inari Shrine & Gion Geisha District",
+      "Tokyo Shibuya Sky & Shinjuku Neon Night Tour",
+      "Bullet Train (Shinkansen) Scenic Ride"
+    ],
+    startingPrice: "₹1,28,000",
+    featured: true
+  },
+  {
+    id: "china",
+    slug: "china",
+    name: "China",
+    region: "International",
+    tagline: "Imperial dynasties, the Great Wall, and futuristic skylines",
+    shortDescription: "Walk the Great Wall of China, discover the Terracotta Army, and marvel at the glittering Bund in Shanghai.",
+    heroImage: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1600&q=80",
+    cardImage: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80",
+    bestTimeToVisit: "April to May & September to October",
+    idealDuration: "8 to 12 Days",
+    topExperiences: [
+      "Mutianyu Great Wall Cable Car & Toboggan",
+      "Beijing Forbidden City & Summer Palace",
+      "Xi'an Terracotta Warriors & Ancient City Wall",
+      "Shanghai Bund Private Huangpu River Cruise"
+    ],
+    startingPrice: "₹1,43,000",
     featured: true
   },
   {
