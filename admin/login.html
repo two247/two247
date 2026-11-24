@@ -7,6 +7,9 @@
   <link rel="icon" type="image/svg+xml" href="../assets/logo/owl-mark.svg">
   <link rel="stylesheet" href="../css/output.css">
   <link rel="stylesheet" href="css/admin.css">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -75,6 +78,15 @@
         </div>
       </div>
 
+      <!-- Device Persistence Option -->
+      <div class="flex items-center justify-between text-xs pt-1">
+        <label class="inline-flex items-center gap-2 text-slate-600 cursor-pointer select-none">
+          <input type="checkbox" id="remember-device" class="rounded border-slate-300 text-black focus:ring-black">
+          <span class="font-medium text-[11px] text-slate-600">Remember this trusted device</span>
+        </label>
+        <span class="text-[10px] text-slate-400 font-mono" title="Default closes session when browser quits">Session Secured</span>
+      </div>
+
       <!-- Submit Button -->
       <button type="submit" id="login-submit-btn"
         class="w-full py-3.5 rounded-xl bg-black hover:bg-slate-800 active:scale-[0.99] text-white font-bold text-sm shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer mt-2">
@@ -100,7 +112,13 @@
 
   <script type="module">
     import { auth } from "../js/firebase-config.js";
-    import { signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    import { 
+      signInWithEmailAndPassword, 
+      onAuthStateChanged,
+      setPersistence,
+      browserLocalPersistence,
+      browserSessionPersistence
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
     const form = document.getElementById("admin-login-form");
     const alertBox = document.getElementById("login-alert");
@@ -111,15 +129,30 @@
     const togglePassBtn = document.getElementById("toggle-password");
     const passInput = document.getElementById("admin-password");
     const emailInput = document.getElementById("admin-email");
+    const rememberCheckbox = document.getElementById("remember-device");
 
     // Clean up any stale bypass flags
     sessionStorage.removeItem("two247_demo_admin");
     sessionStorage.removeItem("two247_demo_email");
 
+    // Check status reasons in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const reason = urlParams.get("reason");
+    if (reason === "timeout") {
+      showAlert("<span>Your executive session expired due to 20 minutes of inactivity. Please re-authenticate.</span>", true);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (reason === "logout") {
+      showAlert("<span>You have been securely signed out from the executive console.</span>", false);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (reason === "unauthorized") {
+      showAlert("<span>Protected console. Please sign in with administrator credentials.</span>", true);
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
     // Check if already authenticated via real Firebase Auth
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        window.location.href = "index.html";
+        window.location.replace("index.html");
       }
     });
 
@@ -145,6 +178,7 @@
 
       const email = emailInput.value.trim();
       const password = passInput.value;
+      const remember = rememberCheckbox ? rememberCheckbox.checked : false;
 
       if (!email || !password) {
         showAlert("Please enter both email address and password.");
@@ -158,12 +192,16 @@
       btnIcon.classList.add("animate-spin");
 
       try {
+        // Enforce session persistence by default; switch to local if admin opted in
+        const persistenceType = remember ? browserLocalPersistence : browserSessionPersistence;
+        await setPersistence(auth, persistenceType);
+
         await signInWithEmailAndPassword(auth, email, password);
         sessionStorage.removeItem("two247_demo_admin");
-        showAlert("<span>Authentication successful! Redirecting to Dashboard...</span>", false);
+        showAlert("<span>Authentication successful! Accessing Executive Console...</span>", false);
         setTimeout(() => {
-          window.location.href = "index.html";
-        }, 500);
+          window.location.replace("index.html");
+        }, 400);
       } catch (err) {
         console.error("Firebase Auth Error:", err);
         let userMsg = "Authentication failed. Please verify your email and password.";
