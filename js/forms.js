@@ -157,14 +157,14 @@ export function initForms() {
               if (typeof window.sendWhatsAppEnquiry === "function") {
                 window.sendWhatsAppEnquiry(waMessage);
               } else {
-                window.open(`https://wa.me/919499907081?text=${encodeURIComponent(waMessage)}`, "_blank");
+                window.open(`https://wa.me/919886296699?text=${encodeURIComponent(waMessage)}`, "_blank");
               }
             };
           }
         } else {
           alert(`Thank you, ${leadPayload.name}! Your consultation enquiry for ${leadPayload.destination} has been sent to our 24/7 travel desk. We will contact you via WhatsApp / phone within 2 hours.`);
           // Open WhatsApp directly
-          window.open(`https://wa.me/919499907081?text=${encodeURIComponent(waMessage)}`, "_blank");
+          window.open(`https://wa.me/919886296699?text=${encodeURIComponent(waMessage)}`, "_blank");
         }
 
         form.reset();

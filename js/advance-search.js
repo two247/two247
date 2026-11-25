@@ -414,7 +414,7 @@ window.openPackageModal = function(packageId) {
       if (typeof window.sendWhatsAppEnquiry === "function") {
         window.sendWhatsAppEnquiry(msg);
       } else {
-        window.open(`https://wa.me/919499907081?text=${encodeURIComponent(msg)}`, "_blank");
+        window.open(`https://wa.me/919886296699?text=${encodeURIComponent(msg)}`, "_blank");
       }
     });
   }
@@ -445,7 +445,7 @@ window.bookPackageInstant = function(packageId) {
   if (typeof window.sendWhatsAppEnquiry === "function") {
     window.sendWhatsAppEnquiry(msg);
   } else {
-    window.open(`https://wa.me/919499907081?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.me/919886296699?text=${encodeURIComponent(msg)}`, "_blank");
   }
 };
 

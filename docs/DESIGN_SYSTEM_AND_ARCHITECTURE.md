@@ -52,9 +52,9 @@ export const siteConfig = {
 
   // Contact & Conversion Channels
   contact: {
-    phone: "+91 94999 07081",
-    phoneDisplay: "+91 94999 07081",
-    whatsapp: "919499907081",
+    phone: "+91 98862 96699",
+    phoneDisplay: "+91 98862 96699",
+    whatsapp: "919886296699",
     whatsappDefaultMessage: "Hi TWO247 team, I would like to enquire about planning a holiday.",
     email: "info@two247.in",
     supportEmail: "info@two247.in",

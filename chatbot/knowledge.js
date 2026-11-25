@@ -44,6 +44,6 @@ export function honeymoon(dest) { return KB?.honeymoonGuides?.[(dest||"").toLowe
 export function siteConfig() { return KB?.siteConfig; }
 export function whatsappLink(msg) {
   const sc = KB?.siteConfig;
-  const num = sc?.contact?.whatsapp || "919499907081";
+  const num = sc?.contact?.whatsapp || "919886296699";
   return "https://wa.me/" + num + "?text=" + encodeURIComponent(msg || sc?.contact?.whatsappMessage || "Hi");
 }

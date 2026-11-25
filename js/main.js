@@ -16,7 +16,7 @@ import { initReviewsCarousel } from './reviews-carousel.js';
 
 // Global WhatsApp enquiry handler
 window.sendWhatsAppEnquiry = (customMsg) => {
-  const phone = "919499907081";
+  const phone = "919886296699";
   const defaultMsg = customMsg || "Hello TWO247, I would like to enquire about a holiday package.";
   const encoded = encodeURIComponent(defaultMsg);
   window.open(`https://wa.me/${phone}?text=${encoded}`, "_blank", "noopener,noreferrer");
